@@ -2,11 +2,11 @@
 # Code example for my Youtube tutorial videos
 
 # Target
-execute as @e[type=interaction,tag=inter1] at @s on target run give Xenton_de minecraft:diamond
+execute as @e[type=interaction,tag=inter1] at @s on target run give PlayerName minecraft:diamond
 execute as @e[type=interaction, tag=inter1] at @s run data remove entity @s interaction
 
 # Attack
-execute as @e[type=interaction,tag=inter2] at @s on attacker run give Xenton_de minecraft:diamond
+execute as @e[type=interaction,tag=inter2] at @s on attacker run give PlayerName minecraft:diamond
 execute as @e[type=interaction, tag=inter2] at @s run data remove entity @s attack
 
 # Let's talk wicg skeleton
