@@ -1,5 +1,6 @@
 # Interaction
 # Code example for my Youtube tutorial videos
+# Video: https://youtu.be/6lS4ezYRVow
 
 # Target
 execute as @e[type=interaction,tag=inter1] at @s on target run give PlayerName minecraft:diamond
@@ -9,7 +10,7 @@ execute as @e[type=interaction, tag=inter1] at @s run data remove entity @s inte
 execute as @e[type=interaction,tag=inter2] at @s on attacker run give PlayerName minecraft:diamond
 execute as @e[type=interaction, tag=inter2] at @s run data remove entity @s attack
 
-# Let's talk wicg skeleton
+# Let's talk with skeleton
 # Click interaction
 execute as @e[type=minecraft:interaction, tag=interS] at @s on target run scoreboard players set inter InteractionTest 1
 execute as @e[type=minecraft:interaction, tag=interS] at @s on attacker run scoreboard players set inter InteractionTest 2
