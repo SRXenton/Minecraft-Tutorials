@@ -3,8 +3,14 @@
 # Video: https://www.youtube.com/watch?v=ZrFru1HXsUo
 
 # 01:13
+#
 # Schreibe den Schwierigkeitsgrad in ServerVariables Entity diff
+#
 execute store result score diff ServerVariables run difficulty
+
+#
+# Auslesen:
+#
 
 # Peaceful
 execute if score diff ServerVariables matches 0
