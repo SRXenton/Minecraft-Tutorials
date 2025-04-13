@@ -1,0 +1,48 @@
+# Talking with Villager - mit Commandblöcken
+# Code example for my Youtube tutorial videos
+# Video: https://www.youtube.com/watch?v=SPnMdxDT4Oo
+
+
+# Summon Villager 1 / Villager 1 erstellen:
+# ----- Alternativ: Villager Online summon Generator suchen und Command erstellen lassen.
+summon minecraft:villager 1167 4 1713 {NoAI:true, Silent:true, NoGravity:true, Offers:{Recipes:[]},Rotation:[270.0f, 0.0f], Tags:[„villager1“],CustomName:“Hallo“}
+
+
+# Summon Villager 2 / Villager 2 erstellen:
+# ----- Alternativ: Villager Online summon Generator suchen und Command erstellen lassen.
+summon minecraft:villager 1158 4 1714 {NoAI:true, Silent:true, NoGravity:true, Offers:{Recipes:[]},Rotation:[270.0f, 0.0f], Tags:[„villager2“],CustomName:“Herbert“}
+
+
+# Scoreboard VillagerClick erstellen:
+  
+scoreboard objectives remove VillagerClick
+scoreboard objectives add VillagerClick minecraft.custom:minecraft.talked_to_villager
+
+
+#Command zum VillagerTalk(Kette)
+
+execute at @e[type=minecraft:villager, tag=villager1] run scoreboard players add @a[scores={villagerClick=1..}, distance=..5] Villager1 1
+execute at @e[type=minecraft:villager, tag=villager2] run scoreboard players set @a[scores={villagerClick=1..}, distance=..5] Villager2 1
+execute at @e[type=minecraft:villager, tag=villager1] run tell @a[scores={VillagerClick=1.., Villager1=1}, distance=..5, sort=nearest] Hallo
+execute at @e[type=minecraft:villager, tag=villager2] run tellraw @a[scores={VillagerClick=1.., Villager2=1}, distance=..5, sort=nearest] „Hallo, das ist mein einziger Text \n mit Zeilenumbruch“
+execute at @e[type=minecraft:villager, tag=villager1] run tell @a[scores={VillagerClick=1.., Villager1=2}, distance=..5, sort=nearest] Hier spreche ich mit dir beim 2. Klick
+execute at @e[type=minecraft:villager, tag=villager1] run tell @a[scores={VillagerClick=1.., Villager1=3..6}, distance=..5, sort=nearest] Hier spreche ich mit dir vom 3. bis zum 6. Klick
+execute at @e[type=minecraft:villager, tag=villager1] run tell @a[scores={VillagerClick=1.., Villager1=8..}, distance=..5, sort=nearest] Diesen Text siehst du immer ab dem 8. Klick und aufwärts
+Villager1=10..}, distance=..5, sort=nearest] Und ab dem 10. Klick, siehst du mich auch noch zusätzlich
+scoreboard players set @a VillagerClick 0  # !!!! Wichtig: Muss letzter Block/Befehl in der Kette sein
+
+# Debug:
+# Zeige in der Sitebar VillagerClick an
+scoreboard objectives setdisplay sidebar VillagerClick
+
+# Zeige in der Sitebar Villager1 an
+scoreboard objectives setdisplay sidebar Villager1
+
+# Zeige in der Sitebar Villager2 an
+scoreboard objectives setdisplay sidebar Villager2
+
+# Setze alle Enitys in Villager1 zurück
+scoreboard players reset @a Villager1
+
+# Setze alle Enitys in Villager2 zurück
+scoreboard players reset @a Villager2
