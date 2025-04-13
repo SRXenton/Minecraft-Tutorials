@@ -1,0 +1,19 @@
+# Schwierigkeitsgrad auswerten mit Command Blöcken
+# Code example for my Youtube tutorial videos
+# Video: https://www.youtube.com/watch?v=ZrFru1HXsUo
+
+# 01:13
+# Schreibe den Schwierigkeitsgrad in ServerVariables Entity diff
+execute store result score diff ServerVariables run difficulty
+
+# Peaceful
+execute if score diff ServerVariables matches 0
+
+# Easy
+execute if score diff ServerVariables matches 1
+
+# Normal
+execute if score diff ServerVariables matches 2
+
+# Hard
+execute if score diff ServerVariables matches 3
