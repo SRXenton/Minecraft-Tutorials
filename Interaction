@@ -28,4 +28,4 @@ scoreboard players set inter InteractionTest 0
 /summon interaction 1521 30 1525 {width:1f,height:1f,Tags["interS"]}
 
 # Position interaction
-/data merge entity @e[tag=interS,limit=1] {Pos:[1520:50,30.00,1525,00]}
+/data merge entity @e[tag=interS,limit=1] {Pos:[1520.50,30.00,1525.00]}
