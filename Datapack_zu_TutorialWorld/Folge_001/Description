@@ -92,10 +92,11 @@
   
 
 # Erstelle eine Datei mit dem Namen "pack.mcmeta" im Ordner "Main":
+# "pack_format": 61 --- Hier für Minecraft 1.21.4 - Suche dir die passende Version aus: https://minecraft.wiki/w/Datapack#pack_format
 # Inhalt der Datei:
 {
   "pack": {
-    "pack_format": 61, # Hier für Minecraft 1.21.4 - Suche dir die passende Version aus: https://minecraft.wiki/w/Datapack#pack_format
+    "pack_format": 61, 
     "description": "Mein erstes mal mit Datapacks"
   }
 }
@@ -113,7 +114,13 @@ say Hallo Welt
 # 4. Du solltest die Nachricht "Hallo Welt" im Chat sehen
 
 
+#
+# Weitere verwendete Kommandos, die nicht in der Function enthalten sind, und nur im Chat eingegeben werden:
+#
 
+# Welt so einstellen, dass das Inventar beim Tod nicht verloren geht:
+
+/gamerule keepInventory true
 
 
 
