@@ -1,0 +1,119 @@
+# Beschreibung zu Folge 001
+# 
+# Video: Adresse folgt
+#
+# Unterstützungslink:
+#
+
+
+
+##
+## Anforderungen::
+##
+
+#
+# Minimale Anforderungen:
+#
+- Windows: Explorer, Editor
+- Linux: Delphin oder jeder andere Dateiexplorer, GEdit
+- Mac: Finder, TextEdit
+
+#
+# Mögliche IDEs (Nicht alle sind auf jedem Betriebssystem verfügbar), hier für Windows:
+#
+- Notepad++
+- Visual Studio Code (VSCode)
+- MCreator
+
+#
+# Unterstützende Webseiten (Tools) - eine Auswahl:
+#
+- Suchmaschinen (zb: Google, Bing, DuckDuckGo)
+- YouTube
+- Minecraft Wiki
+- Minecraft Fandom
+- Gamergeeks
+- MCStacker
+- DigMinecraft.com
+
+#
+# Meine Verwendete IDE:
+#
+- VSCode
+
+
+##
+## Erste Schritte:
+##
+
+# Wo finde ich die Minecraft-Datapacks?
+
+# Standardmäßig befinden sich die Minecraft-Datapacks im Verzeichnis des jeweiligen Minecraft-Weltordners.
+- Windows: %appdata%\.minecraft\saves\{Weltname}\datapacks
+- Linux: ~/.minecraft/saves/{Weltname}/datapacks
+- Mac: ~/Library/Application Support/minecraft/saves/{Weltname}/datapacks
+
+- Server: {Serverordner für Minecraft}\{Weltname}\datapacks
+
+# Grundstruktur eines Datapacks (Auszug):
+- {Datapackname} (Ordner - Benötigt)
+  - data (Ordner - Benötigt)
+    - {Namespace} (z.B. meindatapack) (Ordner - Benötigt)
+      - advancements (Ordner)
+      - functions (Ordner)
+      - loot_tables (Ordner)
+      - recipes (Ordner)
+      - tags (Ordner)
+        - blocks (Ordner)
+        - entities (Ordner)
+        - functions (Ordner)
+        - items (Ordner)
+        - worldgen (Ordner)
+  - pack.mcmeta (File - Benötigt)
+  - pack.png (optionales File)
+
+# pack.mcmeta (Beispiel):
+{
+  "pack": {
+    "pack_format": 61,
+    "description": "Mein erstes Datapack"
+  }
+}
+
+# Erstes Beispiel:
+# Erstelle ein neues Datapack mit dem Namen "Main" im Verzeichnis:
+# Namespace: erstes
+
+# Benötigte Ordnerstruktur:
+- Main (Ordner - Benötigt)  
+  - data (Ordner - Benötigt)
+    - erstes (Ordner - Benötigt)
+      - functions (Ordner - Benötigt)
+  
+
+# Erstelle eine Datei mit dem Namen "pack.mcmeta" im Ordner "Main":
+# Inhalt der Datei:
+{
+  "pack": {
+    "pack_format": 61, # Hier für Minecraft 1.21.4 - Suche dir die passende Version aus: https://minecraft.wiki/w/Datapack#pack_format
+    "description": "Mein erstes mal mit Datapacks"
+  }
+}
+
+# 1. Function (Beispiel)
+# Erstelle eine Datei mit dem Namen "test.mcfunction" im Ordner "Main\data\erstes\functions\":
+
+# Inhalt der Datei:
+say Hallo Welt
+
+# Testen der Function:
+# 1. Öffne den Chat in Minecraft
+# 2. Gib den Befehl ein: /function erstes:test
+# 3. Drücke Enter
+# 4. Du solltest die Nachricht "Hallo Welt" im Chat sehen
+
+
+
+
+
+
