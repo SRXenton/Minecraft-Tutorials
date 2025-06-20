@@ -60,13 +60,13 @@
   - data (Ordner - Benötigt)
     - {Namespace} (z.B. meindatapack) (Ordner - Benötigt)
       - advancements (Ordner)
-      - functions (Ordner)
+      - function (Ordner)
       - loot_tables (Ordner)
       - recipes (Ordner)
       - tags (Ordner)
         - blocks (Ordner)
         - entities (Ordner)
-        - functions (Ordner)
+        - function (Ordner)
         - items (Ordner)
         - worldgen (Ordner)
   - pack.mcmeta (File - Benötigt)
@@ -88,7 +88,7 @@
 - Main (Ordner - Benötigt)  
   - data (Ordner - Benötigt)
     - erstes (Ordner - Benötigt)
-      - functions (Ordner - Benötigt)
+      - function (Ordner - Benötigt)
   
 
 # Erstelle eine Datei mit dem Namen "pack.mcmeta" im Ordner "Main":
@@ -102,7 +102,7 @@
 }
 
 # 1. Function (Beispiel)
-# Erstelle eine Datei mit dem Namen "test.mcfunction" im Ordner "Main\data\erstes\functions\":
+# Erstelle eine Datei mit dem Namen "test.mcfunction" im Ordner "Main\data\erstes\function\":
 
 # Inhalt der Datei:
 say Hallo Welt
