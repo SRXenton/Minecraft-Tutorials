@@ -1,0 +1,44 @@
+# Beschreibung zu Folge 002: Minecraft Datapack Tutorial [1.21] #002 -
+#
+# Zusammenfassung:
+#
+# Es soll in jedem Tick der Respawnpunkt auf Koordinate x x x gesetzt werden. Im Beispiel wird die Koordinate 1755 65 264 verwendet
+#
+
+##
+## Verwendete Commands:
+##
+# im Video
+- /data get entity Xenton_de SpawnX
+- /data get entity Xenton_de SpawnY
+- /data get entity Xenton_de SpawnZ
+
+# im Datapack
+- spawnpoint
+
+
+
+
+# Dazu benötigen wir folgende struktur:
+- Main:
+    - data:
+        - minecraft
+            - tags:
+                - function:
+                    - tick.json
+        - base
+            - function:
+                - respawnpoint.mcfunction
+
+
+# tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint"
+    ]
+}
+
+# respawnpoint.mcfunction
+spawnpoint @e[type=minecraft:player, gamemode=!creative] ~ ~ ~ # Im Beispiel wird die Koordinate 1755 65 264 verwendet, ~ ~ ~ ist durch eure Koordinaten zu ersetzen
+
