@@ -12,6 +12,7 @@
 ##
 ## Verwendete Commands:
 ##
+
 # im Video
 - /data get entity Xenton_de SpawnX
 - /data get entity Xenton_de SpawnY
@@ -21,9 +22,11 @@
 - spawnpoint
 
 
+##
+## Datapack Änderungen:
+##
 
-
-# Dazu benötigen wir folgende struktur:
+# Dazu benötigen wir folgende Struktur:
 - Main:
     - data:
         - minecraft
@@ -35,7 +38,7 @@
                 - respawnpoint.mcfunction
 
 
-# tick.json
+# Datei: tick.json
 {
     "replace": false,
     "values": [
@@ -43,6 +46,6 @@
     ]
 }
 
-# respawnpoint.mcfunction
+# Datei: respawnpoint.mcfunction
 spawnpoint @e[type=minecraft:player, gamemode=!creative] ~ ~ ~ # Im Beispiel wird die Koordinate 1755 65 264 verwendet, ~ ~ ~ ist durch eure Koordinaten zu ersetzen
 
