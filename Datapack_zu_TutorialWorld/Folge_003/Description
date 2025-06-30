@@ -19,3 +19,27 @@
 # 4. Teil: Zusammenfassung der Folge 003 und ggf Ausblick auf Folge 004
 
 
+##
+## Versionswechsel:
+##
+- Informationen zusammentragen:
+  + Was ändert sich ?! : Minecraft Wiki: https://minecraft.wiki/w/Java_Edition_1.21.6
+  + Ermitteln der neuen pack_format Version: Minecraft Wiki: https://minecraft.wiki/w/Pack_format
+    
+
+- Anpassungen vornehmen:
+  + pack_format in der pack.mcmeta Datei anpassen.
+  + ggf. Anpassungen in den Datapacks vornehmen, wenn sich Commands geändert haben.
+  + Testen, ob das Datapack weiterhin funktioniert.
+
+##
+## Datapack Änderungen:
+##
+
+# pack.mcmeta:
+{
+    "pack": {
+        "pack_format": 80,  # Vorher 61 für V 1.21.4, jetzt 80 für V 1.21.6
+        "description": "Ein Datapack für Minecraft Tutorial mit Datapacks"
+    }
+}
