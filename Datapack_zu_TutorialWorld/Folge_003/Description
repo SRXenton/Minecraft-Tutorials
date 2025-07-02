@@ -1,4 +1,4 @@
-# Beschreibung zu Folge 002: Minecraft Datapack Tutorial [1.21] #002 -
+# Beschreibung zu Folge 003: Minecraft Datapack Tutorial [1.21] #003 -
 #
 # Video: comming soon
 #
@@ -6,40 +6,13 @@
 #
 # Zusammenfassung:
 #
-# Versionswechsel von 1.21.4 auf 1.21.6
+# Was ist tick.json und load.json?
+# Was machen die beiden json Dateien und was ist das äquivalent in Minecraft mit Commandblöcken?
+#
 #
 # Agenda:
-#
-# 1. Teil: Zusammenfassung von Folge 002
-# 2. Teil: Versionswechsel von 1.21.4 auf 1.21.6
-# - Was ist zu beachten?
-# - Beispiel zeigen, was passieren kann, mit der Versuchswelt 2 in Version 1.21.4 und der Versuchswelt in Version 1.21.6,
-#   anhand der dortigen Teleportsteinen, und dem Datapack
-# 3. Teil: Anpassen des Datapacks der Tutorial Welt
-# 4. Teil: Zusammenfassung der Folge 003 und ggf Ausblick auf Folge 004
-
-
-##
-## Versionswechsel:
-##
-- Informationen zusammentragen:
-  + Was ändert sich ?! : Minecraft Wiki: https://minecraft.wiki/w/Java_Edition_1.21.6
-  + Ermitteln der neuen pack_format Version: Minecraft Wiki: https://minecraft.wiki/w/Pack_format
-    
-
-- Anpassungen vornehmen:
-  + pack_format in der pack.mcmeta Datei anpassen.
-  + ggf. Anpassungen in den Datapacks vornehmen, wenn sich Commands geändert haben.
-  + Testen, ob das Datapack weiterhin funktioniert.
-
-##
-## Datapack Änderungen:
-##
-
-# pack.mcmeta:
-{
-    "pack": {
-        "pack_format": 80,  # Vorher 61 für V 1.21.4, jetzt 80 für V 1.21.6
-        "description": "Ein Datapack für Minecraft Tutorial mit Datapacks"
-    }
-}
+# 1. Recap Folge 002
+# 2. Was ist tick.json und load.json und wo liegen sie?
+# 3. Alternativen zu tick.json und load.json.
+# 4. Anwendungsbeispiele.
+# 5. Zusammenfassung.
