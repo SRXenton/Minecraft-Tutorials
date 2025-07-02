@@ -13,6 +13,37 @@
 # Agenda:
 # 1. Recap Folge 002
 # 2. Was ist tick.json und load.json und wo liegen sie?
-# 3. Alternativen zu tick.json und load.json.
-# 4. Anwendungsbeispiele.
-# 5. Zusammenfassung.
+# 3. Was ist JSON?
+# 4. Aufbau von load.json und tick.json
+# 5. Alternativen zu tick.json und load.json.
+# 6. Anwendungsbeispiele.
+# 7. Zusammenfassung.
+
+
+# Datapack Struktur
+- <Datapack Name> (Main)
+    + data 
+        + minecraft
+            + tags
+                + function
+                    > load.json
+                    > tick.json
+        + <eigener Namensraum> (base)
+            + function
+                > eigene_function.mcfunction
+                + <Unterordner>
+                    > andere_function.mcfunction
+
+# Aufbau load.json
+{
+  "values": [
+    "Namensraum:eigene_function"
+  ]
+}
+
+# Aufbau load.json
+{
+  "values": [
+    "Namensraum:Unterordner/andere_function"
+  ]
+}
