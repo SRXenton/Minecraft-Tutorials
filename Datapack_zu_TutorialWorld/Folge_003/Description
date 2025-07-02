@@ -10,7 +10,7 @@
 # Was machen die beiden json Dateien und was ist das äquivalent in Minecraft mit Commandblöcken?
 #
 #
-# Agenda:
+# Agenda vom Video:
 # 1. Recap Folge 002
 # 2. Was ist tick.json und load.json und wo liegen sie?
 # 3. Was ist JSON?
@@ -18,6 +18,17 @@
 # 5. Alternativen zu tick.json und load.json.
 # 6. Anwendungsbeispiele.
 # 7. Zusammenfassung.
+
+##
+## ======================================================================================================================
+##
+
+# Aufbau von tick.json und load.json
+# Link: https://de.minecraft.wiki/w/Gruppendefinition#tick.json_und_load.json
+#
+# Was ist Json:
+# Link: https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+# Links DE: https://de.minecraft.wiki/w/JSON // EN: https://minecraft.wiki/w/JSON
 
 
 # Datapack Struktur
@@ -36,6 +47,7 @@
 
 # Aufbau load.json
 {
+  "replace": false,
   "values": [
     "Namensraum:eigene_function"
   ]
@@ -43,7 +55,18 @@
 
 # Aufbau load.json
 {
+  "replace": false,
   "values": [
     "Namensraum:Unterordner/andere_function"
   ]
 }
+
+# Funktionsweise von replace:
+# Wenn replace auf true gesetzt ist, wird die Funktion load/tick.json ersetzt durch das was auf true steht.
+# BSP: 
+# Minecraft -> tick.json
+# Pack 1 -> tick.json = replace: false
+# Pack 2 -> tick.json = replace: false
+# Pack 3 -> tick.json = replace: true
+# Pack 4 -> tick.json = replace: false
+
