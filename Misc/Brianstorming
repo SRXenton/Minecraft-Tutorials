@@ -1,0 +1,6 @@
+## Themen zu tellraw / dialog
+#
+# Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+# Server.properties: function_permission_level
+# Link: https://minecraft.wiki/w/Server.properties
+
