@@ -1,13 +1,14 @@
-# Beschreibung zu Folge 003: Minecraft Datapack Tutorial [1.21] #003 -
+# Beschreibung zu Folge 003: Minecraft Datapack Tutorial [1.21] #003 - tick.json und load.json erklärt
 #
 # Video: comming soon
 #
 # Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 #
-# Zusammenfassung:
+# Was passiert in dieser Folge?:
 #
 # Was ist tick.json und load.json?
 # Was machen die beiden json Dateien und was ist das äquivalent in Minecraft mit Commandblöcken?
+# Wofür setzen wir sie in unserem Datapack ein?
 #
 #
 # Agenda vom Video:
@@ -69,4 +70,8 @@
 # Pack 2 -> tick.json = replace: false
 # Pack 3 -> tick.json = replace: true
 # Pack 4 -> tick.json = replace: false
+
+##
+## ======================================================================================================================
+##
 
