@@ -30,11 +30,11 @@
 - Main:
     - data:
         - minecraft
-            - tags:
-                - function:
+            - tags
+                - function
                     - tick.json
         - base
-            - function:
+            - function
                 - respawnpoint.mcfunction
 
 
