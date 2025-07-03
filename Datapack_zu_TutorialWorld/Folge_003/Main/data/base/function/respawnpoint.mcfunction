@@ -1,0 +1,1 @@
+spawnpoint @e[type=minecraft:player, gamemode=!creative] 1755 65 264
