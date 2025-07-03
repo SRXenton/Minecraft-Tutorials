@@ -54,7 +54,7 @@
   ]
 }
 
-# Aufbau load.json
+# Aufbau tick.json
 {
   "replace": false,
   "values": [
@@ -67,11 +67,22 @@
 # BSP: 
 # Minecraft -> tick.json
 # Pack 1 -> tick.json = replace: false
-# Pack 2 -> tick.json = replace: false
-# Pack 3 -> tick.json = replace: true
+# Pack 2 -> tick.json = replace: true
+# Pack 3 -> tick.json = replace: false
 # Pack 4 -> tick.json = replace: false
 
 ##
 ## ======================================================================================================================
 ##
 
+##
+## Geänderte / Neue Dateien im Datapack
+##
+
+
+# Neu: load.json:
+{
+    "replace":false,
+    "values": [
+    ]
+}
