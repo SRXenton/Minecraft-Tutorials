@@ -1,0 +1,28 @@
+# Beschreibung zu Folge 005: Minecraft Datapack Tutorial [1.21.6+] #004 - Interactions + Tellraw = Portalsteine
+#
+# Video: comming soon
+#
+# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+#
+# Ziel der Folge:
+#
+# Portalsteine bauen, bei denen man auswählen kann, wo hin man Teleportiert werden möchte.
+# In diesem Schritt werden wir die Commands interaction und tellraw benötigen
+#
+
+# Agenda im Video:
+#
+# 1. Zusammenfassung von Folge 004
+# 2. Was ist ein Interaction -> https://de.minecraft.wiki/w/Interaktionsobjekt
+# 3. Der Befehl tellraw -> https://de.minecraft.wiki/w/Befehl/tellraw
+# - Unterfunction: click_event -> https://minecraft.wiki/w/Text_component_format#Click_events
+# 4. Interaction aufbauen - Portalstein 1
+# 5. Tellraw aufbauen - Portalstein 1
+# 6. Interaction aufbauen - Portalstein 2
+# 7. Tellraw aufbauen - Portalstein 2
+# 8. Zusammenfassung
+
+
+##
+## =======================================================================================================================================
+##
