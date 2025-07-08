@@ -16,6 +16,7 @@
 #
 # 1. Zusammenfassung von Folge 003
 # 2. Versionswechsel von 1.21.4 auf 1.21.6
+# - Wieso machen wir einen Wechsel?
 # - Was ist zu beachten?
 # - Beispiel zeigen, was passieren kann, mit der Versuchswelt 2 in Version 1.21.4 und der Versuchswelt in Version 1.21.6,
 #   anhand der dortigen Teleportsteinen, und dem Datapack
