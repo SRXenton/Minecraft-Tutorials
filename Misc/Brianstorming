@@ -1,0 +1,33 @@
+## Themen zu tellraw / dialog
+#
+# Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+# Server.properties: function_permission_level
+# Link: https://minecraft.wiki/w/Server.properties
+# Link: https://minecraft.wiki/w/Permission_level
+
+
+## Scoreboard
+#
+# Globale Variablen
+# tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
+# - Ablauf:
+#   scoreboard add tick_counter20 1
+#   if tick_counter 20.. > set tick_counter 0
+
+## Themen: summon / interaction
+# 
+# Entity alle 20 ticks überprüfen 
+# if tick_counter 0 > check unless entity > summon new entity
+
+## Themen: Interaction / Tags / Execute
+#
+# Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
+
+
+# Themen: Execute / Tags / Tellraw
+#
+# Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+# Themen: Execute / Tags / Teleport
+#
+# Tag beim Spieler löst ein Teleport aus und löscht den Tag

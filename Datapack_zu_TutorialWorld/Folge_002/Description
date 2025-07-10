@@ -1,6 +1,6 @@
-# Beschreibung zu Folge 002: Minecraft Datapack Tutorial [1.21] #002 -
+# Beschreibung zu Folge 002: Minecraft Datapack Tutorial [1.21] #002 - Dauehaft den Spawnpunkt ändern mit spawnpoint
 #
-# Video: comming soon
+# Video: https://youtu.be/YQ51wp10BP4
 #
 # Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 #
@@ -12,6 +12,7 @@
 ##
 ## Verwendete Commands:
 ##
+
 # im Video
 - /data get entity Xenton_de SpawnX
 - /data get entity Xenton_de SpawnY
@@ -21,21 +22,23 @@
 - spawnpoint
 
 
+##
+## Datapack Änderungen:
+##
 
-
-# Dazu benötigen wir folgende struktur:
+# Dazu benötigen wir folgende Struktur:
 - Main:
     - data:
         - minecraft
-            - tags:
-                - function:
+            - tags
+                - function
                     - tick.json
         - base
-            - function:
+            - function
                 - respawnpoint.mcfunction
 
 
-# tick.json
+# Datei: tick.json
 {
     "replace": false,
     "values": [
@@ -43,6 +46,6 @@
     ]
 }
 
-# respawnpoint.mcfunction
+# Datei: respawnpoint.mcfunction
 spawnpoint @e[type=minecraft:player, gamemode=!creative] ~ ~ ~ # Im Beispiel wird die Koordinate 1755 65 264 verwendet, ~ ~ ~ ist durch eure Koordinaten zu ersetzen
 
