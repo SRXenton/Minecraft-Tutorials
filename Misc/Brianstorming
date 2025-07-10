@@ -4,3 +4,19 @@
 # Server.properties: function_permission_level
 # Link: https://minecraft.wiki/w/Server.properties
 # Link: https://minecraft.wiki/w/Permission_level
+
+
+## Scoreboard
+#
+# Globale Variablen
+# tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
+# - Ablauf:
+#   scoreboard add tick_counter20 1
+#   if tick_counter 20.. > set tick_counter 0
+
+## Themen: summon / interaction
+# 
+# Entity alle 20 ticks überprüfen 
+# if tick_counter 0 > check unless entity > summon new entity
+
+
