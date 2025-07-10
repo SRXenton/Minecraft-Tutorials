@@ -1,4 +1,4 @@
-# Beschreibung zu Folge 005: Minecraft Datapack Tutorial [1.21.6+] #004 - Interactions + Tellraw = Portalsteine
+# Beschreibung zu Folge 005: Minecraft Datapack Tutorial [1.21.6+] #005 - Scoreboard + Execute = Zähler bis 20
 #
 # Video: comming soon
 #
@@ -6,23 +6,18 @@
 #
 # Ziel der Folge:
 #
-# Portalsteine bauen, bei denen man auswählen kann, wo hin man Teleportiert werden möchte.
-# In diesem Schritt werden wir die Commands interaction und tellraw benötigen
+# Scoreboard mit einen Zähler, der immer wieder von 0 bis 20 zählt
 #
 
 # Agenda im Video:
 #
-# 1. Zusammenfassung von Folge 004
-# 2. Was ist ein Interaction -> https://de.minecraft.wiki/w/Interaktionsobjekt
-# 3. Der Befehl tellraw -> https://de.minecraft.wiki/w/Befehl/tellraw
-# - Unterfunction: click_event -> https://minecraft.wiki/w/Text_component_format#Click_events
-# 4. Interaction aufbauen - Portalstein 1
-# 5. Tellraw aufbauen - Portalstein 1
-# 6. Interaction aufbauen - Portalstein 2
-# 7. Tellraw aufbauen - Portalstein 2
-# 8. Zusammenfassung
-
+# 1. Recape Folge 004
+# 2. Was ist ein Scoreboard
+# 3. Scoreboard mit Dummy erstellen über das Datapack
+# 4. Was ist Execute
+# 5. Wert im Scoreboard gleich oder größer 20 mit execute auf 0 setzen
+# 6. Zusammenfassung
 
 ##
-## =======================================================================================================================================
+## ============================================================================================================================================
 ##
