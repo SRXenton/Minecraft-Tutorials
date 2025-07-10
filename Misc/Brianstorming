@@ -19,4 +19,15 @@
 # Entity alle 20 ticks überprüfen 
 # if tick_counter 0 > check unless entity > summon new entity
 
+## Themen: Interaction / Tags / Execute
+#
+# Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
 
+
+# Themen: Execute / Tags / Tellraw
+#
+# Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+# Themen: Execute / Tags / Teleport
+#
+# Tag beim Spieler löst ein Teleport aus und löscht den Tag
