@@ -32,7 +32,7 @@
 
 # neue Files:
 - entity_control.mcfunction
-- teleport_init.mcfunction
+- base_init.mcfunction
 
 # erweitern der tick.json
 - entity_control
@@ -41,7 +41,7 @@
 ## ============================================================================================================================================
 ##
 
-# Function: teleport_init.mcfunction
+# Function: base_init.mcfunction
 
 # Funktion: entity_control.mcfunction
 
