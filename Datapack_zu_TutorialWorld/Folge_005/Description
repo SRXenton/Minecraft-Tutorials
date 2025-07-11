@@ -21,3 +21,29 @@
 ##
 ## ============================================================================================================================================
 ##
+
+# Struktur erweitern
+
+- Main
+    + data
+        + teleport
+            +function
+                entities
+
+# neue Files:
+- entity_control.mcfunction
+- teleport_init.mcfunction
+
+# erweitern der tick.json
+- entity_control
+
+##
+## ============================================================================================================================================
+##
+
+# Function: teleport_init.mcfunction
+
+# Funktion: entity_control.mcfunction
+
+# Tick.json, neuer Aufbau
+
