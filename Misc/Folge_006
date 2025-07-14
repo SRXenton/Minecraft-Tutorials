@@ -1,0 +1,33 @@
+# Beschreibung zu Folge 006: Minecraft Datapack Tutorial [1.21] #006 - Interaction Entity interaktion mit Scoreboard
+#
+# Video: comming soon
+#
+# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+#
+# Ziel dieser Folge?
+#
+# Eine Interaction Entity erstellen, überprüfung ob sie vorhanden ist und bei aktionen mit der Interaction im Scoreboard Werte setzen
+#
+#
+# Agenda vom Video:
+#
+# 1. Recap Folge 005
+# 2. Was ist ein Interaction
+# 3. Erster Grundaufbau Interaction auslesen
+# 4. Scoreboard beschreiben nach interaction mit dem Interaction
+# 5. Im 2. Dorf ein weiteres Interaction setzen
+# 5. Zusammenfassen
+#
+
+##
+## ======================================================================================================================
+##
+
+# Neu: teleport_init.mcfunction
+# - Initialisierung der Scoreboards -> Scoreboard Teleport_Dialog
+
+# Neu: interaction_dorf1.mcfunction
+# - Interaction Verwaltung für Dorf 1 -> Interaction in Scoarboard schreiben, Interaction leeren
+
+# Neu: interaction_dorf2.mcfunction
+# - Interaction Verwaltung für Dorf 2 -> Interaction in Scoarboard schreiben, Interaction leeren
