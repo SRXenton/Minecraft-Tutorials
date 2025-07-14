@@ -1,0 +1,88 @@
+# Beschreibung zu Folge 003: Minecraft Datapack Tutorial [1.21] #003 - tick.json und load.json erklärt
+#
+# Video: https://www.youtube.com/watch?v=DRVlMVrBpvY
+#
+# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+#
+# Was passiert in dieser Folge?:
+#
+# Was ist tick.json und load.json?
+# Was machen die beiden json Dateien und was ist das äquivalent in Minecraft mit Commandblöcken?
+# Wofür setzen wir sie in unserem Datapack ein?
+#
+#
+# Agenda vom Video:
+# 1. Recap Folge 002
+# 2. Was ist tick.json und load.json und wo liegen sie?
+# 3. Was ist JSON?
+# 4. Aufbau von load.json und tick.json
+# 5. Alternativen zu tick.json und load.json.
+# 6. Anwendungsbeispiele.
+# 7. Zusammenfassung.
+
+##
+## ======================================================================================================================
+##
+
+# Aufbau von tick.json und load.json
+# Link: https://de.minecraft.wiki/w/Gruppendefinition#tick.json_und_load.json
+#
+# Was ist Json:
+# Link: https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+# Links DE: https://de.minecraft.wiki/w/JSON // EN: https://minecraft.wiki/w/JSON
+
+
+# Datapack Struktur
+- <Datapack Name> (Main)
+    + data 
+        + minecraft
+            + tags
+                + function
+                    > load.json
+                    > tick.json
+        + <eigener Namensraum> (base)
+            + function
+                > eigene_function.mcfunction
+                + <Unterordner>
+                    > andere_function.mcfunction
+
+# Aufbau load.json
+{
+  "replace": false,
+  "values": [
+    "Namensraum:eigene_function"
+  ]
+}
+
+# Aufbau tick.json
+{
+  "replace": false,
+  "values": [
+    "Namensraum:Unterordner/andere_function"
+  ]
+}
+
+# Funktionsweise von replace:
+# Wenn replace auf true gesetzt ist, wird die Funktion load/tick.json ersetzt durch das was auf true steht.
+# BSP: 
+# Minecraft -> tick.json
+# Pack 1 -> tick.json = replace: false
+# Pack 2 -> tick.json = replace: true
+# Pack 3 -> tick.json = replace: false
+# Pack 4 -> tick.json = replace: false
+
+##
+## ======================================================================================================================
+##
+
+##
+## Geänderte / Neue Dateien im Datapack
+##
+
+
+# Neu: load.json:
+{
+    "replace":false,
+    "values": [
+    ]
+}
