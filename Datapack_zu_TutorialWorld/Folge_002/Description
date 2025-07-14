@@ -1,6 +1,6 @@
 # Beschreibung zu Folge 002: Minecraft Datapack Tutorial [1.21] #002 - Dauehaft den Spawnpunkt ändern mit spawnpoint
 #
-# Video: Erscheint 07.07.2023 um 00:00 Uhr
+# Video: https://youtu.be/YQ51wp10BP4
 #
 # Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 #
@@ -30,11 +30,11 @@
 - Main:
     - data:
         - minecraft
-            - tags:
-                - function:
+            - tags
+                - function
                     - tick.json
         - base
-            - function:
+            - function
                 - respawnpoint.mcfunction
 
 
