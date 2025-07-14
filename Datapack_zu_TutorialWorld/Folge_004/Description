@@ -1,0 +1,60 @@
+# Beschreibung zu Folge 004: Minecraft Datapack Tutorial [1.21] #004 - Minecraft Versionswechsel, was und wie im Datapack
+#
+# Video: Video ist im Schnitt
+#
+# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+#
+# Ziel der Folge:
+#
+# Versionswechsel von 1.21.4 auf 1.21.6
+#
+#
+
+
+
+# Agenda im Video:
+#
+# 1. Zusammenfassung von Folge 003
+# 2. Versionswechsel von 1.21.4 auf 1.21.6
+# - Wieso machen wir einen Wechsel?
+# - Was ist zu beachten?
+# - Beispiel zeigen, was passieren kann, mit der Versuchswelt 2 in Version 1.21.4 und der Versuchswelt in Version 1.21.6,
+#   anhand der dortigen Teleportsteinen, und dem Datapack
+# 3. Anpassen des Datapacks der Tutorial Welt
+# 4. Zusammenfassung
+
+
+##
+## ====================================================================================================================================
+##
+
+##
+## Versionswechsel:
+##
+- Informationen zusammentragen:
+  + Was ändert sich ?! : Minecraft Wiki: https://minecraft.wiki/w/Java_Edition_1.21.6
+  + Ermitteln der neuen pack_format Version: Minecraft Wiki: https://minecraft.wiki/w/Pack_format
+    
+
+- Anpassungen vornehmen:
+  + pack_format in der pack.mcmeta Datei anpassen.
+  + ggf. Anpassungen in den Datapacks vornehmen, wenn sich Commands geändert haben.
+  + Testen, ob das Datapack weiterhin funktioniert.
+
+##
+## Datapack Änderungen:
+##
+
+# pack.mcmeta:
+{
+    "pack": {
+        "pack_format": 80,  # Vorher 61 für V 1.21.4, jetzt 80 für V 1.21.6
+        "description": "Ein Datapack für Minecraft Tutorial mit Datapacks"
+    }
+}
+
+
+
+##
+## ====================================================================================================================================
+##
