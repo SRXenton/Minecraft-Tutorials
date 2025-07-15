@@ -1,33 +1,52 @@
+##
+## Themenspeicher / Backlog
+##
+
+
 ## Themen zu tellraw / dialog
-#
-# Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
-# Server.properties: function_permission_level
-# Link: https://minecraft.wiki/w/Server.properties
-# Link: https://minecraft.wiki/w/Permission_level
+
+Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+Server.properties: function_permission_level
+Link: https://minecraft.wiki/w/Server.properties
+Link: https://minecraft.wiki/w/Permission_level
 
 
-## Scoreboard
+## Spanwpoint dynamisch verlegen
+
+Villager ohne Handelsfenster
+Villager Custom Dialog Fester
+Villager feste Position
+Dialog legt den spawnpoint fest (Tags)
+Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
+
+
+
+
+## Scoreboard -> Wird in Folge 005 behandelt
 #
 # Globale Variablen
 # tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
 # - Ablauf:
-#   scoreboard add tick_counter20 1
-#   if tick_counter 20.. > set tick_counter 0
+#  scoreboard add tick_counter20 1
+#  if tick_counter 20.. > set tick_counter 0
+
 
 ## Themen: summon / interaction
-# 
-# Entity alle 20 ticks überprüfen 
-# if tick_counter 0 > check unless entity > summon new entity
+ 
+Entity alle 20 ticks überprüfen 
+if tick_counter 0 > check unless entity > summon new entity
+2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
+
 
 ## Themen: Interaction / Tags / Execute
-#
-# Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
+
+Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
 
 
-# Themen: Execute / Tags / Tellraw
-#
-# Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+## Themen: Execute / Tags / Tellraw
 
-# Themen: Execute / Tags / Teleport
-#
-# Tag beim Spieler löst ein Teleport aus und löscht den Tag
+Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+## Themen: Execute / Tags / Teleport
+
+Tag beim Spieler löst ein Teleport aus und löscht den Tag
