@@ -14,6 +14,29 @@
 ## ============================================================================================================================================
 ##
 
+## Wissen - Links:
+# Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
+# Execute: DE: https://de.minecraft.wiki/w/Befehl/execute // EN: https://minecraft.wiki/w/Commands/execute
+
+##
+# Verwendete Befehle, die ich erkläre:
+- scoreboard objectives add
+- scoreboard objectives remove
+- scoreboard objectives setdisplay sitebar
+- scoreboard objectives list
+
+- scoreboard players set
+- scoreboard players add
+- scoreboard players remove
+- scoreboard players reset
+
+- execute if score .... run ....
+
+
+##
+## ============================================================================================================================================
+##
+
 # Struktur erweitern
 
 - Main
