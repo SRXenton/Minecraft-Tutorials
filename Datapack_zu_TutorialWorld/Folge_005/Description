@@ -1,23 +1,27 @@
-# Beschreibung zu Folge 004: Minecraft Datapack Tutorial [1.21.6+] #005 - Scoreboard + execute = Zähler von 0 bis 20
-#
-# Video: Video ist im Schnitt
-#
-# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
-#
-#
-# Ziel der Folge:
-#
-# Scoreboard mit einen Zähler, der immer wieder von 0 bis 20 zählt
-#
+##
+## Beschreibung zu Folge 005: 
+##
 
-# Agenda im Video:
-#
-# 1. Recape Folge 004
-# 2. Was ist ein Scoreboard und wie erstellt man eins
-# 3. Scoreboard mit Dummy erstellen über das Datapack
-# 4. Was ist Execute
-# 5. Wert im Scoreboard gleich oder größer 20 mit execute auf 0 setzen
-# 6. Zusammenfassung
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #005 - Scoreboard + execute = Zähler von 0 bis 20
+
+- Video: Video ist im Schnitt
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Scoreboard mit einen Zähler, der immer wieder von 0 bis 20 zählt
+
+
+## Agenda im Video:
+
+1. Recape Folge 004
+2. Was ist ein Scoreboard und wie erstellt man eins
+3. Scoreboard mit Dummy erstellen über das Datapack
+4. Was ist Execute
+5. Wert im Scoreboard gleich oder größer 20 mit execute auf 0 setzen
+6. Zusammenfassung
 
 ##
 ## ============================================================================================================================================
