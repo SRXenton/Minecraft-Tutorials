@@ -1,23 +1,28 @@
-# Beschreibung zu Folge 006: Minecraft Datapack Tutorial [1.21] #006 - Interaction Entity interaktion mit Scoreboard
-#
-# Video: comming soon
-#
-# Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
-#
-# Ziel dieser Folge?
-#
-# Eine Interaction Entity erstellen, überprüfung ob sie vorhanden ist und bei aktionen mit der Interaction im Scoreboard Werte setzen
-#
-#
+##
+## Beschreibung zu Folge 006: 
+##
+
+- Minecraft Datapack Tutorial [1.21.6+] #006 - Die Entity Interation und Autogenerierung
+
+- Video: Preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+# Ziele dieser Folge?
+
+- Mit dem Datapack über prüfen ob die Interaction existiert, wenn nicht neu gegenrieren
+- Automatische Überprüfung übers Scoreboard steuern
+
+
 # Agenda vom Video:
-#
-# 1. Recap Folge 005
-# 2. Was ist ein Interaction
-# 3. Erster Grundaufbau Interaction auslesen
-# 4. Scoreboard beschreiben nach interaction mit dem Interaction
-# 5. Im 2. Dorf ein weiteres Interaction setzen
-# 5. Zusammenfassen
-#
+
+1. Recap Folge 005
+2. Was ist ein Interaction
+3. Erster Grundaufbau Interaction auslesen
+4. Scoreboard beschreiben nach interaction mit dem Interaction
+5. Im 2. Dorf ein weiteres Interaction setzen
+5. Zusammenfassen
+
 
 ##
 ## ======================================================================================================================
