@@ -20,24 +20,6 @@ Dialog legt den spawnpoint fest (Tags)
 Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
 
 
-
-
-## Scoreboard -> Wird in Folge 005 behandelt
-#
-# Globale Variablen
-# tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
-# - Ablauf:
-#  scoreboard add tick_counter20 1
-#  if tick_counter 20.. > set tick_counter 0
-
-
-## Themen: summon / interaction
- 
-Entity alle 20 ticks überprüfen 
-if tick_counter 0 > check unless entity > summon new entity
-2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
-
-
 ## Themen: Interaction / Tags / Execute
 
 Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
@@ -50,3 +32,36 @@ Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bek
 ## Themen: Execute / Tags / Teleport
 
 Tag beim Spieler löst ein Teleport aus und löscht den Tag
+
+## Themen: Summon / Villager / Dialog / Spawnpoint
+Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
+An einem Villager über ein Dialog, wird der Spieler getaged
+
+
+
+
+
+##
+## ======================================================================================================
+## Abgeschlossene Themen
+## ======================================================================================================
+##
+
+
+## Scoreboard -> Wird in Folge 005 behandelt
+#
+# Globale Variablen
+# tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
+# - Ablauf:
+#  scoreboard add tick_counter20 1
+#  if tick_counter 20.. > set tick_counter 0
+
+
+## Themen: summon / interaction - > Erfolgt in Folge 006
+# 
+# Entity Interaction alle 20 ticks überprüfen 
+# if tick_counter 0 > check unless entity > summon new entity
+# 2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
+
+
+
