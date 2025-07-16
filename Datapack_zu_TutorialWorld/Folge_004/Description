@@ -36,7 +36,10 @@
   + Ermitteln der neuen pack_format Version: Minecraft Wiki: https://minecraft.wiki/w/Pack_format
     
 
-- Anpassungen vornehmen:
+- Schritte zur Anpassung:
+  + Backup erstellen, ideal von der ganzen Welt.
+  + Minecraft in der neuen Version starten, und die Welt einmal laden.
+  + Testen des Datapacks, was durch den Versionswechsel nicht mehr funktioniert.
   + pack_format in der pack.mcmeta Datei anpassen.
   + ggf. Anpassungen in den Datapacks vornehmen, wenn sich Commands geändert haben.
   + Testen, ob das Datapack weiterhin funktioniert.
