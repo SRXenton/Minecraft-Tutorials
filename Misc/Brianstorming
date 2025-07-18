@@ -22,7 +22,7 @@ Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter P
 
 ## Themen: Interaction / Tags / Execute
 
-Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
+Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/interact leeren
 
 
 ## Themen: Execute / Tags / Tellraw
@@ -38,7 +38,22 @@ Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
 An einem Villager über ein Dialog, wird der Spieler getaged
 
 
+## Dimensionsportal
+Mittels Spielererkennung an einem Ort
+Mit grafischen Effekten
 
+
+## Mobile Portalsteine
+Spieler kann ein Item kaufen, mit dem er sich an vordefinierte Orte porten kann
+Verbrachtsgegenstand?
+Mit Ladungen / Aufladungen?
+
+## ADMIN
+Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
+
+
+## Umzug auf Server
+Wie bring man die Welt auf einen Server!?
 
 
 ##
