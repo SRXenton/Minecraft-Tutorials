@@ -1,33 +1,82 @@
+##
+## Themenspeicher / Backlog
+##
+
+
 ## Themen zu tellraw / dialog
-#
-# Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
-# Server.properties: function_permission_level
-# Link: https://minecraft.wiki/w/Server.properties
-# Link: https://minecraft.wiki/w/Permission_level
+
+Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+Server.properties: function_permission_level
+Link: https://minecraft.wiki/w/Server.properties
+Link: https://minecraft.wiki/w/Permission_level
 
 
-## Scoreboard
+## Spanwpoint dynamisch verlegen
+
+Villager ohne Handelsfenster
+Villager Custom Dialog Fester
+Villager feste Position
+Dialog legt den spawnpoint fest (Tags)
+Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
+
+
+## Themen: Interaction / Tags / Execute
+
+Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/interact leeren
+
+
+## Themen: Execute / Tags / Tellraw
+
+Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+## Themen: Execute / Tags / Teleport
+
+Tag beim Spieler löst ein Teleport aus und löscht den Tag
+
+## Themen: Summon / Villager / Dialog / Spawnpoint
+Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
+An einem Villager über ein Dialog, wird der Spieler getaged
+
+
+## Dimensionsportal
+Mittels Spielererkennung an einem Ort
+Mit grafischen Effekten
+
+
+## Mobile Portalsteine
+Spieler kann ein Item kaufen, mit dem er sich an vordefinierte Orte porten kann
+Verbrachtsgegenstand?
+Mit Ladungen / Aufladungen?
+
+## ADMIN
+Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
+
+
+## Umzug auf Server
+Wie bring man die Welt auf einen Server!?
+
+
+##
+## ======================================================================================================
+## Abgeschlossene Themen
+## ======================================================================================================
+##
+
+
+## Scoreboard -> Wird in Folge 005 behandelt
 #
 # Globale Variablen
 # tick_counter20: zählt bis 20 und fängt dann wieder bei 0 an.
 # - Ablauf:
-#   scoreboard add tick_counter20 1
-#   if tick_counter 20.. > set tick_counter 0
+#  scoreboard add tick_counter20 1
+#  if tick_counter 20.. > set tick_counter 0
 
-## Themen: summon / interaction
+
+## Themen: summon / interaction - > Erfolgt in Folge 006
 # 
-# Entity alle 20 ticks überprüfen 
+# Entity Interaction alle 20 ticks überprüfen 
 # if tick_counter 0 > check unless entity > summon new entity
-
-## Themen: Interaction / Tags / Execute
-#
-# Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
+# 2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
 
 
-# Themen: Execute / Tags / Tellraw
-#
-# Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
 
-# Themen: Execute / Tags / Teleport
-#
-# Tag beim Spieler löst ein Teleport aus und löscht den Tag
