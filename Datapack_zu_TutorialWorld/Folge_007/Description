@@ -1,0 +1,31 @@
+##
+## Beschreibung zu Folge 006: 
+##
+
+- Minecraft Datapack Tutorial [1.21.6+] #006 - Interaction + Execute + Tag = Teleportstein
+
+- Video: Preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+# Ziele dieser Folge?
+
+- Rechtsklick auf den Teleportstein, ein Teleport durchzuführen
+- Teleport zwischen Dorf 1 > Dorf 2 und Dorf 2 > Dorf 1
+
+
+# Agenda vom Video:
+
+1. Recap Folge 005
+2. Was ist ein Tag
+3. Wie setzt man Tags
+4. Anpassen der entity_check_dorf1 und entity_check_dorf1 von tell auf tag
+5. Was ist der Command teleport oder auch tp
+6. Teleport über den Tag ausführen
+7. Teleportation ins Datapack bringen
+8. Zusammenfassen
+
+
+##
+## ======================================================================================================================
+##
