@@ -1,0 +1,92 @@
+##
+## Beschreibung zu Folge 005: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #005 - Scoreboard + execute = Zähler von 0 bis 20
+
+- Video: Video ist im Schnitt
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Scoreboard mit einen Zähler, der immer wieder von 0 bis 20 zählt
+
+
+## Agenda im Video:
+
+1. Recape Folge 004
+2. Was ist ein Scoreboard und wie erstellt man eins
+3. Scoreboard mit Dummy erstellen über das Datapack
+4. Was ist Execute
+5. Wert im Scoreboard gleich oder größer 20 mit execute auf 0 setzen
+6. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Wissen - Links:
+# Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
+# Execute: DE: https://de.minecraft.wiki/w/Befehl/execute // EN: https://minecraft.wiki/w/Commands/execute
+
+##
+# Verwendete Befehle, die ich erkläre:
+- scoreboard objectives add
+- scoreboard objectives remove
+- scoreboard objectives setdisplay sitebar
+- scoreboard objectives list
+
+- scoreboard players set
+- scoreboard players add
+- scoreboard players remove
+- scoreboard players reset
+
+- execute if score .... run ....
+
+
+##
+## ============================================================================================================================================
+##
+
+# Struktur erweitern
+
+- Main
+    + data
+        + teleport
+            +function
+                + entities
+
+# Neue Files:
+- entity_control.mcfunction
+- base_init.mcfunction
+
+# Erweitern der tick.json
+- entity_control
+
+##
+## ============================================================================================================================================
+##
+
+# Function: base_init.mcfunction
+# Initialisieren von Scorboards -> Global_Variables -> ersten Wert (_counter_0_to_20) reinschreiben und auf 0 setzten
+scoreboard objectives remove Global_Variables
+scoreboard objectives add Global_Variables dummy
+scoreboard players set _counter_0_to_20 Global_Variables 0
+
+
+# Funktion: entity_control.mcfunction
+# Dem Wert _counter_0_to_20 plus 1 -> bei 20 _counter_0_to_20 wieder auf 0 setzten
+scoreboard players add _counter_0_to_20 Global_Variables 1
+execute if score _counter_0_to_20 Global_Variables matches 20.. run scoreboard players set _counter_0_to_20 Global_Variables 0
+
+# Tick.json, neuer Aufbau
+# Hinzufügen: entity_control.mcfunction
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control"
+    ]
+}
