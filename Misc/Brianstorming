@@ -56,6 +56,15 @@ Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
 Wie bring man die Welt auf einen Server!?
 
 
+## 1. Dungeon
+Schwierigkeitsgrad nicht Peacefull, Welt Mobspawn off
+Ablauf: Spieler erkennen > Teleport in den D. -> Auf dem Weg werden nach und nach Monster gespawnt -> Endboss -> Belohnung in Truhe -> Rausgehen -> Dungeon Freigegen
+Ablauf bei Tot: Erkennen kein Spieler im Dungeon -> Dungeon freigeben.
+Spieler Begrüßung -> Titel / Subtitel
+Portal -> Spieler Erkennung, Teleportation
+Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
+Abschlusschest -> Data merge mit Chest.
+
 ##
 ## ======================================================================================================
 ## Abgeschlossene Themen
