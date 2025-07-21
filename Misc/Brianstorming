@@ -65,6 +65,30 @@ Portal -> Spieler Erkennung, Teleportation
 Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
 Abschlusschest -> Data merge mit Chest.
 
+
+## Willkommensbuch
+Beschriebenes Buch, mit Willkommensgruß
+Aufbau: 
+1. Seite Begüßung
+2. Seite Inhaltsverzeichnis
+3. ...
+
+
+## Questbuch
+Anzeigen aller angeommenen Quests
+
+
+## Monsterspawn
+Schwierigkeitsgrad mindestes Easy
+Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
+Eigenes Monster Spawn verhalten
+
+## Custom Wetter Wechsel
+/gamerule doWeatherCycle off
+Wetteränderungen über Scoreboard / Schedule regeln
+
+
+
 ##
 ## ======================================================================================================
 ## Abgeschlossene Themen
