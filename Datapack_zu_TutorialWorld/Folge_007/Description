@@ -1,8 +1,8 @@
 ##
-## Beschreibung zu Folge 006: 
+## Beschreibung zu Folge 007: 
 ##
 
-- Minecraft Datapack Tutorial [1.21.6+] #006 - Interaction + Execute + Tag = Teleportstein
+- Minecraft Datapack Tutorial [1.21.6+] #007 - Interaction + Execute + Tag = Teleportstein
 
 - Video: Preparing
 
@@ -16,7 +16,7 @@
 
 # Agenda vom Video:
 
-1. Recap Folge 005
+1. Recap Folge 006
 2. Was ist ein Tag
 3. Wie setzt man Tags
 4. Anpassen der entity_check_dorf1 und entity_check_dorf1 von tell auf tag
@@ -29,3 +29,8 @@
 ##
 ## ======================================================================================================================
 ##
+
+## Wissenlinks:
+# Interaction: DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
+# Tag: DE: https://de.minecraft.wiki/w/Befehl/tag /// EN: https://minecraft.wiki/w/Commands/tag
+# Teleport: DE: https://de.minecraft.wiki/w/Befehl/teleport /// EN: https://minecraft.wiki/w/Commands/teleport
