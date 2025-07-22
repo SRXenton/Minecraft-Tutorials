@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control"
+    ]
+}
