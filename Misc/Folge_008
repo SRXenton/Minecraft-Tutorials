@@ -1,12 +1,26 @@
 ## 1. Questreihe -> siehe Brainstorming
 
+# Ablauf:
+Spieler spawnt und sieht den "Dorfvorsteher" und kann diesen Rechtsklicken, darauf folgt dieses Dialogfenster.
+- Villager "Dorfvorsteher" mit Dialogfenster
+    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
 # Starterquest:
 
 - Villager
     + summon villager ohne trading mit NoIA, Custom Name: Dorfvorsteher
     + Rechtscklick: Dialogfenster, mit Begrüßungstext
 
+# Nötiges Wissen:
+- summon
+- dialog
+- scoreboard mit minecraft:villager_click   -> Was ist ein Scoreboard -> Folge_005
+
 # Links:
 - https://mcstacker.net/
 - https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
 - https://www.digminecraft.com/generators/villager_trade.php
+- Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
+- Dialog: https://minecraft.wiki/w/Dialog
+

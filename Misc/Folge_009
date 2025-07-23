@@ -1,0 +1,28 @@
+## 1. Questreihe -> siehe Brainstorming
+
+
+# Ablauf:
+Spieler spricht den Dorfvorseher an und bekommt den Text aus Folge_008 zu sehen
+- Villager "Dorfvorsteher" mit Dialogfenster erweitern 
+    (+) Alter Text // (++) Neuer Text
+    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+    ++ Text: Möchtest du die Quest annehmen? (Ja / Nein)
+        > Scoreboard merken quest angenommen
+
+- Villager "Schmied" mit Dialogfenster
+    Nur Gültig wenn Questangenommen:
+        + Text: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+
+
+# Starterquest
+
+- Villager
+    + Rechtscklick: Dialogfenster vom Dorfvorsteher, ändern auf: Questbestätigung Ja / Nein
+    + summon villager ohne trading mit NoIA, Custom Name: Schmied
+    + Schmied Dialogfenster, bei Ok Questfortsetzung, bei exit passiert nichts
+
+# Nötiges Wissen:
+- summon
+- dialog -> Folge 008 -> erweitern mit click_event
+- scoreboard mit minecraft:villager_click   -> Was ist ein Scoreboard -> Folge_005
