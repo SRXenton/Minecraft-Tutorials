@@ -1,0 +1,3 @@
+scoreboard objectives remove Global_Variables
+scoreboard objectives add Global_Variables dummy
+scoreboard players set _counter_0_to_20 Global_Variables 0
