@@ -3,6 +3,42 @@
 ##
 
 
+
+## Quest, Start at "Folge_008"?
+1. Questgiver series
+- Dialog
+- summon Villager
+- give item / reward
+- remove item from inventory
+- scoreboard aktivities
+
+
+# Story:
+- Starterquest, 1. Questgeber: (summon villager, dialog, scoreboard)
+    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+        Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+- 2. Questgeber Schmied (summon villager, dialog, scoreboard)
+    + Text: Oh der 1. schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+        Aber könntest du für mich in Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?
+
+
+- 3. Lagerverwalter (summon villager, dialog, scoreboard, give custom item)
+    + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
+
+
+
+- 4. Schmied:(dialog, scoreboard, remove custom item, give custom weapon)
+    + Text: Danke, dass du mir die Kohle gebracht hast, warte kurz dann kann ich dir etwas geben.
+    + Reward: Steinschwert
+
+
+
+
+
+
+
 ## Themen zu tellraw / dialog
 
 Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
@@ -54,6 +90,39 @@ Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
 
 ## Umzug auf Server
 Wie bring man die Welt auf einen Server!?
+
+
+## 1. Dungeon
+Schwierigkeitsgrad nicht Peacefull, Welt Mobspawn off
+Ablauf: Spieler erkennen > Teleport in den D. -> Auf dem Weg werden nach und nach Monster gespawnt -> Endboss -> Belohnung in Truhe -> Rausgehen -> Dungeon Freigegen
+Ablauf bei Tot: Erkennen kein Spieler im Dungeon -> Dungeon freigeben.
+Spieler Begrüßung -> Titel / Subtitel
+Portal -> Spieler Erkennung, Teleportation
+Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
+Abschlusschest -> Data merge mit Chest.
+
+
+## Willkommensbuch
+Beschriebenes Buch, mit Willkommensgruß
+Aufbau: 
+1. Seite Begüßung
+2. Seite Inhaltsverzeichnis
+3. ...
+
+
+## Questbuch
+Anzeigen aller angeommenen Quests
+
+
+## Monsterspawn
+Schwierigkeitsgrad mindestes Easy
+Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
+Eigenes Monster Spawn verhalten
+
+## Custom Wetter Wechsel
+/gamerule doWeatherCycle off
+Wetteränderungen über Scoreboard / Schedule regeln
+
 
 
 ##
