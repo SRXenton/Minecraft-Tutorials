@@ -14,7 +14,7 @@ Spieler spawnt und sieht den "Dorfvorsteher" und kann diesen Rechtsklicken, dara
 
 # Nötiges Wissen:
 - summon
-- dialog
+- dialog (Marked the World with Experimental Feature)
 - scoreboard mit minecraft:villager_click   -> Was ist ein Scoreboard -> Folge_005
 
 # Links:
@@ -23,4 +23,5 @@ Spieler spawnt und sieht den "Dorfvorsteher" und kann diesen Rechtsklicken, dara
 - https://www.digminecraft.com/generators/villager_trade.php
 - Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
 - Dialog: https://minecraft.wiki/w/Dialog
+- https://minecraft.wiki/w/Statistics#List_of_custom_statistic_names
 
