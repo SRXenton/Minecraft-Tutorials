@@ -1,27 +1,64 @@
 ## 1. Questreihe -> siehe Brainstorming
 
 # Ablauf:
-Spieler spawnt und sieht den "Dorfvorsteher" und kann diesen Rechtsklicken, darauf folgt dieses Dialogfenster.
-- Villager "Dorfvorsteher" mit Dialogfenster
-    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
-    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+Spieler spawnt und sieht den "Dorfvorsteher" und kann diesen Rechtsklicken, darauf folgt dieser Dialog.
+- Villager "Dorfvorsteher" bei Rechtsklick
+    + Text: "Dorfvorsteher: Willkommen Reisender"
+
+
 
 # Starterquest:
 
 - Villager
     + summon villager ohne trading mit NoIA, Custom Name: Dorfvorsteher
-    + Rechtscklick: Dialogfenster, mit Begrüßungstext
+    + Rechtscklick: Tellraw, mit Begrüßungstext (Text: Siehe Ablauf)
 
 # Nötiges Wissen:
-- summon
-- dialog (Marked the World with Experimental Feature)
-- scoreboard mit minecraft:villager_click   -> Was ist ein Scoreboard -> Folge_005
+- summon (minecraft:villager) (Neu)
+- Tags ->> Folge_007
+- tellraw, einfacher Text (Neu)
+- Scoreboards: ->> Folge 005
+    1. minecraft.custom:minecraft.talked_to_villager (Neu)
+    2. dummy ->> Folge 005
 
 # Links:
+Villager Generatoren
 - https://mcstacker.net/
 - https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
 - https://www.digminecraft.com/generators/villager_trade.php
-- Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
-- Dialog: https://minecraft.wiki/w/Dialog
+Scoreboards
+- DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
 - https://minecraft.wiki/w/Statistics#List_of_custom_statistic_names
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
 
+
+# Programmier ablauf:
+- Summon Villager (Einfach) -> Villager Generatoren -> Ausführen Chatzeile
+- Summon Villager (Komplett) -> Villager Generatoren -> Ausführen Commandblock 
+
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + function
+                    + dialoge
+                        + dorfvorsteher
+                            > dialog_dorfvorsteher.mcfunction
+                    + entities
+                        > check_dorfvorsteher.mcfunction
+#                        > check_lagerverwalter.mcfunction
+                    + init
+                        > init_scoreboards_all.mcfunction
+
+- Dateien erstellen: check_dorfvorsteher.mcfunction
+    + prüfen _in_Work und villager nicht vorhanden
+    + Aufruf über Commandblock am Villager
+
+- Datei erstellen: init_scoreboards_all.mcfunction
+    + Scoreboard löschen (alle)
+    + Scoreboard mit minecraft.custom:minecraft.talked_to_villager erstellen
+    + Scoreboard mit Dummy für Questreihe
+
+- Datei erstellen: dialog_dorfvorsteher1.mcfunction
+    + Tellraw

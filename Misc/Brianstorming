@@ -33,7 +33,12 @@
     + Text: Danke, dass du mir die Kohle gebracht hast, warte kurz dann kann ich dir etwas geben.
     + Reward: Steinschwert
 
+# - dialog (Marked the World with Experimental Feature)
+# - Dialog: https://minecraft.wiki/w/Dialog
 
+#    + Text: "[Gold]Dorfvorsteher: [Yellow]Willkommen Reisender"
+#    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+#    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
 
 
 
