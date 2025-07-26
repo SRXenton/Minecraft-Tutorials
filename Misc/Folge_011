@@ -15,7 +15,7 @@ Spieler spricht den Lagerverwalter an und bekommt den Text aus Folge_010 zu sehe
             > Nein -> Keine Änderung
     - Neu - Tellraw (Wenn Quest angenommen und kein Kohle im Inventar):
         + Text: "Lagerverwalter: Wie du hast die Kohle verlohren ... Hier hast du neue, aber nun bring sie dem Dorfschmied"
-    - Neu - Tellraw (Wenn Quest angenommen und kein Kohle im Inventar):
+    - Neu - Tellraw (Wenn Quest angenommen und Kohle im Inventar):
         + Text: "Lagerverwalter: Bring die Kohle dem Dorfschmied"
 
 
@@ -29,6 +29,7 @@ Spieler spricht den Lagerverwalter an und bekommt den Text aus Folge_010 zu sehe
     + Rechtscklick: Tellraw ändern auf Dialogfenster ("type": "minecraft:confirmation"), mit: Questbestätigung Ja / Nein
     + Text für Dialogfenster siehe Ablauf
     + Text für Tellraws, Text siehe Ablauf, Farbschema: "Lagerverwalter: " in Gold, der Rest in Yellow
+    + Inverntar Erkennung
 
 # Nötiges Wissen:
 - scoreboard mit minecraft:villager_click   ->> Was ist ein Scoreboard -> Folge_005  /// minecraft:villager_click -> Folge 008
@@ -36,6 +37,7 @@ Spieler spricht den Lagerverwalter an und bekommt den Text aus Folge_010 zu sehe
 - dialog ->> Folge 009
 - JSON ->> Folge 003
 - give mit Minecraft standart Item (neu)
+- NBT - Inventory (Neu) mit Execute if/unless entity (Folge 005)
 
 # Links:
 Tellraw
@@ -50,6 +52,8 @@ NBT: Inventory
 - https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
 Dialog Generator:
 - https://misode.github.io/dialog/
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
 
 # Programmier ablauf:
 - Datapack Struktur herstellen
@@ -60,25 +64,13 @@ Dialog Generator:
                     > dorf1_lagerverwalter20.json
                 + function
                     + dialoge
-                        + lagerist
-                            > dialog_lagerverwalter.mcfunction
+                        + lagerverwalter
                             > action_lagerverwalter.mcfunction
-                    + entities
-                        > check_lagerveralter.mcfunction
 
-- Dateien erstellen: check_lagerveralter.mcfunction
-    + prüfen _in_Work und villager nicht vorhanden
-    + Aufruf über Commandblock am Villager
-
-- Datei erstellen: dialog_lagerverwalter.mcfunction
-    + Tellraw (Allgemein Gültig)
-    + Tellraw (Quest vom Dorfschmied angenommen)
-
-- Datei bearbeiten: dialog_dorfschmied.mcfunction
-    + tellraw zu dialog
-    + neues tellraw, für Quest angenommen
-    + neues tellraw, für Quest vom Dorfvorsteher nicht angenommen (Allgemein Gültig)
-    + Kontrolle NBT Daten für Questvorhanden, Kohle verlohren
+- Datei bearbeiten: dialog_lagerverwalter.mcfunction
+    + Tellraw (Allgemein Gültig, überprüfen)
+    + Tellraws (Quest vom Lagerverwalter angenommen)
+    + Dialog (Quest vom Dorfschmied angenommen)
 
 - Datei erstellen: dorf1_lagerverwalter20.json
     + dialog/json

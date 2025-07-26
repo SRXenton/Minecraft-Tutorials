@@ -11,7 +11,7 @@ Spieler spricht den Dorfvorseher an und bekommt den Text aus Folge_008 zu sehen,
         + Text: Möchtest du die Quest annehmen? (Ja / Nein)
             > JA -> Scoreboard merken Quest angenommen
             > Nein -> Keine Änderung
-    - Neu - Tellraw (Wenn Quest angenommne):
+    - Neu - Tellraw (Wenn Quest angenommen):
         + Text: "Dorfvorsteher: Geh bitte zum Dorfschmied"
 
 
@@ -56,6 +56,12 @@ Dialog
 Dialog Generator:
 - https://misode.github.io/dialog/
 
+Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+Server.properties: function_permission_level
+- https://minecraft.wiki/w/Server.properties
+- https://minecraft.wiki/w/Permission_level
+
+
 # Programmier ablauf:
 - Summon Villager (Komplett) -> Villager Generatoren -> Ausführen Commandblock 
 
@@ -73,7 +79,7 @@ Dialog Generator:
                     + entities
                         > check_dorfschmied.mcfunction
 
-- Dateien erstellen: check_dorfschmied.mcfunction
+- Datei erstellen: check_dorfschmied.mcfunction
     + prüfen _in_Work und villager nicht vorhanden
     + Aufruf über Commandblock am Villager
 
