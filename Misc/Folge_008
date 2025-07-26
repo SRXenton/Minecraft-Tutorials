@@ -47,7 +47,6 @@ Tellraw
                             > dialog_dorfvorsteher.mcfunction
                     + entities
                         > check_dorfvorsteher.mcfunction
-#                        > check_lagerverwalter.mcfunction
                     + init
                         > init_scoreboards_all.mcfunction
 

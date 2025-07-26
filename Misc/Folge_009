@@ -53,6 +53,8 @@ Tellraw
 - https://de.minecraft.wiki/w/Befehl/tellraw
 Dialog
 - https://minecraft.wiki/w/Dialog
+Dialog Generator:
+- https://misode.github.io/dialog/
 
 # Programmier ablauf:
 - Summon Villager (Komplett) -> Villager Generatoren -> Ausführen Commandblock 

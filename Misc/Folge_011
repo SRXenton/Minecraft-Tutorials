@@ -44,6 +44,12 @@ Dialog
 - https://minecraft.wiki/w/Dialog
 Give:
 - https://de.minecraft.wiki/w/Befehl/give
+NBT:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+NBT: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+Dialog Generator:
+- https://misode.github.io/dialog/
 
 # Programmier ablauf:
 - Datapack Struktur herstellen
@@ -72,6 +78,7 @@ Give:
     + tellraw zu dialog
     + neues tellraw, für Quest angenommen
     + neues tellraw, für Quest vom Dorfvorsteher nicht angenommen (Allgemein Gültig)
+    + Kontrolle NBT Daten für Questvorhanden, Kohle verlohren
 
 - Datei erstellen: dorf1_lagerverwalter20.json
     + dialog/json
