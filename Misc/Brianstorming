@@ -42,6 +42,8 @@
 
 
 
+# Custom Item:
+# give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
 
 
 ## Themen zu tellraw / dialog
