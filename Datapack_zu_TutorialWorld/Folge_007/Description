@@ -1,0 +1,87 @@
+##
+## Beschreibung zu Folge 007: 
+##
+
+- Minecraft Datapack Tutorial [1.21.6+] #007 - Interaction + Execute + Tag = Teleportstein
+
+- Video: Im Schnitt
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+# Ziele dieser Folge?
+
+- Rechtsklick auf den Teleportstein, ein Teleport durchzuführen
+- Teleport zwischen Dorf 1 > Dorf 2 und Dorf 2 > Dorf 1
+
+
+# Agenda vom Video:
+
+1. Recap Folge 006
+2. Was ist ein Interaktionsentity / Interaction
+3. Was ist ein Tag
+4. Wie setzt man Tags
+5. Anpassen der entity_check_dorf1 und entity_check_dorf2 von tell auf tag
+6. Was ist der Command teleport oder auch tp
+7. Teleport über den Tag ausführen
+8. Teleportation ins Datapack bringen
+9. Zusammenfassen
+
+
+##
+## ======================================================================================================================
+##
+
+## Wissenlinks:
+# Interaction: DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
+# Tag: DE: https://de.minecraft.wiki/w/Befehl/tag /// EN: https://minecraft.wiki/w/Commands/tag
+# Teleport: DE: https://de.minecraft.wiki/w/Befehl/teleport /// EN: https://minecraft.wiki/w/Commands/teleport
+
+# Struktur, die wir anfassen:
+- Main
+  + data
+    + teleport
+      + functions
+        + entitys
+          > entity_check_dorf1.mcfunction
+          > entity_check_dorf2.mcfunction
+        > teleportation.mcfunction      
+
+
+##
+## ======================================================================================================================
+##
+
+## Neu: teleportation.mcfunction
+teleport @e[tag=teleport_to_dorf1] 1739 65 259
+tag @e[tag=teleport_to_dorf1] remove teleport_to_dorf1
+
+teleport @e[tag=teleport_to_dorf2] 778 65 118
+tag @e[tag=teleport_to_dorf2] remove teleport_to_dorf2
+
+
+## Geändert: entity_control.mcfunction
+scoreboard players add _counter_0_to_20 Global_Variables 1
+execute if score _counter_0_to_20 Global_Variables matches 20.. run scoreboard players set _counter_0_to_20 Global_Variables 0
+
+function teleport:teleportation
+
+
+## Geändert: entity_check_dorf1.mcfunction
+execute unless entity @e[tag=teleport_stone_dorf1] if score _in_work Global_Variables matches 0 run summon minecraft:interaction 1743 65 268 {height:4.0f, width:1.5f, Tags:["teleport_stone", "teleport_stone_dorf1"]}
+
+execute as @e[tag=teleport_stone_dorf1, type=minecraft:interaction] on target run tag @s add teleport_to_dorf2
+#execute as @e[tag=teleport_stone_dorf1, type=minecraft:interaction] on attacker run tp @s 778 65 118
+
+data remove entity @e[tag=teleport_stone_dorf1, type=minecraft:interaction,limit=1] interaction
+data remove entity @e[tag=teleport_stone_dorf1, type=minecraft:interaction,limit=1] attack
+
+
+
+## Geändert: entity_check_dorf2.mcfunction
+execute unless entity @e[tag=teleport_stone_dorf2] if score _in_work Global_Variables matches 0 run summon minecraft:interaction 783 65 119 {height:4.0f, width:1.5f, Tags:["teleport_stone", "teleport_stone_dorf2"]}
+
+execute as @e[tag=teleport_stone_dorf2, type=minecraft:interaction] on target run tag @s add teleport_to_dorf1
+#execute as @e[tag=teleport_stone_dorf2, type=minecraft:interaction] on attacker run tell @a "Angegriffen"
+
+data remove entity @e[tag=teleport_stone_dorf2, type=minecraft:interaction,limit=1] interaction
+data remove entity @e[tag=teleport_stone_dorf2, type=minecraft:interaction,limit=1] attack
