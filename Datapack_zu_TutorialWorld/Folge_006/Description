@@ -1,0 +1,95 @@
+##
+## Beschreibung zu Folge 006: 
+##
+
+- Minecraft Datapack Tutorial [1.21.6+] #006 - Execute + Interaction = Beginn Serie Teleport mit Interactions
+
+- Video: Preparing for Upload
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+# Ziel der Serie
+- Beim klicken auf einen Pylonen, der mit einer Interaction umgeben ist, wird man auf eine definierte Position teleportiert
+- Teleportation zwischen Dorf 1 und Dorf 2
+
+# Ziele dieser Folge?
+
+- Ein Interaction erstellen, welches uns im ersten Schritt, beim links und rechts Klick, ein Tell ausgibt
+- Mit dem Datapack über prüfen ob die Interaction existiert, wenn nicht neu generieren
+- Automatische Überprüfung übers Scoreboard steuern
+
+# Verlinkungen:
+2:07 Folge_005
+5:26 Folge_002
+19:34 Folge_005
+
+
+# Agenda vom Video:
+
+1. Recap Folge 005
+2. Was ist ein Interaction
+3. Erster Grundaufbau Interaction auslesen
+4. Scoreboard beschreiben nach interaction mit dem Interaction
+5. Im 2. Dorf ein weiteres Interaction setzen
+5. Zusammenfassen
+
+
+
+##
+## ======================================================================================================================
+##
+Was ist ein Interaction? -> DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
+
+Verwendete Befehle:
+- data get (Folge 002)
+- data merge (In dieser Folge)
+- data remove (In dieser Folge)
+- summon interaction (In dieser Folge)
+- execute if/unless entity/score (Execute: Folge 005, mit score: Folge 005, mit entity: in dieser Folge)
+- execute as ... on target/attacker (In dieser Folge)
+- tell (In dieser Folge)
+- scoreboard (Folge 005)
+- kill (Wird regelmäßig verwendet)
+- function (Wird regelmäßig verwendet)
+
+##
+## ======================================================================================================================
+##
+
+# Nur für die Folge relevante Strucktur und Files
+
+- Main
+    + data
+        + base
+            + function
+                > base_init.mcfunction
+        + teleport
+            + function
+                + entities
+                    > entity_check_dorf1.mcfunction
+                    > entity_check_dorf2.mcfunction
+                    > entity_control.mcfunction
+
+# Neu: entity_check_dorf1.mcfuntion
+execute unless entity @e[tag=teleport_stone_dorf1] if score _in_work Global_Variables matches 0 run summon minecraft:interaction 1743 65 268 {height:4.0f, width:1.5f, Tags:["teleport_stone", "teleport_stone_dorf1"]}
+
+execute as @e[tag=teleport_stone_dorf1, type=minecraft:interaction] on target run tell @a "Geklicket"
+execute as @e[tag=teleport_stone_dorf1, type=minecraft:interaction] on attacker run tell @a "Angegriffen"
+
+data remove entity @e[tag=teleport_stone_dorf1, type=minecraft:interaction,limit=1] interaction
+data remove entity @e[tag=teleport_stone_dorf1, type=minecraft:interaction,limit=1] attack
+
+# Neu: entity_check_dorf2.mcfuntion
+execute unless entity @e[tag=teleport_stone_dorf2] if score _in_work Global_Variables matches 0 run summon minecraft:interaction 783 65 119 {height:4.0f, width:1.5f, Tags:["teleport_stone", "teleport_stone_dorf2"]}
+
+execute as @e[tag=teleport_stone_dorf2, type=minecraft:interaction] on target run tell @a "Geklicket"
+execute as @e[tag=teleport_stone_dorf2, type=minecraft:interaction] on attacker run tell @a "Angegriffen"
+
+data remove entity @e[tag=teleport_stone_dorf2, type=minecraft:interaction,limit=1] interaction
+data remove entity @e[tag=teleport_stone_dorf2, type=minecraft:interaction,limit=1] attack
+
+# Geändert: base_init.mcfunction
+scoreboard objectives remove Global_Variables
+scoreboard objectives add Global_Variables dummy
+scoreboard players set _counter_0_to_20 Global_Variables 0
+scoreboard players set _in_work Global_Variables 0
