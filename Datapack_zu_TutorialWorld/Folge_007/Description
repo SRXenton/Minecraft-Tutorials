@@ -32,9 +32,16 @@
 ##
 
 ## Wissenlinks:
-# Interaction: DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
-# Tag: DE: https://de.minecraft.wiki/w/Befehl/tag /// EN: https://minecraft.wiki/w/Commands/tag
-# Teleport: DE: https://de.minecraft.wiki/w/Befehl/teleport /// EN: https://minecraft.wiki/w/Commands/teleport
+Interaction: DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
+Tag: DE: https://de.minecraft.wiki/w/Befehl/tag /// EN: https://minecraft.wiki/w/Commands/tag
+Teleport: DE: https://de.minecraft.wiki/w/Befehl/teleport /// EN: https://minecraft.wiki/w/Commands/teleport
+
+# Verwendete Befehle:
+- teleport oder tp (In dieser Folge)
+- tag add/list/remove (In dieser Folge)
+- execute if/unless (Folge 005ff)
+- scoreboard (Folge 005)
+- data get entity (Folge 002 und 006)
 
 # Struktur, die wir anfassen:
 - Main
