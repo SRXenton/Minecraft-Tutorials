@@ -2,16 +2,25 @@
 ## Beschreibung zu Folge 006: 
 ##
 
-- Minecraft Datapack Tutorial [1.21.6+] #006 - Die Entity Interation und Autogenerierung
+- Minecraft Datapack Tutorial [1.21.6+] #006 - Execute + Interaction = Beginn Serie Teleport mit Interactions
 
-- Video: Im Schnitt
+- Video: Preparing for Upload
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
+# Ziel der Serie
+- Beim klicken auf einen Pylonen, der mit einer Interaction umgeben ist, wird man auf eine definierte Position teleportiert
+- Teleportation zwischen Dorf 1 und Dorf 2
+
 # Ziele dieser Folge?
 
+- Ein Interaction erstellen, welches uns im ersten Schritt, beim links und rechts Klick, ein Tell ausgibt
 - Mit dem Datapack über prüfen ob die Interaction existiert, wenn nicht neu generieren
 - Automatische Überprüfung übers Scoreboard steuern
+
+# Verlinkungen:
+2:07 Folge_005
+
 
 
 # Agenda vom Video:
@@ -31,23 +40,16 @@
 Was ist ein Interaction? -> DE: https://de.minecraft.wiki/w/Interaktionsobjekt /// EN: https://minecraft.wiki/w/Interaction
 
 Verwendete Befehle:
-- /summon minecraft:interaction ~ ~ ~
-- /data get entity ...
-- /data get entity @e[type=minecraft:interaction,tag=inter1,limit=1]
-- /data merge entity ... {Tags:["inter1"]}
-- /data merge entity @e[type=minecraft:interaction,tag=inter1,limit=1] {height:2.6f, width:2.0f, Pos:[-243.5, -60.0, 288.5]}
-
-- /kill @e[type=minecraft:interaction,distance=..10]
-
-- /scoreboard objectives setdisplay sidebar
-- /scoreboard players set ...
-
-- /execute unless entity ... run ...
-- /function -> einzeln und in kombination mit execute
-
-- /give (player) minecraft:command_block
-
-- /gamerule commandOutput false
+- data get (Folge 002)
+- data merge (In dieser Folge)
+- data remove (In dieser Folge)
+- summon interaction (In dieser Folge)
+- execute if/unless entity/score (Execute: Folge 005, mit score: Folge 005, mit entity: in dieser Folge)
+- execute as ... on target/attacker (In dieser Folge)
+- tell (In dieser Folge)
+- scoreboard (Folge 005)
+- kill (Wird regelmäßig verwendet)
+- function (Wird regelmäßig verwendet)
 
 ##
 ## ======================================================================================================================
