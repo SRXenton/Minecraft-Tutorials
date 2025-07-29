@@ -1,0 +1,1 @@
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10}] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht."}]
