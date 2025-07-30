@@ -1,0 +1,91 @@
+## 1. Questreihe -> siehe Brainstorming
+
+# Ablauf:
+Spieler spricht den Dorfschmied an und bekommt den Text aus Folge_009 zu sehen, wird geändert auf Dialog mit Bestätigung
+- Villager "Dorfschmied" mit Dialogfenster erweitern 
+    - Alt:
+        + Text: "Dorfschmied: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht."
+    - Neu - Dialog:
+        + Text: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+        + Text: Aber könntest du für mich zum Lager gehen, und beim Verwalter mal nachfragen, ob er noch etwas Kohle hat?
+        + Text: Möchtest du die Quest annehmen? (Ja / Nein)
+            > JA -> Scoreboard merken Quest angenommen
+            > Nein -> Keine Änderung
+    - Neu - Tellraw (Wenn Quest angenommne):
+        + Text: "Dorfvorsteher: Geh bitte zum Lagerverwalter"
+    - Neu - Tellraw (Wenn Quest vom Dorfvorsteher nicht angenommen, Allgemein gültig):
+        + Text: "Dorfvorsteher: Ich kann nichts für dich tun"
+
+
+- Villager "Lagerverwalter" mit Tellraw
+    - Allgemeine Ausgabe, nur Gültig wenn keine Quest vom Dorfschmied.
+        + Text: "Lagerverwalter: Ich bin gerade beschäftigt, ich kann dir nicht helfen"
+    - Nur Gültig wenn Quest vom Dorfschmied angenommen:
+        + Text: "Lagerverwalter: Ich bin gerade beschäftigt, der Schmied muss warten"
+
+##
+##  !!!!!!!! Dialog markiert die Welt mit "Experimental Feature" (v1.21.6) !!!!!!!!
+##
+
+# Aktionen
+
+- Villager (Dorfschmied)
+    + Rechtscklick: Tellraw ändern auf Dialogfenster ("type": "minecraft:confirmation"), mit: Questbestätigung Ja / Nein
+    + Text für Dialogfenster siehe Ablauf
+    + Text für Tellraw wenn Quest angenommen, Text siehe Ablauf, Farbschema: "Dorfschmied: " in Gold, der Rest in Yellow
+
+- Villager (Lagerverwalter)
+    + summon villager ohne trading mit NoIA, Custom Name: Schmied
+    + Rechtsklick: Tellraw
+    + Text siehe Ablauf
+
+# Nötiges Wissen:
+- summon ->> Folge 008
+- scoreboard mit minecraft:villager_click   ->> Was ist ein Scoreboard -> Folge_005  /// minecraft:villager_click -> Folge 008
+- tellraw ->> Folge 008, Farbiger Text ->> Folge 009
+- dialog ->> Folge 009
+- JSON ->> Folge 003
+
+# Links:
+Villager Generatoren
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
+- https://www.digminecraft.com/generators/villager_trade.php
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Dialog
+- https://minecraft.wiki/w/Dialog
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+# Programmier ablauf:
+- Summon Villager (Komplett) -> Villager Generatoren -> Ausführen Commandblock 
+
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + dialog
+                    > dorf1_dorfschmied10.json
+                + function
+                    + dialoge
+                        + lagerverwalter
+                            > dialog_lagerverwalter.mcfunction
+                    + entities
+                        > check_lagerveralter.mcfunction
+
+- Dateien erstellen: check_lagerveralter.mcfunction
+    + prüfen _in_Work und villager nicht vorhanden
+    + Aufruf über Commandblock am Villager
+
+- Datei erstellen: dialog_lagerverwalter.mcfunction
+    + Tellraw (Allgemein Gültig)
+    + Tellraw (Quest vom Dorfschmied angenommen)
+
+- Datei bearbeiten: dialog_dorfschmied.mcfunction
+    + tellraw zu dialog
+    + neues tellraw, für Quest angenommen
+    + neues tellraw, für Quest vom Dorfvorsteher nicht angenommen (Allgemein Gültig)
+
+- Datei erstellen: dorf1_dorfschmied10.json
+    + dialog/json
