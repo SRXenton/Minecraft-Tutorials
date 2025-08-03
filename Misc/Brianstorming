@@ -4,27 +4,29 @@
 
 
 
-## Quest, Start at "Folge_008"?
+## Quest, Start bei "Folge_008" bis "Folge_012"
 1. Questgiver series
 - Dialog
+- Tellraw
 - summon Villager
 - give item / reward
 - remove item from inventory
 - scoreboard aktivities
+- Item Erkennung im Inventar
 
 
 # Story:
-- Starterquest, 1. Questgeber: (summon villager, dialog, scoreboard)
+- Starterquest, 1. Questgeber: (summon villager, tellraw, dialog, scoreboard)
     + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
         Wenn du das erledigt hast, kommt nochmal bitte zu mir.
 
 
-- 2. Questgeber Schmied (summon villager, dialog, scoreboard)
+- 2. Questgeber Schmied (summon villager, tellraw, dialog, scoreboard)
     + Text: Oh der 1. schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
         Aber könntest du für mich in Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?
 
 
-- 3. Lagerverwalter (summon villager, dialog, scoreboard, give custom item)
+- 3. Lagerverwalter (summon villager, dialog, tellraw, scoreboard, give custom item)
     + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
 
 
@@ -34,12 +36,29 @@
     + Reward: Steinschwert
 
 
+## Beachtung bei Dialogen
+# - dialog (Marked the World with Experimental Feature)
+# - Dialog: https://minecraft.wiki/w/Dialog
 
 
 
+## Farbkonzepte
+#           Wer Sagt:               Text:
+# Tellraw: "[Gold]Dorfvorsteher: [Yellow]Willkommen Reisender"
 
 
-## Themen zu tellraw / dialog
+
+## Andere mögliche Konzepte
+#    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+#    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+
+# Custom Item:
+# give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
+
+
+## Themen zu tellraw / dialog (Folge 009)
 
 Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
 Server.properties: function_permission_level
