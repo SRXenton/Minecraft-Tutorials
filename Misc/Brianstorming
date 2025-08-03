@@ -3,7 +3,62 @@
 ##
 
 
-## Themen zu tellraw / dialog
+
+## Quest, Start bei "Folge_008" bis "Folge_012"
+1. Questgiver series
+- Dialog
+- Tellraw
+- summon Villager
+- give item / reward
+- remove item from inventory
+- scoreboard aktivities
+- Item Erkennung im Inventar
+
+
+# Story:
+- Starterquest, 1. Questgeber: (summon villager, tellraw, dialog, scoreboard)
+    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+        Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+- 2. Questgeber Schmied (summon villager, tellraw, dialog, scoreboard)
+    + Text: Oh der 1. schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+        Aber könntest du für mich in Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?
+
+
+- 3. Lagerverwalter (summon villager, dialog, tellraw, scoreboard, give custom item)
+    + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
+
+
+
+- 4. Schmied:(dialog, scoreboard, remove custom item, give custom weapon)
+    + Text: Danke, dass du mir die Kohle gebracht hast, warte kurz dann kann ich dir etwas geben.
+    + Reward: Steinschwert
+
+
+## Beachtung bei Dialogen
+# - dialog (Marked the World with Experimental Feature)
+# - Dialog: https://minecraft.wiki/w/Dialog
+
+
+
+## Farbkonzepte
+#           Wer Sagt:               Text:
+# Tellraw: "[Gold]Dorfvorsteher: [Yellow]Willkommen Reisender"
+
+
+
+## Andere mögliche Konzepte
+#    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+#    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+
+# Custom Item:
+# give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
+
+
+## Themen zu tellraw / dialog (Folge 009)
 
 Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
 Server.properties: function_permission_level
@@ -20,6 +75,80 @@ Dialog legt den spawnpoint fest (Tags)
 Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
 
 
+## Themen: Interaction / Tags / Execute
+
+Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/interact leeren
+
+
+## Themen: Execute / Tags / Tellraw
+
+Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+## Themen: Execute / Tags / Teleport
+
+Tag beim Spieler löst ein Teleport aus und löscht den Tag
+
+## Themen: Summon / Villager / Dialog / Spawnpoint
+Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
+An einem Villager über ein Dialog, wird der Spieler getaged
+
+
+## Dimensionsportal
+Mittels Spielererkennung an einem Ort
+Mit grafischen Effekten
+
+
+## Mobile Portalsteine
+Spieler kann ein Item kaufen, mit dem er sich an vordefinierte Orte porten kann
+Verbrachtsgegenstand?
+Mit Ladungen / Aufladungen?
+
+## ADMIN
+Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
+
+
+## Umzug auf Server
+Wie bring man die Welt auf einen Server!?
+
+
+## 1. Dungeon
+Schwierigkeitsgrad nicht Peacefull, Welt Mobspawn off
+Ablauf: Spieler erkennen > Teleport in den D. -> Auf dem Weg werden nach und nach Monster gespawnt -> Endboss -> Belohnung in Truhe -> Rausgehen -> Dungeon Freigegen
+Ablauf bei Tot: Erkennen kein Spieler im Dungeon -> Dungeon freigeben.
+Spieler Begrüßung -> Titel / Subtitel
+Portal -> Spieler Erkennung, Teleportation
+Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
+Abschlusschest -> Data merge mit Chest.
+
+
+## Willkommensbuch
+Beschriebenes Buch, mit Willkommensgruß
+Aufbau: 
+1. Seite Begüßung
+2. Seite Inhaltsverzeichnis
+3. ...
+
+
+## Questbuch
+Anzeigen aller angeommenen Quests
+
+
+## Monsterspawn
+Schwierigkeitsgrad mindestes Easy
+Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
+Eigenes Monster Spawn verhalten
+
+## Custom Wetter Wechsel
+/gamerule doWeatherCycle off
+Wetteränderungen über Scoreboard / Schedule regeln
+
+
+
+##
+## ======================================================================================================
+## Abgeschlossene Themen
+## ======================================================================================================
+##
 
 
 ## Scoreboard -> Wird in Folge 005 behandelt
@@ -31,22 +160,11 @@ Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter P
 #  if tick_counter 20.. > set tick_counter 0
 
 
-## Themen: summon / interaction
- 
-Entity alle 20 ticks überprüfen 
-if tick_counter 0 > check unless entity > summon new entity
-2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
+## Themen: summon / interaction - > Erfolgt in Folge 006
+# 
+# Entity Interaction alle 20 ticks überprüfen 
+# if tick_counter 0 > check unless entity > summon new entity
+# 2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
 
 
-## Themen: Interaction / Tags / Execute
 
-Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/inertact leeren
-
-
-## Themen: Execute / Tags / Tellraw
-
-Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
-
-## Themen: Execute / Tags / Teleport
-
-Tag beim Spieler löst ein Teleport aus und löscht den Tag

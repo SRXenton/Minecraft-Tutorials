@@ -1,0 +1,98 @@
+## 1. Questreihe -> siehe Brainstorming
+
+# Ablauf:
+Spieler spricht den Dorfvorseher an und bekommt den Text aus Folge_008 zu sehen, wird geändert auf Dialog mit Bestätigung
+- Villager "Dorfvorsteher" mit Dialogfenster erweitern 
+    - Alt:
+        + Text: "Dorfvorsteher: Willkommen Reisender"
+    - Neu - Dialog:
+        + Text: Hallo Reisender, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Dorfschmied, ob er dir helfen kann.
+        + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+        + Text: Möchtest du die Quest annehmen? (Ja / Nein)
+            > JA -> Scoreboard merken Quest angenommen
+            > Nein -> Keine Änderung
+    - Neu - Tellraw (Wenn Quest angenommen):
+        + Text: "Dorfvorsteher: Geh bitte zum Dorfschmied"
+
+
+- Villager "Dorfschmied" mit Tellraw
+    Nur Gültig wenn Quest vom Dorfvorsteher angenommen:
+        + Text: "Dorfschmied: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht."
+
+
+
+##
+##  !!!!!!!! Dialog markiert die Welt mit "Experimental Feature" (v1.21.6) !!!!!!!!
+##
+
+# Aktionen
+
+- Villager (Dorfvorsteher)
+    + Rechtscklick: Tellraw ändern auf Dialogfenster ("type": "minecraft:confirmation"), mit: Questbestätigung Ja / Nein
+    + Text für Dialogfenster siehe Ablauf
+    + Text für Tellraw wenn Quest angenommen, Text siehe Ablauf, Farbschema: "Dorfvorsteher: " in Gold, der Rest in Yellow
+
+- Villager (Dorfschmied)
+    + summon villager ohne trading mit NoIA, Custom Name: Schmied
+    + Rechtsklick: Tellraw
+    + Text siehe Ablauf
+
+# Nötiges Wissen:
+- summon ->> Folge 008
+- scoreboard mit minecraft:villager_click   ->> Was ist ein Scoreboard -> Folge_005  /// minecraft:villager_click -> Folge 008
+- tellraw ->> Folge 008, neu: Mehrfarbigen Farbigen Text
+- JSON ->> Folge 003
+- dialog (neu)
+
+# Links:
+Villager Generatoren
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
+- https://www.digminecraft.com/generators/villager_trade.php
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Dialog
+- https://minecraft.wiki/w/Dialog
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+Server.properties: function_permission_level
+- https://minecraft.wiki/w/Server.properties
+- https://minecraft.wiki/w/Permission_level
+
+
+# Programmier ablauf:
+- Summon Villager (Komplett) -> Villager Generatoren -> Ausführen Commandblock 
+
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + dialog
+                    > dorf1_dorfvorsteher1.json
+                + function
+                    + dialoge
+                        > dialoge_switch.mcfunction
+                        + dorfschmied
+                            > dialog_dorfschmied.mcfunction
+                    + entities
+                        > check_dorfschmied.mcfunction
+
+- Datei erstellen: check_dorfschmied.mcfunction
+    + prüfen _in_Work und villager nicht vorhanden
+    + Aufruf über Commandblock am Villager
+
+- Datei erstellen: dialoge_switch.mcfunction
+    + dialog functions aufrufen
+    + zurücksetzten des Scoreboardes für villager_click
+
+- Datei erstellen: dialog_dorfschmied.mcfunction
+    + Tellraw
+
+- Datei erstellen: dorf1_dorfvorsteher1.json
+    + dialog/json
+
+- Datei bearbeiten: dialog_dorfvorsteher.mcfunction
+    + tellraw zu dialog
+    + neues tellraw, für Quest angenommen
