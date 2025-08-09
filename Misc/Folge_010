@@ -6,15 +6,15 @@ Spieler spricht den Dorfschmied an und bekommt den Text aus Folge_009 zu sehen, 
     - Alt:
         + Text: "Dorfschmied: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht."
     - Neu - Dialog:
-        + Text: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+        + Text: Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
         + Text: Aber könntest du für mich zum Lager gehen, und beim Verwalter mal nachfragen, ob er noch etwas Kohle hat?
         + Text: Möchtest du die Quest annehmen? (Ja / Nein)
             > JA -> Scoreboard merken Quest angenommen
             > Nein -> Keine Änderung
     - Neu - Tellraw (Wenn Quest angenommne):
-        + Text: "Dorfvorsteher: Geh bitte zum Lagerverwalter"
+        + Text: "Dorfschmied: Geh bitte zum Lagerverwalter"
     - Neu - Tellraw (Wenn Quest vom Dorfvorsteher nicht angenommen, Allgemein gültig):
-        + Text: "Dorfvorsteher: Ich kann nichts für dich tun"
+        + Text: "Dorfschmied: Ich kann nichts für dich tun"
 
 
 - Villager "Lagerverwalter" mit Tellraw
