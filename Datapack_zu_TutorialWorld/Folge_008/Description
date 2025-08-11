@@ -2,41 +2,74 @@
 ## Beschreibung zu Folge 008: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.6+] #008 - ??? Questreihe ???
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #008 - Start Reihe: Questserie mit VillagerKlick + tellraw
 
-- Video: https://youtu.be/FZ8TU2w2D9E
+- Video: Preparing for public
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
 
+## Ziel der Serie "Questreihe"
+- Am Ende ein Questreward bekommen
+- Datfür: Sprechen mit 3 Villager, überbringen von einem Questgegenstand
+
+
 ## Ziel der Folge:
 
-- Questreihe mit Questitem und Reward
+- Ersten Questgeber erstellen und erstes ansprechen mit tellraw Antwort
 
 ## Agenda im Video:
 
 1. Recape Folge 007
-2. Was soll am ENde entstehen?
-3. Der Command Summon
-4. Summon mit Villager Anwenden und dem Datapack hinzufügen
-5. Scoreboard Villager Klick
-6. Anwendu
-6. Zusammenfassung
+2. Was soll am Ende der fünf Folgen entstehen?
+3. Was soll in dieser Folge entsehen?
+4. Der Command Summon Villager
+5. Villager Generatoren im Internet
+6. Summon mit Villager Anwenden und dem Datapack hinzufügen
+7. Scoreboard Villager Klick mit minecraft.custom:talk_to_villager
+8. Wieso Dialog Funtionen über den CommandBlock aufrufen?
+9. Den Dorfvorsteher zum sprechen bringen
+10. Zusammenfassung und Ausblick
 
 ##
 ## ============================================================================================================================================
 ##
 
+# Nötiges Wissen (Erklärung in Folge):
+- summon (Folge_005) minecraft:villager (Diese Folge)
+- Tags ->> Folge_007
+- tellraw, einfacher Text (Diese Folge)
+- Scoreboards: (Allgemein: Folge 005)
+    1. minecraft.custom:minecraft.talked_to_villager (Diese Folge)
+    2. dummy (Folge 005)
+
 ## Wissen - Links:
-# Scoreboard: DE: https://de.minecraft.wiki/w/Anzeigetafel // EN: https://minecraft.wiki/w/Scoreboard
-# Execute: DE: https://de.minecraft.wiki/w/Befehl/execute // EN: https://minecraft.wiki/w/Commands/execute
+Scoreboard: 
+- DE: https://de.minecraft.wiki/w/Anzeigetafel
+- EN: https://minecraft.wiki/w/Scoreboard
+Scoreboard Custom Werte: 
+- DE: https://www.digminecraft.com/generators/villager_trade.php
+Execute: 
+- DE: https://de.minecraft.wiki/w/Befehl/execute
+- EN: https://minecraft.wiki/w/Commands/execute
+Villager Generatoren
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
+- https://www.digminecraft.com/generators/villager_trade.php
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+
 
 ##
-# Verwendete Befehle, die ich erkläre:
+# Verwendete Befehle
+- say
+- tellraw
+- kill
+- function
+
 - scoreboard objectives add
 - scoreboard objectives remove
 - scoreboard objectives setdisplay sitebar
-- scoreboard objectives list
 
 - scoreboard players set
 - scoreboard players add
@@ -44,7 +77,7 @@
 - scoreboard players reset
 
 - execute if score .... run ....
-
+- execute ... [scores={}] ... run ...
 
 ##
 ## ============================================================================================================================================
@@ -54,13 +87,20 @@
 
 - Main
     + data
-        + teleport
-            +function
+        + quests_dorf1
+            + function
+                + dialoge
+                    + dorfvorsteher
+                        > dialog_dorfvorsteher.mcfunction
                 + entities
+                    > check_dorfvorsteher.mcfunction
+                + init
+                    > init_scoreboards_all.mcfunction
 
 # Neue Files:
-- entity_control.mcfunction
-- base_init.mcfunction
+- dialog_dorfvorsteher.mcfunction
+- check_dorfvorsteher.mcfunction
+- init_scoreboards_all.mcfunction
 
 # Erweitern der tick.json
 - entity_control
@@ -69,24 +109,23 @@
 ## ============================================================================================================================================
 ##
 
-# Function: base_init.mcfunction
-# Initialisieren von Scorboards -> Global_Variables -> ersten Wert (_counter_0_to_20) reinschreiben und auf 0 setzten
-scoreboard objectives remove Global_Variables
-scoreboard objectives add Global_Variables dummy
-scoreboard players set _counter_0_to_20 Global_Variables 0
+# Function, Neu: init_scoreboards_all.mcfunction
+scoreboard objectives remove Villager_Klick_Dorf1
+scoreboard objectives add Villager_Klick_Dorf1 minecraft.custom:talked_to_villager
+
+scoreboard objectives remove Quest_Dorfvorsteher
+scoreboard objectives add Quest_Dorfvorsteher dummy
 
 
-# Funktion: entity_control.mcfunction
-# Dem Wert _counter_0_to_20 plus 1 -> bei 20 _counter_0_to_20 wieder auf 0 setzten
-scoreboard players add _counter_0_to_20 Global_Variables 1
-execute if score _counter_0_to_20 Global_Variables matches 20.. run scoreboard players set _counter_0_to_20 Global_Variables 0
+# Funktion, Neu: check_dorfvorsteher.mcfunction
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_dorfvorsteher] run summon villager 1742 65 258 {VillagerData:{type:plains,profession:librarian,level:99},CustomName:[{text:Dorfvorsteher,bold:true}],Invulnerable:1b,NoAI:1b,NoGravity:1b,OnGround:1b,PersistenceRequired:1b,Rotation:[0f,0f],Tags:["dorf1","dorf1_dorfvorsteher"]}
 
-# Tick.json, neuer Aufbau
-# Hinzufügen: entity_control.mcfunction
-{
-    "replace": false,
-    "values": [
-        "base:respawnpoint",
-        "teleport:entities/entity_control"
-    ]
-}
+
+# Function, Neu: dialog_dorfvorsteher.mcfunction
+execute at @a[scores={Villager_Klick_Dorf1=1}] run scoreboard players set @a[scores={Villager_Klick_Dorf1=1}] Quest_Dorfvorsteher 1
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] "Dorfvorsteher: Willkommen Reisender"
+
+
+scoreboard players set @a Villager_Klick_Dorf1 0
+
