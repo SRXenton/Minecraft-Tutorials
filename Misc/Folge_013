@@ -1,0 +1,48 @@
+## Worldspawn und Custom Wetter
+
+# Aufgabenstellung:
+Alt: 
+- Spawnchunk ist noch auf der Koordinate von der Weltgenerierung
+- Wetter wechselt von sich aus, nach Minecraft regeln
+
+Neu:
+- Worldspawn in Dorf 1 verlegen
+- Wetter wechsel nicht mehr nach Minecraft regeln
+- Keine Gewitter mehr, Regen nur noch alle 5 Tage (Random?), und hört nach einen halben Tag auf
+
+# Aktionen
+- World Spawn auf die neue Koordinate
+    > Koordinate ermitteln
+    > Spawnradius verkleinern
+- Wetterwechsel
+    > Wetterwechsel off schalten
+    > Scoreboard für Wetterwechsel erstellen
+    > 
+
+# Nötiges Wissen:
+- give mit Minecraft standart Item Folge 011, Custom-item (Neu / Diese Folge)
+- execute if/unless entity @ (Folge 006) mit NBT / Inventory (Folge 011)
+- clear (Neu)
+
+# Links:
+Wolrdspawn:
+- https://de.minecraft.wiki/w/Befehl/give
+Wetter Regeln:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+Wetter Command: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+Scoreboard:
+- DE: https://de.minecraft.wiki/w/Anzeigetafel 
+- EN: https://minecraft.wiki/w/Scoreboard
+
+# Programmier ablauf:
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + weather
+                + function
+                    > init_scoreboard_weather.mcfunction
+                    > calculate_switch_weather.mcfunction
+
