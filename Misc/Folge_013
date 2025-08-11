@@ -25,6 +25,9 @@ Neu:
 - clear (Neu)
 
 # Links:
+Spielregeln/Gamerules:
+- DE: https://de.minecraft.wiki/w/Spielregel
+- EN: https://minecraft.wiki/w/Game_rule
 Wolrdspawn:
 - https://de.minecraft.wiki/w/Befehl/give
 Wetter Regeln:
@@ -46,3 +49,22 @@ Scoreboard:
                     > init_scoreboard_weather.mcfunction
                     > calculate_switch_weather.mcfunction
 
+
+# Möglich Befehle:
+/scoreboard objectives add WeatherCycle dummy
+/scoreboard objectives remove WeatherCycle
+/scoreboard players set _isSwitch WeatherCycle 0
+/scoreboard players set _nextWeatherClear WeatherCycle 0
+/scoreboard players set _nextWeatherRain WeatherCycle 0
+
+/execute as @s store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+/execute as @s store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+/execute if score _nextWeatherRain WeatherCycle matches 1.. run scoreboard players remove _nextWeatherRain WeatherCycle 1
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run weather rain
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run scoreboard players set _isSwitch WeatherCycle 1
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _nextWeatherClear WeatherCycle matches 1.. run scoreboard players remove _nextWeatherClear WeatherCycle 1
+/execute if score _nextWeatherClear WeatherCycle matches 0 run weather clear
+/execute if score _nextWeatherClear WeatherCycle matches 0 run players set _isSwitch WeatherCycle 0
+/execute as @s store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+/execute as @s store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+...
