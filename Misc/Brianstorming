@@ -137,9 +137,13 @@ Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
 Eigenes Monster Spawn verhalten
 
 ## Custom Wetter Wechsel
-/gamerule doWeatherCycle off
+/gamerule doWeatherCycle off -> false
 Wetteränderungen über Scoreboard / Schedule regeln
 
+## Custom Day/Night Cycle
+/gamerule doDayNightCycle ?????
+- 24000 Ticks für Tag und Nacht -> Minecraft standart
+- 24000 Ticks für Tag und 6000 für Nacht -> Steuerung "/time set" über scoreboard
 
 ## Wold Monster Spawn off -> false
 - Abschalten der Gamerules
