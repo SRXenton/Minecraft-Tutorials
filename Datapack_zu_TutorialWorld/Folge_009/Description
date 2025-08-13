@@ -20,9 +20,10 @@
 4. Der Command Dialog
 5. Villager Wechsel von Tellraw auf Dialog
 6. Tellraw mit Farbe
-7. Summon mit Villager 
-8. Questfortschritt mit Scoreboard
-9. Zusammenfassung
+7. Summon mit Villager
+8. Villager Schmied ein Tellraw ausgeben lassen 
+9. Questfortschritt mit Scoreboard
+10. Zusammenfassung
 
 ##
 ## ============================================================================================================================================
@@ -42,9 +43,13 @@ Dialog Generator:
 - https://misode.github.io/dialog/
 
 ##
-# Verwendete Befehle, die ich erkläre:
+# Verwendete Befehle:
 - dialog
 - dialog mit dialog.json
+- execute unless/if entity
+- scoreboard
+- tellraw
+- summon villager (Dorfschmied)
 
 
 ##
