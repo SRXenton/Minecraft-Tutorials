@@ -67,7 +67,7 @@ Clear:
 Dialog Generator:
 - https://misode.github.io/dialog/
 
-# Programmier ablauf:
+# Neue Datapack Struktur:
 - Datapack Struktur herstellen
     + Main
         + data
