@@ -13,7 +13,7 @@ Neu: Kohle durch Custom-Item ersetzen, mit dem Namen "Kohle für den Dorfschmied
 - Villager "Dorfschmied"   
     - Neu: 
         + Bei Erkennung Questitem: Dialog: "Danke dass du mir die Kohle gebracht hast. Ich habe in der Zwischenzeit in meinem Lager geschaut und habe noch dieses Schwert gefunden"
-        + Bei Ok / Schließen des Dialogs: Schwert dem Spieler geben
+        + Bei Ok / Schließen des Dialogs: Custom Item aus dem Inventar entfernen und Custom Schwert dem Spieler geben
         + Questreihe abschließen -> scoreboard.
 
 - Villager (Alle)
@@ -80,12 +80,12 @@ Dialog Generator:
                             > action_dorfschmied.mcfunction
 
 
+- Datei bearbeiten: action_lagerverwalter.mcfunction
+    + give Questitem von standart Kohle ändern auf Custom Item: Stick mit Custom Werten
+
 - Datei bearbeiten: dialog_lagerverwalter.mcfunction
     + Entity NBT Daten Erkennung auf das Custom Item anpassen
     + Questfortschritt Erkennung für Texte anpassen
-
-- Datei bearbeiten: action_lagerverwalter.mcfunction
-    + give Questitem von standart Kohle ändern auf Custom Item: Stick mit Custom Werten
 
 - Datei erstellen: dorf1_dorfschmied30.json
     + dialog / json -> type: minecraft:notice
