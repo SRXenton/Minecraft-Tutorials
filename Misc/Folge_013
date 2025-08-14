@@ -1,0 +1,108 @@
+## Worldspawn und Custom Wetter
+
+# Gedanken:
+- Worldspawn auf Koordinate in der Nähe vom Dorfverwalter legen
+- Spawnradius begrenzen
+- Wetter nach eigenen Regeln
+- Kein Gewitter mehr
+- Regen nur nach alle paar Tage
+- Regen nur Kurzzeitig.
+- Worldspawn und Custom Wetter zu viel für eine Folge???
+
+
+# Mögliche Folgen Titel:
+- Worldspawn neue Position + Custom Wetter cycle
+- Neue Worldspawn Position + Custom Wetteränderung
+
+
+# Aufgabenstellung:
+Alt: 
+- Spawnchunk ist noch auf der Koordinate von der Weltgenerierung
+- Wetter wechselt von sich aus, nach Minecraft regeln
+
+Neu:
+- Worldspawn in Dorf 1 verlegen
+- Spawnradius auf 1 ändern
+- Wetter wechsel nicht mehr nach Minecraft regeln
+- Keine Gewitter mehr, Regen nur noch alle 5-8 Tage (Random), und hört nach Randum Tickanzahl wieder auf (1000-6000) auf
+
+# Aktionen
+- World Spawn auf die neue Koordinate
+    > Koordinate ermitteln
+    > Spawnradius verkleinern
+- Wetterwechsel
+    > Wetterwechsel off schalten
+    > Scoreboard für Wetterwechsel erstellen
+    > Random Werte ins Scoreboard schreiben
+    > Werte pro tick um eins reduzieren
+    > tick.json anpassen
+    > Wetter von Clear auf Rain wechseln, wenn Wert 1 = 0
+    > Wetter von Rain auf Clear wechseln, wenn Wert 2 = 0
+    > Zufallszahlen neu generieren, wenn Wert 1 und 2 = 0
+
+# Nötiges Wissen:
+- gamerule -> spawnRadius, doWeatherCycle
+- execute if/unless
+- execute -> store result -> score
+- random -> value
+- weather
+- setworldspawn
+
+# Links:
+Spielregeln/Gamerules:
+- DE: https://de.minecraft.wiki/w/Spielregel
+- EN: https://minecraft.wiki/w/Game_rule
+Wolrdspawn:
+- EN: https://minecraft.wiki/w/World_spawn
+Spawn (Allgemein):
+- DE: https://de.minecraft.wiki/w/Spawn
+SetWorldspawn:
+- DE: https://de.minecraft.wiki/w/Befehl/setworldspawn
+
+Wetter Regeln:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+Wetter Command: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+Scoreboard:
+- DE: https://de.minecraft.wiki/w/Anzeigetafel 
+- EN: https://minecraft.wiki/w/Scoreboard
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Vorhanden/Bearbeiten
+- Main
+    - data
+        > minecraft
+            > tags
+                > function
+                    > tick.json
+        + weather
+            + function
+                + init_scoreboard_weather.mcfunction    >> Scoreboard init
+                + control_switch_weather.mcfunction     >> Steuerung Wetter, wird ggf von tick.json aufgerufen
+
+
+# Möglich Befehle Worldspan:
+/setworldspawn -253 -60 300
+/gamerule spawnRadius 1
+
+# Möglich Befehle Wetter Wechsel:
+/scoreboard objectives add WeatherCycle dummy
+/scoreboard objectives remove WeatherCycle
+/scoreboard players set _isSwitch WeatherCycle 0
+/scoreboard players set _nextWeatherClear WeatherCycle 0
+/scoreboard players set _nextWeatherRain WeatherCycle 0
+
+/execute as @s store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+/execute as @s store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+/execute if score _nextWeatherRain WeatherCycle matches 1.. run scoreboard players remove _nextWeatherRain WeatherCycle 1
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run weather rain
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run scoreboard players set _isSwitch WeatherCycle 1
+/execute if score _nextWeatherRain WeatherCycle matches 0 if score _nextWeatherClear WeatherCycle matches 1.. run scoreboard players remove _nextWeatherClear WeatherCycle 1
+/execute if score _nextWeatherClear WeatherCycle matches 0 run weather clear
+/execute if score _nextWeatherClear WeatherCycle matches 0 run players set _isSwitch WeatherCycle 0
+/execute as @s store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+/execute as @s store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+...
