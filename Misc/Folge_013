@@ -5,9 +5,10 @@
 - Spawnradius begrenzen
 - Wetter nach eigenen Regeln
 - Kein Gewitter mehr
-- Regen nur nach alle paar Tage
+- Regen nur noch alle paar Tage
 - Regen nur Kurzzeitig.
 - Worldspawn und Custom Wetter zu viel für eine Folge???
+- Worldspawn kommt in eine andere Folge
 
 
 # Mögliche Folgen Titel:
@@ -69,20 +70,6 @@ Scoreboard:
 - DE: https://de.minecraft.wiki/w/Anzeigetafel 
 - EN: https://minecraft.wiki/w/Scoreboard
 
-# Datapack Strucktur:
-# (+) = Neu
-# (>) = Vorhanden/Bearbeiten
-- Main
-    - data
-        > minecraft
-            > tags
-                > function
-                    > tick.json
-        + weather
-            + function
-                + init_scoreboard_weather.mcfunction    >> Scoreboard init
-                + control_switch_weather.mcfunction     >> Steuerung Wetter, wird ggf von tick.json aufgerufen
-
 
 # Möglich Befehle Worldspan:
 /setworldspawn -253 -60 300
@@ -106,3 +93,31 @@ Scoreboard:
 /execute as @s store result score _nextWeatherClear WeatherCycle run random value 1000..6000
 /execute as @s store result score _nextWeatherRain WeatherCycle run random value 120000..192000
 ...
+
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Vorhanden/Bearbeiten
+- Main
+    - data
+        > minecraft
+            > tags
+                > function
+                    > tick.json
+        + weather
+            + function
+                + init_scoreboard_weather.mcfunction    >> Scoreboard init
+                + control_switch_weather.mcfunction     >> Steuerung Wetter, wird ggf von tick.json aufgerufen
+
+### Dateien:
+
+## NEU:
+# init_scoreboard_weather.mcfunction
+Scoreboard init
+
+# control_switch_weather.mcfunction
+Programmierung der Wetter Steuerung
+
+## Bearbeiten: 
+# tick.json
+Aufrufen Reduzierung der Ticks bis zum Wetterwechsel

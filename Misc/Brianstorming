@@ -2,10 +2,16 @@
 ## Themenspeicher / Backlog
 ##
 
-## Globaler Spawnpoint setzen für neue Spieler
+## Globaler Spawnpoint setzen für neue Spieler > Folge 13?
 - Spawnchunk erklären und worldspawn auf diese Koordinate setzen
 
 
+## Ingamewährung
+- Über Scorebord
+- Abfrage über Item im Inventar
+
+## Questreihe
+Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 
 
 ## Quest, Start bei "Folge_008" bis "Folge_012"
@@ -81,7 +87,7 @@ Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter P
 
 
 
-## Themen: Execute / Tags / Tellraw
+## Themen: Execute / Tags / Tellraw -> Noch nötig, Wofür ? Tags und Tellraw wurden schon behandelt
 
 Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
 
@@ -101,12 +107,12 @@ Spieler kann ein Item kaufen, mit dem er sich an vordefinierte Orte porten kann
 Verbrachtsgegenstand?
 Mit Ladungen / Aufladungen?
 
-## ADMIN
+## ADMIN -> OP Function ausführung nur mit rechte im scoreboard?
 Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
 
 
 ## Umzug auf Server
-Wie bring man die Welt auf einen Server!?
+Wie bringt man die Welt auf einen Server!?
 
 
 ## 1. Dungeon
