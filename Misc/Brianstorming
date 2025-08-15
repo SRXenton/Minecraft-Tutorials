@@ -2,6 +2,16 @@
 ## Themenspeicher / Backlog
 ##
 
+## Globaler Spawnpoint setzen für neue Spieler > Folge 13?
+- Spawnchunk erklären und worldspawn auf diese Koordinate setzen
+
+
+## Ingamewährung
+- Über Scorebord
+- Abfrage über Item im Inventar
+
+## Questreihe
+Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 
 
 ## Quest, Start bei "Folge_008" bis "Folge_012"
@@ -75,18 +85,12 @@ Dialog legt den spawnpoint fest (Tags)
 Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
 
 
-## Themen: Interaction / Tags / Execute
-
-Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/interact leeren
 
 
-## Themen: Execute / Tags / Tellraw
+## Themen: Execute / Tags / Tellraw -> Noch nötig, Wofür ? Tags und Tellraw wurden schon behandelt
 
 Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
 
-## Themen: Execute / Tags / Teleport
-
-Tag beim Spieler löst ein Teleport aus und löscht den Tag
 
 ## Themen: Summon / Villager / Dialog / Spawnpoint
 Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
@@ -103,12 +107,12 @@ Spieler kann ein Item kaufen, mit dem er sich an vordefinierte Orte porten kann
 Verbrachtsgegenstand?
 Mit Ladungen / Aufladungen?
 
-## ADMIN
+## ADMIN -> OP Function ausführung nur mit rechte im scoreboard?
 Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
 
 
 ## Umzug auf Server
-Wie bring man die Welt auf einen Server!?
+Wie bringt man die Welt auf einen Server!?
 
 
 ## 1. Dungeon
@@ -139,10 +143,22 @@ Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
 Eigenes Monster Spawn verhalten
 
 ## Custom Wetter Wechsel
-/gamerule doWeatherCycle off
+/gamerule doWeatherCycle off -> false
 Wetteränderungen über Scoreboard / Schedule regeln
 
+## Custom Day/Night Cycle
+/gamerule doDayNightCycle ?????
+- 24000 Ticks für Tag und Nacht -> Minecraft standart
+- 24000 Ticks für Tag und 6000 für Nacht -> Steuerung "/time set" über scoreboard
 
+## Wold Monster Spawn off -> false
+- Abschalten der Gamerules
+    + doMobSpawning
+    + doPatrolSpawning
+    + doInsomnia
+    + disableRaids -> einzige die auf true muss, alle anderen auf false
+    + mobGriefing
+    + doEntityDrops
 
 ##
 ## ======================================================================================================
@@ -166,5 +182,10 @@ Wetteränderungen über Scoreboard / Schedule regeln
 # if tick_counter 0 > check unless entity > summon new entity
 # 2. Scoreboard Wert zu Ein- und Ausschalten der Entity Überprüfung für Arbeiten
 
-
-
+## Themen: Interaction / Tags / Execute -> Folge 006 und 007
+#
+# Rechtsclick auf Interaction > player bekommt ein tag > interaction attacker/interact leeren
+#
+## Themen: Execute / Tags / Teleport -> Folge 006 und 007
+#
+# Tag beim Spieler löst ein Teleport aus und löscht den Tag

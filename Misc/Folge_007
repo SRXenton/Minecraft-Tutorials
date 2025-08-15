@@ -1,7 +1,0 @@
-# Zustand aus Folge 006:
-- Interaction sind an den Pylonen existend
-- Interaktionen sind mit den Interactions möglich und geben nur einen Tell @a raus
-
-# Soll in Folge 007 passieren:
-- Tell @a soll durch ein Tag am Spieler ersetzt werden
-- Der Tag soll einen Teleport auslösen, und sich selbst entfernen
