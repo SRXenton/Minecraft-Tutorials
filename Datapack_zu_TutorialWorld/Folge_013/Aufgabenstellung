@@ -1,0 +1,81 @@
+## Aufgabenstellung
+
+
+# Ist Zusatnd:
+Wetter wird von Minecraft gesteuert
+
+# Soll Zustand:
+Wetter selbst steuern über das Scoreboard
+Wetter: clear -> rain: zwischen 5 und 8 Tagen (In Ticks)
+Wetter: rain -> clear: zwischen 1000 und 6000 Ticks (weniger als ein Tag)
+
+# Nötiges Wissen:
+- Gamerules:
+    - doWeatherCycle (Diese Folge)
+- weather clear/rain (Diese Folge)
+- scoreboard (Allgemein: Folge 005)
+    - objectives add/remove
+    - players set/remove
+- random value (Diese Folge)
+- execute ... score (Folge 005)
+- execute store result (Diese Folge)
+
+# Wissen - Links:
+Scoreboard: 
+- DE: https://de.minecraft.wiki/w/Anzeigetafel
+- EN: https://minecraft.wiki/w/Scoreboard
+Spielregeln/Gamerules:
+- DE: https://de.minecraft.wiki/w/Spielregel
+- EN: https://minecraft.wiki/w/Game_rule
+Wetter Regeln:
+- EN: https://minecraft.wiki/w/Game_rule#doWeatherCycle
+Wetter:
+- EN: https://minecraft.wiki/w/Weather
+- EN https://minecraft.wiki/w/Commands/weather
+Scoreboard:
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Vorhanden/Bearbeiten
+- Main
+    - data
+        > minecraft
+            > tags
+                > function
+                    > tick.json
+        + weather
+            + function
+                + init_scoreboard_weather.mcfunction    
+                + control_switch_weather.mcfunction     
+                + set_random.mcfunction
+                + to_rain.mcfunction
+                + to_clear.mcfunction
+
+## Scoreboardwerte:
+Object add: WeatherCycle
+Players set: _nextWeatherClear default 0, _nextWeatherRain default 0, _isSwitch default 0
+
+
+## Datei Beschreibung:
+
+# Bearbeiten tick.json
+Erweitern mit control_switch_weather.mcfunction
+
+# Neu: control_switch_weather.mcfunction
+Auswertung Scoreboard und Steuerung des Wetter
+
+# Neu: init_scoreboard_weather.mcfunction
+Init Scoreboard und setzten von default Werten
+
+# Neu: set_random.mcfunction
+Random werte ins Scoreboard schreiben
+
+# Neu: to_clear.mcfunction
+Wechselt Wetter zu "clear"
+Setzt Wert, dass Wetter gewechselt hat
+
+# Neu: to_rain.mcfunction
+Wechselt Wetter zu "rain"
+Setzt Wert, dass Wetter zurück gewechselt hat
+
