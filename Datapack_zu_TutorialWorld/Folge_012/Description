@@ -4,7 +4,7 @@
 
 - Titel: Minecraft Datapack Tutorial [1.21.6+] #012 - Questreihe: Letzter Teil
 
-- Video: Preparing for Record
+- Video: In Cut
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
@@ -24,3 +24,113 @@
 7. Spieler nach löschen des Questitem, Reward geben (Custom Schwert Siehe Aufgabenstellung)
 8. Duchtesten der Questreihe.
 9. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Give:
+- https://de.minecraft.wiki/w/Befehl/give
+
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+
+NBT:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+- https://minecraft.wiki/w/Data_component_format
+
+NBT: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+
+Clear:
+- https://de.minecraft.wiki/w/Befehl/clear
+
+Generatoren:
+- https://misode.github.io/dialog/
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/give-command-generator
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * quests_dorf1
+            * dialog
+                + dorf1_dorfschmied30.json
+            * function
+                * dialoge
+                    * lagerverwalter
+                        > action_lagerverwalter.mcfunction
+                        > dialog_lagerverwalter.mcfunction
+                    * dorfschmied
+                        + action_dorfschmied.mcfunction
+                        > dialog_dorfschmied.mcfunction
+                    * dorfvorsteher
+                        > dialog_dorfvorsteher.mcfunction
+
+# JSON, Neu: dorf1_dorfschmied30.json
+{
+    "type": "minecraft:notice",
+    "title": "Dorfschmied",
+    "body": {
+        "type": "minecraft:plain_message",
+        "contents": {
+            "text": "Danke dass du mir die Kohle gebracht hast.\n\nIch habe in der Zwischenzeit in meinem Lager geschaut und habe noch dieses Schwert gefunden",
+            "type": "text"
+        }
+    },
+    "inputs": [],
+    "can_close_with_escape": true,
+    "after_action": "close"
+}
+
+# Function, Bearbeiten: action_lagerverwalter.mcfunction
+#give @s minecraft:coal
+give @s stick[item_model="minecraft:chest",custom_name=[{"text":"Paket für den Dorfschmied","italic":false}],lore=[[{"text":"Questgegenstand","italic":false,"color":"yellow","bold":true}],"",[{"text":"Ein Paket mit Kohle für den Dorfschmied","italic":false}]],custom_data={"tag":"kfdds"}]
+scoreboard players set @s Quest_Dorfvorsteher 30
+
+# Function, Bearbeiten: dialog_lagerverwalter.mcfunction
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=20}] quests_dorf1:dorf1_lagerverwalter20
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=..19}] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Ich bin gerade beschäftigt, ich kann dir nicht helfen."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30},nbt={Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Bring die Kohle dem Dorfschmied."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Wie du hast die Kohle verlohren ... Hier hast du neue, aber nun bring sie dem Dorfschmied."}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
+
+
+
+# Function, Neu: action_dorfschmied.mcfunction
+clear @s minecraft:stick[custom_data={"tag":"kfdds"}]
+
+dialog show @s quests_dorf1:dorf1_dorfschmied30
+
+give @s stone_sword[custom_name=[{"text":"Einfaches Schwert","italic":false}],lore=[[{"text":"Ein gewöhnliches einfaches Schwert.","italic":false}]]]
+
+scoreboard players set @s Quest_Dorfvorsteher 40
+
+
+# Function, Bearbeiten: dialog_dorfschmied.mcfunction
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10}] quests_dorf1:dorf1_dorfschmied10
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=..9}] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Ich kann nichts für dich tun."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=11..30},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Geh bitte zum Lagerverwalter."}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30},nbt={Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] at @s run function quests_dorf1:dialoge/dorfschmied/action_dorfschmied
+
+# Function, Bearbeiten: dialog_dorfvorsteher.mcfunction
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] quests_dorf1:dorf1_dorfvorsteher1
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40..}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Hallo Reisender, ich sehe, du hast ein Schwert bekommen, leider habe ich zur Zeit keine weiteren Aufgaben für dich."}]

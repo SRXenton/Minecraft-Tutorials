@@ -64,8 +64,10 @@ NBT: Inventory
 - https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
 Clear:
 - https://de.minecraft.wiki/w/Befehl/clear
-Dialog Generator:
+Generator:
 - https://misode.github.io/dialog/
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/give-command-generator
 
 # Neue Datapack Struktur:
 - Datapack Struktur herstellen
@@ -78,7 +80,6 @@ Dialog Generator:
                     + dialoge
                         + dorfschmied
                             > action_dorfschmied.mcfunction
-
 
 - Datei bearbeiten: action_lagerverwalter.mcfunction
     + give Questitem von standart Kohle ändern auf Custom Item: Stick mit Custom Werten
