@@ -2,6 +2,40 @@
 ## Themenspeicher / Backlog
 ##
 
+## Natürliches Monsterspawn off?      
+- Gamerules für Monsterspawn auf false
+- Monsterspawn nur noch per Datapack
+- Noch zufrüh, ggf anderes Thema vorher, zum Training, andere Questreihe?!
+- Thema zu Klein, ggf falls mit anderem Thema koppeln
+- Eigenes Tutorial für Monsterspawn off, wie bei Enderman griefing off per command block
+- Konzept für Level erstellen
+
+## Umzug auf Server:
+- Vorbereitungen:
+  - Server mit lauffähigem Minecraft muss vorher existieren
+  - Server muss vorher schon mit einer Standart Welt laufen
+- Welt vom Singleplayer zu Server kopieren
+- Serverproperties durchgehen, erklären und einstellen
+- Welt starten
+- Gamerules Überprüfen und einstellen:
+  - dodaylightcycle
+  - Monsterspawn???
+- Welche Zugriffe werden benötigt ?!
+
+
+## 2. Questreihe: Ausrüstung (Lederrüstung?)
+- Lederrüstung über eine 2. Questreihe
+- Reihenfolge
+  - Dorfvorsteher
+  - Rüstungsschmhied
+  - Materialien besorgen (Wölfe?)
+  - Custom Wölfe mit Custom Drop
+    > Nötig Natürliches Mobspawn off
+    > Wissen über Custom Mobs
+    > Konzept über Levelaufstieg
+
+
+
 ## Globaler Spawnpoint setzen für neue Spieler > Folge 13?
 - Spawnchunk erklären und worldspawn auf diese Koordinate setzen
 
