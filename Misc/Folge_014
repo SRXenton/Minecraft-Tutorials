@@ -1,0 +1,49 @@
+## Thema: Geld einführen
+# Gedanken
+- Scoreboard, kein Object im Inventar
+- Geldbörse -> Custom Object mit Funktion Scoreboard Anzeige Über Menüleiste, oder im Chat
+- Geld wird bei Questende ins Scoreboard überwiesen         --> Ändern Vorhandene Quest
+- Mobs können Geld droppen -> Wert im Scoreboard erhöhen    --> Später
+- Verkauf und Ankauf über Werte im Scoreboard               --> Später
+
+# Mögliche Folgen Titel:
+
+
+# Aufgabenstellung:
+Alt: 
+    - Keine Währung
+
+Neu:
+    - Währung über Scoreboard
+    - Geldbörse im Inventar
+    - Item nicht löschbar machen ????
+
+
+# Aktionen
+# Nötiges Wissen:
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
