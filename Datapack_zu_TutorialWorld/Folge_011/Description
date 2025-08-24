@@ -1,0 +1,105 @@
+##
+## Beschreibung zu Folge 011: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #011 - Questreihe Teil 4 - NBT Daten + Questitem = Inverntarerkennung
+
+- Video: Preparing for Public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Spieler bekommt vom Lagerverwalter ein Reward nach Questannahme und alle Texte vom Lagerverwalter werden nach Aufgabenstellung angepasst
+
+## Agenda zum Video:
+
+1. Recape Folge 010
+2. Was soll in der Folge entsehen?!
+3. Lagerverwalter von Tellraw auf Dialog wechseln
+4. Questfortschhritt in Scoreboard vermerken
+5. Tellraws und Dialog anhand des Questfortschrittes anpassen
+6. Testen aller Funktionen
+7. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Wissen - Links:
+Dialog: 
+- DE: https://de.minecraft.wiki/w/Befehl/dialog
+- EN: https://minecraft.wiki/w/Commands/dialog
+
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+Give:
+- https://de.minecraft.wiki/w/Befehl/give
+
+NBT:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+
+NBT: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+
+# Datapack Struktur:
+-  Main
+    + data
+        + quests_dorf1
+            + dialog
+                > dorf1_lagerverwalter20.json
+            + function
+                + dialoge
+                    + lagerverwalter
+                        > action_lagerverwalter.mcfunction
+
+# JSON, Neu: dialog > dorf1_lagerverwalter20.json
+{
+    "type": "minecraft:confirmation",
+    "title": "Dorfvorsteher",
+    "body": {
+        "type": "minecraft:plain_message",
+        "contents": "Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm..\n\nWenn du das erledigt hast, kommt nochmal bitte zu mir.\n\n\nMöchtest du dem Dorfschmied die Kohle bringen ? (Ja / Nein)"
+    },
+    "inputs": [],
+    "can_close_with_escape": true,
+    "after_action": "close",
+    "yes": {
+        "label": "Ja",
+        "action": {
+            "type": "minecraft:run_command",
+            "command": "function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter"
+        }
+    },
+    "no": {
+        "label": "Nein"
+    }
+}
+
+# Function, Neu: action_lagerverwalter.mcfunction
+give @s minecraft:coal
+scoreboard players set @s Quest_Dorfvorsteher 30
+
+
+# Function, Bearbeiten: dialog_lagerverwalter.mcfunction
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=20}] quests_dorf1:dorf1_lagerverwalter20
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=..19}] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Ich bin gerade beschäftigt, ich kann dir nicht helfen."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30..},nbt={Inventory:[{id:"minecraft:coal"} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Bring die Kohle dem Dorfschmied."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30..},nbt=!{Inventory:[{id:"minecraft:coal"} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Wie du hast die Kohle verlohren ... Hier hast du neue, aber nun bring sie dem Dorfschmied."}]
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=30..},nbt=!{Inventory:[{id:"minecraft:coal"} ] }] run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
+
+
