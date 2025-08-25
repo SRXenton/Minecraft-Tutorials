@@ -1,0 +1,1 @@
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_dorfschmied] run summon villager 1779 66 235 {VillagerData:{type:plains,profession:weaponsmith,level:99},CustomName:[{text:Dorfschmied,bold:true}],Invulnerable:1b,NoAI:1b,NoGravity:1b,OnGround:1b,PersistenceRequired:1b,Rotation:[90f,0f],Tags:["dorf1","dorf1_dorfschmied"]}

@@ -1,0 +1,80 @@
+## 1. Questreihe -> siehe Brainstorming
+
+# Ablauf:
+Spieler spricht den Lagerverwalter an und bekommt den Text aus Folge_010 zu sehen, wird geändert auf Dialog mit Bestätigung
+- Villager "Lagerveralter" mit Dialogfenster erweitern 
+    - Alt:
+        - Allgemeine Ausgabe, nur Gültig wenn keine Quest vom Dorfschmied.
+            + Text: "Lagerverwalter: Ich bin gerade beschäftigt, ich kann dir nicht helfen"
+        - Nur Gültig wenn Quest vom Dorfschmied angenommen:
+            + Text: "Lagerverwalter: Ich bin gerade beschäftigt, der Schmied muss warten"
+    - Neu - Dialog (Quest angenommen vom Schmied):
+        + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
+        + Text: Möchtest du dem Dorfschmied die Kohle bringen ? (Ja / Nein)
+            > JA -> Scoreboard merken Quest angenommen und Spieler Kohle geben
+            > Nein -> Keine Änderung
+    - Neu - Tellraw (Wenn Quest angenommen und kein Kohle im Inventar):
+        + Text: "Lagerverwalter: Wie du hast die Kohle verlohren ... Hier hast du neue, aber nun bring sie dem Dorfschmied"
+    - Neu - Tellraw (Wenn Quest angenommen und Kohle im Inventar):
+        + Text: "Lagerverwalter: Bring die Kohle dem Dorfschmied"
+
+
+##
+##  !!!!!!!! Dialog markiert die Welt mit "Experimental Feature" (v1.21.6) !!!!!!!!
+##
+
+# Aktionen
+
+- Villager (Lagerverwalter)
+    + Rechtscklick: Tellraw ändern auf Dialogfenster ("type": "minecraft:confirmation"), mit: Questbestätigung Ja / Nein
+    + Text für Dialogfenster siehe Ablauf
+    + Text für Tellraws, Text siehe Ablauf, Farbschema: "Lagerverwalter: " in Gold, der Rest in Yellow
+    + Inverntar Erkennung
+
+# Nötiges Wissen:
+- scoreboard mit minecraft:villager_click   ->> Was ist ein Scoreboard -> Folge_005  /// minecraft:villager_click -> Folge 008
+- tellraw ->> Folge 008, Farbiger Text ->> Folge 009
+- dialog ->> Folge 009
+- JSON ->> Folge 003
+- give mit Minecraft standart Item (neu)
+- NBT - Inventory (Neu) mit Execute if/unless entity (Folge 005)
+
+# Links:
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Dialog
+- https://minecraft.wiki/w/Dialog
+Give:
+- https://de.minecraft.wiki/w/Befehl/give
+NBT:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+NBT: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+Dialog Generator:
+- https://misode.github.io/dialog/
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+
+# Programmier ablauf:
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + dialog
+                    > dorf1_lagerverwalter20.json
+                + function
+                    + dialoge
+                        + lagerverwalter
+                            > action_lagerverwalter.mcfunction
+
+- Datei bearbeiten: dialog_lagerverwalter.mcfunction
+    + Tellraw (Allgemein Gültig, überprüfen)
+    + Tellraws (Quest vom Lagerverwalter angenommen)
+    + Dialog (Quest vom Dorfschmied angenommen)
+
+- Datei erstellen: dorf1_lagerverwalter20.json
+    + dialog/json
+
+- Datei erstellen: action_lagerverwalter.mcfunction
+    + give item
+    + scoreboard änderung

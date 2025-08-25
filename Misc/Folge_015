@@ -1,0 +1,43 @@
+## Thema:
+# Gedanken
+- Umzug Singelplayer auf Server
+- Kontrolle der Funktionen im Datapack
+- scoreboard Änderungen in Functions verstecken
+- Server Properties anpassen
+
+# Mögliche Folgen Titel:
+Umzug auf einen Server
+
+# Aufgabenstellung:
+Alt: 
+
+Neu:
+
+# Aktionen
+# Nötiges Wissen:
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
