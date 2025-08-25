@@ -10,9 +10,14 @@
 ####
 ## Konzept
 
-2 Scoreboards:
-1. Scoreboard -> Taler
-2. Scoreboard -> Taler / 100 (Groschen)
+3 Scoreboards:
+1. Scoreboard Currency_total -> Volle Werte 
+2. Scoreboard Currency_taler -> Taler = Volle Werte / 100
+3. Scoreboard Currency_groschen -> Groschen = Volle Werte % 100
+- Standardwerte:
+-- Taler -> _100 = 100
+-- Groschen -> _100 = 100
+-- Total -> _calculate = 0
 
 Item zur Geldabfrage:
 - Custom Item
@@ -20,10 +25,20 @@ Item zur Geldabfrage:
 - Bei in die Handnehmen -> Ausgabe Zahlenwert über Aktionsleiste?
 
 
-Berechnung:
+# Berechnung:
 100 Groschen = 1 Taler
 
-1x pro tick checken, if scoreboard Groschen > 100 add 1 Taler, then remove 100 from Groschen
+--Veraltet-- 1x pro tick checken, if scoreboard Groschen > 100 add 1 Taler, then remove 100 from Groschen
+
+bei currency_add_money.mcfunction wird mit macro ein start Wert und der Loot Wert übergeben
+der loot wird in total geschrieben, und dann in Taler und Groschen umgerechnet
+
+scoreboard players set _calculate Currency_total $(start)
+execute if score _calculate Currency_total matches 1 run scoreboard players add @s Currency_total $(loot)
+execute if score _calculate Currency_total matches 1 run scoreboard players operation @s Groschen = @s Total
+execute if score _calculate Currency_total matches 1 run scoreboard players operation @s Groschen %= _100 Groschen
+execute if score _calculate Currency_total matches 1 run scoreboard players operation @s Taler = @s Total
+....
 
 
 
