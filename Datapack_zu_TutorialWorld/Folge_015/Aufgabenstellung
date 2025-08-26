@@ -58,36 +58,36 @@ Return
     * data
         * currency
             * function
-                > currency_add_money.mcfunction
-                * currency_calculate.mcfunction
-                + currency_detect_click_wallet.mcfunction
-                + currency_give_wallet.mcfunction
-                > currency_init_scoreboard.mcfunction
-                > currency_remove_money.mcfunction
+                > add_money.mcfunction
+                * calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                > init_scoreboard.mcfunction
+                > remove_money.mcfunction
         * minecraft
             * tags
                 * function
                     > tick.json
 
-- Datei erstellen: currency_detect_click_wallet.mcfunction
+- Datei erstellen: detect_click_wallet.mcfunction
     + Wenn rechtscklick erkannt -> Tellraw Ausgabe von Taler und Groschen
     + detect auf 0 setzten
 
-- Datei erstellen: currency_give_wallet.json
+- Datei erstellen: give_wallet.json
     + give custom Item -> Wallet / Geldbeutet
 
-- Dateien bearbeiten: currency_add_money.mcfunction
+- Dateien bearbeiten: add_money.mcfunction
     + Werte werden als Object/Macro rein gegeben {loot:number}
 
-- Datei bearbeiten: currency_init_scoreboard.json
+- Datei bearbeiten: init_scoreboard.json
     + Remove
         > Detect_RClick_Wallet
     + Add
         > Detect_RClick_Wallet
 
-- Dateien bearbeiten: currency_remove_money.mcfunction
+- Dateien bearbeiten: remove_money.mcfunction
     + Werte werden als Object/Macro rein gegeben {loot:number}
     + Berechnung nur wenn Loot >= Total Wert
 
 - Datei Bearbeiten: minecraft -> tick.json
-    + Hinzufügen: "currency_detect_click_wallet"
+    + Hinzufügen: "detect_click_wallet"

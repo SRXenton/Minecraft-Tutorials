@@ -69,12 +69,12 @@ Return
     * data
         * currency
             * function
-                > currency_add_money.mcfunction
-                * currency_calculate.mcfunction
-                + currency_detect_click_wallet.mcfunction
-                + currency_give_wallet.mcfunction
-                > currency_init_scoreboard.mcfunction
-                > currency_remove_money.mcfunction
+                > add_money.mcfunction
+                * calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                > init_scoreboard.mcfunction
+                > remove_money.mcfunction
         * minecraft
             * tags
                 * function
@@ -82,12 +82,12 @@ Return
 
 # JSON, Bearbeiten: tick.json
 
-# Function, Bearbeiten: currency_add_money.mcfunction
+# Function, Bearbeiten: add_money.mcfunction
 
-# Function, Bearbeiten: currency_remove_money.mcfunction
+# Function, Bearbeiten: remove_money.mcfunction
 
-# Function, Bearbeiten: currency_init_scoreboard.mcfunction
+# Function, Bearbeiten: init_scoreboard.mcfunction
 
-# Function, Neu: currency_detect_click_wallet.mcfunction
+# Function, Neu: detect_click_wallet.mcfunction
 
-# Function, Neu: currency_give_wallet.mcfunction
+# Function, Neu: give_wallet.mcfunction
