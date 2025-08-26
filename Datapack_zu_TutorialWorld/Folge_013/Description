@@ -4,7 +4,7 @@
 
 - Titel: Minecraft Datapack Tutorial [1.21.6+] #013 - Weather + Random = Deep dive Execute (Wettersteuerung)
 
-- Video: preparing for record
+- Video: preparing for cut
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
@@ -28,7 +28,81 @@
 10. Zusammenfassung
 
 
+##
+## ============================================================================================================================================
+##
 
+## Links:
+
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Function:
+- https://de.minecraft.wiki/w/Befehl/function
+- https://de.minecraft.wiki/w/Funktion
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        + weather
+            + function
+                + init_scoreboard_weather.mcfunction    
+                + control_switch_weather.mcfunction     
+                + set_random.mcfunction
+                + to_rain.mcfunction
+                + to_clear.mcfunction
+
+
+# JSON, Bearbeiten: tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather"
+    ]
+}
+
+# Function, Neu: init_scoreboard_weather.mcfunction
+gamerule doWeatherCycle false
+
+scoreboard objectives remove WeatherCycle
+scoreboard objectives add WeatherCycle dummy
+
+scoreboard players set _nextWeatherClear WeatherCycle 0
+scoreboard players set _nextWeatherRain WeatherCycle 0
+scoreboard players set _isSwitch WeatherCycle 0
+
+# Function, Neu: control_switch_weather.mcfunction
+execute if score _nextWeatherRain WeatherCycle matches 1.. run scoreboard players remove _nextWeatherRain WeatherCycle 1
+execute if score _nextWeatherClear WeatherCycle matches 1.. if score _nextWeatherRain WeatherCycle matches 0 run scoreboard players remove _nextWeatherClear WeatherCycle 1
+
+execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run function weather:to_rain
+execute if score _nextWeatherClear WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 1 run function weather:to_clear
+
+execute if score _nextWeatherClear WeatherCycle matches 0 if score _nextWeatherRain WeatherCycle matches 0 run function weather:set_random
+
+# Function, Neu: set_random.mcfunction
+execute store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+execute store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+
+# Function, Neu: to_rain.mcfunction
+weather rain
+scoreboard players set _isSwitch WeatherCycle 1
+
+# Function, Neu: to_clear.mcfunction
+weather clear
+scoreboard players set _isSwitch WeatherCycle 0
 
 
 

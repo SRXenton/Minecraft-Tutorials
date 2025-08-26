@@ -36,13 +36,16 @@ Scoreboard:
 - DE: https://de.minecraft.wiki/w/Befehl/scoreboard
 
 # Datapack Strucktur:
-# (+) = Neu
-# (>) = Vorhanden/Bearbeiten
-- Main
-    - data
-        > minecraft
-            > tags
-                > function
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
                     > tick.json
         + weather
             + function
