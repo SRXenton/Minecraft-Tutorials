@@ -14,7 +14,7 @@ Neu:
         - Groschen 1/100 Taler -> 100 Groschen = 1 Taler
     Wenn 100 oder mehr Groschen im Scoreboard, dann umrechnen in Taler
     Berechnung Groschen zu Taler nur, wenn Wert im Scoreboard gesetzt
-    Loot / Währung wird als Macro übergeben
+    
 
 # Namesvorgaben
 Scoreboards:
@@ -60,7 +60,7 @@ Function:
     + Wert wird nur in Currency_Total geschrieben
     + Aufruf Calculate
 
-- Datei erstellen: calculate_groschen.mcfunction
+- Datei erstellen: calculate.mcfunction
     + Wert Groschen = Total
     + Wert Taler = Total
     + Groschen Modulo _100
