@@ -55,9 +55,31 @@ Function:
 
 
 # Function, Neu: currency_add_money.mcfunction
+scoreboard players add @a Currency_Total 123
+function currency:calculate
+
 
 # Function, Neu: currency_calculate.mcfunction
+scoreboard players operation @a Currency_Taler = @a Currency_Total
+scoreboard players operation @a Currency_Groschen = @a Currency_Total
+
+scoreboard players operation @a Currency_Groschen %= _100 Currency_Groschen
+scoreboard players operation @a Currency_Taler /= _100 Currency_Taler
+
 
 # Function, Neu: currency_init_scoreboard.mcfunction
+scoreboard objectives remove Currency_Total
+scoreboard objectives remove Currency_Taler
+scoreboard objectives remove Currency_Groschen
+
+scoreboard objectives add Currency_Total dummy
+scoreboard objectives add Currency_Taler dummy
+scoreboard objectives add Currency_Groschen dummy
+
+scoreboard players set _100 Currency_Taler 100
+scoreboard players set _100 Currency_Groschen 100
+
 
 # Function, Neu: currency_remove_money.mcfunction
+scoreboard players remove @a Currency_Total 123
+function currency:calculate
