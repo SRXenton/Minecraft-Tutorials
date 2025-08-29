@@ -1,0 +1,106 @@
+## 1. Questreihe -> siehe Brainstorming
+
+# Ablauf:
+Alt: Spieler spricht den Lagerverwalter an und bekommt den Text aus Folge_011 zu sehen, und bekommt eine Kohle in sein Inventar.
+
+Neu: Kohle durch Custom-Item ersetzen, mit dem Namen "Kohle für den Dorfschmied" und der Lore "Questgegenstand" und "Bringe die Kohle dem Dorfschmied".
+- Villager "Lagerveralter"
+    - Alt:
+        + give @ minecraft:coal 1
+    - Neu 
+        + give @ (custom Item)
+
+- Villager "Dorfschmied"   
+    - Neu: 
+        + Bei Erkennung Questitem: Dialog: "Danke dass du mir die Kohle gebracht hast. Ich habe in der Zwischenzeit in meinem Lager geschaut und habe noch dieses Schwert gefunden"
+        + Bei Ok / Schließen des Dialogs: Custom Item aus dem Inventar entfernen und Custom Schwert dem Spieler geben
+        + Questreihe abschließen -> scoreboard.
+
+- Villager (Alle)
+    - Neu:
+        + Anpassen der Abfragen des Questfortschrittes
+
+##
+##  !!!!!!!! Dialog markiert die Welt mit "Experimental Feature" (v1.21.6) !!!!!!!!
+##
+
+# Aktionen
+
+- Villager (Lagerverwalter)
+    + Mit Bestätigung (Ja) wir dem Spieler ein Custom Item gegeben.
+        > Item -> Stick
+        > Rarität -> Epic
+        > Stick -> Model Item: Chest
+        > Stick -> Name: "Paket für den Dorfschmied"
+        > Stick -> Beschreibung: Questgegenstande (FETT, Gelb)
+        > Stick -> Weiterer Beschreibung: "Ein Paket mit Kohle für den Dorfschmied"
+        > Stick -> Cutsom_data: tag="kfdds"
+    + Anpassen der Abfrage der NBT Daten
+
+- Villager (Dorfschmied)
+    + Erkennung: Inventar Questobjekt vorhanden
+    + Objekt NICHT vorhanden: Text: Hole bitte .... (Text aus Folge 011)
+    + Objekt vorhanden: action_dorfschmied.mcfunction
+    + Questobject entfernen
+    + Text: Dialog (Siehe Ablauf)
+    + Give Steinschwert mit Custom Daten: (Belohnung)
+        > Name: "Einfaches Schwert"
+        > Rarity: common
+        > Text/Lore: "Ein gewöhnliches einfaches Schwert."
+
+# Nötiges Wissen:
+- give mit Minecraft standart Item Folge 011, Custom-item (Neu / Diese Folge)
+- execute if/unless entity @ (Folge 006) mit NBT / Inventory (Folge 011)
+- clear (Neu)
+
+# Links:
+Give:
+- https://de.minecraft.wiki/w/Befehl/give
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+NBT:
+- https://de.minecraft.wiki/w/Gegenstandsdaten
+NBT: Inventory
+- https://de.minecraft.wiki/w/Technik:Inventar-Sensor_(Befehle)
+Clear:
+- https://de.minecraft.wiki/w/Befehl/clear
+Generator:
+- https://misode.github.io/dialog/
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/give-command-generator
+
+# Neue Datapack Struktur:
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + dialog
+                    > dorf1_dorfschmied30.json
+                + function
+                    + dialoge
+                        + dorfschmied
+                            > action_dorfschmied.mcfunction
+
+- Datei bearbeiten: action_lagerverwalter.mcfunction
+    + give Questitem von standart Kohle ändern auf Custom Item: Stick mit Custom Werten
+
+- Datei bearbeiten: dialog_lagerverwalter.mcfunction
+    + Entity NBT Daten Erkennung auf das Custom Item anpassen
+    + Questfortschritt Erkennung für Texte anpassen
+
+- Datei erstellen: dorf1_dorfschmied30.json
+    + dialog / json -> type: minecraft:notice
+
+- Datei erstellen: action_dorfschmied.mcfunction
+    + löschen des Questitems
+    + dialog -> dorf1_dorfschmied30.json
+    + give item Belohnung
+    + scoreboard Änderung
+
+- Datei bearbeiten: dialog_dorfschmied.mcfunction
+    + Erkennung Questitem und ausführen von action_dorfschmied
+    + Questfortschritt Erkennung für Texte anpassen
+
+- Datei bearbeiten: dialog_dorfvorsteher
+    + Questfortschritt Erkennung für Texte anpassen
+
