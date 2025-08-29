@@ -1,10 +1,10 @@
 ##
-## Beschreibung zu Folge 009: 
+## Beschreibung: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.6+] #010 - Questreihe - Teil 3
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #010 - Questreihe Teil 3 - Dialog + Tellraw beim Dorfschmied
 
-- Video: im Schnitt
+- Video: https://youtu.be/fk6EYd-9wx8
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
@@ -43,12 +43,14 @@ Dialog Generator:
 
 ##
 # Verwendete Befehle:
-- dialog
-- dialog mit dialog.json
-- tellraw
-- summon
-- execute if/unless
-- @e, @a -> score, distance, type
+- function (Folge 001)
+- execute if/unless entity (Execute in Folge 005)
+- Handling execute mit scores und fehlenden Eintrag im Scoreboard (Folge 008)
+- tellraw mit Farbe (Folge 008)
+- kill 
+- summon villager (Lagerverwalter)
+- dialog (Folge 008)
+- @e, @a -> score, distance, type 
 
 
 ##

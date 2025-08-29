@@ -2,9 +2,9 @@
 ## Beschreibung zu Folge 009: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.6+] #009 - Questreihe - Teil 2
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #009 - Questserie Teil 2 - Dialog + Tellraw mit Farbe
 
-- Video: im Schnitt
+- Video: https://youtu.be/L2mP2rpl13w
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
@@ -20,9 +20,10 @@
 4. Der Command Dialog
 5. Villager Wechsel von Tellraw auf Dialog
 6. Tellraw mit Farbe
-7. Summon mit Villager 
-8. Questfortschritt mit Scoreboard
-9. Zusammenfassung
+7. Summon mit Villager
+8. Villager Schmied ein Tellraw ausgeben lassen 
+9. Questfortschritt mit Scoreboard
+10. Zusammenfassung
 
 ##
 ## ============================================================================================================================================
@@ -42,9 +43,13 @@ Dialog Generator:
 - https://misode.github.io/dialog/
 
 ##
-# Verwendete Befehle, die ich erkläre:
+# Verwendete Befehle:
 - dialog
 - dialog mit dialog.json
+- execute unless/if entity
+- scoreboard
+- tellraw
+- summon villager (Dorfschmied)
 
 
 ##
