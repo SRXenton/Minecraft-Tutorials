@@ -5,6 +5,16 @@
 - Geld wird bei Questende ins Scoreboard überwiesen         --> Ändern Vorhandene Quest
 - Mobs können Geld droppen -> Wert im Scoreboard erhöhen    --> Später
 - Verkauf und Ankauf über Werte im Scoreboard               --> Später
+- function Aufruf mit Macros, Bsp: function gg {start:1,wert:123,womit:"hiermit"}
+- Berechnung nur wenn function Aufruf mit Macro, Bsp: function add {start:1, loot:345}
+-- scoreboard players set _calculate Geldbörse $(start)
+-- scoreboard players add @s Geldbörse $(loot)
+
+- function calculate ###### wird durch tick.json aufgerufen
+-- execute if score _calculate Geldbörse matches 1 run execute as @a[scores={Geldbörse=100..}] run scoreboard players add @s Taler 1
+-- execute if score _calculate Geldbörse matches 1 run execute as @a[scores={Geldvörse=100..}] run scoreboard players remove @s Geldbörse 100
+-- execute if score _calculate Geldbörse matches 1 run execute as @a[scores={Geldbörse=100..}] run function calculate ##### recursion
+-- scoreboard players set _calculate Geldbörse 0
 
 # Mögliche Folgen Titel:
 
@@ -21,7 +31,7 @@ Neu:
 
 # Aktionen
 # Nötiges Wissen:
-# Links:
+# Links:ü
 # Möglich Befehle:
 # Datapack Strucktur:
 # (+) = Neu

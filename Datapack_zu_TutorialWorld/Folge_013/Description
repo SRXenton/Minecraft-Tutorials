@@ -1,0 +1,123 @@
+##
+## Beschreibung zu Folge 013: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #013 - Weather + Random = Deep dive Execute (Wettersteuerung)
+
+- Video: https://youtu.be/J0xc5e6CbOY
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Eigene Wettersteuerung über Zufallszahlen und Scoreboard
+- Nebenziel: Deep dive Execute -> store result
+
+## Agenda im Video:
+
+1. Wieso kein Recap der Folge 012
+2. Was soll in dieser Folge entsehen?
+3. Gamerule: doWeatherCycle
+4. Der Befehl Weather
+5. execute im deep dive ? -> execute store result
+6. Der Befehl Random
+7. Store Result von Randomwerten
+8. Datapack fertigstellen
+9. Zusammenfassung
+
+
+##
+## ============================================================================================================================================
+##
+
+# Nötiges Wissen (Erklärung in Folge):
+- Gamerules: 
+    - doWeatherCycle    (Diese Folge)
+- weather clear/rain    (Diese Folge)
+- scoreboard            (Allgemein: Folge 005)
+    - objectives add/remove
+    - players set/remove
+- random value          (Diese Folge)
+- execute ... score     (Folge 005)
+- execute store result  (Diese Folge)
+
+
+## Wissen - Links:
+Scoreboard: 
+- DE: https://de.minecraft.wiki/w/Anzeigetafel
+- EN: https://minecraft.wiki/w/Scoreboard
+Spielregeln/Gamerules:
+- DE: https://de.minecraft.wiki/w/Spielregel
+- EN: https://minecraft.wiki/w/Game_rule
+Wetter Regeln:
+- EN: https://minecraft.wiki/w/Game_rule#doWeatherCycle
+Wetter:
+- EN: https://minecraft.wiki/w/Weather
+- EN https://minecraft.wiki/w/Commands/weather
+Scoreboard:
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        + weather
+            + function
+                + init_scoreboard_weather.mcfunction    
+                + control_switch_weather.mcfunction     
+                + set_random.mcfunction
+                + to_rain.mcfunction
+                + to_clear.mcfunction
+
+
+# JSON, Bearbeiten: tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather"
+    ]
+}
+
+# Function, Neu: init_scoreboard_weather.mcfunction
+gamerule doWeatherCycle false
+
+scoreboard objectives remove WeatherCycle
+scoreboard objectives add WeatherCycle dummy
+
+scoreboard players set _nextWeatherClear WeatherCycle 0
+scoreboard players set _nextWeatherRain WeatherCycle 0
+scoreboard players set _isSwitch WeatherCycle 0
+
+# Function, Neu: control_switch_weather.mcfunction
+execute if score _nextWeatherRain WeatherCycle matches 1.. run scoreboard players remove _nextWeatherRain WeatherCycle 1
+execute if score _nextWeatherClear WeatherCycle matches 1.. if score _nextWeatherRain WeatherCycle matches 0 run scoreboard players remove _nextWeatherClear WeatherCycle 1
+
+execute if score _nextWeatherRain WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 0 run function weather:to_rain
+execute if score _nextWeatherClear WeatherCycle matches 0 if score _isSwitch WeatherCycle matches 1 run function weather:to_clear
+
+execute if score _nextWeatherClear WeatherCycle matches 0 if score _nextWeatherRain WeatherCycle matches 0 run function weather:set_random
+
+# Function, Neu: set_random.mcfunction
+execute store result score _nextWeatherRain WeatherCycle run random value 120000..192000
+execute store result score _nextWeatherClear WeatherCycle run random value 1000..6000
+
+# Function, Neu: to_rain.mcfunction
+weather rain
+scoreboard players set _isSwitch WeatherCycle 1
+
+# Function, Neu: to_clear.mcfunction
+weather clear
+scoreboard players set _isSwitch WeatherCycle 0
+
+
