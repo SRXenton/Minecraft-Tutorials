@@ -1,0 +1,49 @@
+## Thema:
+# Gedanken
+
+Umzug von Localer Installation auf Server
+Serverversion: ????     1.21.9   ????
+Modded oder Vanilla Server?
+Vorrausetzungen:
+    - Server ist bereits installiert und läuft mit einer default Welt.
+    - Bei Modded Server, alle Mods schon vorhanden.
+
+# Mögliche Folgen Titel:
+
+- 1.21.6+ - Welt von lokalem Minecraft auf Server Minecraft bringen
+- 1.21.9+ - Umzug von Lokal auf Server
+
+# Aufgabenstellung:
+Alt: 
+    Minecraft und Adventure Welt sind Lokal gespeichert
+Neu:
+    Auf vorinstallierten Server, die Adventure Welt bringen, die Server Properties einstellen und Datapack ggf anpassen
+
+# Aktionen
+# Nötiges Wissen:
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
