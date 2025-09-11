@@ -1,0 +1,85 @@
+##
+## Beschreibung zu Folge 014: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #014 - Währung Teil 1 - Scoreboard Operations
+
+- Video: Preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Einführung: Währung 
+
+## Agenda zum Video:
+
+1. Was soll in der Folge entsehen?!
+2. Integer
+3. Scoreboard Opreations
+4. Wieso "_" und nicht "#"?
+5. Scoreboard initializierung
+6. Die Kalkulationen
+7. Duchtesten der Kalkulationen.
+8. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Function:
+- https://de.minecraft.wiki/w/Befehl/function
+- https://de.minecraft.wiki/w/Funktion
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        + currency
+            + function
+                + add_money.mcfunction
+                + calculate.mcfunction
+                + init_scoreboard.mcfunction
+                + remove_money.mcfunction
+
+
+# Function, Neu: add_money.mcfunction
+scoreboard players add @a Currency_Total 123
+function currency:calculate
+
+
+# Function, Neu: calculate.mcfunction
+scoreboard players operation @a Currency_Taler = @a Currency_Total
+scoreboard players operation @a Currency_Groschen = @a Currency_Total
+
+scoreboard players operation @a Currency_Groschen %= _100 Currency_Groschen
+scoreboard players operation @a Currency_Taler /= _100 Currency_Taler
+
+
+# Function, Neu: init_scoreboard.mcfunction
+scoreboard objectives remove Currency_Total
+scoreboard objectives remove Currency_Taler
+scoreboard objectives remove Currency_Groschen
+
+scoreboard objectives add Currency_Total dummy
+scoreboard objectives add Currency_Taler dummy
+scoreboard objectives add Currency_Groschen dummy
+
+scoreboard players set _100 Currency_Taler 100
+scoreboard players set _100 Currency_Groschen 100
+
+
+# Function, Neu: remove_money.mcfunction
+scoreboard players remove @a Currency_Total 123
+function currency:calculate

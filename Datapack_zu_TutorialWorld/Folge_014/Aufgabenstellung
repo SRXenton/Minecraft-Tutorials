@@ -1,0 +1,86 @@
+## Aufgabenstellung
+#
+#   Währung einführen Teil 1
+#
+
+# Zustandsänderung:
+Alt:
+    Keine Währung
+
+Neu:
+    Währung über das Scorebord
+    Einheiten:
+        - Taler
+        - Groschen 1/100 Taler -> 100 Groschen = 1 Taler
+    Wenn 100 oder mehr Groschen im Scoreboard, dann umrechnen in Taler
+    Berechnung Groschen zu Taler nur, wenn Wert im Scoreboard gesetzt
+    
+
+# Namesvorgaben
+Scoreboards:
+- Currency_Total dummy
+- Currency_Taler dummy
+- Currency_Groschen dummy 
+Init Werte:
+- _100 -> Currency_Groschen = 100
+- _100 -> Currency_Taler = 100
+
+
+
+# Nötiges Wissen:
+- scoreboard
+- Integer (JAVA)
+- function
+
+# Links:
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Function:
+- https://de.minecraft.wiki/w/Befehl/function
+- https://de.minecraft.wiki/w/Funktion
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        + currency
+            + function
+                + add_money.mcfunction
+                + calculate.mcfunction
+                + init_scoreboard.mcfunction
+                + remove_money.mcfunction
+
+- Dateien erstellen: add_money.mcfunction
+    + Werte sind fest
+    + Wert wird nur in Currency_Total geschrieben
+    + Aufruf Calculate
+
+- Datei erstellen: calculate.mcfunction
+    + Wert Groschen = Total
+    + Wert Taler = Total
+    + Groschen Modulo _100
+    + Taler Geteilt _100
+
+- Datei erstellen: init_scoreboard.json
+    + Remove
+        > Currency_Total
+        > Currency_Taler
+        > Currency_Groschen
+    + Add
+        > Currency_Total
+        > Currency_Taler
+        > Currency_Groschen
+    + Default:
+        > Currency_Taler -> _100 = 100
+        > Currency_Groschen -> _100 = 100
+
+
+- Dateien erstellen: remove_money.mcfunction
+    + Werte sind fest
+    + Loot Wert wird nur in Currency_Total geschrieben
+    + Aufruf Calculate
