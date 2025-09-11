@@ -1,0 +1,126 @@
+## Aufgabenstellung
+#
+#   Währung einführen
+#
+
+# Zustandsänderung:
+Alt:
+    Keine Währung
+
+Neu:
+    Währung über das Scorebord
+    Einheiten:
+        - Taler
+        - Groschen 1/100 Taler -> 100 Groschen = 1 Taler
+    Wenn 100 oder mehr Groschen im Scoreboard, dann umrechnen in Taler
+    Berechnung Groschen zu Taler nur, wenn Wert im Scoreboard gesetzt
+    Loot / Währung wird als Macro übergeben
+
+# Namesvorgaben
+Scoreboards:
+- Currency_Total dummy
+- Currency_Taler dummy
+- Currency_Groschen dummy 
+- Detect_RClick_Wallet minecraft.used -> minecrasft.warped_fungus_on_a_stick
+Init Werte:
+- _100 -> Currency_Groschen = 100
+- _100 -> Currency_Taler = 100
+
+
+
+# Nötiges Wissen:
+- summon ->> Folge 008
+- scoreboard
+- scoreboard mit minecraft.used -> minecrasft.warped_fungus_on_a_stick
+- tellraw ->> Folge 008, Farbiger Text ->> Folge 009, Scoreboardauswertung ->> NEu
+- JSON ->> Folge 003
+- execute if score
+- execute as
+- give custom item
+- Macros
+
+
+# Links:
+Generatoren
+- https://mcstacker.net/
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Function:
+- https://de.minecraft.wiki/w/Befehl/function
+- https://de.minecraft.wiki/w/Funktion
+Macros:
+- https://minecraft.wiki/w/Function_(Java_Edition)#Macros
+- https://de.minecraft.wiki/w/Funktion
+JSON:
+- https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+- DE: https://de.minecraft.wiki/w/JSON
+- EN: https://minecraft.wiki/w/JSON
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Return
+- https://minecraft.wiki/w/Commands/return
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        + currency
+            + function
+                + add_money.mcfunction
+                + calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                + init_scoreboard.mcfunction
+                + remove_money.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+
+- Dateien erstellen: add_money.mcfunction
+    + Werte werden als Object/Macro rein gegeben {loot:number}
+    + Loot Wert wird nur in Currency_Total
+    + Aufruf Calculate
+
+- Datei erstellen: calculate_groschen.mcfunction
+    + Wert Groschen = Total
+    + Wert Taler = Total
+    + Groschen Modulo _100
+    + Taler Geteilt _100
+
+- Datei erstellen: detect_click_wallet.mcfunction
+    + Wenn rechtscklick erkannt -> Tellraw Ausgabe von Taler und Groschen
+    + detect auf 0 setzten
+
+- Datei erstellen: give_wallet.json
+    + give custom Item -> Wallet / Geldbeutet
+
+- Datei erstellen: init_scoreboard.json
+    + Remove
+        > Currency_Total
+        > Currency_Taler
+        > Currency_Groschen
+        > Detect_RClick_Wallet
+    + Add
+        > Currency_Total
+        > Currency_Taler
+        > Currency_Groschen
+        > Detect_RClick_Wallet
+    + Default:
+        > Currency_Taler -> _100 = 100
+        > Currency_Groschen -> _100 = 100
+
+
+- Dateien erstellen: remove_money.mcfunction
+    + Berechnung nur wenn Loot >= Total Wert
+    + Werte werden als Object/Macro rein gegeben {loot:number}
+    + Loot Wert wird nur in Currency_Total
+    + Aufruf Calculate
+
+- Datei Bearbeiten: minecraft -> tick.json
+    + Hinzufügen: "detect_click_wallet"
