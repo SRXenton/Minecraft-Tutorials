@@ -1,0 +1,119 @@
+##
+## Beschreibung zu Folge 009: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #009 - Questserie Teil 2 - Dialog + Tellraw mit Farbe
+
+- Video: https://youtu.be/L2mP2rpl13w
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Villager ansprechen und ein Tellraw im Chat auslösen
+
+## Agenda zum Video:
+
+1. Recape Folge 008
+2. Was soll in der Folge entsehen?!
+4. Der Command Dialog
+5. Villager Wechsel von Tellraw auf Dialog
+6. Tellraw mit Farbe
+7. Summon mit Villager
+8. Villager Schmied ein Tellraw ausgeben lassen 
+9. Questfortschritt mit Scoreboard
+10. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Wissen - Links:
+ Dialog: DE: https://de.minecraft.wiki/w/Befehl/dialog // EN:https://minecraft.wiki/w/Commands/dialog
+Villager Generatoren
+- https://mcstacker.net/
+- https://www.gamergeeks.net/apps/minecraft/mob-generator/summon-villager  ///  https://www.gamergeeks.net/apps/minecraft/summon
+- https://www.digminecraft.com/generators/villager_trade.php
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Dialog
+- https://minecraft.wiki/w/Dialog
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+##
+# Verwendete Befehle:
+- dialog
+- dialog mit dialog.json
+- execute unless/if entity
+- scoreboard
+- tellraw
+- summon villager (Dorfschmied)
+
+
+##
+## ============================================================================================================================================
+##
+
+# Struktur erweitern
+
+- Datapack Struktur herstellen
+    + Main
+        + data
+            + quests_dorf1
+                + dialog
+                    > dorf1_dorfvorsteher1.json
+                + function
+                    + dialoge
+                        > dialoge_switch.mcfunction
+                        + dorfschmied
+                            > dialog_dorfschmied.mcfunction
+                    + entities
+                        > check_dorfschmied.mcfunction
+
+
+
+##
+## ============================================================================================================================================
+##
+
+# JSON: dialog > dorf1_dorfvorsteher1.json
+{
+    "type": "minecraft:confirmation",
+    "title": "Dorfvorsteher",
+    "body": {
+        "type": "minecraft:plain_message",
+        "contents": "Hallo Reisender, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Dorfschmied, ob er dir helfen kann.\n\nWenn du das erledigt hast, kommt nochmal bitte zu mir.\n\n\nMöchtest du die Quest annehmen? (Ja / Nein)"
+    },
+    "inputs": [],
+    "can_close_with_escape": true,
+    "after_action": "close",
+    "yes": {
+        "label": "Ja",
+        "action": {
+            "type": "minecraft:run_command",
+            "command": "scoreboard players set @s Quest_Dorfvorsteher 10"
+        }
+    },
+    "no": {
+        "label": "Nein"
+    }
+}
+
+# Funktion: dialoge_switch.mcfunction
+execute at @a[scores={Villager_Klick_Dorf1=1}] unless entity @a[scores={Quest_Dorfvorsteher=0..}] if entity @a[distance=..5] run scoreboard players set @a Quest_Dorfvorsteher 1
+
+execute at @e[type=villager,tag=dorf1_dorfvorsteher] if entity @a[distance=..5] run function quests_dorf1:dialoge/dorfvorsteher/dialog_dorfvorsteher
+execute at @e[type=villager,tag=dorf1_dorfschmied] if entity @a[distance=..5] run function quests_dorf1:dialoge/dorfschmied/dialog_dorfschmied
+
+
+
+scoreboard players set @a Villager_Klick_Dorf1 0
+
+# Function: dialog_dorfschmied.mcfunction
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10}] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Oh der Dorfvorsteher schickt dich zu mir, leider kann ich dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht."}]
+
+
+# Function: check_dorfschmied.mcfunction
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_dorfschmied] run summon villager 1779 66 235 {VillagerData:{type:plains,profession:weaponsmith,level:99},CustomName:[{text:Dorfschmied,bold:true}],Invulnerable:1b,NoAI:1b,NoGravity:1b,OnGround:1b,PersistenceRequired:1b,Rotation:[90f,0f],Tags:["dorf1","dorf1_dorfschmied"]}
