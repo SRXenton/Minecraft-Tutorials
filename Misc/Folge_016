@@ -1,0 +1,45 @@
+## Thema:
+# Gedanken
+- Erste Kampfquest
+- Quest startet beim Dorfvorsteher
+- Neues Gebäude Lagerhaus außerhalb der Stadt
+- Wieviele Mobs?
+- Endboss?
+- Standart Werte für Gegner oder eigene Werte?
+
+# Mögliche Folgen Titel:
+
+
+# Aufgabenstellung:
+Alt: 
+
+Neu:
+
+# Aktionen
+# Nötiges Wissen:
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction

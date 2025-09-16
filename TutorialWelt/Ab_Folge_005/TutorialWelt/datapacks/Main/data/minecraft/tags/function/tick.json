@@ -3,7 +3,11 @@
     "values": [
         "base:respawnpoint",
         "teleport:entities/entity_control",
+<<<<<<< HEAD
         "weather:control_switch_weather",
         "currency:detect_click_wallet"
+=======
+        "weather:control_switch_weather"
+>>>>>>> c479f494bb06908c11148025c26b8b7cfaf97021
     ]
 }
