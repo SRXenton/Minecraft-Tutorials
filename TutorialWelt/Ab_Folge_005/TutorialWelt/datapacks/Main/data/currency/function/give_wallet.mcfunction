@@ -1,0 +1,1 @@
+give @s minecraft:warped_fungus_on_a_stick[item_model="minecraft:bundle", custom_name="Geldbörse", custom_data={tag:"geldbeutel"}]
