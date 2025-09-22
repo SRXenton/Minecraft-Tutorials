@@ -1,0 +1,136 @@
+##
+## Beschreibung zu Folge 015: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #016 - 
+
+- Video: preparing for Cut
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Währung dynamische Änderung
+- Kontostand im formatiert im Chat ausgeben
+
+## Agenda zum Video:
+
+1. Recap Folge 015
+2. Was soll in der Folge entsehen?!
+3. Makros -> JSON
+4. Zurück ? -> Return erklärt
+5. Anpassen Add und Remove
+6. Give Custom Item
+7. Erkennung Rechtsklick
+8. Tellraw und Scoreboard
+9. Tellraw Formatierung
+10. Die Kalkulationen
+11. Duchtesten.
+12. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Give:
+- https://de.minecraft.wiki/w/Befehl/give
+Execute:
+- https://de.minecraft.wiki/w/Befehl/execute
+Generatoren
+- https://mcstacker.net/
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Macros:
+- https://minecraft.wiki/w/Function_(Java_Edition)#Macros
+- https://de.minecraft.wiki/w/Funktion
+JSON:
+- https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+- DE: https://de.minecraft.wiki/w/JSON
+- EN: https://minecraft.wiki/w/JSON
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Return
+- https://minecraft.wiki/w/Commands/return
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * currency
+            * function
+                > add_money.mcfunction
+                * calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                > init_scoreboard.mcfunction
+                > remove_money.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+
+# JSON, Bearbeiten: tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet"
+    ]
+}
+
+# Function, Bearbeiten: add_money.mcfunction
+$scoreboard players add @s Currency_Total $(loot)
+function currency:calculate
+
+# Function, Bearbeiten: remove_money.mcfunction
+$execute unless score @s Currency_Total matches $(loot).. run return fail
+$scoreboard players remove @s Currency_Total $(loot)
+function currency:calculate
+
+# Function, Bearbeiten: init_scoreboard.mcfunction
+scoreboard objectives remove Currency_Total
+scoreboard objectives remove Currency_Taler
+scoreboard objectives remove Currency_Groschen
+scoreboard objectives remove Detect_RClick_Wallet
+
+scoreboard objectives add Currency_Total dummy
+scoreboard objectives add Currency_Taler dummy
+scoreboard objectives add Currency_Groschen dummy
+scoreboard objectives add Detect_RClick_Wallet minecraft.used:minecraft.warped_fungus_on_a_stick
+
+scoreboard players set _100 Currency_Taler 100
+scoreboard players set _100 Currency_Groschen 100
+
+# Function, Neu: detect_click_wallet.mcfunction
+execute as @a[scores={Detect_RClick_Wallet=1..},nbt={SelectedItem:{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}}] run \
+tellraw @s \
+[\
+	{ "text":"\n" },\
+	{ "bold":true,"color":"gold","text":"Geldbeutel:"},\
+	{ "text":"\n" },\
+	{ "color":"gold","bold":false,"text":"Taler: "},\
+	{ "bold":false,"color":"yellow","score":{"name":"@s","objective":"Currency_Taler"}},\
+	{ "text":"\n" },\
+	{ "bold":false,"color":"gold","text":"Groschen: "},\
+    { "bold":false,"color":"yellow","score":{"name":"@s","objective":"Currency_Groschen"}},\
+	{ "text":"\n" }\
+]
+
+scoreboard players set @a Detect_RClick_Wallet 0
+
+# Function, Neu: give_wallet.mcfunction
+give @s minecraft:warped_fungus_on_a_stick[item_model="minecraft:bundle", custom_name="Geldbörse", custom_data={tag:"geldbeutel"}]
+

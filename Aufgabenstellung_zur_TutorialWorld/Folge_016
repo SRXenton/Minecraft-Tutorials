@@ -1,0 +1,169 @@
+## Thema: Quest Lagerhaus
+
+# Aufgabenstellung:
+Alt: 
+    Keine Folgequest vom Dorfvorsteher
+Neu:
+    Der Dorfvorsteher:
+        Gibt uns die Aufgabe in einem Lagerhaus außerhalb des Dorfes nach dem Rechten zu sehen
+        Text: 
+            Hallo Reisender, ich sehe du hast ein Schwert bekommen.
+            Kannst du mir bitte einen Gefallen tun?
+            Außerhalb des Dorfes in Richtung -- liegt ein Lagerhaus, irgendwas eigenartiges geht da vor sich.
+            Kannst du da bitte mal nach dem Rechten sehen?
+        Quest angenommen:
+            Text: Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!
+            Formatierung: Siehe Misc Brainstorming -> Farbkonzepte
+        Quest abgeschlossen:
+            Text: 
+                Was es war ein Zombie.....
+                Komm bitte später wieder....
+
+    Lagerhaus
+        Initialisierung Lagerhaus beim bzw. vorm betreten
+        Am Zaun - Spieler hat Quest:
+            Ja: Zugang Gewährt
+            Nein: Spieler wird Zurück teleportiert + Titel: Zugang verweigert !!
+        
+        Tür:
+            Titel mit Willkommensbotschaft: Willkommen im Dungeon: Lagerhaus
+
+        Falltür:
+            Erkennung Spieler, Spawn Mob
+        
+        Untergeschoss:
+            Bossmob: 
+                Name: Kadaver
+                Leben: 3 Herzen
+                Bei Tot:
+                    Titel: !! Quest erledigt !!
+                    Subtitel: Kehre bitte zum Dorfvorsteher zurück
+        
+    
+# Aktionen
+    Commandblock beim Lagerhaus: Repeat, always aktive, Aufruf: control_switch_quest_lagerhaus.mcfunction
+    
+
+# Nötiges Wissen:
+- kill
+- execute
+- summon
+- scoreboard
+- title
+- teleport
+- function
+- particle (Nur zum debuggen)
+
+# Links:
+Minecraft Wiki:
+    https://de.minecraft.wiki/
+
+Dialoggenrator:
+    https://misode.github.io/dialog/
+
+Mob Generator:
+    https://www.gamergeeks.net/apps/minecraft/mob-generator/
+    https://mcstacker.net/
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quest_dorf1
+            * function
+                * dialoge
+                    * dorfvorsteher
+                        + action60_dorfvorsteher.mcfunction
+                        > dialoge_dorfvorsteher.mcfunction
+                + lagerhaus
+                    + entry
+                        + not_permitted.mcfunction
+                        + permitted.mcfunction
+                    + init
+                        + init_doors.mcfunction
+                        + init_scoreboard.mcfunction
+                    + loot
+                        + loot_action.mcfunction
+                        + loot.mcfunction
+                    + mob
+                        + mob.mcfunction
+                    + detect_player.mcfunction
+                    + control_switch_quest_lagerhaus.mcfunction
+                    + set_marker.mcfunction
+
+### Dateien:
+
+## NEU:
+# detect_player.mcfunction
+Erkennt den Spieler beim:
+    - Zaun
+    - Türen
+    - Falltür
+
+# not_permitted.mcfunction
+Titel: Keinen Zugang, dark_red
+Teleport Spieler 2 Felder zurück
+
+# permitted.mcfunction
+Titel: Willkommen
+Scoreboard Quest Spieler Lagerhaus Stufe 10
+
+# loot_action.mcfunction
+Titel: Quest erledigt
+Subtitel: Kehre zum Dorfvorsteher zurück
+Scoreboard:
+    - Lagerhaus im Schritt 5
+    - Quest Spieler Dorfvorsteher Stufe 60
+    - Quest Spieler Lagerhaus Stufe 20
+
+# loot.mcfunction
+Erkennung: Boss wurde gerufen und besiegt, dann loot_action
+
+# mob.mcfunction
+Spawnt Zombie mit Max 3 Herzen
+Scoreboard mob spawn merken, Name: Kadaver
+
+# control_switch_quest_lagerhaus.mcfunction
+Initializiert den Dungeon:
+    - Scoreboard
+    - Marker
+    - Setzt Türen zurück
+
+Aufruf:
+    - detect_player
+    - loot
+
+Ggf: Debug Modus:
+    - Partikel bei Marker
+    - Scoreboard Display Sidebar
+
+# init_doors.mcfunction
+Setzt Redstone Fackeln bei den Türen/Marker und entfernt diese
+Lagerhaus im Schritt 2
+# init_scoreboard.mcfunction
+Objectiv: Quest_Dorf1_Lagerhaus remove/add
+Setzt Lagerhaus Stufe 0
+
+# set_marker.mcfunction
+Marker für:
+    - Gebiet(Border)
+    - Eingang Zaun
+    - Eingang Tür
+    - Bossmob Spawn
+    - Bossmob Erkennung Spieler
+    - Türen zurück setzen
+
+# action60_dorfvorsteher.mcfunction
+Tellraw: Text siehe Aufgabenstellung
+Quest_Dorf1_Dorfvorsteher 70
+
+## Bearbeiten
+# dialoge_dorfvorsteher.mcfunction
+Queststufe 40:
+    Dialog, confirmation
+    Text: Siehe Aufgabenstellung
+    Ja: Quest_Dorf1_Dorfvorsteher 50
+    Nein: Fenster schließen
