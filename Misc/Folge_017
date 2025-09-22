@@ -1,0 +1,81 @@
+## Thema:
+# Gedanken
+- Quest Bank
+- Bei der Bank Geldbeutel bekommen
+- Dorf 1 und Dorf2
+# Mögliche Folgen Titel:
+
+
+# Aufgabenstellung:
+Alt: 
+    Quest vom Dorfvorsteher, Überprüfe das Lagerhaus, es gibt kein Reward
+    Währung im Spiel aber noch keinen Geldbeutel
+Neu:
+    Wir bekommen eine kleine Menge an Geld für die Quest mit dem Lagerhaus
+    Müssen zur Bank, und können uns dort einen Geldbeutel geben lassen
+    Sollten wir den Geldbeutel verlieren, bekommen wir in Jeder Bank den Beutel wieder
+
+# Aktionen
+    Summon Villager (Bankier) Dorf 1 und Dorf 2
+    Dialog mit den Bankies
+    Nach Dialog Aufruf Function Gebe Geldbeutel
+
+# Nötiges Wissen:
+    Summon
+    Talk_To_Villager
+    Dialog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
