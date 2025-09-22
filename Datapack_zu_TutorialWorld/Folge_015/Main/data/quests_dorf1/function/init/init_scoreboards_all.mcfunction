@@ -1,0 +1,5 @@
+scoreboard objectives remove Villager_Klick_Dorf1
+scoreboard objectives add Villager_Klick_Dorf1 minecraft.custom:talked_to_villager
+
+scoreboard objectives remove Quest_Dorfvorsteher
+scoreboard objectives add Quest_Dorfvorsteher dummy

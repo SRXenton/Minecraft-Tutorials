@@ -1,0 +1,56 @@
+## Thema:
+# Gedanken
+- Villager laufen aus dem Gebiet des Dorfen
+- Zurückteleportieren bei erreichen der Grenze
+- Zentraler Punkt von nöten
+- Dorf 1 und Dorf2
+# Mögliche Folgen Titel:
+
+
+# Aufgabenstellung:
+Alt: 
+    Die Villager verlassen die Genzen des Dorfes
+Neu:
+    Villager zurück teleportieren, und sicherstellen, dass die Villager Gesundbleiben
+    (Anm: Schön Machen!!!)
+    
+
+# Aktionen
+    Erkennung Villager außerhalb der Grenze
+    Teleport
+    (Unsichtbatkeit/Heilung?)
+    Commandblock in der Mitte des Dorfes
+    Ort festlegen für Teleportationspunkt
+
+# Nötiges Wissen:
+    Teleport
+    Execute
+    data
+    function
+    Macros / Argumente
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        + village_villager_protect
+            + function
+                + action.mcfunction
+                + check.mcfunction
+
+### Dateien:
+
+## NEU:
+# action.mcfunction {x,y,z,d1,d2}
+- Teleport
+- health?
+- Unsichtbar?
+
+# check.mcfunction {x,y,z}
+- Positionsprüfung der Villager, vom Commandblock aus
+- Aufrufen der action.mcfunction

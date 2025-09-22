@@ -2,9 +2,9 @@
 ## Beschreibung zu Folge 015: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.6+] #015 - Währung Teil 2 -  
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #015 - Währung Teil 2 - Chatausgabe mit Custom Item
 
-- Video: Preparing for record
+- Video: https://youtu.be/eq203LHvLwQ
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
@@ -81,13 +81,56 @@ Return
                     > tick.json
 
 # JSON, Bearbeiten: tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet"
+    ]
+}
 
 # Function, Bearbeiten: add_money.mcfunction
+$scoreboard players add @s Currency_Total $(loot)
+function currency:calculate
 
 # Function, Bearbeiten: remove_money.mcfunction
+$execute unless score @s Currency_Total matches $(loot).. run return fail
+$scoreboard players remove @s Currency_Total $(loot)
+function currency:calculate
 
 # Function, Bearbeiten: init_scoreboard.mcfunction
+scoreboard objectives remove Currency_Total
+scoreboard objectives remove Currency_Taler
+scoreboard objectives remove Currency_Groschen
+scoreboard objectives remove Detect_RClick_Wallet
+
+scoreboard objectives add Currency_Total dummy
+scoreboard objectives add Currency_Taler dummy
+scoreboard objectives add Currency_Groschen dummy
+scoreboard objectives add Detect_RClick_Wallet minecraft.used:minecraft.warped_fungus_on_a_stick
+
+scoreboard players set _100 Currency_Taler 100
+scoreboard players set _100 Currency_Groschen 100
 
 # Function, Neu: detect_click_wallet.mcfunction
+execute as @a[scores={Detect_RClick_Wallet=1..},nbt={SelectedItem:{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}}] run \
+tellraw @s \
+[\
+	{ "text":"\n" },\
+	{ "bold":true,"color":"gold","text":"Geldbeutel:"},\
+	{ "text":"\n" },\
+	{ "color":"gold","bold":false,"text":"Taler: "},\
+	{ "bold":false,"color":"yellow","score":{"name":"@s","objective":"Currency_Taler"}},\
+	{ "text":"\n" },\
+	{ "bold":false,"color":"gold","text":"Groschen: "},\
+    { "bold":false,"color":"yellow","score":{"name":"@s","objective":"Currency_Groschen"}},\
+	{ "text":"\n" }\
+]
+
+scoreboard players set @a Detect_RClick_Wallet 0
 
 # Function, Neu: give_wallet.mcfunction
+give @s minecraft:warped_fungus_on_a_stick[item_model="minecraft:bundle", custom_name="Geldbörse", custom_data={tag:"geldbeutel"}]
+
