@@ -22,7 +22,7 @@ Install:
 
 Download von Github: https://github.com/SRXenton/Minecraft-Weather-Control
 
-Download von meiner Website: comming soon
+Download von meiner Website: https://youtu.be/gCr6tE1-Xog
 
 
 Installationpfad: 

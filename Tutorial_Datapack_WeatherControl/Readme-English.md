@@ -2,7 +2,7 @@ This is the tutorial for my Datapack Weather Control.
 
 You find it, here on Github: https://github.com/SRXenton/Minecraft-Weather-Control
 
-Youtube - Videotutorial: comming soon
+Youtube - Videotutorial: https://youtu.be/gCr6tE1-Xog
 
 ----------------------------------------------------------------
 
