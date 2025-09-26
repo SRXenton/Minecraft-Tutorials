@@ -1,12 +1,16 @@
+# Entferne Scoreboards
 scoreboard objectives remove Currency_Total
 scoreboard objectives remove Currency_Taler
 scoreboard objectives remove Currency_Groschen
 scoreboard objectives remove Detect_RClick_Wallet
 
+# Füge manuelle Scorebords hinzu
 scoreboard objectives add Currency_Total dummy
 scoreboard objectives add Currency_Taler dummy
 scoreboard objectives add Currency_Groschen dummy
+# Füge Bedingtes Scoreboard hinzu, Änderungen passieren automatisch bei Benutzung (Rechts Click) von einem warped_fungus_on_a_stick
 scoreboard objectives add Detect_RClick_Wallet minecraft.used:minecraft.warped_fungus_on_a_stick
 
+# Setze in den Scoreboards die Fake Player _100 auf 100
 scoreboard players set _100 Currency_Taler 100
 scoreboard players set _100 Currency_Groschen 100
