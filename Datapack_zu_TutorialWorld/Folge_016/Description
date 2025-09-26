@@ -1,33 +1,21 @@
 ##
-## Beschreibung zu Folge 015: 
+## Beschreibung zu Folge 016: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.6+] #016 - 
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #016 - Wir erstellen ein Dungeon - Teil 1
 
-- Video: preparing for Cut
+- Video: preparing for public
 
 - Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
 
 
 ## Ziel der Folge:
 
-- Währung dynamische Änderung
-- Kontostand im formatiert im Chat ausgeben
+- Erstellung eines Dungeon
 
 ## Agenda zum Video:
 
-1. Recap Folge 015
-2. Was soll in der Folge entsehen?!
-3. Makros -> JSON
-4. Zurück ? -> Return erklärt
-5. Anpassen Add und Remove
-6. Give Custom Item
-7. Erkennung Rechtsklick
-8. Tellraw und Scoreboard
-9. Tellraw Formatierung
-10. Die Kalkulationen
-11. Duchtesten.
-12. Zusammenfassung und Ausblick
+1. Keine Agenda kein Recap
 
 ##
 ## ============================================================================================================================================
@@ -35,26 +23,15 @@
 
 ## Links:
 
-Give:
-- https://de.minecraft.wiki/w/Befehl/give
-Execute:
-- https://de.minecraft.wiki/w/Befehl/execute
-Generatoren
-- https://mcstacker.net/
-Scoreboard:
-- EN: https://minecraft.wiki/w/Scoreboard
-- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
-Macros:
-- https://minecraft.wiki/w/Function_(Java_Edition)#Macros
-- https://de.minecraft.wiki/w/Funktion
-JSON:
-- https://de.wikipedia.org/wiki/JavaScript_Object_Notation
-- DE: https://de.minecraft.wiki/w/JSON
-- EN: https://minecraft.wiki/w/JSON
-Tellraw
-- https://de.minecraft.wiki/w/Befehl/tellraw
-Return
-- https://minecraft.wiki/w/Commands/return
+Minecraft Wiki:
+    https://de.minecraft.wiki/
+
+Dialoggenrator:
+    https://misode.github.io/dialog/
+
+Mob Generator:
+    https://www.gamergeeks.net/apps/minecraft/mob-generator/
+    https://mcstacker.net/
 
 
 
