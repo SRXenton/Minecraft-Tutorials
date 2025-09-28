@@ -1,0 +1,102 @@
+## Aufgabenstellung
+#
+#   Quest: Queldbeutel bekommen
+#
+Alt: 
+    Quest vom Dorfvorsteher, Überprüfe das Lagerhaus, es gibt kein Reward
+    Währung im Spiel aber noch keinen Geldbeutel
+Neu:
+    Wir bekommen eine kleine Menge an Geld für die Quest mit dem Lagerhaus
+    Müssen zur Bank, und können uns dort einen Geldbeutel geben lassen
+    Sollten wir den Geldbeutel verlieren, bekommen wir in Jeder Bank den Beutel wieder
+
+# Aktionen
+    Summon Villager (Bankier) Dorf 1 und Dorf 2
+    Dialog mit den Bänker
+    Nach Dialog Aufruf Function Gebe Geldbeutel (Folge 014/015 - Währung)
+
+# Nötiges Wissen:
+- Summon (Folge 006)
+- Talk_To_Villager (Folge 008)
+- Dialog (Folge 009)
+
+
+# Links:
+Generatoren
+- https://mcstacker.net/
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * currency
+            * function
+                > add_money.mcfunction
+                * calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                > init_scoreboard.mcfunction
+                > remove_money.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
