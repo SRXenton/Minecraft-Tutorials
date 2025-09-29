@@ -7,11 +7,11 @@ Alt:
     Währung im Spiel aber noch keinen Geldbeutel
 Neu:
     Wir bekommen eine kleine Menge an Geld für die Quest mit dem Lagerhaus
-    Müssen zur Bank, und können uns dort einen Geldbeutel geben lassen
+    Müssen zu einer Bank, und können uns dort einen Geldbeutel geben lassen
     Sollten wir den Geldbeutel verlieren, bekommen wir in Jeder Bank den Beutel wieder
 
 # Aktionen
-    Summon Villager (Bankier) Dorf 1 und Dorf 2
+    Summon Villager (Bänker) Dorf 1 und Dorf 2
     Dialog mit den Bänker
     Nach Dialog Aufruf Function Gebe Geldbeutel (Folge 014/015 - Währung)
 
@@ -19,7 +19,8 @@ Neu:
     Dialog:
         Titel: Bänker
         Type: Confirmation
-        Text: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.\n\n\nWas du hast keinen.....?
+        Text: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.
+            Was du hast keinen.....?
             Möchtest du einen Geldbeutel haben? (Ja / Nein)
         JA: run_command: function currency:give_wallet
         NEIN: Fenster schließen ohne aktion
@@ -31,7 +32,10 @@ Neu:
 - Summon (Folge 006)
 - Talk_To_Villager (Folge 008)
 - Dialog (Folge 009)
-
+- Scoreboard (Folge 005, Talk_To_Villager Folge 008)
+- execute (Fast in jeder Folge ab 005)
+- NBT (Folge 011)
+- Tellraw (Folge 008)
 
 # Links:
 Generatoren
