@@ -15,6 +15,18 @@ Neu:
     Dialog mit den Bänker
     Nach Dialog Aufruf Function Gebe Geldbeutel (Folge 014/015 - Währung)
 
+# Texte:
+    Dialog:
+        Titel: Bänker
+        Type: Confirmation
+        Text: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.\n\n\nWas du hast keinen.....?
+            Möchtest du einen Geldbeutel haben? (Ja / Nein)
+        JA: run_command: function currency:give_wallet
+        NEIN: Fenster schließen ohne aktion
+    
+    Tellraw: Farbgebung: Siehe Brainstorming
+        Text: Bänker: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.
+        
 # Nötiges Wissen:
 - Summon (Folge 006)
 - Talk_To_Villager (Folge 008)
@@ -36,67 +48,50 @@ Dialog Generator:
 
 * Main
     * data
-        * currency
+        * bank
             * function
-                > add_money.mcfunction
-                * calculate.mcfunction
-                + detect_click_wallet.mcfunction
-                + give_wallet.mcfunction
-                > init_scoreboard.mcfunction
-                > remove_money.mcfunction
+                + dialog
+                    + baenker.mcfunction
+                + entities
+                    + check_entity.mcfunction
+                + control_bank.mcfunction
+                + init_bank.mcfunction
+        * quest_dorf1
+            * function
+                *dialoge
+                    > action60_dorfvorsteher.mcfunction
+                    > dorfvorsteher.mcfunction
         * minecraft
             * tags
                 * function
                     > tick.json
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Links:
-# Möglich Befehle:
-# Datapack Strucktur:
-# (+) = Neu
-# (>) = Bearbeiten
-# (-) = Entfernen
-# (*) = Alt/Vorhanden
-* Main
-    * data
-        * minecraft
-            * tags
-                * function
-                    > tick.json     >> Bearbeiten
-        + weather
-            + function
-                + beispiel1.mcfunction    >> Neu
-                - beispiel2.mcfunction     >> Entfernen
-
 ### Dateien:
 
 ## NEU:
-# beispiel.mcfunction
+# baenker.mcfunction
+    Erkennung Wenn Rechtsgeklickt
+    Wenn "Geldbeutel" im Inventar -> Tellraw
+    Wenn "Geldbeutel" NICHT im Inventar -> Dialog
+# check_entity.mcfunction
+    Erkennung Villager existiert
+        Wenn nicht, neuen Spawnen
+            Name: Bänker
+            Beruf: Karthograf
+            Handel: Nein
+            Tags: bank, bank_baenker
+    Koordinaten und Rotation über Macro
+    Wird aufgerufen durch Commandblock
+# control_bank.mcfunction
+    Aufruf: Dialog/banker.mcfunction
+        Wenn:
+            Spieler Abstand bis 3 Blöcken
+# init_bank.mcfunction
+    Scoreboard Add/Remove - Villager_Klick_Bank: talk_to_villager
 
 
 ## Bearbeiten: 
 # tick.json beispiel.mcfunction
+# action60_dorfvorsteher.mcfunction
+# dorfvorsteher.mcfunction
