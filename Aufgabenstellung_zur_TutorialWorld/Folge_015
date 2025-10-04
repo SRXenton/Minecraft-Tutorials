@@ -1,0 +1,93 @@
+## Aufgabenstellung
+#
+#   Währung einführen Teil 2
+#
+
+# Zustandsänderung:
+Alt:
+    Währung vorhanden, keine Dynamische Änderung möglich
+    Kann nur über Sidebar angezeigt werden
+
+Neu:
+    Dynamische Eingaben über Macros
+    Custom Item (Geldbeutel): Zeigt bei Rechtsklick im Chat(Formatiert) den Kontostand an
+
+# Namesvorgaben
+Scoreboards:
+- Detect_RClick_Wallet minecraft.used -> minecraft.warped_fungus_on_a_stick
+
+
+# Nötiges Wissen:
+- scoreboard mit minecraft.used -> minecrasft.warped_fungus_on_a_stick
+- tellraw ->> Folge 008, Farbiger Text ->> Folge 009, Scoreboardauswertung ->> Neu
+- JSON ->> Folge 003
+- execute if/unless score
+- give custom item
+- Macros
+- return
+
+# Links:
+Generatoren
+- https://mcstacker.net/
+Scoreboard:
+- EN: https://minecraft.wiki/w/Scoreboard
+- DE: https://de.minecraft.wiki/w/Befehl/scoreboard
+Function:
+- https://de.minecraft.wiki/w/Befehl/function
+- https://de.minecraft.wiki/w/Funktion
+Macros:
+- https://minecraft.wiki/w/Function_(Java_Edition)#Macros
+- https://de.minecraft.wiki/w/Funktion
+JSON:
+- https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+- DE: https://de.minecraft.wiki/w/JSON
+- EN: https://minecraft.wiki/w/JSON
+Tellraw
+- https://de.minecraft.wiki/w/Befehl/tellraw
+Return
+- https://minecraft.wiki/w/Commands/return
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * currency
+            * function
+                > add_money.mcfunction
+                * calculate.mcfunction
+                + detect_click_wallet.mcfunction
+                + give_wallet.mcfunction
+                > init_scoreboard.mcfunction
+                > remove_money.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+
+- Datei erstellen: detect_click_wallet.mcfunction
+    + Wenn rechtscklick erkannt -> Tellraw Ausgabe von Taler und Groschen
+    + detect auf 0 setzten
+
+- Datei erstellen: give_wallet.json
+    + give custom Item -> Wallet / Geldbeutet
+
+- Dateien bearbeiten: add_money.mcfunction
+    + Werte werden als Object/Macro rein gegeben {loot:number}
+
+- Datei bearbeiten: init_scoreboard.json
+    + Remove
+        > Detect_RClick_Wallet
+    + Add
+        > Detect_RClick_Wallet
+
+- Dateien bearbeiten: remove_money.mcfunction
+    + Werte werden als Object/Macro rein gegeben {loot:number}
+    + Berechnung nur wenn Loot >= Total Wert
+
+- Datei Bearbeiten: minecraft -> tick.json
+    + Hinzufügen: "detect_click_wallet"
