@@ -64,7 +64,7 @@ Dialog Generator:
             * function
                 *dialoge
                     > action60_dorfvorsteher.mcfunction
-                    > dorfvorsteher.mcfunction
+                    > dialog_dorfvorsteher.mcfunction
         * minecraft
             * tags
                 * function
@@ -97,5 +97,9 @@ Dialog Generator:
 
 ## Bearbeiten: 
 # tick.json beispiel.mcfunction
+    Weiterer Aufruf: control_bank
 # action60_dorfvorsteher.mcfunction
-# dorfvorsteher.mcfunction
+    Queststufe Quest_Dorfvorsteher beim Spieler auf 70
+    Aufruf add_money mit loot:100
+# dialog_dorfvorsteher.mcfunction
+    Tellraw zu Dialog, mit Aufruf bei JA: action60_dorfvorsteher
