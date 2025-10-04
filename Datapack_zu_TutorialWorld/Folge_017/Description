@@ -1,0 +1,349 @@
+##
+## Beschreibung zu Folge 017: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #017 - Wir erstellen ein Dungeon - Teil 2
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+## !!!!!!!!!!!!!!!!!!!!!!
+## Anmerkung
+## !!!!!!!!!!!!!!!!!!!!!!
+
+Die Aufnahme der Folge 16 hat nach dem Schnitt eine Folgenlänge von ca 1,5 Stunden ergeben.
+Ich habe diese zwei geteilt.
+Als Bonus, ist trotzdem das komplette Datapack von jetzt, in Folge 016 und 017, in beiden Github Branches vorhanden.
+
+
+## Ziel der Folge:
+
+- Erstellung eines Dungeon
+
+## Agenda zum Video:
+
+1. Keine Agenda kein Recap
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+    https://de.minecraft.wiki/
+
+Dialoggenrator:
+    https://misode.github.io/dialog/
+
+Mob Generator:
+    https://www.gamergeeks.net/apps/minecraft/mob-generator/
+    https://mcstacker.net/
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * quest_dorf1
+            * function
+                * dialoge
+                    * dorfvorsteher
+                        + action60_dorfvorsteher.mcfunction
+                        > dialoge_dorfvorsteher.mcfunction
+                + lagerhaus
+                    + entry
+                        + not_permitted.mcfunction
+                        + permitted.mcfunction
+                    + init
+                        + init_doors.mcfunction
+                        + init_scoreboard.mcfunction
+                    + loot
+                        + loot_action.mcfunction
+                        + loot.mcfunction
+                    + mob
+                        + mob.mcfunction
+                    + detect_player.mcfunction
+                    + control_switch_quest_lagerhaus.mcfunction
+                    + set_marker.mcfunction
+
+## Function, Bearbeiten: dialoge_dorfvorsteher.mcfunction
+# Zeige jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 1 ist, an
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] quests_dorf1:dorf1_dorfvorsteher1
+
+# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher >= 10 und <= 39 ist, aus
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+
+# Gib einen Dialog bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 40 ist, aus
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich sehe du hast ein Schwert bekommen.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Kannst du mir bitte einen Gefallen tun?\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Außerhalb des Dorfes in Richtung Osten liegt ein Lagerhaus, irgendwas eigenartiges geht da vor sich.\n"\
+                },\
+                {\
+                    "text": "Kannst du da bitte mal nach dem Rechten sehen?\n"\
+                },\
+                {\
+                    "text": "\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "scoreboard players set @s Quest_Dorfvorsteher 50"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein"\
+    }\
+}
+
+# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 50, aus
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
+
+# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 60, aus
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] \
+    [\
+        {"color":"gold","text":"Dorfvorsteher: "},\
+        {"color":"yellow","text":"Was es war ein Zombie.....\n"},\
+        {"color":"yellow","text":"\n"},\
+        {"color":"yellow","text":"Komm bitte später wieder....!\n"},\
+        {"color":"yellow","text":"\n"}\
+    ]
+
+
+
+### -------------------------
+## Function, Neu: action60_dorfvorsteher.mcfunction
+## LEER - Wird doch erst in einer späteren Folge benötigt##
+
+### -------------------------
+## Function, Neu: not_permitted.mcfunction
+# Gib aus den Titel bei der Entity, die die Function aufruft
+title @s title {"text":"!! Kein Zutritt !!", "color":"dark_red"}
+
+# Teleportiert die Entity, die die Function aufruft in Z um 2 Blöcken von seiner Position
+teleport @s ~ ~ ~2
+
+
+
+
+
+### -------------------------
+## Function, Neu: permitted.mcfunction
+# Gib aus den Titel bei der Entity, die die Function aufruft
+title @s title "Willkommen im Dungeon: Lagerhaus"
+# Setze die Entity den Wert im Scoreboard auf 10, bei der Entity, die die Function aufruft
+scoreboard players set @s Quest_Dorf1_Lagerhaus 10
+# Setze den Fake Spieler den Wert im Scoreboard auf 10
+scoreboard players set _init Quest_Dorf1_Lagerhaus 10
+
+
+
+### -------------------------
+## Function, Neu: init_doors.mcfunction
+## Aubauf Init Doors
+# Wenn _counter_0_to_20 in Global_Variables 0 dann:
+#   - Setze bei der jedem Marker für die Fackel einen Wall-Fackel mit Ausrichtung Norden
+#   - Setzt den _init im Quest_Dorf1_Lagerhaus auf 1
+
+# Wenn _counter_0_to_20 in Global_Variables 3 dann:
+#   - Setze bei der jedem Marker für die Fackel einen Air Block
+#   - Setzt den _init im Quest_Dorf1_Lagerhaus auf 2
+
+# Führe aus, wenn der Fake Spieler im Scoreboard einen Wert = 0 hat, bei jeder Entity mit dem Tag, den Befehl Setblock mit den Block Werten
+execute at @e[tag=dorf1_lagerhaus_marker_rt] if score _counter_0_to_20 Global_Variables matches 0 if score _init Quest_Dorf1_Lagerhaus matches 0 run setblock ~ ~ ~ minecraft:redstone_wall_torch[facing=north] replace
+# Führe aus, wenn der Fake Spieler im Scoreboard einen Wert = 0 hat, setze den Fake Spieler im Scoreboard auf 1
+execute at @e[tag=dorf1_lagerhaus_marker_rt] if score _counter_0_to_20 Global_Variables matches 0 if score _init Quest_Dorf1_Lagerhaus matches 0 run scoreboard players set _init Quest_Dorf1_Lagerhaus 1
+
+# Führe aus, wenn der Fake Spieler im Scoreboard einen Wert = 3 hat, bei jeder Entity mit dem Tag, den Befehl Setblock
+execute at @e[tag=dorf1_lagerhaus_marker_rt] if score _counter_0_to_20 Global_Variables matches 3 if score _init Quest_Dorf1_Lagerhaus matches 1 run setblock ~ ~ ~ air replace
+# Führe aus, wenn der Fake Spieler im Scoreboard einen Wert = 0 hat, setze den Fake Spieler im Scoreboard auf 2
+execute at @e[tag=dorf1_lagerhaus_marker_rt] if score _counter_0_to_20 Global_Variables matches 3 if score _init Quest_Dorf1_Lagerhaus matches 1 run scoreboard players set _init Quest_Dorf1_Lagerhaus 2
+
+
+
+
+### -------------------------
+## Function, Neu: init_scoreboard.mcfunction
+## Init scoreboard und Entferne alle nicht benötigten Elemente
+# Entfert die Entity mit dem Tag
+kill @e[tag=dorf1_lagerhaus_mob_boss]
+# Fürt aus, bei der Entity mit dem Tag, den Command Entfent alle Entities mit dem Typ bis zu der Distanz
+execute at @e[tag=dorf1_lagerhaus_marker_mob_boss] run kill @e[type=item, distance=..5]
+
+# Enfert das Scoreboard
+scoreboard objectives remove Quest_Dorf1_Lagerhaus
+# Füge das manulle Scoreboard hinzu
+scoreboard objectives add Quest_Dorf1_Lagerhaus dummy
+
+# Setze den Fake Spieler in dem Scoreboard auf 0
+scoreboard players set _init Quest_Dorf1_Lagerhaus 0
+
+
+
+
+
+### -------------------------
+## Function, Neu: loot_action.mcfunction
+## Titel und Scoreboard Werte setzen
+# Setze den Subtitle bei der Entity, die die Function ausführt
+title @s subtitle {text:"Kehre bitte zum Dorfvorsteher zurück !"}
+# Gib den Title bei der Entity aus, die die Function ausführt
+title @s title {text:"!! Quest abgeschlossen !!", color:"yellow"}
+# Setze den Scoreboard Wert bei der Entity, die die Function ausführt, auf 20
+scoreboard players set @s Quest_Dorf1_Lagerhaus 20
+# Setze den Scoreboard Wert bei der Entity, die die Function ausführt, auf 60
+scoreboard players set @s Quest_Dorfvorsteher 60
+
+
+
+
+### -------------------------
+## Function, Neu: loot.mcfunction
+## Erkennung Boss Mob erledigt
+# Führe aus als der Spieler mit dem Scoreboard Wert = 10, wenn der Boss gepawnt wurde und nicht mehr existiert, die Function
+# Führe aus, als jeder Spieler mit dem Scoreboard Wert = 10, wenn der Scoreboard Wert beim Fake Player = 1, und wenn nicht jede Entity mit dem Tag, die Function
+execute as @a[scores={Quest_Dorf1_Lagerhaus=10}] if score _isBoss Quest_Dorf1_Lagerhaus matches 1 unless entity @e[tag=dorf1_lagerhaus_mob_boss] run function quests_dorf1:lagerhaus/loot/loot_action
+
+
+
+### -------------------------
+## Function, Neu: mob.mcfunction
+## Erzeuge Boss Mob
+
+# Führe aus, bei jeder Entity mit dem Tag, den Command Spawne Entity an der Position mit diesen NBT Daten
+execute at @e[tag=dorf1_lagerhaus_marker_mob_boss] run summon zombie_villager ~ ~ ~ {VillagerData:{type:plains,profession:farmer,level:99},Tags:["dorf1_lagerhaus_mob","dorf1_lagerhaus_mob_boss"],CustomName:[{text:Kadaver}],Health:6,attributes:[{id:max_health,base:6f}]}
+
+# Setze beim Fake Player den Wert im Scoreboard
+scoreboard players set _isBoss Quest_Dorf1_Lagerhaus 1
+
+
+
+### -------------------------
+## Function, Neu: detect_player.mcfunction
+
+## Spielererkennung
+
+## Initializieren
+# Init Türen wenn kein Spieler mehr im Dungeon, der _init Scoreboard Wert 0 oder 1 ist, in einem Bereich beginnend beim Marker Border im Delta von X,Y,Z
+# Führe aus, bei jeder Entity mit dem Tag, und wenn der Scoreboard Wert >= 0 und <= 1, und wenn nicht jede Entity im Bereich (Delta X,Y,Z), rufe die function auf
+execute at @e[tag=dorf1_lagerhaus_marker_border] if score _init Quest_Dorf1_Lagerhaus matches 0..1 unless entity @a[dx=10,dy=9,dz=18] run function quests_dorf1:lagerhaus/init/init_doors
+
+# Init Scoreboard, wenn ein Spieler im Eingangsbereich ist, der Dungeon an den Türen Betreten wurde, und sich kein Spieler in einem Bereich beginnend beim Marker Border im Delta von X,Y,Z befindet
+# Führe aus, bei jeder Entity mit dem Tag, und wenn der Scoreboard Wert >= 0 und <= 1, und wenn nicht jede Entity im Bereich (Delta X,Y,Z), rufe die function auf
+execute at @e[tag=dorf1_lagerhaus_marker_border] \
+    unless entity @a[dx=10,dy=9,dz=16] \
+        if score _init Quest_Dorf1_Lagerhaus matches 10.. \
+            at @e[tag=dorf1_lagerhaus_marker_zaun] \
+                if entity @a[dx=-4,dy=5] \
+                    run function quests_dorf1:lagerhaus/init/init_scoreboard
+
+                    
+## Aktionen
+# Erkenne den Spieler der durch das Tor am Zaun gehen will, in dem Bereich (Delta X,Y) beginnend beim Marker, wenn er nicht den Scoreboard Wert von 50 hat, dann führe die Function aus
+# Führe aus, bei der Entity mit dem Tag, als die jeder Spieler im Bereich (Delta X,Y) als der Spieler, wenn nicht der Spieler einen Scoreboard Wert = 50 hat, die function
+execute at @e[tag=dorf1_lagerhaus_marker_zaun] as @a[dx=-4,dy=5] at @s unless entity @s[scores={Quest_Dorfvorsteher=50}] run function quests_dorf1:lagerhaus/entry/not_permitted
+
+# Erkenne den Spieler der durch die Tür gehen will, in dem Bereich (Delta X,Y) beginnend beim Marker, wenn er nicht den Scoreboard Wert >= 10 und <= 20 hat hat, dann führe die Function aus
+# Führe aus, bei der Entity mit dem Tag, als die jeder Spieler im Bereich (Delta X,Y) als der Spieler, wenn nicht der Spieler einen Scoreboard Wert = 50 hat, die function
+execute at @e[tag=dorf1_lagerhaus_marker_tuer] as @a[dx=-4,dy=5] as @s unless entity @s[scores={Quest_Dorf1_Lagerhaus=10..20}] run function quests_dorf1:lagerhaus/entry/permitted
+
+# Erkenne den Spieler an der Falltür, in dem Bereich (Distanz - bis 2) beginnend beim Marker, wenn der Mob noch nicht gespawnt wurde, dann führe die Function aus
+# Führe aus, bei der Entity mit dem Tag, wenn der nächste Spieler in einer Entfernung <= 2, wenn nicht der Fake Spieler einen Scoreboard Wert = 1 hat, die function
+execute at @e[tag=dorf1_lagerhaus_marker_ft] if entity @p[distance=..2] unless score _isBoss Quest_Dorf1_Lagerhaus matches 1 run function quests_dorf1:lagerhaus/mob/mob
+
+
+### -------------------------
+## Function, Neu: control_switch_quest_lagerhaus.mcfunction
+## Aufruf
+
+# Detect Player
+function quests_dorf1:lagerhaus/detect_player
+
+# Loot, Erkennung Bossmob gestorben
+function quests_dorf1:lagerhaus/loot/loot
+
+
+
+
+
+## Debug
+#scoreboard objectives setdisplay sidebar Quest_Dorf1_Lagerhaus
+#execute at @e[tag=dorf1_lagerhaus_marker] run particle cloud ~ ~ ~
+
+
+### -------------------------
+## Function, Neu: set_marker.mcfunction
+## Entfernt alle Marker
+kill @e[tag=dorf1_lagerhaus_marker]
+
+## Für Spieler Erkennung
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Zaun
+summon minecraft:marker 1862 65 245 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_zaun"]}
+
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Lagerhaustür
+summon minecraft:marker 1862 65 240 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_tuer"]}
+
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Falltür
+summon minecraft:marker 1861 66 231 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_ft"]}
+
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Dungeongrenze
+summon minecraft:marker 1855 61 227 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_border"]}
+
+## Mobspawn
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Für die Bossmob Spawnposition
+summon minecraft:marker 1860 62 236 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_mob_boss"]}
+
+## Fackeln
+# Spawnt einen Maker an den Koordiaten mit den Tags
+# Für die Redstone Fackeln
+summon minecraft:marker 1860 64 239 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
+summon minecraft:marker 1861 64 239 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
+summon minecraft:marker 1861 66 231 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
+
+
