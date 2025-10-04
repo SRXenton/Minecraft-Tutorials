@@ -1,0 +1,271 @@
+##
+## Beschreibung zu Folge 018: Queldbeutel bekommen
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #018 - Talk to Villager = Geldbeutel bekommen
+
+- Video: Preparing for cut
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Bekanntes anwenden.
+- Den Geldbeutel bekommen, den wie in Folge 015 vorbereitet haben.
+- Erstes Geld als Reward bekommen.
+
+## Agenda zum Video:
+
+1. Recap Folge 015
+2. Was soll in der Folge entsehen?!
+3. Makros -> JSON
+4. Zurück ? -> Return erklärt
+5. Anpassen Add und Remove
+6. Give Custom Item
+7. Erkennung Rechtsklick
+8. Tellraw und Scoreboard
+9. Tellraw Formatierung
+10. Die Kalkulationen
+11. Duchtesten.
+12. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+Generatoren
+- https://mcstacker.net/
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * bank
+            * function
+                + dialog
+                    + baenker.mcfunction
+                + entities
+                    + check_entity.mcfunction
+                + control_bank.mcfunction
+                + init_bank.mcfunction
+        * quest_dorf1
+            * function
+                *dialoge
+                    > action60_dorfvorsteher.mcfunction
+                    > dialog_dorfvorsteher.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+### NEU:
+## baenker.mcfunction
+# Zeige Dialog bei jedem Spieler mit dem Scorebord Wert = 1 und nicht mit den NBT Daten
+dialog show @a[scores={Villager_Klick_Bank=1},nbt=!{Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] {\
+    "type": "minecraft:confirmation",\
+    "title": "Bänker",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.\n\n\nWas du hast keinen.....?\n\n\nMöchtest du einen Geldbeutel haben? (Ja / Nein)"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "function currency:give_wallet"\
+        }\
+    },\
+    "no": {"label": "Nein"}\
+}
+
+# Gibt im Chat aus, bei jedem Spieler mit dem Scoreboard Wert = 1 und den NBT Daten
+tellraw @a[scores={Villager_Klick_Bank=1},nbt={Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] \
+    [{"color":"gold","text":"Bänker: "},{"color":"yellow","text":"Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun."}]
+
+
+## check_entity.mcfunction
+# Macro: Führe aus, wenn nicht jede Entity mit dem Typ und dem Tag und in der Entfernung bis 5 Blöcken, den Command
+# Spawne Entity Villager mit den Koordinaten aus dem Macro und den NBT Daten
+$execute unless entity @e[type=minecraft:villager,tag=bank_baenker, distance=..5] \
+    run summon minecraft:villager $(x) $(y) $(z) {VillagerData:{type:plains,profession:cartographer,level:99},CustomName:[{"text":"Bänker","bold":true}],Invulnerable:1b,NoAI:1b,NoGravity:1b,OnGround:1b,PersistenceRequired:1b,Rotation:[$(r),$(v)],Tags:["bank","bank_baenker"]}
+
+
+## control_bank.mcfunction
+# Wird in tick.json ausgeführt
+
+# Führe aus, bei jeder Entity mit dem Typ und dem Tag, wenn Jeder Spieler in einer Entfernung bis 3 Blöcke, die Funktion
+execute at @e[type=villager,tag=bank_baenker] if entity @a[distance=..3] run function bank:dialog/baenker
+
+# Scoreboard setzte bei jedem Spieler den Wert 0
+scoreboard players set @a Villager_Klick_Bank 0
+
+
+
+# init_bank.mcfunction
+# Scoreboard Entferne Objekt
+scoreboard objectives remove Villager_Klick_Bank
+# Scoreboard füge hinzu Objekt mit automatischer Erkennung: Rechtsklick auf Villager
+scoreboard objectives add Villager_Klick_Bank minecraft.custom:talked_to_villager
+
+
+### Bearbeiten: 
+## tick.json beispiel.mcfunction
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "bank:control_bank"
+    ]
+}
+
+
+
+## action60_dorfvorsteher.mcfunction
+# Scoreboard setze Spieler, der die Function aufruft, auf Wert = 70
+scoreboard players set @s Quest_Dorfvorsteher 70
+# Rufe die Funktion auf mit dem Macro
+function currency:add_money {loot:100}
+
+
+
+## dialog_dorfvorsteher.mcfunction
+# Zeige jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 1 ist, an
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] quests_dorf1:dorf1_dorfvorsteher1
+
+# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher >= 10 und <= 39 ist, aus
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+# Habe den Text nach der Aufnahme von Folge 019, lesbarer gemacht
+# Gib einen Dialog bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 40 ist, aus
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich sehe du hast ein Schwert bekommen.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Kannst du mir bitte einen Gefallen tun?\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Außerhalb des Dorfes in Richtung Osten liegt ein Lagerhaus, irgendwas eigenartiges geht da vor sich.\n"\
+                },\
+                {\
+                    "text": "Kannst du da bitte mal nach dem Rechten sehen?\n"\
+                },\
+                {\
+                    "text": "\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "scoreboard players set @s Quest_Dorfvorsteher 50"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein"\
+    }\
+}
+
+# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 50, aus
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
+
+# Gib einen Dialog bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 60, aus
+dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Ich sehe du bist wohl auf, und du sagst es war ein Zombie im Lagerhaus.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich werde das Prüfen !\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Hier hast du deine Belohnung....... Was du hast kein Geldbeutel, dann aber schnell zur Band und lass dir einen geben\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Bei ja: Reward 1 Taler\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "function quests_dorf1:dialoge/dorfvorsteher/action60_dorfvorsteher"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein"\
+    }\
+}
