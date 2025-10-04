@@ -1,0 +1,68 @@
+##
+## Beschreibung zu Folge 019: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #019 - 
+
+- Video: Preparing vor cut
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Villager verhindern, dass sie zuweit vom Dorf weglaufen
+- Anwendung von altem bekannten
+
+## Agenda zum Video:
+
+1. 
+
+
+
+11. Duchtesten.
+12. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * village_villager_protect
+            * function
+                + action.mcfunction
+                + check.mcfunction
+
+### Dateien:
+
+### NEU:
+
+## action.mcfunction {x,y,z}
+# Gebe Effekt der Entity, der die Function aufruft unsichtbar und unendlich
+effect give @s invisibility infinite
+# Teleportiere die Entity, die die Function aufruft, auf die Koordinaten aus dem Macro
+$teleport @s $(x) $(y) $(z)
+# Daten zusammenfügen der Entity, die die Function aufruft
+data merge entity @s {Health:20.0f}
+# Enferne Effekt der Entity, der die Function aufruft unsichtbar
+effect clear @s invisibility
+
+
+## check.mcfunction {d1,d2,x,y,z}
+# Führe aus bei position als jede Entity vom Typ in der Distanz wischen Wert 1 und 2, die Function mit dem Macro
+$execute positioned ~ ~ ~ as @e[type=minecraft:villager,distance=$(d1)..$(d2)] run function village_villager_protect:action {x:$(x),y:$(y),z:$(z)}
