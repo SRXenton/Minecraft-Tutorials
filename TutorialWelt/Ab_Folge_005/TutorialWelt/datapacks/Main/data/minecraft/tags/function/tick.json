@@ -4,6 +4,7 @@
         "base:respawnpoint",
         "teleport:entities/entity_control",
         "weather:control_switch_weather",
-        "currency:detect_click_wallet"
+        "currency:detect_click_wallet",
+        "bank:control_bank"
     ]
 }
