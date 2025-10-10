@@ -1,0 +1,105 @@
+## Aufgabenstellung
+#
+#   Quest: Queldbeutel bekommen
+#
+Alt: 
+    Quest vom Dorfvorsteher, Überprüfe das Lagerhaus, es gibt kein Reward
+    Währung im Spiel aber noch keinen Geldbeutel
+Neu:
+    Wir bekommen eine kleine Menge an Geld für die Quest mit dem Lagerhaus
+    Müssen zu einer Bank, und können uns dort einen Geldbeutel geben lassen
+    Sollten wir den Geldbeutel verlieren, bekommen wir in Jeder Bank den Beutel wieder
+
+# Aktionen
+    Summon Villager (Bänker) Dorf 1 und Dorf 2
+    Dialog mit den Bänker
+    Nach Dialog Aufruf Function Gebe Geldbeutel (Folge 014/015 - Währung)
+
+# Texte:
+    Dialog:
+        Titel: Bänker
+        Type: Confirmation
+        Text: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.
+            Was du hast keinen.....?
+            Möchtest du einen Geldbeutel haben? (Ja / Nein)
+        JA: run_command: function currency:give_wallet
+        NEIN: Fenster schließen ohne aktion
+    
+    Tellraw: Farbgebung: Siehe Brainstorming
+        Text: Bänker: Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun.
+        
+# Nötiges Wissen:
+- Summon (Folge 006)
+- Talk_To_Villager (Folge 008)
+- Dialog (Folge 009)
+- Scoreboard (Folge 005, Talk_To_Villager Folge 008)
+- execute (Fast in jeder Folge ab 005)
+- NBT (Folge 011)
+- Tellraw (Folge 008)
+
+# Links:
+Generatoren
+- https://mcstacker.net/
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * bank
+            * function
+                + dialog
+                    + baenker.mcfunction
+                + entities
+                    + check_entity.mcfunction
+                + control_bank.mcfunction
+                + init_bank.mcfunction
+        * quest_dorf1
+            * function
+                *dialoge
+                    > action60_dorfvorsteher.mcfunction
+                    > dialog_dorfvorsteher.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+
+
+### Dateien:
+
+## NEU:
+# baenker.mcfunction
+    Erkennung Wenn Rechtsgeklickt
+    Wenn "Geldbeutel" im Inventar -> Tellraw
+    Wenn "Geldbeutel" NICHT im Inventar -> Dialog
+# check_entity.mcfunction
+    Erkennung Villager existiert
+        Wenn nicht, neuen Spawnen
+            Name: Bänker
+            Beruf: Karthograf
+            Handel: Nein
+            Tags: bank, bank_baenker
+    Koordinaten und Rotation über Macro
+    Wird aufgerufen durch Commandblock
+# control_bank.mcfunction
+    Aufruf: Dialog/banker.mcfunction
+        Wenn:
+            Spieler Abstand bis 3 Blöcken
+# init_bank.mcfunction
+    Scoreboard Add/Remove - Villager_Klick_Bank: talk_to_villager
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
+    Weiterer Aufruf: control_bank
+# action60_dorfvorsteher.mcfunction
+    Queststufe Quest_Dorfvorsteher beim Spieler auf 70
+    Aufruf add_money mit loot:100
+# dialog_dorfvorsteher.mcfunction
+    Tellraw zu Dialog, mit Aufruf bei JA: action60_dorfvorsteher
