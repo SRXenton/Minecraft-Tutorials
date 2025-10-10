@@ -63,7 +63,6 @@ dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] {\
 # Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 50, aus
 tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
 
-<<<<<<< HEAD
 # Gib einen Dialog bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 60, aus
 dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] {\
     "type": "minecraft:confirmation",\
@@ -126,10 +125,6 @@ dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] {\
 ## Backupzeilen
 #tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40..}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Hallo Reisender, ich sehe, du hast ein Schwert bekommen, leider habe ich zur Zeit keine weiteren Aufgaben für dich."}]
 #tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] \
-=======
-# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 60, aus
-tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] \
->>>>>>> MinecraftTutorials/Preparing
     [\
         {"color":"gold","text":"Dorfvorsteher: "},\
         {"color":"yellow","text":"Was es war ein Zombie.....\n"},\
@@ -137,10 +132,3 @@ tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] \
         {"color":"yellow","text":"Komm bitte später wieder....!\n"},\
         {"color":"yellow","text":"\n"}\
     ]
-<<<<<<< HEAD
-=======
-
-
-## Backupzeilen
-#tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40..}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Hallo Reisender, ich sehe, du hast ein Schwert bekommen, leider habe ich zur Zeit keine weiteren Aufgaben für dich."}]
->>>>>>> MinecraftTutorials/Preparing
