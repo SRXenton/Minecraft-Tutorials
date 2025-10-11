@@ -1,0 +1,55 @@
+## Aufgabenstellung
+#
+#   Dorfbewohner vorm Weglaufen hindern
+#
+Alt: 
+    Die Villager verlassen die Genzen des Dorfes
+Neu:
+    Villager zurück teleportieren, und sicherstellen, dass die Villager Gesundbleiben
+    (Anm: Schön Machen!!!)
+
+
+# Aktionen
+    Erkennung Villager außerhalb der Grenze
+    Teleport
+    (Unsichtbatkeit/Heilung?)
+    Commandblock in der Mitte des Dorfes
+    Ort festlegen für Teleportationspunkt
+
+# Nötiges Wissen:
+- Effect?? (neu)
+- Teleport (Folge 007)
+- Data (Folge 002)
+- Macros / Argumente (Folge_015)
+
+# Links:
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * village_villager_protect
+            * function
+                + action.mcfunction
+                + check.mcfunction
+
+
+### Dateien:
+
+## NEU:
+# action.mcfunction {x,y,z}
+    Mit Macros über geben aus check.mcfunction
+    Effekt unsichtbar ???
+    Teleport zu Koordinaten aus Macro
+    Heile Villager
+# check.mcfunction {d1,d2,x,y,z}
+    Wird ausgeführt durch Commandbock -> Always activ, repeat
+    Distance 1 und 2, Sowie Teleport Koordinaten aus Macro
+    Erkennung Villager zwische Distance 1 und 2, dann:
+        Function Action, wenn Villager außerhalb des Dorfes, mit Macro x,y und z
