@@ -1,0 +1,70 @@
+##
+## Beschreibung zu Folge 018: Questmarker
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #018 - block_display = Questmarker
+
+- Video: Prepare to cut
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Bekanntes anwenden.
+- Quest Marker
+- Summon block_display
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Sollzustand
+3. Entwickeln
+4. Duchtesten, Fehlerbehebung.
+5. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+Generatoren
+- https://mcstacker.net/
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * quest_marker
+            * function
+                + marker.mcfunction
+                + set_marker.mcfunction
+        * quest_dorf1
+            * function
+                *entities
+                    > check_dorfvorsteher.mcfunction
+                    + summon_dorfvorsteher.mcfunction
+
+
+### NEU:
+## marker.mcfunction
+
+## set_marker.mcfunction
+
+## summon_dorfvorsteher.mcfunction
+
+
+
+### Bearbeiten: 
+## check_dorfvorsteher.mcfunction
