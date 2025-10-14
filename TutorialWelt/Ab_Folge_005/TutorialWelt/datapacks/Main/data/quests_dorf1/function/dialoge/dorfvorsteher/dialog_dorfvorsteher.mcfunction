@@ -1,12 +1,10 @@
 # Zeige jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 1 ist, an
-# Zeige jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 1 ist, an
 dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] quests_dorf1:dorf1_dorfvorsteher1
 
 # Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher >= 10 und <= 39 ist, aus
-# Gib Tellraw bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher >= 10 und <= 39 ist, aus
 tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
 
-# Habe den Text nach der Aufnahme von Folge 019, lesbarer gemacht
+
 # Gib einen Dialog bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 40 ist, aus
 dialog show @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] {\
     "type": "minecraft:confirmation",\
