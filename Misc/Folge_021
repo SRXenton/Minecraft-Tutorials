@@ -1,0 +1,58 @@
+## Thema: Dialog Bestätigungsfester beseitigen
+# Gedanken
+- Wie kann man das Bestätigungsfenster bei run_command beseitigen
+- trigger wäre eine Möglich keit
+- Wie kann man die Trigger Meldung Entfernen
+- trigger abfragen, möglicht ohne dauerhaft berechnungen
+- Womit anfangen?
+- Quest Doefvorsteher bei Queststufe 1
+- Wird es mehr als eine Folge ?
+
+# Mögliche Folgen Titel:
+- Trigger + Dialog = Dialog Sicherheitsabfrage entfernen
+- Trigger: Die Lösung gegen Dialog Sicherheitsabfrage
+
+# Aufgabenstellung:
+Alt: 
+    Dialog Fenster mit Confimation:
+        Ja, löst eine Abfrage, ob der Befehl ausgeführt werden darf. aus
+Neu:
+    Mittels Trigger Abfrage verhindern
+
+# Aktionen
+- Ermitteln welche Dialoge lösen so eine Abfrage aus
+- Entsprechende Scoreboards von Dummy auf Trigger ändern
+- Dateien neu Strukturieren
+- Quest vom Dorfvorsteher Schritt für Schritt abarbeiten
+- Nicht mehr benötigte Dateien entfernen
+
+# Nötiges Wissen:
+- Scoreboards
+- Trigger
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
