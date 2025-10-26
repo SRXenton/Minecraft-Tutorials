@@ -1,0 +1,1 @@
+$execute as @e[tag=$(pre_tag)_$(tag)] at @s run function quest_marker:maker {pre_tag:"$(pre_tag)",tag:"$(tag)"}
