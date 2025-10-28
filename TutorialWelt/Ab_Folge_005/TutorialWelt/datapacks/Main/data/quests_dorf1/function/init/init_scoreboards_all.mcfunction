@@ -7,4 +7,8 @@ scoreboard objectives add Villager_Klick_Dorf1 minecraft.custom:talked_to_villag
 # Entferne Scorebord
 scoreboard objectives remove Quest_Dorfvorsteher
 # Füge hinzu das manuelle Scoreboard
-scoreboard objectives add Quest_Dorfvorsteher dummy
+scoreboard objectives add Quest_Dorfvorsteher trigger
+
+
+# Debug
+#scoreboard objectives setdisplay sidebar Quest_Dorfvorsteher

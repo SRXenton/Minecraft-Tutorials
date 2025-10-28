@@ -1,7 +1,7 @@
-# Führe bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1
+# Führe aus, bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1
 # und NICHT wenn jede Entity, bei dem im Scoreboard Quest_Dorfvorsteher >= 0
 # und wenn jede Entity in einer Entfernung <= 5,
-# die Function aus
+# die Function
 execute at @a[scores={Villager_Klick_Dorf1=1}] unless entity @a[scores={Quest_Dorfvorsteher=0..}] if entity @a[distance=..5] run scoreboard players set @a Quest_Dorfvorsteher 1
 
 # Führe, bei der Entity vom Typ Villager, mit dem Tag,

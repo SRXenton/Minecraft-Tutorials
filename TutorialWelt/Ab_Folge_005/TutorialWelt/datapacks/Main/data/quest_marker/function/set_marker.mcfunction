@@ -1,1 +1,2 @@
+# Führe aus als jede Entity mit den Tags aus dem Macro als die Entity, die Function mit dem Macro
 $execute as @e[tag=$(pre_tag)_$(tag)] at @s run function quest_marker:maker {pre_tag:"$(pre_tag)",tag:"$(tag)"}
