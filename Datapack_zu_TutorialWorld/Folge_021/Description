@@ -1,0 +1,377 @@
+##
+## Beschreibung zu Folge 021: Sicherheitesabfrage entfernen
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #021 - run_command Sicherheitesabfrage entfernen - trigger
+
+
+- Video: Preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Bekanntes anwenden.
+- Sicherheitsabfragen in Dialog entfernen
+- Mit Trigger vertraut machen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Sollzustand
+3. Den Trigger Vorstellen
+4. Anpassen der Scoreboards
+5. Dialoge auf auf Trigger ändern
+6. Den Umgang mit Function aufruf aus den Dialog ändern
+7. Duchtesten, Fehlerbehebung.
+8. Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * bank
+            * function
+                * dialog
+                    > banker.mcfunction
+                > control_bank.mcfunction
+                > init_bank.mcfunction
+        * quest_dorf1
+            * dialog
+                - dorf1_dorfschmied10.json
+                - dorf1_dorfvorsteher1.json
+                - dorf1_lagerverwalter20.json
+            * function
+                * dialoge
+                    * dorfschmied
+                        > dialog_dorfschmied.mcfunction
+                        + dialog10_dorfschmied.mcfunction
+                    * dorfvorsteher
+                        > dialog_dorfvorsteher.mcfunction
+                        + dialog1_dorfvorsteher.mcfunction
+                        + dialog40_dorfvorsteher.mcfunction
+                        + dialog60_dorfvorsteher.mcfunction
+                    * lagerverwalter
+                        > dialog_lagerverwalter.mcfunction
+                        + dialog20_lagerverwalter.mcfunction
+                    + trigger
+                        + trigger_action.mcfunction
+                    * init
+                        > init_scoreboards_all.mcfuncttion
+
+### Dateien: ( Code ohne Kommentare, diese sind im Datapack zufinden)
+
+## NEU:
+# dialog10_dorfschmied.mcfunction
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfschmied",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Oh der Dorfvorsteher schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.\n\nAber könntest du für mich zum Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?\n\n\nMöchtest du die Quest annehmen? (Ja / Nein)"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 20"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+# dialog1_dorfvorsteher.mcfunction
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Hallo Reisender, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Dorfschmied, ob er dir helfen kann.\n\nWenn du das erledigt hast, kommt nochmal bitte zu mir.\n\n\nMöchtest du die Quest annehmen? (Ja / Nein)"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 10"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+
+# dialog40_dorfvorsteher.mcfunction
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich sehe du hast ein Schwert bekommen.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Kannst du mir bitte einen Gefallen tun?\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Außerhalb des Dorfes in Richtung Osten liegt ein Lagerhaus, irgendwas eigenartiges geht da vor sich.\n"\
+                },\
+                {\
+                    "text": "Kannst du da bitte mal nach dem Rechten sehen?\n"\
+                },\
+                {\
+                    "text": "\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 50"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+
+# dialog60_dorfvorsteher.mcfunction
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Ich sehe du bist wohl auf, und du sagst es war ein Zombie im Lagerhaus.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich werde das Prüfen !\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Hier hast du deine Belohnung....... Was du hast kein Geldbeutel, dann aber schnell zur Band und lass dir einen geben\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Bei ja: Reward 1 Taler\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 61"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+# dialog20_lagerverwalter.mcfunction
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Lagerverwalter",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.\n\nMöchtest du dem Dorfschmied die Kohle bringen ? (Ja / Nein)"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 30"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein"\
+    }\
+}
+
+# trigger_action.mcfunction
+execute as @a[scores={Quest_Dorfvorsteher=30}] at @s run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
+execute as @a[scores={Quest_Dorfvorsteher=61}] at @s run function quests_dorf1:dialoge/dorfvorsteher/action60_dorfvorsteher
+
+
+## Bearbeiten: 
+# tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:dialoge/trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
+
+
+# banker.mcfunction
+execute as @a[scores={Villager_Klick_Bank=1},nbt=!{Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] at @s run \
+    function bank:dialog/dialog_baenker
+
+tellraw @a[scores={Villager_Klick_Bank=1},nbt={Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] \
+    [{"color":"gold","text":"Bänker: "},{"color":"yellow","text":"Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun."}]
+
+# control_bank.mcfunction
+execute at @e[type=villager,tag=bank_baenker] if entity @a[distance=..3] run function bank:dialog/baenker
+
+execute as @a[scores={Villager_Trigger_Bank=1}] at @s run function currency:give_wallet
+
+scoreboard players set @a Villager_Klick_Bank 0
+scoreboard players set @a Villager_Trigger_Bank 0
+
+# init_bank.mcfunction
+scoreboard objectives remove Villager_Klick_Bank
+scoreboard objectives add Villager_Klick_Bank minecraft.custom:talked_to_villager
+
+scoreboard objectives remove Villager_Trigger_Bank
+scoreboard objectives add Villager_Trigger_Bank trigger
+
+
+# dialog_dorfschmied.mcfunction
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10}] at @s run function quests_dorf1:dialoge/dorfschmied/dialog10_dorfschmied
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=..9}] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Ich kann nichts für dich tun."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=11..31},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Dorfschmied: "},{"color":"yellow","text":"Geh bitte zum Lagerverwalter."}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt={Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] at @s run function quests_dorf1:dialoge/dorfschmied/action_dorfschmied
+
+# dialog_lagerverwalter.mcfunction
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=20}] at @s run function quests_dorf1:dialoge/lagerverwalter/dialog20_lagerverwalter
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=..19}] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Ich bin gerade beschäftigt, ich kann dir nicht helfen."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt={Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Bring die Kohle dem Dorfschmied."}]
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] [{"color":"gold","text":"Lagerverwalter: "},{"color":"yellow","text":"Wie du hast die Kohle verlohren ... Hier hast du neue, aber nun bring sie dem Dorfschmied."}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
+
+
+
+# dialog_dorfvorsteher.mcfunction
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog1_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog40_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog60_dorfvorsteher
+
+# init_scoreboards_all.mcfunction
+scoreboard objectives remove Villager_Klick_Dorf1
+scoreboard objectives add Villager_Klick_Dorf1 minecraft.custom:talked_to_villager
+
+
+scoreboard objectives remove Quest_Dorfvorsteher
+scoreboard objectives add Quest_Dorfvorsteher trigger
