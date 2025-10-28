@@ -1,0 +1,89 @@
+##
+## Beschreibung zu Folge 020: Questmarker
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.6+] #020 - block_display = Questmarker
+
+- Video: https://youtu.be/XKY0-yaNTg0
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Bekanntes anwenden.
+- Quest Marker
+- Summon block_display
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Sollzustand
+3. Entwickeln
+4. Übertragen von der Testwelt in die eigendliche Welt
+5. Functions für Questmarker mit Macros allgemeingültig machen
+6. Duchtesten, Fehlerbehebung.
+7. Zusammenfassung und Ausblick
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+Generatoren
+- https://mcstacker.net/
+
+
+
+
+## Neue Datapack Struktur:
+# (+) neu
+# (-) Entfernen
+# (>) Bearbeiten
+# (*) Alt
+
+* Main
+    * data
+        * quest_marker
+            * function
+                + marker.mcfunction
+                + set_marker.mcfunction
+        * quest_dorf1
+            * function
+                *entities
+                    > check_dorfvorsteher.mcfunction
+                    + summon_dorfvorsteher.mcfunction
+
+
+### NEU:
+## marker.mcfunction {pre_tag:"$(pre_tag)",tag:"$(tag)"}
+$execute at @s run summon block_display ~ ~2.8 ~ {block_state:{Name:"gold_block"},Tags:["quest_marker","quest_marker_$(pre_tag)_$(tag)"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],scale:[0.1f,0.5f,0.1f],translation:[0f,0f,0f]}}
+$execute at @s run summon block_display ~ ~2.5 ~ {block_state:{Name:"gold_block"},Tags:["quest_marker","quest_marker_$(pre_tag)_$(tag)"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],scale:[0.1f,0.1f,0.1f],translation:[0f,0f,0f]}}
+
+
+## set_marker.mcfunction {pre_tag:"$(pre_tag)",tag:"$(tag)"}
+$execute as @e[tag=$(pre_tag)_$(tag)] at @s run function quest_marker:maker {pre_tag:"$(pre_tag)",tag:"$(tag)"}
+
+
+## summon_dorfvorsteher.mcfunction {pre_tag:"dorf1",tag:"dorfvorsteher"}
+$summon villager 1742 65 258 {\
+    VillagerData:{type:plains,profession:librarian,level:99},\
+    CustomName:[{text:Dorfvorsteher,bold:true}],\
+    Invulnerable:1b,\
+    NoAI:1b,\
+    NoGravity:1b,\
+    OnGround:1b,\
+    PersistenceRequired:1b,\
+    Rotation:[0f,0f],\
+    Tags:["$(pre_tag)","$(pre_tag)_$(tag)"]}
+$kill @e[tag=quest_marker_$(pre_tag)_$(tag)]
+$function quest_marker:set_marker {pre_tag:"$(pre_tag)",tag:"$(tag)"}
+
+
+### Bearbeiten: 
+## check_dorfvorsteher.mcfunction
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_dorfvorsteher] run function quests_dorf1:entities/summon_dorfvorsteher {pre_tag:"dorf1",tag:"dorfvorsteher"}
