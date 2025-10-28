@@ -71,6 +71,8 @@ Minecraft Wiki:
                         + dialog20_lagerverwalter.mcfunction
                     + trigger
                         + trigger_action.mcfunction
+                    * init
+                        > init_scoreboards_all.mcfuncttion
 
 ### Dateien:
 
@@ -128,3 +130,6 @@ Minecraft Wiki:
     Umbau Dialog Show auf Aufruf dialog40_dorfvorsteher.mcfunction auf AS mit AT @s
     Umbau Dialog Show auf Aufruf dialog60_dorfvorsteher.mcfunction auf AS mit AT @s
     Anpassen der Queststufe nach Umbau auf trigger
+
+# init_scoreboards_all.mcfunction
+    Umbau Scoreboard Quest_Dorfvorsteher auf Trigger
