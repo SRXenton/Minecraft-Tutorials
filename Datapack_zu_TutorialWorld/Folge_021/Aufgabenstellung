@@ -1,0 +1,135 @@
+## Aufgabenstellung
+#
+#   Sicherheitsabfrage bei run_command entfernen
+#
+
+Alt: 
+    Dialog Fenster mit Confimation:
+        Ja, löst eine Abfrage, ob der Befehl ausgeführt werden darf. aus
+Neu:
+    Mittels Trigger Abfrage verhindern
+
+# Aktionen
+- Ermitteln welche Dialoge lösen so eine Abfrage aus
+- Entsprechende Scoreboards von Dummy auf Trigger ändern
+- Dateien neu Strukturieren
+- Quest vom Dorfvorsteher Schritt für Schritt abarbeiten
+- Nicht mehr benötigte Dateien entfernen
+
+# Nötiges Wissen:
+- Scoreboards -> dummy / trigger
+- Command: Trigger
+- JSON
+
+# Links:
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+# Möglich Befehle:
+- Execute as / at
+- Execute Unterbefehl scores
+- Dialog
+- Function
+- Scoreboard objectives -> add / remove -> trigger  (Neu)
+- Scoreboard players -> enable / set    (Neu)
+- Trigger (Neu)
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * bank
+            * function
+                * dialog
+                    > banker.mcfunction
+                > control_bank.mcfunction
+                > init_bank.mcfunction
+        * quest_dorf1
+            * dialog
+                - dorf1_dorfschmied10.json
+                - dorf1_dorfvorsteher1.json
+                - dorf1_lagerverwalter20.json
+            * function
+                * dialoge
+                    * dorfschmied
+                        > dialog_dorfschmied.mcfunction
+                        + dialog10_dorfschmied.mcfunction
+                    * dorfvorsteher
+                        > dialog_dorfvorsteher.mcfunction
+                        + dialog1_dorfvorsteher.mcfunction
+                        + dialog40_dorfvorsteher.mcfunction
+                        + dialog60_dorfvorsteher.mcfunction
+                    * lagerverwalter
+                        > dialog_lagerverwalter.mcfunction
+                        + dialog20_lagerverwalter.mcfunction
+                    + trigger
+                        + trigger_action.mcfunction
+                    * init
+                        > init_scoreboards_all.mcfuncttion
+
+### Dateien:
+
+## NEU:
+# dialog10_dorfschmied.mcfunction
+    Umziehen der dorf1_dorfschmied10.json in diese Datei
+    dialog show mit @s
+    Umbau auf trigger
+
+# dialog1_dorfvorsteher.mcfunction
+    Umziehen der dorf1_dorfvorsteher1.json in diese Datei
+    dialog show mit @s
+    Umbau auf trigger
+
+# dialog40_dorfvorsteher.mcfunction
+    Umziehen dialog Stufe 40 aus dialog_dorfvorsteher.mcfunction in diese Datei
+    dialog show mit @s
+    Umbau auf trigger
+
+# dialog60_dorfvorsteher.mcfunction
+    Umziehen dialog Stufe 60 aus dialog_dorfvorsteher.mcfunction in diese Datei
+    dialog show mit @s
+    Umbau auf trigger
+
+# dialog20_lagerverwalter.mcfunction
+    Umziehen der dorf1_lagerverwalter20.json in diese Datei
+    dialog show mit @s
+    Umbau auf trigger
+
+# trigger_action.mcfunction
+    action_lagerverwalter.mcfunction aufrufen wenn entity Score Quest_Dorfvorsteher = 30
+    action60_dorfvorsteher.mcfunction aufrufen wenn entity Score Quest_Dorfvorsteher = 61
+
+## Bearbeiten: 
+# tick.json
+    quest_dorf1:trigger/trigger_action
+
+# banker.mcfunction
+    Umbau auf Trigger und @s
+
+# control_bank.mcfunction
+    Umbau Aufruf banker.mcfunction auf AS und AT @s
+
+# init_bank.mcfunction
+    Add Scoreboard Object mit Trigger
+
+# dialog_dorfschmied.mcfunction
+    Umbau Aufruf dialog10_dorfschmied.mcfunction auf AS mit AT @s
+
+# dialog_lagerverwalter.mcfunction
+    Umbau Aufruf dialog20_lagerverwalter.mcfunction auf AS mit AT @s
+
+# dialog_dorfvorsteher.mcfunction
+    Umbau Dialog Show auf Aufruf dialog1_dorfvorsteher.mcfunction auf AS mit AT @s
+    Umbau Dialog Show auf Aufruf dialog40_dorfvorsteher.mcfunction auf AS mit AT @s
+    Umbau Dialog Show auf Aufruf dialog60_dorfvorsteher.mcfunction auf AS mit AT @s
+    Anpassen der Queststufe nach Umbau auf trigger
+
+# init_scoreboards_all.mcfunction
+    Umbau Scoreboard Quest_Dorfvorsteher auf Trigger
