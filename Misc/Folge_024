@@ -15,3 +15,8 @@
     Villager bei denen das Trading ausgeschaltet ist, taggen
 
 
+
+
+gamerule spawnMonsters false
+execute as @e[nbt=!{VillagerData:{level:99},Offers:{Recipes:[]}},type=villager,tag=!trader, tag=!quest, tag=!bank] run data merge entity @s {VillagerData:{level:99},Offers:{Recipes:[]}}
+Allen Villager die Quest oder Trading sind Tags geben
