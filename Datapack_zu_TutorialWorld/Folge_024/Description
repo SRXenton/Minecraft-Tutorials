@@ -35,4 +35,27 @@ Minecraft Wiki:
 
 ## Neue Datapack Struktur:
 
-Keine Veränderungen
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quest_dorf1
+            * function
+                * lagerhaus
+                    > control_switch_quest_lagerhaus.mcfunction
+
+
+### Bearbeiten:
+## control_switch_quest_lagerhaus.mcfunction (Kommentare enfernt)
+function quests_dorf1:lagerhaus/detect_player
+
+function quests_dorf1:lagerhaus/loot/loot
+# neu>
+execute positioned ~ ~ ~ unless entity @e[tag=dorf1_lagerhaus_marker_zaun, distance=..10] run function quests_dorf1:lagerhaus/set_marker
+# <neu
+
+#scoreboard objectives setdisplay sidebar Quest_Dorf1_Lagerhaus
+#execute at @e[tag=dorf1_lagerhaus_marker] run particle cloud ~ ~ ~
