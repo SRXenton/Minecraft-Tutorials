@@ -1,0 +1,41 @@
+## Aufgabenstellung
+#
+#   Erstellen und Umzug auf einen Linux Server
+#
+
+# Aufgabenstellung:
+Alt: 
+    Minecraft Welt liegt LoKal
+Neu:
+    Die Welt liegt auf einem Minecraft Server -> Vanilla oder gemoddet
+    
+
+# Aktionen
+Schritt 1:
+    Minecraft Server runterladen
+
+Schritt 2:
+    Minecraft Server auf einem Server installieren und einrichten
+
+Schritt 3:
+    Welt von Local auf Server kopieren
+
+Schritt 4:
+    Testen
+
+# Nötiges Wissen:
+- Wie funktioniert ein euer Server....
+- Je nach Server, Konsolen Befehle
+- Server Properties
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+Fabric:
+- https://fabricmc.net/
+
+
+# Datapack Strucktur:
+
+# !!! Keine Datapack änderungen !!!
