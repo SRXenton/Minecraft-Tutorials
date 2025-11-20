@@ -1,0 +1,38 @@
+##
+## Beschreibung zu Folge 024: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #024 - Bugfixing am Beispiel Lagerhaus
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Den Dungeon Lagerhaus wieder zum laufen bekommen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Ermitteln, wo liegt das Problem
+5. Dungeon zu laufen bringen
+6. Fix erstellen, damit der Fehler nicht mehr auftreten kann
+7. Code aufräumen
+8. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+Keine Veränderungen
