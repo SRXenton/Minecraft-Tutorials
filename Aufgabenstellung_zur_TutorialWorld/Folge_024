@@ -1,0 +1,61 @@
+## Aufgabenstellung
+#
+#   Bugfinging Lagerhaus
+#
+
+# Aufgabenstellung:
+Alt: 
+   Dungeon Lagerhaus Arbeitet nicht mehr
+Neu:
+    Lagerhaus wieder zu laufen bingen
+    Fix erstellen, dass der Fehler nicht wieder auftreten kann
+    
+
+# Aktionen
+Schritt 1:
+    Fehlersuche
+
+Schritt 2:
+    Manuelle Fehlerbehebung
+
+Schritt 3:
+    Fix erstellen
+
+Schritt 4:
+    Testen
+
+# Nötiges Wissen:
+- Wie funktioniert der Dungeon
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Datapack Strucktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * quest_dorf1
+            * function
+                * lagerhaus
+                    >???
+### Dateien:
+
+## Bearbeiten: 
+# tick.json
+    Muss angefasst werden ?
+
+# ???.mcfunction
+    Unbekannte Dateien die geändert werden müssen. Werden bei der Fehlersuche erst ermittelt
+
