@@ -25,7 +25,7 @@ $summon villager 1742 65 258 {\
     OnGround:1b,\
     PersistenceRequired:1b,\
     Rotation:[0f,0f],\
-    Tags:["$(pre_tag)","$(pre_tag)_$(tag)"]}
+    Tags:["$(pre_tag)","$(pre_tag)_$(tag)","quest"]}
 $kill @e[tag=quest_marker_$(pre_tag)_$(tag)]
 
 # Rufe die Funktion auf mit dem Macro
