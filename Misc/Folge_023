@@ -1,0 +1,17 @@
+## Thema: Fehler Suche im Datapack/Welt
+# Gedanken
+- Bug tracking gibt enthält Fehler mit dem Dungeon Dorf 1 Lagerhaus
+- Analyse, was passiert, was passiert nicht
+- Schritte durchgehen
+
+# Schritte
+1. Debug Modus aktivieren
+2. Lagerhaus durchgehen -> Versuchen Fehler zu erkennen
+3. Datapack durchgehen auf Fehler -> VDI nutzen um ggf Tippfehler zu finden (Gelb unterstrichen)
+4. Wie wird das Datapack aufgerufen
+5. Datapack ab Aufruf des ersten Files das Datapack durchgehen
+6. Lösung finden / optimieren
+7. Ab Schritt 2 wiederholen bis keine Fehler mehr existieren
+8. Debug Modus deaktivieren
+
+
