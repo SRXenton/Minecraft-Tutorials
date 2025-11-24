@@ -1,0 +1,68 @@
+##
+## Beschreibung zu Folge 024: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #025 - Gamerules für die Adventurewelt einstellen
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Eine Init Datei erstellen, in der die Welt jederzeit auf "Standart" Werte gestellt werden kann, ohne, dass das Spielgeschehen beeinflusst wird
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Ermitteln der Gamerules
+5. Testen
+8. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * base
+            * function
+                > base_init.mcfunction
+
+
+### Bearbeiten:
+## base_init.mcfunction (Kommentare enfernt)
+scoreboard objectives remove Global_Variables
+scoreboard objectives add Global_Variables dummy
+scoreboard players set _counter_0_to_20 Global_Variables 0
+scoreboard players set _in_work Global_Variables 0
+
+# Neu: >
+gamerule spawnMonsters false
+gamerule doDaylightCycle true
+gamerule doTraderSpawning false
+gamerule disableRaids true
+gamerule keepInventory true
+gamerule commandBlockOutput false
+gamerule doInsomnia false
+gamerule doPatrolSpawning false
+gamerule spawnRadius 3
+
+function weather:init_scoreboard_weather
+setworldspawn 1736 65 261 -90 0
+# < Neu
