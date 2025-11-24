@@ -13,6 +13,12 @@
 
 - Eine Init Datei erstellen, in der die Welt jederzeit auf "Standart" Werte gestellt werden kann, ohne, dass das Spielgeschehen beeinflusst wird
 
+
+## Aktionen
+- Gemerules durchgehen
+- Init Datei anpassen.
+- ggf. Datapack Version anpassen
+
 ## Agenda zum Video:
 
 1. Vorstellung
@@ -39,6 +45,7 @@ Minecraft Wiki:
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
 * Main
+    > pack.mcmeta
     * data
         * base
             * function
@@ -46,6 +53,15 @@ Minecraft Wiki:
 
 
 ### Bearbeiten:
+## pack.mcmeta
+{
+    "pack": {
+        "description": "Ein Datapack für Minecraft Tutorial mit Datapacks",
+        "min_format": 88,
+        "max_format": 88
+    }
+}
+
 ## base_init.mcfunction (Kommentare enfernt)
 scoreboard objectives remove Global_Variables
 scoreboard objectives add Global_Variables dummy
