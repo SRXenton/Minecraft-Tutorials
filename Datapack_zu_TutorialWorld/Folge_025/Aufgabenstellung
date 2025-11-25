@@ -1,0 +1,35 @@
+## Aufgabenstellung
+#
+#   Gamerules für die Adventure-Welt einstellen
+#
+
+# Aufgabenstellung:
+Alt: 
+    Nicht alle Standarteinstellungen passen für unsere Adventurewelt
+Neu:
+    Alle Gamesrules durch gehen und eine Init erstellen
+    
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Datapack Strucktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * base
+            * function
+                > base_init.mcfunction
+                    
+### Dateien:
+# base_init.mcfunction
+    Datei mit allen Standart Init Werten füllen, dabei beachten, dass beim Aufrufen wiederaufrufen, nicht das Spielgeschehen beeinflusst wird
+
