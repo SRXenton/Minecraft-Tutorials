@@ -1,1 +1,0 @@
-execute if score _counter_0_to_20 Global_Variables matches 0 as @e[nbt=!{VillagerData:{level:99},Offers:{Recipes:[]}},type=villager,tag=!trader, tag=!quest, tag=!bank] run data merge entity @s {VillagerData:{level:99},Offers:{Recipes:[]}}

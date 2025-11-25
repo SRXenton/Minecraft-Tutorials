@@ -27,4 +27,3 @@ execute at @e[tag=dorf1_lagerhaus_marker_tuer] as @a[dx=-4,dy=5] as @s unless en
 # Erkenne den Spieler an der Falltür, in dem Bereich (Distanz - bis 2) beginnend beim Marker, wenn der Mob noch nicht gespawnt wurde, dann führe die Function aus
 # Führe aus, bei der Entity mit dem Tag, wenn der nächste Spieler in einer Entfernung <= 2, wenn nicht der Fake Spieler einen Scoreboard Wert = 1 hat, die function
 execute at @e[tag=dorf1_lagerhaus_marker_ft] if entity @p[distance=..2] unless score _isBoss Quest_Dorf1_Lagerhaus matches 1 run function quests_dorf1:lagerhaus/mob/mob
-
