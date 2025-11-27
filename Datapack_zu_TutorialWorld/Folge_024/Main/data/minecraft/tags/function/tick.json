@@ -1,0 +1,11 @@
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:dialoge/trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
