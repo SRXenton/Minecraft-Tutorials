@@ -1,0 +1,14 @@
+# Enderman griefing verhindern per Commandblock ab Minecraft Version 1.21.9
+# Prevent Enderman griefing using command blocks from Minecraft version onwards 1.21.9
+
+# Titel: Minecraft Tutorial [1.21.9+] - Enderman griefing off mit Commandblock - Update
+
+# Ziel: Dauerhaft verhindern, dass Enderman keine Blöcke abbauen und platzieren können
+
+# Video: https://youtu.be/-ttmJDFSFqs
+
+
+# Commands:
+forceload add ~ ~
+execute as @e[type=minecraft:enderman,nbt=!{carriedBlockState:{Name:"minecraft:moving_piston"}}] run data merge entity @s {carriedBlockState:{Name:"minecraft:moving_piston"}}
+
