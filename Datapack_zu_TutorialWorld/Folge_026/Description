@@ -1,0 +1,79 @@
+##
+## Beschreibung zu Folge 026: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #026 - Narürliches Villagertrading OFF
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Allen Villagern die Tradeoption nehmen, auch denen, die sich selbst einen Beruf holen
+
+
+
+## Aktionen
+- Code bzw Befehl entwickeln.
+- Befehl ins Datapack bringen
+- Ggf. Optimierungen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Code bzw. Befehl entwickeln
+5. Testen
+6. Code ins Datapack bringen
+7. Testen
+8. Optimieren
+9. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * base
+            * function
+                > remove_villager_trading.mcfunction
+
+### Bearbeiten:
+## tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint","base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
+
+## remove_villager_trading.mcfunction (Kommentare enfernt)
+execute if score _counter_0_to_20 Global_Variables matches 2 \
+    run execute as @e[type=minecraft:villager,nbt=!{VillagerData:{level:99},Offers:{Recipes:[]}}] \
+        run data merge entity @s {VillagerData:{level:99},Offers:{Recipes:[]}}
+
