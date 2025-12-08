@@ -1,0 +1,61 @@
+##
+## Beschreibung zu Folge 027: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #027 - 
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- 
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Ermitteln, wo liegt das Problem
+5. Dungeon zu laufen bringen
+6. Fix erstellen, damit der Fehler nicht mehr auftreten kann
+7. Code aufräumen
+8. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quest_dorf1
+            * function
+                * lagerhaus
+                    > control_switch_quest_lagerhaus.mcfunction
+
+
+### Bearbeiten:
+## control_switch_quest_lagerhaus.mcfunction (Kommentare enfernt)
+function quests_dorf1:lagerhaus/detect_player
+
+function quests_dorf1:lagerhaus/loot/loot
+# neu>
+execute positioned ~ ~ ~ unless entity @e[tag=dorf1_lagerhaus_marker_zaun, distance=..10] run function quests_dorf1:lagerhaus/set_marker
+# <neu
+
+#scoreboard objectives setdisplay sidebar Quest_Dorf1_Lagerhaus
+#execute at @e[tag=dorf1_lagerhaus_marker] run particle cloud ~ ~ ~
