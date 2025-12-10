@@ -1,0 +1,40 @@
+## Aufgabenstellung
+#
+#   "Natürliche" Handelsfenster von den Villagern entfernen
+#
+
+# Aufgabenstellung:
+Alt: 
+    Villager, die einen Beruf haben, besitzen ein Handelsfenster
+Neu:
+    Handelsfernster der Villager entfernen und sicherstellen, dass auch bei neuen Villager keinen Handelsoptionen gaben kann
+    
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * base
+            * function
+                > remove_villager_trading.mcfunction
+                    
+### Dateien:
+# tick.json
+    remove_villager_trading aufrufen
+# remove_villager_trading.mcfunction
+    Villager mit Handelsfenster erkennen und entfernen.
+    Jeden Tick nötig ?
+
