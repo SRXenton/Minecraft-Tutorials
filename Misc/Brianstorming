@@ -2,6 +2,10 @@
 ## Themenspeicher / Backlog
 ##
 
+## Base_init.mcfunction sicherer machen
+- bestimmte Function bzw dadurch Scoreboards remove, dass die Removes nicht ausgeführt werden wenn die base_init aufgerufen wird
+
+
 ## Händler
 Über Dialog
 Spezifische Händler
