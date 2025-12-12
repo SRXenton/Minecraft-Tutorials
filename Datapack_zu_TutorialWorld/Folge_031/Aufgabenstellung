@@ -1,0 +1,65 @@
+## Aufgabenstellung
+#
+#   Respawnpunkt nach Tot über Datapack Steuern
+#
+#   Der Aufbau erfolgt über 3 Folgen (29-31)
+#
+#   Folge 29: Villager und Interaction mit Dialog sowie Trigger im 1. Dorf erstellen
+#   Folge 30: World- und Respawnpunkt verlegen, Forceload und Teleport mittels Tag
+#   Folge 31: Umbau von Fest- auf Allgemein Programmierung, Stichwort: Macros
+
+# Aufgabenstellung (29-31):
+Alt: 
+    Respawn am Worldspawn, beim testen festgestellt, dass dieses sehr Fehlerhaft sein kann
+    Respawnpunkt kann nicht geändert werden vom Spieler
+Neu:
+    Respawnpunkt, wird durch ansprechen bei einem Wirt oder Prieser geändert
+
+# Aufgabenstellung (30 - Diese Folge):
+Alt:
+    Die neue Funtion kann nur im Panda Village (1. Dorf) verwendet werden
+Neu:
+    Alle neuen Funktionen in Dorf 2 ermöglichen
+    Alle Function, bei denen es nötig ist, auf Macros umbauen, damit diese Functions auch in anderen Dörfern verwendet werden können
+
+# Nötiges Wissen (Diese Folge)
+- macros
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+GitHub:
+- https://github.com/SRXenton/Minecraft-Tutorials/blob/main/Respawnpunkt_aendern_ohne_bett_per%20commandblock
+
+
+# Schritte:
+- ckeck_wirt.mcfunction Umbau auf Macro: tag, position, name
+- interaction.mcfunction umbau auf Macro
+- dialog_wirt.mcfunction umbeu auf Macro
+- switch.mcfunction umbau auf Macro
+- Anpassen Commandblock unterm Gastwirt
+- teleport.mcfunction neuen Respawnpunkt setzen für Dorf 2
+- Dorf2 Commandblock für Gastwirt setzen und Macro anpassen
+
+
+# Datapack Strucktur (Komplett):
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                * commandblock
+                    > check_wirt.mcfunction
+                    > interaction.mcfunction
+                    > switch.mcfunction
+                * dialoge
+                    > dialog_wirt.mcfunction
+                > teleport.mcfunction
