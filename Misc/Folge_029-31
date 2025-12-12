@@ -47,6 +47,7 @@ Neu:
 - trigger.mcfuntion erstellen und in tick.json aufnehmen
 - trigger enable und set in den Dialog aufnehmen
 - trigger.mcfunction, Tags entsprechend setzen, inkl tag remove
+- Tags vom Wirt/Priester in village/size als Ausnahme aufnehmen
 
 - forceload über datapack, und sicherstellen dass dieser wenn ein Spieler online ist auch geladen wird
 - setworldspawn in base_init.mcfunction ändern in die neue Zone
