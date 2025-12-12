@@ -2,6 +2,10 @@
 ## Themenspeicher / Backlog
 ##
 
+## Update auf v 1.21.11
+- Datapack durch gehen und anpassungen Vornehmen
+
+
 ## Base_init.mcfunction sicherer machen
 - bestimmte Function bzw dadurch Scoreboards remove, dass die Removes nicht ausgeführt werden wenn die base_init aufgerufen wird
 
