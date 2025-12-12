@@ -35,11 +35,8 @@ Neu:
 ## Schritte:
 - Dorf 1 benennen: Panda Village von TheReal-Samu
 - Datapack Struktur Anlegen
-- respawnpoint.mcfunction von base nach respawn/tick schieben und anpassen der Koordinaten in den neuen Spawnbereich der später geforced wird
+- respawnpoint.mcfunction von base nach respawn/tick schieben
 - tick.json anpassen
-- forceload über datapack, und sicherstellen dass dieser wenn ein Spieler online ist auch geladen wird
-- spawnpoint in respawnpoint.mcfunction ändern in die neue Zone
-- Spawnpoint in den Spawnchunk legen (Datapack, inkl Abfrage wenn Spieler nicht am neuen punkt und Gamemode)
 - Tags definieren für Spawnpunkte und trigger Werten
 - Commandblock unter dem Wirt
 - check_wirt.mcfunction, mit Summon Villager und Interaction
@@ -50,10 +47,16 @@ Neu:
 - trigger.mcfuntion erstellen und in tick.json aufnehmen
 - trigger enable und set in den Dialog aufnehmen
 - trigger.mcfunction, Tags entsprechend setzen, inkl tag remove
+
+- forceload über datapack, und sicherstellen dass dieser wenn ein Spieler online ist auch geladen wird
+- setworldspawn in base_init.mcfunction ändern in die neue Zone
+- spawnpoint in respawnpoint.mcfunction ändern in die neue Zone
+- Spawnpoint in den Spawnchunk legen (Datapack, inkl Abfrage wenn Spieler nicht am neuen punkt und Gamemode)
 - Spieler Erkennung im Forceload Bereich
 - Teleport anhand des Tags
 - Wenn keine Tags am Spieler, Respawn am "Worldspan"
-- Testen
+- detect_player, forceloading, respawnpoint und trigger zusammenfassen in tick/switch.mcfunction und in tick.json ändern
+
 
 - ckeck_wirt.mcfunction Umbau auf Macro: tag, position, name
 - interaction.mcfunction umbau auf Macro
@@ -62,7 +65,6 @@ Neu:
 - Anpassen Commandblock unterm Gastwirt
 - teleport.mcfunction neuen Respawnpunkt setzen für Dorf 2
 - Dorf2 Commandblock für Gastwirt setzen und Macro anpassen
-- detect_player, forceloading, respawnpoint und trigger zusammenfassen in tick/switch.mcfunction und in tick.json ändern
 
 # Nötiges Wissen:
 - forceload
@@ -84,6 +86,7 @@ Neu:
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
 
+Folge 29,30:
 * Main
     * data
         * minecraft
@@ -103,12 +106,14 @@ Neu:
                     + forceloading.mcfunction
                     + respawnpoint.mcfunction
                     + trigger.mcfunction
+                    + switch.mcfunction
                 + init.mcfunction
                 + tag_remove.mcfunction
                 + tags.txt
                 + teleport.mcfunction
 
 
+Folge 31:
 * Main
     * data
         * minecraft
@@ -123,8 +128,6 @@ Neu:
                     > switch.mcfunction
                 * dialoge
                     > dialog_wirt.mcfunction
-                * tick
-                    + switch.mcfunction
                 > teleport.mcfunction
 
 ### Dateien:
