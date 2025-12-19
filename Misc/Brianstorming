@@ -2,25 +2,44 @@
 ## Themenspeicher / Backlog
 ##
 
-## Natürliches Monsterspawn off?      
-- Gamerules für Monsterspawn auf false
-- Monsterspawn nur noch per Datapack
-- Noch zufrüh, ggf anderes Thema vorher, zum Training, andere Questreihe?!
-- Thema zu Klein, ggf falls mit anderem Thema koppeln
-- Eigenes Tutorial für Monsterspawn off, wie bei Enderman griefing off per command block
-- Konzept für Level erstellen
+## Teleportsteine erst nach Besuch Freischalten
+- Teleportsteine (Panda Village und Dorf2) sind sofort nutzbar, sollen erst Funktionieren, wenn der Spieler Dorf2 besucht hat
 
-## Umzug auf Server:
-- Vorbereitungen:
-  - Server mit lauffähigem Minecraft muss vorher existieren
-  - Server muss vorher schon mit einer Standart Welt laufen
-- Welt vom Singleplayer zu Server kopieren
-- Serverproperties durchgehen, erklären und einstellen
-- Welt starten
-- Gamerules Überprüfen und einstellen:
-  - dodaylightcycle
-  - Monsterspawn???
-- Welche Zugriffe werden benötigt ?!
+## Questreihe Dorfvorsteher erweitern
+- Nach Einführung "Ändern Respawn", muss der Spieler mittels Quest darauf hingewiesen werden. Folge Quest Nach Bank.
+
+
+## Update auf v 1.21.11
+- Datapack durch gehen und anpassungen Vornehmen
+
+
+## Base_init.mcfunction sicherer machen
+- bestimmte Function bzw dadurch Scoreboards remove, dass die Removes nicht ausgeführt werden wenn die base_init aufgerufen wird
+
+
+## Händler
+Über Dialog
+Spezifische Händler
+Bei Verkauf: Erkennung Inventar Menge
+Bei Kauf: Erkennung Platz im Inventar, Genug Geld
+
+
+## Erweitertes Inventar
+- Fake Rucksack
+- Reisetruhe (Enderchest)
+- Lagerhaus/Lagerbank mit Endertruhen?!
+
+
+## Weather, eigenes Datapack machen
+- Die Funktion Weather in ein Eigenes Datapack auslagern und somit unabhängig vom Main machen
+
+## Spawnen nach Tot beim Gastwirt / Tempel
+## Themen: Summon / Villager / Dialog / Spawnpoint
+Priester oder Wirt ansprechen für Respawn
+Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
+An einem Villager über ein Dialog, wird der Spieler getaged
+
+
 
 
 ## 2. Questreihe: Ausrüstung (Lederrüstung?)
@@ -36,48 +55,11 @@
 
 
 
-## Globaler Spawnpoint setzen für neue Spieler > Folge 13?
-- Spawnchunk erklären und worldspawn auf diese Koordinate setzen
-
-
-## Ingamewährung
-- Über Scorebord
-- Abfrage über Item im Inventar
 
 ## Questreihe
 Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 
 
-## Quest, Start bei "Folge_008" bis "Folge_012"
-1. Questgiver series
-- Dialog
-- Tellraw
-- summon Villager
-- give item / reward
-- remove item from inventory
-- scoreboard aktivities
-- Item Erkennung im Inventar
-
-
-# Story:
-- Starterquest, 1. Questgeber: (summon villager, tellraw, dialog, scoreboard)
-    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
-        Wenn du das erledigt hast, kommt nochmal bitte zu mir.
-
-
-- 2. Questgeber Schmied (summon villager, tellraw, dialog, scoreboard)
-    + Text: Oh der 1. schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
-        Aber könntest du für mich in Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?
-
-
-- 3. Lagerverwalter (summon villager, dialog, tellraw, scoreboard, give custom item)
-    + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
-
-
-
-- 4. Schmied:(dialog, scoreboard, remove custom item, give custom weapon)
-    + Text: Danke, dass du mir die Kohle gebracht hast, warte kurz dann kann ich dir etwas geben.
-    + Reward: Steinschwert
 
 
 ## Beachtung bei Dialogen
@@ -102,13 +84,6 @@ Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 # give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
 
 
-## Themen zu tellraw / dialog (Folge 009)
-
-Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
-Server.properties: function_permission_level
-Link: https://minecraft.wiki/w/Server.properties
-Link: https://minecraft.wiki/w/Permission_level
-
 
 ## Spanwpoint dynamisch verlegen
 
@@ -117,18 +92,6 @@ Villager Custom Dialog Fester
 Villager feste Position
 Dialog legt den spawnpoint fest (Tags)
 Spawnpoint verlegen -> Teleport auswahl über Tags -> Teleport zu festgelegter Position
-
-
-
-
-## Themen: Execute / Tags / Tellraw -> Noch nötig, Wofür ? Tags und Tellraw wurden schon behandelt
-
-Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
-
-
-## Themen: Summon / Villager / Dialog / Spawnpoint
-Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
-An einem Villager über ein Dialog, wird der Spieler getaged
 
 
 ## Dimensionsportal
@@ -145,20 +108,6 @@ Mit Ladungen / Aufladungen?
 Admin Modus ohne OP Modus im Server Mode, gelöst über Tag/Scoreboard
 
 
-## Umzug auf Server
-Wie bringt man die Welt auf einen Server!?
-
-
-## 1. Dungeon
-Schwierigkeitsgrad nicht Peacefull, Welt Mobspawn off
-Ablauf: Spieler erkennen > Teleport in den D. -> Auf dem Weg werden nach und nach Monster gespawnt -> Endboss -> Belohnung in Truhe -> Rausgehen -> Dungeon Freigegen
-Ablauf bei Tot: Erkennen kein Spieler im Dungeon -> Dungeon freigeben.
-Spieler Begrüßung -> Titel / Subtitel
-Portal -> Spieler Erkennung, Teleportation
-Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
-Abschlusschest -> Data merge mit Chest.
-
-
 ## Willkommensbuch
 Beschriebenes Buch, mit Willkommensgruß
 Aufbau: 
@@ -173,26 +122,14 @@ Anzeigen aller angeommenen Quests
 
 ## Monsterspawn
 Schwierigkeitsgrad mindestes Easy
-Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false
+Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false  --> Erledigt in Folge 025
 Eigenes Monster Spawn verhalten
 
-## Custom Wetter Wechsel
-/gamerule doWeatherCycle off -> false
-Wetteränderungen über Scoreboard / Schedule regeln
 
 ## Custom Day/Night Cycle
 /gamerule doDayNightCycle ?????
 - 24000 Ticks für Tag und Nacht -> Minecraft standart
 - 24000 Ticks für Tag und 6000 für Nacht -> Steuerung "/time set" über scoreboard
-
-## Wold Monster Spawn off -> false
-- Abschalten der Gamerules
-    + doMobSpawning
-    + doPatrolSpawning
-    + doInsomnia
-    + disableRaids -> einzige die auf true muss, alle anderen auf false
-    + mobGriefing
-    + doEntityDrops
 
 ##
 ## ======================================================================================================
@@ -223,3 +160,96 @@ Wetteränderungen über Scoreboard / Schedule regeln
 ## Themen: Execute / Tags / Teleport -> Folge 006 und 007
 #
 # Tag beim Spieler löst ein Teleport aus und löscht den Tag
+
+## Natürliches Monsterspawn off?   --> Folge 025
+- update auf 1.21.10
+- Gamerules für Monsterspawn auf false
+- Monsterspawn nur noch per Datapack
+- Noch zufrüh, ggf anderes Thema vorher, zum Training, andere Questreihe?!
+- Thema zu Klein, ggf falls mit anderem Thema koppeln
+- Eigenes Tutorial für Monsterspawn off, wie bei Enderman griefing off per command block
+- Konzept für Level erstellen
+- Abschalten der Gamerules
+    + doMobSpawning
+    + doPatrolSpawning
+    + doInsomnia
+    + disableRaids -> einzige die auf true muss, alle anderen auf false
+    + mobGriefing
+    + doEntityDrops
+
+
+## Umzug auf Server:  -->  Folge 022
+- Vorbereitungen:
+  - Server mit lauffähigem Minecraft muss vorher existieren
+  - Server muss vorher schon mit einer Standart Welt laufen
+- Welt vom Singleplayer zu Server kopieren
+- Serverproperties durchgehen, erklären und einstellen
+- Welt starten
+- Gamerules Überprüfen und einstellen:
+  - dodaylightcycle
+  - Monsterspawn???
+- Welche Zugriffe werden benötigt ?!
+
+
+## Globaler Spawnpoint setzen für neue Spieler > Folge 22?
+- Spawnchunk erklären und worldspawn auf diese Koordinate setzen
+
+## Ingamewährung  ---> Folge 018
+- Über Scorebord
+- Abfrage über Item im Inventar
+
+## Quest, Start bei "Folge_008" bis "Folge_012"
+1. Questgiver series
+- Dialog
+- Tellraw
+- summon Villager
+- give item / reward
+- remove item from inventory
+- scoreboard aktivities
+- Item Erkennung im Inventar
+
+# Story:
+- Starterquest, 1. Questgeber: (summon villager, tellraw, dialog, scoreboard)
+    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+        Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+- 2. Questgeber Schmied (summon villager, tellraw, dialog, scoreboard)
+    + Text: Oh der 1. schickt dich zu mir, leider kann ich  dir gerade nicht helfen. Mir fehlt Kohle, der Bote aus der Kohlemine hat mir schon länger nichts gebracht.
+        Aber könntest du für mich in Lager gehen, und beim Verwalter mal nachfragen ob er noch was hat?
+
+
+- 3. Lagerverwalter (summon villager, dialog, tellraw, scoreboard, give custom item)
+    + Text: Was der Schmied schickt dich. Ja ich habe noch Kohle, Hier bring sie ihm.
+
+
+
+- 4. Schmied:(dialog, scoreboard, remove custom item, give custom weapon)
+    + Text: Danke, dass du mir die Kohle gebracht hast, warte kurz dann kann ich dir etwas geben.
+    + Reward: Steinschwert
+
+## Themen zu tellraw / dialog (Folge 009)
+
+Nötige Rechte auf dem Server wenn man Functionen aus einem Dialog ausführen möchte
+Server.properties: function_permission_level
+Link: https://minecraft.wiki/w/Server.properties
+Link: https://minecraft.wiki/w/Permission_level
+Sicherheitsabfrage umgangen mit Trigger in Folge 021
+
+## Custom Wetter Wechsel  ---> Folge 013
+/gamerule doWeatherCycle off -> false
+Wetteränderungen über Scoreboard / Schedule regeln
+
+## Themen: Execute / Tags / Tellraw -> Noch nötig, Wofür ? Tags und Tellraw wurden schon behandelt
+
+Tag beim Spieler löst tellraw mit click_event aus, löscht das alte tag und bekommt ein neues
+
+
+## 1. Dungeon --> Folge 016 und 017
+Schwierigkeitsgrad nicht Peacefull, Welt Mobspawn off
+Ablauf: Spieler erkennen > Teleport in den D. -> Auf dem Weg werden nach und nach Monster gespawnt -> Endboss -> Belohnung in Truhe -> Rausgehen -> Dungeon Freigegen
+Ablauf bei Tot: Erkennen kein Spieler im Dungeon -> Dungeon freigeben.
+Spieler Begrüßung -> Titel / Subtitel
+Portal -> Spieler Erkennung, Teleportation
+Monsterspawnen -> Spieler Erkennung, Summon Custom Monster
+Abschlusschest -> Data merge mit Chest.
