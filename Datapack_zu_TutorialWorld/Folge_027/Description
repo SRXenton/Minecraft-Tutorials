@@ -1,0 +1,158 @@
+##
+## Beschreibung zu Folge 027: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #027 - Datapack aufräumen und Villager Anzahl begrenzen im Dorf
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Datapack aufräumen, neue Strucktur und toten Code löschen
+- Die Villageranzahl im Dorf begrenzen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Toten Code entfernen
+5. Strucktur überarbeiten, Dateien anpassen und Testen
+6. Code entwickeln zur begrenzung der Villageranzahl im Dorf
+7. Code ins Datapack bringen und allgemein Gültig machen
+8. Dorf 2 mit der Begrenzung ausstatten
+9. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * quest_dorf1
+            - dialog
+                - dorf1_dorfschmied30.json
+            * function
+                * dialoge
+                    - trigger (Verschoben  inkl. aller Unterordner und Dateien)
+                * entities
+                    > check_dorfschmied.mcfunction
+                    > check_lagerverwalter.mcfunction
+                    > summon_dorfvorsteher.mcfunction
+                - lagerhaus (Verschoben  inkl. aller Unterordner und Dateien)
+                + dorfvorsteher
+                    + lagerhaus (Verschoben  inkl. aller Unterordner und Dateien)
+                + trigger (Verschoben  inkl. aller Unterordner und Dateien)
+        - village_villager_protect (Functione Verschoben in village/function/villager_protect)
+        + village
+            + function
+                + size
+                    + init.mcfunction
+                    + runner.mcfunction
+                + village_protect
+                    + function
+                        + action.mcfunction (Aus village_villager_protect)
+                        + check.mcfunctuion (Aus village_villager_protect)
+                + switch.mcfunction
+
+### In folgenden:
+
+!!!!! Anm: Diverse Dateien nicht aufgeführt, vorallem diese, die Verschoben wurden. In diesen wurde, in der Regel, nur die Pfad angaben zu anderen Function aktualisiert
+
+### Bearbeiten:
+## tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint","base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
+
+## check_dorfschmied.mcfunction (Kommentare enfernt)
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_dorfschmied] \
+    run summon villager 1779 66 235 \
+        {VillagerData:\
+            {type:plains,profession:weaponsmith,level:99},\
+            CustomName:[{text:Dorfschmied,bold:true}],\
+            Invulnerable:1b,\
+            NoAI:1b,\
+            NoGravity:1b,\
+            OnGround:1b,\
+            PersistenceRequired:1b,\
+            Rotation:[90f,0f],\
+            Tags:["dorf1","dorf1_dorfschmied","quest_npc"]\
+        }
+
+## check_lagerverwalter.mcfunction (Kommentare enfernt)
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=dorf1_lagerverwalter] \
+    run summon villager 1721 66 295 \
+        {VillagerData:\
+            {type:plains,profession:nitwit,level:99},\
+            CustomName:[{text:Lagerverwalter,bold:true}],\
+            Invulnerable:1b,\
+            NoAI:1b,\
+            NoGravity:1b,\
+            OnGround:1b,\
+            PersistenceRequired:1b,\
+            Rotation:[270f,0f],\
+            Tags:["dorf1","dorf1_lagerverwalter","quest_npc"]\
+        }
+
+## summon_dorfvorsteher.mcfunction (Kommentare enfernt)
+$summon villager 1742 65 258 {\
+    VillagerData:{type:plains,profession:librarian,level:99},\
+    CustomName:[{text:Dorfvorsteher,bold:true}],\
+    Invulnerable:1b,\
+    NoAI:1b,\
+    NoGravity:1b,\
+    OnGround:1b,\
+    PersistenceRequired:1b,\
+    Rotation:[0f,0f],\
+    Tags:["$(pre_tag)","$(pre_tag)_$(tag)","quest_npc"]}
+$kill @e[tag=quest_marker_$(pre_tag)_$(tag)]
+
+$function quest_marker:set_marker {pre_tag:"$(pre_tag)",tag:"$(tag)"}
+
+
+### Neu: (size)
+## init.mcfunction (Kommentare enfernt)
+scoreboard objectives remove Village_Villager_count
+scoreboard objectives add Village_Villager_count dummy
+
+
+## runner.mcfunction (Kommentare enfernt)
+$execute store result score _count_villager Village_Villager_count run execute if entity @e[tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=villager]
+
+$execute if score _count_villager Village_Villager_count matches $(max).. run kill @e[limit=1,tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=villager]
+
+
+
+
+## switch.mcfunction (Kommentare enfernt)
+$function village:villager_protect/function/check {x:$(x),y:$(y),z:$(z),d1:$(d1),d2:$(d2)}
+$execute if score _counter_0_to_20 Global_Variables matches 6 run function village:size/runner {d:$(d1),max:$(max)}
+

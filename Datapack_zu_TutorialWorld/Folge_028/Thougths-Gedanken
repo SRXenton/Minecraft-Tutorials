@@ -1,0 +1,16 @@
+## Thema: Entity Begrenzum im Dorf
+# Gedanken
+- Natürliches Monsterspawn aus
+- Villageranzahl im Dorf begrenzen
+- Golemanzahl im Dorf begrenzen
+- Gibt es Golems die Quest oder anders relevant sind ?!
+
+# Schritte:
+- Natürliches Monsterspawn aus, prüfen der Gamerules
+- Wie ist die Villageranzahl begrenzt, Möglichkeit der Erweiterung
+- Code für Golembegrenzung entwickeln
+- Code in Datapack bringen
+
+
+## Mögliche Code-Schnipsel und Schritte:
+- gamerule spawnMonsters -> Ergebnis = false
