@@ -1,0 +1,3 @@
+function respawn:commandblock/check_wirt
+
+function respawn:commandblock/interaction
