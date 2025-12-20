@@ -92,14 +92,75 @@ Youtube:
 
 ### Neu: (Kommentare enfernt)
 ## check_wirt.mcfunction 
+execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=gasthaus_wirt_panda_village] \
+    run summon villager 1782 65 271 \
+        {VillagerData:\
+            {type:plains,profession:"butcher",level:99},\
+            CustomName:[{text:Gastwirt,bold:true}],\
+            Invulnerable:1b,\
+            NoAI:1b,\
+            NoGravity:1b,\
+            OnGround:1b,\
+            PersistenceRequired:1b,\
+            Rotation:[180f,0f],\
+            Tags:["gasthaus","gasthaus_wirt","gasthaus_wirt_panda_village"]\
+        }
+execute if score _in_work Global_Variables matches 0 unless entity @e[tag=gasthaus_interaction_panada_village] run \
+    summon minecraft:interaction 1782 65 271 {height:2.0f, width:1.0f, Tags:["gasthaus", "gasthaus_interaction_panada_village"]}
+
 
 ## interaction.mcfunction (Kommentare enfernt)
+execute as @e[tag=gasthaus_interaction_panada_village, type=interaction] on target run function respawn:dialoge/dialog_wirt
+
+data remove entity @e[tag=gasthaus_interaction_panada_village, type=interaction, limit=1] attack
+data remove entity @e[tag=gasthaus_interaction_panada_village, type=interaction, limit=1] interaction
+
 
 ## switch.mcfunction (Kommentare enfernt)
+function respawn:commandblock/check_wirt
+
+function respawn:commandblock/interaction
+
 
 ## dialog_wirt.mcfunction (Kommentare enfernt)
+scoreboard players enable @s SpawnPoint
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Gastwirt",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Möchtest du deinen Respawnpunkt hierher verlegen?"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger SpawnPoint set 1"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger SpawnPoint set 0"\
+        }\
+    }\
+}
+
 
 ## tags.txt (Kommentare enfernt)
+# Scoreboard SpawnPoint = Tags
+# Hat der Spieler keinen Tag, dann respawn om Worldspawn
+
+0="Keine Änderung"
+1=spawnpoint_panda_village
+2=spawnpoint_dorf2
+
+
 
 ## respawnpoint.mcfunction (Kommentare enfernt)
 Wird Verschoben von Base in Respawn
@@ -107,16 +168,9 @@ Wird Verschoben von Base in Respawn
 
 ### Diese Dateien werden erstellt aber erst in den nächsten Folgen benötigt
 ## detect_player.mcfunction (Kommentare enfernt)
-
 ## forceloading.mcfunction (Kommentare enfernt)
-
-
 ## trigger.mcfunction (Kommentare enfernt)
-
 ## switch.mcfunction (Kommentare enfernt)
-
 ## init.mcfunction (Kommentare enfernt)
-
 ## tag_remove.mcfunction (Kommentare enfernt)
-
 ## teleport.mcfunction (Kommentare enfernt)
