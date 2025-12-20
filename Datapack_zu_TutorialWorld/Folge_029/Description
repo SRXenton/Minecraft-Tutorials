@@ -1,0 +1,122 @@
+##
+## Beschreibung zu Folge 029: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #029 - Respawn über das Datapack steuern - Teil 1
+
+- Video: preparing for public
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Villager, Interaction und Dialog erstellen für die Respawnsteuerung
+
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Datapack Struktur erstellen
+5. Summon Villager und Interaction 
+6. Interaction und Dialog aufrufen vom Wirt im Panda Village
+7. Tags setzen über Scoreboard/Trigger
+8. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+GitHub:
+- https://github.com/SRXenton/Minecraft-Tutorials/blob/main/Respawnpunkt_aendern_ohne_bett_per%20commandblock
+
+Youtube:
+- https://youtu.be/UfDQL5PqAMo
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * base
+            * function
+                - respawnpoint.mcfunction (Wird verschoben)
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                + commandblock
+                    + check_wirt.mcfunction
+                    + interaction.mcfunction
+                    + switch.mcfunction
+                + dialoge
+                    + dialog_wirt.mcfunction
+                + tick
+                    + detect_player.mcfunction
+                    + forceloading.mcfunction
+                    + respawnpoint.mcfunction
+                    + trigger.mcfunction
+                    + switch.mcfunction
+                + init.mcfunction
+                + tag_remove.mcfunction
+                + tags.txt
+                + teleport.mcfunction
+
+
+### Bearbeiten:
+## tick.json
+{
+    "replace": false,
+    "values": [
+        "base:respawnpoint","base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
+
+### Neu: (Kommentare enfernt)
+## check_wirt.mcfunction 
+
+## interaction.mcfunction (Kommentare enfernt)
+
+## switch.mcfunction (Kommentare enfernt)
+
+## dialog_wirt.mcfunction (Kommentare enfernt)
+
+## tags.txt (Kommentare enfernt)
+
+## respawnpoint.mcfunction (Kommentare enfernt)
+Wird Verschoben von Base in Respawn
+
+
+### Diese Dateien werden erstellt aber erst in den nächsten Folgen benötigt
+## detect_player.mcfunction (Kommentare enfernt)
+
+## forceloading.mcfunction (Kommentare enfernt)
+
+
+## trigger.mcfunction (Kommentare enfernt)
+
+## switch.mcfunction (Kommentare enfernt)
+
+## init.mcfunction (Kommentare enfernt)
+
+## tag_remove.mcfunction (Kommentare enfernt)
+
+## teleport.mcfunction (Kommentare enfernt)
