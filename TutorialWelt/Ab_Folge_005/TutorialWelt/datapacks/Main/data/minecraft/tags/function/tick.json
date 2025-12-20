@@ -1,7 +1,8 @@
 {
     "replace": false,
     "values": [
-        "base:respawnpoint","base:remove_villager_trading",
+        "respawn:tick/trigger",
+        "base:remove_villager_trading",
         "teleport:entities/entity_control",
         "weather:control_switch_weather",
         "currency:detect_click_wallet",
