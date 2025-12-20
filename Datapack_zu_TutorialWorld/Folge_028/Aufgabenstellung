@@ -1,0 +1,37 @@
+## Aufgabenstellung
+#
+#   Anzahl Golems im Dorf begrenzen
+#
+
+# Aufgabenstellung:
+Alt: 
+    Golemanzahl im Dorf kann unbeschrängt weiterwachsen, da die Anzahl von Minecraft Grundcode berechnet wird
+Neu:
+    Golems im Dorf durch eigenen Code beschränken
+    Max Wert wird über den Commandblock gegeben, wie bei Villager Size
+    Benamung anpassen
+
+    
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * village
+            * function
+                * size
+                    > runner.mcfunction
+                    
+### Dateien:
+# remove_villager_trading.mcfunction
+    Anzahl Golems erkennen und Wert ins Scoreboard schreiben
+    Wenn zu viele Golems, dann 1 Golem entfernen
+
