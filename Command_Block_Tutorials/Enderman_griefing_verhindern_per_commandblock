@@ -1,0 +1,7 @@
+# Enderman griefing verhindern per Commandblock
+# Code example for my Youtube tutorial videos
+# Video: https://youtu.be/-ttmJDFSFqs
+
+
+# 00:55
+execute as @e[type=enderman,tag=!tagged] run data merge entity @s {carriedBlockState: {Name: "minecraft:moving_piston"},Tags:['tagged']}

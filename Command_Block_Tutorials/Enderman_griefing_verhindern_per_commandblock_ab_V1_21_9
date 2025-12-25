@@ -1,0 +1,33 @@
+# Enderman griefing verhindern per Commandblock ab Minecraft Version 1.21.9
+# Prevent Enderman griefing using command blocks from Minecraft version onwards 1.21.9
+
+# Titel: Minecraft Tutorial [1.21.9+] - Enderman griefing off mit Commandblock - Update
+
+# Ziel: Dauerhaft verhindern, dass Enderman keine Blöcke abbauen und platzieren können
+
+# Video: https://youtu.be/Hg6sjzm-GL4
+
+# Beschreibung
+1. Chunk auswählen, der dauerhaft geladen werden soll.
+2. In dem Chunk den Forceload Command ausführen
+3. In dem geforcesten Chunk, einen Commandblock setzen
+4. Im Commandblock: Command einfügen, Status einstellen
+5. Fertig
+
+# Description
+1. Select the chunk that should be loaded permanently.
+2. Execute the forceload command in the chunk.
+3. Set a command block in the forced chunk.
+4. Commandblock: Insert the command and set status.
+5. Done.
+
+
+# Status Commandblock: 
+Repeat, Always active
+
+## Commands:
+# In Chat:
+forceload add ~ ~
+# In Commandblock
+execute as @e[type=minecraft:enderman,nbt=!{carriedBlockState:{Name:"minecraft:moving_piston"}}] run data merge entity @s {carriedBlockState:{Name:"minecraft:moving_piston"}}
+

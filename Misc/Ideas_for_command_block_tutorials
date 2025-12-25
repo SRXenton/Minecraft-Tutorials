@@ -1,0 +1,10 @@
+###
+
+# Schleicherkennung
+- Über sneak-time
+
+# Spieler erkennung nur in Front von Entity
+- Spieler nur erkennen, wenn dieser vor der Entity steht
+
+# Pathfinding
+- Entity bewegt sich auf vorgegebenen Weg
