@@ -1,11 +1,7 @@
 {
     "replace": false,
     "values": [
-<<<<<<< HEAD
         "respawn:tick/switch",
-=======
-        "respawn:tick/trigger",
->>>>>>> 9a8fc9921c5d9c19e4379f2ef496959a32a17675
         "base:remove_villager_trading",
         "teleport:entities/entity_control",
         "weather:control_switch_weather",
