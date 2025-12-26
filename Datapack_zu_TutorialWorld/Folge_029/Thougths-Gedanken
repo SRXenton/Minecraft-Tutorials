@@ -1,0 +1,141 @@
+## Thema:
+# Gedanken
+- Respawnpunkt nach Tot nicht am Bett: Ist schon vorprogrammiert, Steuerung fehlt
+- Respawnpunkt wird über einen NPC (Wirt, Priester) gesteuert
+- Zentralen Chunk forcen zur Steuerung der Spieler
+- Basierend auf dem Video von mir: Minecraft Tutorial - Dynamischen Respawnpunkt ohne Bett - mittels Commandblock
+- Questanpassung vom Dorfvorsteher, nach dem der Spieler bei der Bank war
+
+# Mögliche Folgen Titel:
+
+Tag + Teleport + setrespawn = Dynamischer Respawn
+
+
+# Aufgabenstellung:
+Alt: 
+    Respawn am Worldspawn, auch nach Tot
+
+Neu:
+    Spieler bekommt eine Quest, nachdem er bei der Bank war.
+    Respawn nicht mehr am Spawn, nachdem mit einem Wirt bzw Prister den Respawnpunkt geändert wurde, dann Respawn beim Wirt/Prister
+
+# Aktionen
+- Dorfvorsteher:
+    Dialog anpassen, der Bank Quest, dass der Spieler danach zurück kommen soll.
+    Neue Quest vom Dorfvorsteher, zum Gastwirt im Dorf 1 ()
+- Nach dem Bankbesuch, Titel mit Abschluss und Nachricht mit Zurück zum Dorfvorsteher
+- Gastwirt:
+    Gastwirt erstellen (Villager und Interaction), Kein Manakin/Puppe
+    Dialogfenster mit Confimation zum Switch Respawn
+    Mit Bestätigung Taggen das Spielers
+- Spawnpunkt Zentral setzten, Spieler in dem Bereich erkennen und Anhand des Tags den Spieler an den Ort Porten
+- Ursprungsprogrammierung so erweitern, dass Spieler nur ohne Tags am Worldspawn erscheinen
+
+
+## Schritte:
+- Dorf 1 benennen: Panda Village von TheReal-Samu
+- Datapack Struktur Anlegen
+- respawnpoint.mcfunction von base nach respawn/tick schieben
+- tick.json anpassen
+- Tags definieren für Spawnpunkte und trigger Werten
+- Commandblock unter dem Wirt
+- check_wirt.mcfunction, mit Summon Villager und Interaction
+- Interaction interaktion erstellen
+- Dialog erstellen (Confirmation)
+- init für Spawnpoint trigger
+- init in die base_init.mcfunction aufnehmen
+- trigger.mcfuntion erstellen und in tick.json aufnehmen
+- trigger enable und set in den Dialog aufnehmen
+- trigger.mcfunction, Tags entsprechend setzen, inkl tag remove
+- Tags vom Wirt/Priester in village/size als Ausnahme aufnehmen
+
+- forceload über datapack, und sicherstellen dass dieser wenn ein Spieler online ist auch geladen wird
+- setworldspawn in base_init.mcfunction ändern in die neue Zone
+- spawnpoint in respawnpoint.mcfunction ändern in die neue Zone
+- Spawnpoint in den Spawnchunk legen (Datapack, inkl Abfrage wenn Spieler nicht am neuen punkt und Gamemode)
+- Spieler Erkennung im Forceload Bereich
+- Teleport anhand des Tags
+- Wenn keine Tags am Spieler, Respawn am "Worldspan"
+- detect_player, forceloading, respawnpoint und trigger zusammenfassen in tick/switch.mcfunction und in tick.json ändern
+
+
+- ckeck_wirt.mcfunction Umbau auf Macro: tag, position, name
+- interaction.mcfunction umbau auf Macro
+- dialog_wirt.mcfunction umbeu auf Macro
+- switch.mcfunction umbau auf Macro
+- Anpassen Commandblock unterm Gastwirt
+- teleport.mcfunction neuen Respawnpunkt setzen für Dorf 2
+- Dorf2 Commandblock für Gastwirt setzen und Macro anpassen
+
+# Nötiges Wissen:
+- forceload
+- tick.json
+- dialog
+- setworldspawn
+- spawnpoint
+- data
+- interactions
+- trigger / scoreboards
+- teleport
+- Macros
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+Folge 29,30:
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                + commandblock
+                    + check_wirt.mcfunction
+                    + interaction.mcfunction
+                    + switch.mcfunction
+                + dialoge
+                    + dialog_wirt.mcfunction
+                + tick
+                    + detect_player.mcfunction
+                    + forceloading.mcfunction
+                    + respawnpoint.mcfunction
+                    + trigger.mcfunction
+                    + switch.mcfunction
+                + init.mcfunction
+                + tag_remove.mcfunction
+                + tags.txt
+                + teleport.mcfunction
+
+
+Folge 31:
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                * commandblock
+                    > check_wirt.mcfunction
+                    > interaction.mcfunction
+                    > switch.mcfunction
+                * dialoge
+                    > dialog_wirt.mcfunction
+                > teleport.mcfunction
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
