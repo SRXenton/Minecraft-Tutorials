@@ -33,10 +33,6 @@ gamerule spawnRadius 3
 # Wetter
 function weather:init_scoreboard_weather
 # Wolrdspawn
-<<<<<<< HEAD
-setworldspawn 1576 87 -168 -90 0
-=======
 setworldspawn 1736 65 261 -90 0
->>>>>>> 9a8fc9921c5d9c19e4379f2ef496959a32a17675
 
 function respawn:init
