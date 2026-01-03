@@ -1,0 +1,31 @@
+# Interaction
+# Code example for my Youtube tutorial videos
+# Video: https://youtu.be/6lS4ezYRVow
+
+# Target
+execute as @e[type=interaction,tag=inter1] at @s on target run give PlayerName minecraft:diamond
+execute as @e[type=interaction, tag=inter1] at @s run data remove entity @s interaction
+
+# Attack
+execute as @e[type=interaction,tag=inter2] at @s on attacker run give PlayerName minecraft:diamond
+execute as @e[type=interaction, tag=inter2] at @s run data remove entity @s attack
+
+# Let's talk with skeleton
+# Click interaction
+execute as @e[type=minecraft:interaction, tag=interS] at @s on target run scoreboard players set inter InteractionTest 1
+execute as @e[type=minecraft:interaction, tag=interS] at @s on attacker run scoreboard players set inter InteractionTest 2
+execute as @e[type=interaction, tag=interS] at @s run data remove entity @s interaction
+execute as @e[type=interaction, tag=interS] at @s run data remove entity @s attack
+
+# talk output
+execute if score inter InteractionTest matches 1 run say hello
+execute if score inter InteractionTest matches 2 run say Attack
+scoreboard players set inter InteractionTest 0
+
+
+
+# summon interaction
+/summon interaction 1521 30 1525 {width:1f,height:1f,Tags["interS"]}
+
+# Position interaction
+/data merge entity @e[tag=interS,limit=1] {Pos:[1520.50,30.00,1525.00]}

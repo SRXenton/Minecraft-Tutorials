@@ -1,0 +1,66 @@
+#
+# DE: Benutzerdefinierter Respawnpunkt ohne Bett mit Villager erstellen, und das Ganze mit Commandblöcken
+#
+# ENG: Custom respawn point without bed but with Villager, and all with command block
+#
+# Video: https://youtu.be/UfDQL5PqAMo
+#
+#
+#
+
+#
+# Einmalig
+# Debug / Grundeinstellung
+#
+
+# Scoreboard
+scoreboard objectives remove PlayerSpawn
+scoreboard objectives remove PlayerSpawnVillagerClick
+
+scoreboard objectives add PlayerSpawn dummy
+scoreboard objectives add PlayerSpawnVillagerClick minecraft.custom:minecraft.talked_to_villager
+
+
+# Villager Spawn 1
+execute unless entity @e[tag=gastwirt,tag=g_Spawn1,dx=5] run kill @e[tag=gastwirt,tag=g_Spawn1]
+execute unless entity @e[tag=gastwirt,tag=g_Spawn1] run summon villager ~2 ~-1.5 ~ {Rotation:[180f,0f],VillagerData:{profession:nitwit,level:99,type:desert},Tags:["playerspawn","gastwirt","g_Spawn1"],Invulnerable:1b,PersistenceRequired:1b,Silent:1b,NoAI:1b,CustomName:'"Gastwirt"'}
+
+# Villager Spawn 2
+execute unless entity @e[tag=gastwirt,tag=g_Spawn2,dx=5] run kill @e[tag=gastwirt_spawn2,tag=g_Spawn2]
+execute unless entity @e[tag=gastwirt,tag=g_Spawn2] run summon villager ~2 ~-1.5 ~ {Rotation:[90f,0f],VillagerData:{profession:nitwit,level:99,type:desert},Tags:["playerspawn","gastwirt","g_Spawn2"],Invulnerable:1b,PersistenceRequired:1b,Silent:1b,NoAI:1b,CustomName:'"Gastwirt Spawn2"'}
+
+
+
+#
+# Dauerhaft
+# Running
+#
+
+# Respawn dauerhaft für alle Player auf einen Zentralen Punkt setzen
+spawnpoint @e[type=minecraft:player] 1287 60 1366
+
+
+# Spieler vom Zentralen Punkt zum Benutzerdefinierten Spawnpunkt teleportieren
+# 
+execute positioned 1287 60 1366 if entity @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=Spawn1] run tp @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=Spawn1] 1194 4 1718
+execute positioned 1287 60 1366 if entity @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=Spawn2] run tp @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=Spawn2] 1463 4 1537
+execute positioned 1287 60 1366 if entity @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=!Spawn2,tag=!Spawn1] run tp @e[type=minecraft:player,distance=..10,gamemode=!spectator,tag=!Spawn2,tag=!Spawn1] 1283.00 5.54 1362.33
+
+
+# Vilager Spawn 1
+execute at @e[type=minecraft:villager,tag=g_Spawn1] run scoreboard players add @a[scores={PlayerSpawnVillagerClick=1},distance=..5] PlayerSpawn 1
+execute at @e[type=minecraft:villager,tag=g_Spawn1] run tell @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] Dein Spawn ist jetzt hier bei mir (Spawn1)
+execute at @e[type=minecraft:villager,tag=g_Spawn1] run tag @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] remove Spawn2
+execute at @e[type=minecraft:villager,tag=g_Spawn1] run tag @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] add Spawn1
+scoreboard players set @a PlayerSpawnVillagerClick 0
+scoreboard players set @a PlayerSpawn 0
+
+
+# Vilager Spawn 2
+execute at @e[type=minecraft:villager,tag=g_Spawn2] run scoreboard players add @a[scores={PlayerSpawnVillagerClick=1},distance=..5] PlayerSpawn 1
+execute at @e[type=minecraft:villager,tag=g_Spawn2] run tell @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] Dein Spawn ist jetzt hier bei mir (Spawn2)
+execute at @e[type=minecraft:villager,tag=g_Spawn2] run tag @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] remove Spawn1
+execute at @e[type=minecraft:villager,tag=g_Spawn2] run tag @a[scores={PlayerSpawnVillagerClick=1,PlayerSpawn=1},distance=..5,sort=nearest] add Spawn2
+scoreboard players set @a PlayerSpawnVillagerClick 0
+scoreboard players set @a PlayerSpawn 0
+

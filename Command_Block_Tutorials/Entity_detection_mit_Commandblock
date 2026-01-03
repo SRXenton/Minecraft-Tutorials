@@ -1,0 +1,34 @@
+#
+# Entity detection with command block - Entity Erkennung mit Command Block
+# Video: https://youtu.be/Uz111nuYbbY 
+#
+
+# Debug
+scoreboard objectives remove TestPlayerDetection
+scoreboard objectives add TestPlayerDetection dummy
+scoreboard objectives setdisplay sidebar TestPlayerDetection
+
+
+## Player / Entity ist in einem Bereich
+# Player oberhalb des Blockes
+execute if entity @e[type=minecraft:player,x=1496,y=3,z=1556,dy=3] run scoreboard players add red TestPlayerDetection 1
+
+# Player innerhalb eines würfel-Bereichs
+execute if entity @e[type=minecraft:player,x=1496,y=3,z=1556,dy=3,dx=3,dz=3] run scoreboard players add red TestPlayerDetection 1
+
+# Player innderhalb eines Kugel-Bereichs
+execute if entity @e[type=minecraft:player,x=1496,y=3,z=1556,distance=..4] run scoreboard players add red TestPlayerDetection 1
+
+# Jede Entity innerhalb eines Kugel-Bereichs
+execute if entity @e[x=1496,y=3,z=1556,distance=..4] run scoreboard players add red TestPlayerDetection 1
+
+
+## Player / Entity NICHT im Bereich
+#
+execute unless entity @e[type=minecraft:player,x=1496,y=3,z=1559,dy=3]
+execute unless entity @e[type=minecraft:player,x=1496,y=3,z=1559,dy=6] run title @p title "Hallo"
+
+
+## Nicht Player aber jede andere Entity erkennen
+#
+execute if entity @e[type=!minecraft:player,x=1496,y=3,z=1562,dy=3]
