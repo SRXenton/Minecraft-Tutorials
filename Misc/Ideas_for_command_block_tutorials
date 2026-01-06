@@ -4,6 +4,10 @@
 - Geschwindigkeit kann sich ändern
 - Abzweige mit Commandblock/Redstone
 
+# Impuls mit Commandblock
+- Einen ein Tick langen Impuls erzeugen
+- Zu Visualisierung: Textausgabe
+- Vergleich mit Redstone Schaltung
 
 ## Schon erstelle Tutorials
 # Schleicherkennung   -> Sneak detection mit Command Blocks
