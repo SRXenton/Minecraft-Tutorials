@@ -1,6 +1,6 @@
 scoreboard players enable @s SpawnPoint
 
-dialog show @s {\
+$dialog show @s {\
     "type": "minecraft:confirmation",\
     "title": "Gastwirt",\
     "body": {\
@@ -14,7 +14,7 @@ dialog show @s {\
         "label": "Ja",\
         "action": {\
             "type": "minecraft:run_command",\
-            "command": "trigger SpawnPoint set 1"\
+            "command": "trigger SpawnPoint set $(destination)"\
         }\
     },\
     "no": {\
