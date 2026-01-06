@@ -36,7 +36,7 @@ GitHub:
 # Schritte:
 - ckeck_wirt.mcfunction Umbau auf Macro: tag, position, name
 - interaction.mcfunction umbau auf Macro
-- dialog_wirt.mcfunction umbeu auf Macro
+- dialog_wirt.mcfunction umbau auf Macro
 - switch.mcfunction umbau auf Macro
 - Anpassen Commandblock unterm Gastwirt
 - teleport.mcfunction neuen Respawnpunkt setzen für Dorf 2
@@ -50,10 +50,6 @@ GitHub:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * minecraft
-            * tags
-                * function
-                    > tick.json   
         * respawn
             * function
                 * commandblock
