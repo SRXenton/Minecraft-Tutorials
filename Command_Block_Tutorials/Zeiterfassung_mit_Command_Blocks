@@ -1,0 +1,117 @@
+# Zeiterfassung mit Command Blöcken
+# Code example for my Youtube tutorial videos
+# Video: https://www.youtube.com/watch?v=0H_XHP8g7DY
+
+
+# Scoreboard erstellen für Zeitaufnahme
+/scoreboard objectives add TutTime dummy
+/scoreboard objectives add Time dummy
+
+# Code bei (Minute:Sekunde):
+
+# 00:40
+# Query Time in Scoreboard TutTime in die Entity Ticks schreiben
+execute store result score Ticks TutTime run time query gametime
+
+# 02:40
+# Scoreboard von TutTime in der Sidebar anzeigen
+/scoreboard objectives setdisplay sidebar TutTime
+
+# 03:22
+# Query Time in Scoreboard Time in die Entity Ticks schreiben
+execute store result score Ticks Time run time query gametime
+
+# 04:42
+# Scoreboard von Time in der Sidebar anzeigen
+/scoreboard objectives setdisplay sidebar Time
+
+
+#
+# Anwendungsbeispiele
+#
+
+# 05:27
+# Flip Flop
+
+# Init
+scoreboard objectives remove TimeExample
+scoreboard objectives add TimeExample dummy
+scoreboard objectives setdisplay sidebar TimeExample
+execute store result score nr1 TimeExample run time query gametime
+scoreboard players add nr1 TimeExample 60
+execute store result score nr2 TimeExample run time query gametime
+
+# Flip
+execute if score nr1 TimeExample < Ticks Time
+
+setblock 1484 4 1541 minecraft:lantern
+execute store result score nr2 TimeExample run time query gametime
+scoreboard players add nr2 TimeExample 10
+
+# Flop
+
+execute if score nr2 TimeExample < Ticks Time
+
+setblock 1484 4 1541 minecraft:air
+execute store result score nr1 TimeExample run time query gametime
+scoreboard players add nr1 TimeExample 100
+
+
+# 08:03
+# Chest: Inhalt ersetzen
+
+# Init
+scoreboard objectives remove Kiste
+scoreboard objectives add Kiste dummy
+
+# Erkennen Fehl Item:
+execute unless block 1497 4 1541 minecraft:chest{Items:[{id:"minecraft:wheat"},{id:"minecraft:stone_hoe"}]}
+
+execute store result score nr1 Kiste run time query gametime
+execute if score nr1 Kiste matches 1.. run scoreboard players add nr1 Kiste 60
+
+# Chest auffüllen:
+execute if score nr1 Kiste matches 5000.. run execute if score nr1 Kiste < Ticks Time
+
+data merge block 1497 4 1541 {Items:[{Slot:0,id:"wheat",count:64},{Slot:1,id:"stone_hoe",count:1}]}
+scoreboard players set nr1 Kiste 0
+
+
+
+# 10:00
+# Armor Stand ersetzen
+
+# init
+scoreboard objectives remove replace
+scoreboard objectives add replace dummy
+
+# Erkennen Item Fehlt:
+execute unless entity @e[tag=replace,nbt={ArmorItems:[{id:"minecraft:iron_boots"},{id:"minecraft:iron_leggings"},{id:"minecraft:iron_chestplate"},{id:"minecraft:iron_helmet"}]}]
+
+execute store result score respawn replace run time query gametime
+execute if score respawn replace matches 1.. run scoreboard players add respawn replace 60
+
+# Armor Stand ersetzten
+execute if score respawn replace matches 5000.. run execute if score respawn replace < Ticks Time
+
+kill @e[type=minecraft:armor_stand, tag=replace ]
+summon minecraft:armor_stand ~-3 ~ ~3 {Invulnerable:1b,Rotation:[123f],Tags:["replace"],ArmorItems:[{id:iron_boots,count:1},{id:iron_leggings,count:1},{id:iron_chestplate,count:1},{id:iron_helmet,count:1}]}
+scoreboard players set respawn replace 0
+
+
+
+# 11:37
+# Erfassung von Minuten, Stunden und Tagen
+
+# Init:
+scoreboard objectives remove Timertest
+scoreboard objectives add Timertest dummy
+
+# Erfassung:
+scoreboard players add Ticks Timertest 1
+execute if score Ticks Timertest matches 1200.. run scoreboard players add Minutes Timertest 1
+execute if score Minutes Timertest matches 60.. run scoreboard players add Hour Timertest 1
+execute if score Minutes Timertest matches 60.. run scoreboard players set Minutes Timertest 0
+execute if score Hour Timertest matches 60.. run scoreboard players add Days Timertest 1
+execute if score Hour Timertest matches 60.. run scoreboard players set Hour Timertest 0
+execute if score Ticks Timertest matches 1200.. run scoreboard players set Ticks Timertest 0

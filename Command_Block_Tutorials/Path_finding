@@ -1,0 +1,16 @@
+# Path finding mit Command Blocks
+# Code example for my Youtube tutorial videos
+# Video: https://youtu.be/w1oOvQZJzas
+
+# Init
+kill @e[type=villager, tag=tutorial_patrolie]
+summon villager 1263 4 1651 {NoAI:1b,Rotation:[0,0], Tags:["tutorial_patrolie"]}
+
+# run
+execute as @e[tag=tutorial_patrolie] at @s if block ~ ~-1 ~ minecraft:magenta_glazed_terracotta[facing=south] run teleport @s ~ ~ ~-0.05 180 0
+execute as @e[tag=tutorial_patrolie] at @s if block ~ ~-1 ~ minecraft:magenta_glazed_terracotta[facing=west] run teleport @s ~0.05 ~ ~ -90 0
+execute as @e[tag=tutorial_patrolie] at @s if block ~ ~-1 ~ minecraft:magenta_glazed_terracotta[facing=north] run teleport @s ~ ~ ~0.05 0 0
+execute as @e[tag=tutorial_patrolie] at @s if block ~ ~-1 ~ minecraft:magenta_glazed_terracotta[facing=east] run teleport @s ~-0.05 ~ ~ 90 0
+
+
+

@@ -1,0 +1,76 @@
+##
+## Beschreibung zu Folge 028: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #028 - Max Count Iron Golems und TPS Optimierung
+
+- Video: https://youtu.be/qo4cbhQ3dPY
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziel der Folge:
+
+- Iron Golems in den Dörfen begrenzen
+- Optimierung TPS im Datapack
+
+
+
+## Aktionen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Coden
+5. Testen
+6. Datapack Optimierung
+7. Testen
+8. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json
+        * village
+            * function
+                * size
+                    > init.mcfunction
+                    > runner.mcfunction
+
+### Bearbeiten:
+
+## init.mcfunction (Kommentare enfernt)
+scoreboard objectives remove Village_Villager_count
+
+scoreboard objectives remove Village_Entity_count
+scoreboard objectives add Village_Entity_count dummy
+
+## runner.mcfunction (Kommentare enfernt)
+$execute store result score _count_villager Village_Entity_count run execute if entity @e[tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=villager]
+
+$execute if score _count_villager Village_Entity_count matches $(max_villager).. run kill @e[limit=1,tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=villager]
+
+
+$execute store result score _count_Iron_Golem Village_Entity_count run execute if entity @e[tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=iron_golem]
+
+$execute if score _count_Iron_Golem Village_Entity_count matches $(max_iron_golem).. run kill @e[limit=1,tag=!trader,tag=!bank,tag=!quest_npc, distance=..$(d), type=iron_golem]

@@ -1,0 +1,21 @@
+# Sneak detection with Command Blocks
+# Code example for my Youtube tutorial videos
+# Video: Preparing
+
+# Init
+scoreboard objectives remove TutorialSneakDetect
+scoreboard objectives add TutorialSneakDetect minecraft.custom:minecraft.sneak_time
+scoreboard objectives setdisplay sidebar TutorialSneakDetect
+
+
+# Run
+execute if entity @a[scores={TutorialSneakDetect=0}]
+execute if entity @a[scores={TutorialSneakDetect=1..}]
+execute if entity @a[scores={TutorialSneakDetect=1}] run tellraw @a "Spieler ist am Schleichen"
+execute if entity @a[scores={TutorialSneakDetect=0}] run tellraw @a "Spieler schleicht nicht"
+scoreboard players set @a TutorialSneakDetect 0
+
+
+
+
+
