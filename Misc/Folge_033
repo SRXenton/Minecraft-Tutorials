@@ -1,0 +1,47 @@
+## Thema:
+# Gedanken
+- Questupdate Panda Village, Dorfvorsteher
+- Folge Quest nach Bank anbieten mit dem setzten des Spawns
+
+# Mögliche Folgen Titel:
+
+
+
+
+# Aufgabenstellung:
+Alt: 
+    Keine Folge Quest für Spawn setzen
+Neu:
+    Panda Village: Dorfvorsteher Questdialog erweitern
+    Update im Respawn Dialog für Quest
+
+# Aktionen
+
+
+# Nötiges Wissen:
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json     >> Bearbeiten
+        + weather
+            + function
+                + beispiel1.mcfunction    >> Neu
+                - beispiel2.mcfunction     >> Entfernen
+
+### Dateien:
+
+## NEU:
+# beispiel.mcfunction
+
+
+## Bearbeiten: 
+# tick.json beispiel.mcfunction
