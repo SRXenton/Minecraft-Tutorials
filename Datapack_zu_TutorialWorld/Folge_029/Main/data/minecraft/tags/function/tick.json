@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/trigger",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
