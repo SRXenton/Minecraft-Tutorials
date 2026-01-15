@@ -1,0 +1,23 @@
+## Aufgabenstellung
+#
+#   Datapack aufräumen und Villageranzahl im Dorf begenzen
+#
+
+# Aufgabenstellung:
+Alt: 
+   Datapack ist unaufgeräumt
+   Dorfanzahl kann durch natürliche Spawning zu groß werden
+Neu:
+    Datapack Aufräumen
+    Dorfanzahl durchs Datapack begrenzen, für jedes Dorf einzeln
+    
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Datapack Strucktur:
+
+Wird sich ergeben
