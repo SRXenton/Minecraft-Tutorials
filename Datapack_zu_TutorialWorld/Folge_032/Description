@@ -1,0 +1,66 @@
+##
+## Beschreibung zu Folge 032: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11] #030 - Update auf V 1.21.11 - Gamerules
+
+- Video: preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Minecraft (Lokal) auf V 1.21.11 bringen, mit Vanilla standart Launcher und mit Prism und Mods
+- Vorhandener Vanilla Minecraft Server auf V1.21.11 bringen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Runterladen der aktuellsten Version
+4. Minecraft in V 1.21.11 starten und Welt updaten
+5. Prism: Minecraft und Mods und auch hier die Welt updaten
+6. Datapack anpassen und fehler suchen
+7. Server Version herunterladen und auf den bestehenden Server hochladen und starten
+8. Testen
+9. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+Minecraft:
+- http://www.minecraft.net
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * base
+            * function
+                > base_init.mcfunction
+        * weather
+            * function 
+                > init_scoreboard_weather.mcfunction
+        > pack.pcmeta
+
+
+### Bearbeiten:
+## pack.pcmeta (Kommenrtare entfernt)
+
+## init_scoreboard_weather.mcfunction (Kommenrtare entfernt)
+
+## base_init.mcfunction (Kommenrtare entfernt)
+
