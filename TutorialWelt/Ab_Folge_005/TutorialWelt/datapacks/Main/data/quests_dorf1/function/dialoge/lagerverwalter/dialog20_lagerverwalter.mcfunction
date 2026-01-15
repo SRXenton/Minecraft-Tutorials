@@ -24,5 +24,3 @@ dialog show @s {\
         "label": "Nein"\
     }\
 }
-
-#function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter

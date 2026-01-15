@@ -12,23 +12,41 @@ scoreboard players set _in_work Global_Variables 0
 
 ## Gamerule setzten
 # Feindliche Monster
-gamerule spawnMonsters false
+#gamerule spawnMonsters false
+gamerule spawn_monsters false
+
 # Tag-Nacht Rythmus
-gamerule doDaylightCycle true
+#gamerule doDaylightCycle true
+gamerule advance_time true
+
 # Reisender Händler
-gamerule doTraderSpawning false
+#gamerule doTraderSpawning false
+gamerule spawn_wandering_traders false
+
 # Raids
-gamerule disableRaids true
+#gamerule disableRaids true
+gamerule raids false
+
 # Inventarverlust
-gamerule keepInventory true
+#gamerule keepInventory true
+gamerule keep_inventory true
+
 # Commandblock Ausgabe
-gamerule commandBlockOutput false
+#gamerule commandBlockOutput false
+gamerule command_block_output false
+
 # Phantome
-gamerule doInsomnia false
+#gamerule doInsomnia false
+gamerule spawn_phantoms false
+
 # Patrolien
-gamerule doPatrolSpawning false
+#gamerule doPatrolSpawning false
+gamerule spawn_patrols false
+
 # Spawnradius um den Worldspawn
-gamerule spawnRadius 3
+#gamerule spawnRadius 3
+gamerule respawn_radius 3
+
 
 # Wetter
 function weather:init_scoreboard_weather
