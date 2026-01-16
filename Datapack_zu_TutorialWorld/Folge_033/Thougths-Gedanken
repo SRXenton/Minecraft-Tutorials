@@ -1,0 +1,88 @@
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+# Mögliche Folgen Titel:
+
+
+Wirtschaftssystem Teil 1: Neues Datapack aus vorhanden Elementen auskoppeln (Bank und Währung)
+
+
+# Aufgabenstellung:
+Alt: 
+    Nur Währung aber noch keine Händler
+
+Neu:
+    Händler einführen
+
+# Aktionen
+- Neues Datapack erstellen: Economic_System
+- currency aus Main in Economic_System verschieben
+- currency umbenennen in e_s__curreny
+- function Pfade anpassen: Questverlauf und currency / e_s__curreny
+- bank aus Main in Economic_System verschieben
+- bank umbenennen in e_s__bank
+- function Pfade anpassen: Questverlauf und bank / e_s__bank
+
+
+## Schritte:
+- Neues Datapack erstellen: Economic_System inkl. pack.mcmeta
+- minecraft -> tick.json
+- verschieben von currency und umbenennen in e_s__curreny
+- Anpassen in den Functions die Path angaben
+- tick.json anpassen in Economic_System und Main
+- Testen
+- Verschieben von Bank und umbenennen in e_s__bank
+- Anpassen in den Functions die Path angaben
+- Testen
+- tick.json anpassen in Economic_System und Main
+
+
+
+
+# Nötiges Wissen:
+- pack.mcmeta
+- tick.json
+- function
+- macros
+
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+Folge 1: Neues Datapack aus vorhanden Elementen auskoppeln
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        - currency (Wird verschoben und Umbenannt)
+        - bank (Wird verschoben und Umbenannt)
+
++ Economic_System
+    + data
+        + minecraft
+            + tags
+                + function
+                    + tick.json
+        + e_s__curreny (Ursprünglich currency aus Main)
+            + function
+                * ...
+                > add_money.mcfunction
+                > remove_money.mcfunction
+        + e_s__bank (Ursprünglich bank aus Main)
+            + function
+                * ...
+                > control_bank.mcfunction
+                + dialog
+                    * ...
+                    > baenker.mcfunction
+    + pack.mcmeta
+
+
