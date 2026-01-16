@@ -1,0 +1,257 @@
+Focusrite## Thema:
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+# Mögliche Folgen Titel:
+
+
+
+
+# Aufgabenstellung:
+Alt: 
+    Nur Währung aber noch keine Händler
+
+Neu:
+    Händler einführen
+
+# Aktionen
+Teil 1: Wirtschaftssystem: Neues Datapack aus vorhanden Elementen auskoppeln
+- Neues Datapack erstellen: Economic_System
+- currency aus Main in Economic_System verschieben
+- currency umbenennen in e_s__curreny
+- function Pfade anpassen: Questverlauf und currency / e_s__curreny
+- bank aus Main in Economic_System verschieben
+- bank umbenennen in e_s__bank
+- function Pfade anpassen: Questverlauf und bank / e_s__bank
+
+
+Teil 2: Handlessystem, summon ersten Händler
+- Summon Villager / Definiere was für ein 1. Trader, koordinaten festlegen
+- Erkennung ist villager / Interaction vorhanden
+- Interaction(Interaktion mit Interaction) erstellen
+- Ersten Dialog mit tellraw
+
+Teil 3: Handlessystem: Ein Dialog für ein Handelsfenster
+- Dialog erstellen mit dialog_list mit allen functionen
+- Dialog -> Ankauf / Verkauf (dialog_list) -> Object (dialog_list) -> Menge (confirmation)
+- Scoreboard trigger für Vendor
+
+
+Teil 4: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+- Trigger reset Vendor1
+- Max Wert für rotten_flesh über Macro ins Dialog reingeben
+- Clear Befehl
+- Storage
+- Storage in Dialog übergeben
+- Scoreboard Temp
+- Maxwert erechnen und übergeben in den Dialog
+
+Teil 5: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+- calculate_max_buy erstellen und aufrufen lassen
+- Preise festlegen
+- Maximale Anzahl  zum Kaufen berechnen in calculate_max_buy
+- Dialog mit dynamischer Anzahl beim Kaufen ausstatten
+
+Teil 6: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+- Trigger tiefer erklären
+- Verkauf von verrottetes Fleisch, inkl. Berechnung Max Verkauf (Inventarinhalt)
+- Kauf von Äpfel, inkl Berechnung Max Kauf (Kontostand)
+- Trigger Reset
+
+
+## Schritte:
+- Neues Datapack erstellen: Economic_System inkl. pack.mcmeta
+- minecraft -> tick.json
+- verschieben von currency und umbenennen in e_s__curreny
+- Anpassen in den Functions die Path angaben
+- tick.json anpassen in Economic_System und Main
+- Testen
+- Verschieben von Bank und umbenennen in e_s__bank
+- Anpassen in den Functions die Path angaben
+- Testen
+- tick.json anpassen in Economic_System und Main
+
+
+- Erstellen von e_s__vendors
+- Anlegen der Ordnerstuktur und Dateien
+- Koordinaten für Händler festlegen
+- Profession festlegen
+- summon_entities füllen mit Kill, Summon Villager und Interaction
+- Testen
+- Switch befüllen, mit positionierung und Erkennung sind entities vorhanden
+- Commandblock setzten und Testen
+- dialog mit tellraw zum testen füllen
+- Interaction.mcfunction mit inhalt füllen
+
+
+- Dialog erklären ggf Beispiel zeigen
+- Dialogstruktur im Dialoggenerator aufbauen, 
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+        [Ankauf] Object (dialog_list)
+            [Ankauf/Meneg]Menge (confirmation), 
+        [Verkauf] Object (notice)
+- Dialogstruktur im Dialoggenerator erklären und Dialog vollständig zusammenbauen, 
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+    [Ankauf] Object (dialog_list)
+    [Ankauf/Menge]Menge (confirmation), 
+    [Verkauf] Object (dialog_list)
+    [Verkauf/Menge]Menge (confirmation), 
+- Scoreboards Verndor1 trigger erstellen
+
+
+- reset aller Trigger erklären, dass noch welche existrieren
+- reset_trigger erstellen
+- trigger set 0 bei allen triggern
+- dialog macro bei max für rottenflesch
+- Zeigen, dass Macros in Dialogen probleme machen
+- über die interaction als macro festen wert in den dialog geben
+- testen ob der Trigger sich ändert
+- preparing_for_dialog erstellen
+- clear @s item erklären und in preparing_for_dialog einfügen
+- clear in scoreboard speichern und erklären, dass wir den Wert nicht in den dialog bekommen
+- Storage erklären
+- Storage struktur ausfbauen, als kommentar in die Switch
+- Storage in preparing_for_dialog beschreiben
+- Storage in interaction übergeben
+- Testen und Zeigen wenn zuviel, dann Schritte zu groß
+- calculate_max_sell erstellen
+- function calculate_max_sell nach execute clear einfügen
+- calculate_max_sell inhalt erstellen
+- testen
+
+
+- Handelsfenster Kaufen -> Max Wert Fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
+- calculate_max_buy erstellen
+- calculate_max_buy in preparing_for_dialog einfügen
+- currency_totel in storage max_s1 schreiben
+- Fehlende Preise zur Berechnung max buy fehlen
+- Preise in prices.mcfunction festlegen
+- prices in preparing_for_dialog aufrufen
+- calculate_max_buy mit inhalt füllen
+- dialog bei Äpfel von 64 auf max_s1 ändern
+- testen
+
+
+- Ist Vorstellung der Trigger im Spiel und Datapack
+- Bedingter Trigger reset_trigger aufrufen in der switch
+- Testen
+- Verkauf berechnen in neuer Datei: calculate_sell.mcfuntion
+- sell.mcfunction erstellen
+- Menge und Preis ins Storage schreiben und ins sell.mcfunction übergeben
+- sell mit clear und add_money befüllen
+- calculate_sell Kopieren und umbenennen in calculate_buy
+- Inhalt in calculate_buy anpassen
+- sell Kopieren und umbenennen in buy
+- Inhalt anpassen in buy
+- Festellen dass der Max Wert bei Äpfel zu hoch werden kann
+- In calculate_max_buy Begrenzung auf 64 anpassen und begründen
+- testen
+- scoreboard reset in reset_trigger einfügen
+
+
+# Nötiges Wissen:
+- scoreboard
+- tick.json
+- dialog
+- data
+- storage
+- interactions
+- trigger / scoreboards
+- Macros
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+Folge 1: Neues Datapack aus vorhanden Elementen auskoppeln
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        - currency (Wird verschoben und Umbenannt)
+        - bank (Wird verschoben und Umbenannt)
+
++ Economic_System
+    + data
+        + minecraft
+            + tags
+                + function
+                    + tick.json
+        + e_s__curreny (Ursprünglich currency aus Main)
+            + function
+                * ...
+                > add_money.mcfunction
+                > remove_money.mcfunction
+        + e_s__bank (Ursprünglich bank aus Main)
+            + function
+                * ...
+                > control_bank.mcfunction
+                + dialog
+                    * ...
+                    > baenker.mcfunction
+    + pack.mcmeta
+
+
+Folge 2: Handlessystem, summon ersten Händler
+* Economic_System
+    * data
+        + e_s__vendors
+            + function
+                + vendor1
+                    + dialog.mcfunction
+                    + interaction.mcfunction
+                    + summon_entities.mcfunction
+                    + switch.mcfunction
+
+Folge 3: Handlessystem: Ein Dialog für ein Handelsfensterg
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    > dialog.mcfunction
+                    > switch.mcfunction
+
+Folge 4: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    + reset_trigger.mcfunction
+                    * interaction.mcfunction
+                    + preparing_for_dialog.mcfunction
+                    + calculate_max_sell.mcfunction
+
+Folge 5: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    + calculate_max_buy.mcfunction
+                    > preparing_for_dialog.mcfunction
+                    > switch.mcfunction
+                    > dialog.mcfunction
+                + misc
+                    + prices.mcfunction
+
+
+Folge 6: Handelsfenster: Give + Clear + Storage + Scoreboards + Opertation = Handel
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    + calculate_sell.mcfunction
+                    + sell.mcfunction
+                    > switch.mcfunction
+                    + calculate_buy.mcfunction
+                    + buy.mcfunction

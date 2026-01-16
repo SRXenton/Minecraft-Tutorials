@@ -1,0 +1,2 @@
+execute if entity @p if score _counter_0_to_20 Global_Variables matches 2 store result score _isForcelodedChunk Global_Variables run forceload query 1576 -168
+execute unless score _isForcelodedChunk Global_Variables matches 1 run forceload add 1576 -168

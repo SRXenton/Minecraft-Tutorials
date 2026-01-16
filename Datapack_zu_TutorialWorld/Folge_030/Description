@@ -1,0 +1,97 @@
+##
+## Beschreibung zu Folge 030: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.10+] #030 - Respawn ohne Bett steuern - Teil 2
+
+- Video: https://youtu.be/KhUBHjp49w4
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Worldspawn und Spawnpoint an einem Ort, nicht veränderbar
+- Dort erkennen, wo der Spieler, anhand der Tags, wieder auf tauchen soll
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Forceload
+5. Setworldspawn und spawnpoint
+6. Verhindern, dass der Spieler seinen Spawnpoint übers Bett steuern kann
+7. Steuerung des Teleports von zentralen Respawn
+8. Datapack aufräumen
+9. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                * tick
+                    > detect_player.mcfunction
+                    > forceloading.mcfunction
+                    > respawnpoint.mcfunction
+                    > switch.mcfunction
+                > teleport.mcfunction
+
+### Bearbeiten:
+## tick.json (Kommenrtare entfernt)
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/switch",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "currency:detect_click_wallet",
+        "quests_dorf1:trigger/trigger_action",
+        "bank:control_bank"
+    ]
+}
+
+## detect_player.mcfunction (Kommenrtare entfernt)
+execute positioned 1576 87 -168 as @a[distance=..15] run function respawn:teleport
+## forceloading.mcfunction (Kommenrtare entfernt)
+execute if entity @p if score _counter_0_to_20 Global_Variables matches 2 store result score _isForcelodedChunk Global_Variables run forceload query 1576 -168
+execute unless score _isForcelodedChunk Global_Variables matches 1 run forceload add 1576 -168
+## respawnpoint.mcfunction (Kommenrtare entfernt)
+execute as @a[nbt=!{respawn:{pos:[I;1576,87,-168]}},gamemode=!creative] run spawnpoint @s 1576 87 -168
+## switch.mcfunction (Kommenrtare entfernt)
+function respawn:tick/detect_player
+function respawn:tick/forceloading
+function respawn:tick/respawnpoint
+function respawn:tick/trigger
+## teleport.mcfunction (Kommenrtare entfernt)
+execute if entity @s[tag=spawnpoint_panda_village] run teleport @s 1785 65 268 40 0
+execute if entity @s[tag=spawnpoint_panda_village] run return -1
+
+execute if entity @s[tag=spawnpoint_dorf2] run teleport @s 1785 65 268 40 0
+execute if entity @s[tag=spawnpoint_dorf2] run return -1
+
+teleport @s 1736 65 261 -90 0
+
+

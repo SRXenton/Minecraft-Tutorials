@@ -1,0 +1,1 @@
+execute positioned 1576 87 -168 as @a[distance=..15] run function respawn:teleport

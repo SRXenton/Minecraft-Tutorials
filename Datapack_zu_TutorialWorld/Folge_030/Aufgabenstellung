@@ -1,0 +1,81 @@
+## Aufgabenstellung
+#
+#   Respawnpunkt nach Tot über Datapack Steuern
+#
+#   Der Aufbau erfolgt über 3 Folgen (29-31)
+#
+#   Folge 29: Villager und Interaction mit Dialog sowie Trigger im 1. Dorf erstellen
+#   Folge 30: World- und Respawnpunkt verlegen, Forceload und Teleport mittels Tag
+#   Folge 31: Umbau von Fest- auf Allgemein Programmierung, Stichwort: Macros
+
+# Aufgabenstellung (29-31):
+Alt: 
+    Respawn am Worldspawn, beim testen festgestellt, dass dieses sehr Fehlerhaft sein kann
+    Respawnpunkt kann nicht geändert werden vom Spieler
+Neu:
+    Respawnpunkt, wird durch ansprechen bei einem Wirt oder Prieser geändert
+
+# Aufgabenstellung (30 - Diese Folge):
+Alt:
+    Wirt verfügt über einen Dialog zum ändern des Respawnpunkt, hat aber noch keinen einfluss
+Neu:
+    Respawn abhängig vom Tag am Spieler machen.
+    World- und Respawn anpassen und über das Datapack steuern
+
+# Nötiges Wissen (Diese Folge)
+- tick.json
+- dialog
+- data
+- trigger / scoreboards
+- forceload
+- setworldspawn
+- respawn / spawnpoint
+- teleport
+
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+GitHub:
+- https://github.com/SRXenton/Minecraft-Tutorials/blob/main/Respawnpunkt_aendern_ohne_bett_per%20commandblock
+
+
+# Schritte:
+- forceload über datapack, und sicherstellen dass dieser wenn ein Spieler online ist auch geladen wird
+- setworldspawn in base_init.mcfunction ändern in die neue Zone
+- spawnpoint in respawnpoint.mcfunction ändern in die neue Zone
+- Spawnpoint in den Spawnchunk legen (Datapack, inkl Abfrage wenn Spieler nicht am neuen punkt und Gamemode)
+- Spieler Erkennung im Forceload Bereich
+- Teleport anhand des Tags
+- Wenn keine Tags am Spieler, Respawn am "Worldspan"
+- detect_player, forceloading, respawnpoint und trigger zusammenfassen in tick/switch.mcfunction und in tick.json ändern
+
+
+# Datapack Strucktur (Komplett):
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        * respawn
+            * function
+                * commandblock
+                    > interaction.mcfunction
+                * dialoge
+                    > dialog_wirt.mcfunction
+                * tick
+                    > detect_player.mcfunction
+                    > forceloading.mcfunction
+                    > respawnpoint.mcfunction
+                    > trigger.mcfunction
+                    > switch.mcfunction
+                > init.mcfunction
+                > tag_remove.mcfunction
+                > teleport.mcfunction
+
