@@ -1,5 +1,4 @@
 # Setze die Spielregel doWeatherCycle auf AUS
-#gamerule doWeatherCycle false
 gamerule advance_weather false
 
 # Entferne das Scoreboard
