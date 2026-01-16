@@ -1,10 +1,20 @@
 ###
+# Update Pathfinding
+- Entity bewegt sich auf vorgegebenen Weg
+- Geschwindigkeit kann sich ändern
+- Abzweige mit Commandblock/Redstone
 
-# Schleicherkennung
+# Impuls mit Commandblock
+- Einen ein Tick langen Impuls erzeugen
+- Zu Visualisierung: Textausgabe
+- Vergleich mit Redstone Schaltung
+
+## Schon erstelle Tutorials
+# Schleicherkennung   -> Sneak detection mit Command Blocks
 - Über sneak-time
 
-# Spieler erkennung nur in Front von Entity
+# Spieler erkennung nur in Front von Entity  -> Folge: Player detection nur vorm Villager mit Commandblocks
 - Spieler nur erkennen, wenn dieser vor der Entity steht
 
-# Pathfinding
+# Pathfinding -> Folge: Path finding mit Command Blocks
 - Entity bewegt sich auf vorgegebenen Weg
