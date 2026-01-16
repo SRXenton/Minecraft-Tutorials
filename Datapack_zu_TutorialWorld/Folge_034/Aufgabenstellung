@@ -54,21 +54,25 @@ Neu:
 
 # Aufgabenstellung (Nur diese Folge):
 Alt:
-    Kein Eigenes Datapack für Bank, Währung und Handel
+    Kein Händler (NPC)
 Neu:
-    Eigenes Datapack erstellen
-        > Bank und Währung aus dem Main, in das neue verschieben
+    Villager und Interaction als zukünftigen Händler
 
 # Vorgabe:
-- Datapackname: Economic_System
-- Naming: e_s__
+- Naming: e_s__vendors
+- Scoreboard: E_S.
+
 
 # Nötiges Wissen (Diese Folge)
-- Was ist ein Datapack
-- Pack.mcmeta
 - Datapack Stuktur
 - Function
 - Naming
+- summon
+- kill
+- execute
+- position
+- tellraw
+- interaction
 
 # Links:
 Mineraft Wiki:
@@ -76,15 +80,13 @@ Mineraft Wiki:
 
 
 # Schritte:
-- Neuen Order fürs Datapack anlegen
-- pack.mcmeta erstellen
-- 1. Ordnerstruktur anlegen
-- Verschieben von Bank
-- Anpassen von Bank (Naming, Pfadnamen)
+- Art und Position für den Villager und Interaction festlegen
+- Orderstruktur für die Händler (vendors) anlegen
+- Summon Villager und Interaction
+- Zentrale Aufruffuntion für den commandblock
+- Summon über den switch aufrufen
+- Commandblock setzen und switch aufrufen
+- Temporären Dialog mit tellraw in eine eigene Datei
+- Interaction auswerten und Dialog File aufrufen
 - Testen
-- Verschieben von Währung (currency)
-- Anpassen von currency (Naming, Pfadnamen)
-- Testen
-
-
 
