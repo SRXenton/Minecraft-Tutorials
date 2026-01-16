@@ -1,0 +1,52 @@
+## Aufgabenstellung
+#
+#   Quest: Questmarker
+#
+
+# Aufgabenstellung:
+Alt: 
+    Questgeber werden nicht angezeigt, außer, dass diese still stehen
+Neu:
+    Questmarker über den Köpfen: Gold, Ausrufezeichen
+    Ein Fileset für alle Questmarker
+
+# Aktionen
+Schritt 1:
+    Entwickeln auf der Testumgebung
+
+Schritt 2:
+    In die Eigendliche Welt bringen
+    
+# Nötiges Wissen:
+- Summon (Folge 006)
+- Block_Display -> NBT (Diese Folge)
+- Marcos (Folge 015)
+
+# Links:
+Generatoren
+- https://mcstacker.net/
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        + quest_marker
+            + function
+                + set_marker.mcfunction    
+                + marker.mcfunction    
+
+### Dateien:
+
+## NEU:
+# set_marker.mcfunction
+    Ausfühung bei der Entity
+    Aufrufen marker.mcfunction
+
+# marker.mcfunction
+    Ggf. Kill alte marker
+    Summon Block_display
