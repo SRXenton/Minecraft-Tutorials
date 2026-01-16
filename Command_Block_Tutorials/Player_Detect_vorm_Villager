@@ -1,6 +1,6 @@
 # Player detect vorm Villager mit Command Blocks
 # Code example for my Youtube tutorial videos
-# Video: preparing
+# Video: https://youtu.be/aKaC7WLJQC0
 
 # Init
 kill @e[type=villager, tag=tutorial_pdetect]
