@@ -1,0 +1,62 @@
+## Thema:
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+
+# Aufgabenstellung:
+Alt: 
+    Händler vorhanden, aber noch kein Dialog
+
+Neu:
+    Dialog für den Händler erstellen: Nur Ankauf
+
+# Aktionen
+Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+- Trigger reset erstellen
+- Max Wert für rotten_flesh über Macro ins Dialog reingeben
+- Clear Befehl verwenden zum Ermitteln der Maximalen Menge
+- Storage anlegen
+- Storage in Dialog übergeben
+- Maxwert erechnen und übergeben in den Dialog
+
+## Schritte:
+- Dialog erklären ggf Beispiel zeigen
+- Dialogstruktur im Dialoggenerator aufbauen, 
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+        [Ankauf] Object (dialog_list)
+            [Ankauf/Meneg]Menge (confirmation), 
+        [Verkauf] Object (notice)
+- Dialogstruktur im Dialoggenerator erklären und Dialog vollständig zusammenbauen, 
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+    [Ankauf] Object (dialog_list)
+    [Ankauf/Menge]Menge (confirmation), 
+    [Verkauf] Object (dialog_list)
+    [Verkauf/Menge]Menge (confirmation), 
+- Scoreboards Verndor1 trigger erstellen
+
+
+# Nötiges Wissen:
+- dialog
+- json
+- trigger
+- scoreboard
+- macros
+- interactions
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    > dialog.mcfunction
+                    > switch.mcfunction
+
