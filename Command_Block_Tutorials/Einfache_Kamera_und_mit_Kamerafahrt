@@ -3,3 +3,24 @@
 # Code example for my Youtube tutorial videos
 # Video: preparing
 
+# Init
+kill @e[tag=test_cam]
+fill 1301 4 1659 1301 6 1659 air
+setblock 1301 4 1659 minecraft:acacia_fence
+setblock 1301 5 1659 minecraft:player_head
+summon minecraft:item_display 1301 4.7 1659 {Tags:["test_cam"]}
+
+# Kamera Modus
+gamemode spectator @p
+ride @p[gamemode=spectator] mount @e[tag=test_cam,limit=1]
+
+# Rückehr in den Creativ Modus
+execute as @e[tag=test_cam] on passengers unless entity @s[tag=in_test_cam] run tag @s add in_test_cam
+execute as @a[tag=in_test_cam] unless entity @s[nbt={RootVehicle:{}}] run gamemode creative @s
+execute as @a[tag=in_test_cam] unless entity @s[nbt={RootVehicle:{}}] run teleport @s 1300 4 1656
+execute as @a[tag=in_test_cam] unless entity @s[nbt={RootVehicle:{}}] run tag @s remove in_test_cam
+
+# Kamerafahrt --> Villager ist aus meinem Tutorial: Path-Finding mit Commandblocks -> https://youtu.be/w1oOvQZJzas
+execute as @e[tag=tutorial_patrolie,limit=1] at @s run teleport @e[tag=test_cam] ~ ~1.3 ~
+
+
