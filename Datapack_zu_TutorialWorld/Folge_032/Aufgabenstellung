@@ -1,0 +1,47 @@
+## Aufgabenstellung
+#
+#   Auf Version 1.21.11 updaten
+#
+
+
+# Zustände:
+Alt:
+    In der Version 1.21.10
+Neu:
+    Version 1.21.11
+
+# Nötiges Wissen (Diese Folge)
+- pack.mcmeta
+- gamerules
+
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+
+# Schritte:
+- World Backup
+- Minecraft Version ändern
+- Welt aufrufen und updaten lassen
+- pack.mcmeta anpassen
+- Datapack auf fehler Prüfen und ändern
+- Testen
+
+
+# Datapack Strucktur (Komplett):
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * base
+            * function
+                > base_init.mcfunction
+        * weather
+            * function 
+                > init_scoreboard_weather.mcfunction
+        > pack.pcmeta
+
