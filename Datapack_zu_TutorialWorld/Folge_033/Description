@@ -1,0 +1,127 @@
+##
+## Beschreibung zu Folge 033: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11+] #033 - Custom Trading - Teil1 - Neues Datapack erstellen
+
+- Video: preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Neues Datapack für Wirtschaftssystem erstellen
+- Bank und Currency in das neue Datapack übertragen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand - Sollzustand
+4. Wozo Datapack, Vor und Nachteile gegenüber Commandblocks
+5. Datapack erstellen
+6. Naming im Namensraum
+7. Bank und Currency ins neue Datapack bringen
+8. Pack.mcmeta und Tick.Json
+9. Testen
+10. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+                * function
+                    > tick.json   
+        - currency (Wird verschoben und Umbenannt)
+        - bank (Wird verschoben und Umbenannt)
+
++ Economic_System
+    + data
+        + minecraft
+            + tags
+                + function
+                    + tick.json
+        + e_s__curreny (Ursprünglich currency aus Main)
+            + function
+                * ...
+                > add_money.mcfunction
+                > remove_money.mcfunction
+        + e_s__bank (Ursprünglich bank aus Main)
+            + function
+                * ...
+                > control_bank.mcfunction
+                + dialog
+                    * ...
+                    > baenker.mcfunction
+    + pack.mcmeta
+
+### Bearbeiten:
+## tick.json (Datapack: Main)
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/switch",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "quests_dorf1:trigger/trigger_action"
+    ]
+}
+
+## tick.json (Datapack: Economic_System)
+{
+    "replace": false,
+    "values": [
+        "e_s__currency:detect_click_wallet",
+        "e_s__bank:control_bank"
+    ]
+}
+
+## add_money.mcfunction (Kommenrtare entfernt)
+$scoreboard players add @s Currency_Total $(loot)
+
+function e_s__currency:calculate
+
+## remove_money.mcfunction (Kommenrtare entfernt)
+$execute unless score @s Currency_Total matches $(loot).. run return fail
+
+$scoreboard players remove @s Currency_Total $(loot)
+
+function e_s__currency:calculate
+
+
+## control_bank.mcfunction (Kommenrtare entfernt)
+execute at @e[type=villager,tag=bank_baenker] if entity @a[distance=..3] run function e_s__bank:dialog/baenker
+
+execute as @a[scores={Villager_Trigger_Bank=1}] at @s run function e_s__currency:give_wallet
+
+scoreboard players set @a Villager_Klick_Bank 0
+scoreboard players set @a Villager_Trigger_Bank 0
+
+
+## baenker.mcfunction (Kommenrtare entfernt)
+execute as @a[scores={Villager_Klick_Bank=1},nbt=!{Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] at @s run \
+    function e_s__bank:dialog/dialog_baenker
+
+tellraw @a[scores={Villager_Klick_Bank=1},nbt={Inventory:[{id:"minecraft:warped_fungus_on_a_stick","components":{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] \
+    [{"color":"gold","text":"Bänker: "},{"color":"yellow","text":"Hallo Reisender, du möchest auf dein Guthaben zugreifen, mit deinem Geldbeutel kannst du das tun."}]
+
+
