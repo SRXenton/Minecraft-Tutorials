@@ -1,0 +1,93 @@
+## Aufgabenstellung
+#
+#   Wirtschaft und Handlessystem einführen
+#
+#   Der Aufbau erfolgt über 6 Folgen (033-038)
+#
+#   Folge 33: Auskoppen vorhandern System (Bank und Währung) in eigenes Datapack
+#       Themen:
+#            - Datapack erstellen
+#            - pack.mcmeta
+#            - functions
+#            - Naming
+#
+#   Folge 34: Handlessystem: Summon ersten Händler
+#       Themen:
+#           - summon Villager und Interaction
+#           - execute und Enitiy Erkennung
+#           - tellraw
+#
+#   Folge 35: Handlefenster: Ein Dialog für ein Handelsfenster
+#       Themen:
+#           - Dialog: dialog_list, confirmation
+#           - Scoreboard: add, trigger
+#           - Trigger
+#
+#   Folge 36: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset
+#           - Trigger
+#           - Macros
+#           - Storage
+#           - Clear
+#
+#   Folge 37: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Trigger
+#           - Macros
+#           - Storage
+#
+#   Folge 38: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Clear
+#           - Give
+#           - Storage
+
+
+# Aufgabenstellung (Wirstschaftsystem):
+Alt: 
+    Nur Bank und Währung
+Neu:
+    Bank, Währung und das Neue Handessystem in ein eigenes Datapack zusammen stellen
+
+# Aufgabenstellung (Nur diese Folge):
+Alt: 
+    Nur Kaufen, aber noch keine Ankaufmöglichkeit
+Neu:
+    Dialog mit Ankaufsoption erstellen
+    Handelsfenster [Ankauf] -> Max Wert aktuell fest, soll dynamisch über Inhalt Inventar gesteuert werden
+
+# Vorgabe:
+- Naming: e_s__vendors
+- Scoreboard: E_S.
+
+
+# Nötiges Wissen (Diese Folge)
+- Naming
+- dialog
+- json
+- trigger / scoreboard
+- interactions
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+# Schritte:
+- Bedingter Trigger reset_trigger aufrufen in der switch
+- Testen
+- Verkauf berechnen in neuer Datei: calculate_sell.mcfuntion
+- sell.mcfunction erstellen
+- Menge und Preis ins Storage schreiben und ins sell.mcfunction übergeben
+- sell mit clear und add_money befüllen
+- calculate_sell Kopieren und umbenennen in calculate_buy
+- Inhalt in calculate_buy anpassen
+- sell Kopieren und umbenennen in buy
+- Inhalt anpassen in buy
+- Festellen dass der Max Wert bei Äpfel zu hoch werden kann
+- In calculate_max_buy Begrenzung auf 64 anpassen und begründen
+- testen
+- scoreboard reset in reset_trigger einfügen

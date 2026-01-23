@@ -1,0 +1,67 @@
+## Thema:
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+# Aufgabenstellung:
+Alt: 
+    Nur Währung aber noch keine Händler
+
+Neu:
+    Händler einführen
+
+# Aktionen
+Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+- Trigger tiefer erklären
+- Verkauf von verrottetes Fleisch, inkl. Berechnung Max Verkauf (Inventarinhalt)
+- Kauf von Äpfel, inkl Berechnung Max Kauf (Kontostand)
+- Trigger Reset
+
+
+## Schritte:
+- Ist Vorstellung der Trigger im Spiel und Datapack
+- Bedingter Trigger reset_trigger aufrufen in der switch
+- Testen
+- Verkauf berechnen in neuer Datei: calculate_sell.mcfuntion
+- sell.mcfunction erstellen
+- Menge und Preis ins Storage schreiben und ins sell.mcfunction übergeben
+- sell mit clear und add_money befüllen
+- calculate_sell Kopieren und umbenennen in calculate_buy
+- Inhalt in calculate_buy anpassen
+- sell Kopieren und umbenennen in buy
+- Inhalt anpassen in buy
+- Festellen dass der Max Wert bei Äpfel zu hoch werden kann
+- In calculate_max_buy Begrenzung auf 64 anpassen und begründen
+- testen
+- scoreboard reset in reset_trigger einfügen
+
+
+# Nötiges Wissen:
+- scoreboard
+- tick.json
+- dialog
+- data
+- storage
+- interactions
+- trigger / scoreboards
+- Macros
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+Handelsfenster: Give + Clear + Storage + Scoreboards + Opertation = Handel
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    + calculate_sell.mcfunction
+                    + sell.mcfunction
+                    > switch.mcfunction
+                    + calculate_buy.mcfunction
+                    + buy.mcfunction
