@@ -1,0 +1,106 @@
+## Aufgabenstellung
+#
+#   Wirtschaft und Handlessystem einführen
+#
+#   Der Aufbau erfolgt über 6 Folgen (033-038)
+#
+#   Folge 33: Auskoppen vorhandern System (Bank und Währung) in eigenes Datapack
+#       Themen:
+#            - Datapack erstellen
+#            - pack.mcmeta
+#            - functions
+#            - Naming
+#
+#   Folge 34: Handlessystem: Summon ersten Händler
+#       Themen:
+#           - summon Villager und Interaction
+#           - execute und Enitiy Erkennung
+#           - tellraw
+#
+#   Folge 35: Handlefenster: Ein Dialog für ein Handelsfenster
+#       Themen:
+#           - Dialog: dialog_list, confirmation
+#           - Scoreboard: add, trigger
+#           - Trigger
+#
+#   Folge 36: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset
+#           - Trigger
+#           - Macros
+#           - Storage
+#           - Clear
+#
+#   Folge 37: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Trigger
+#           - Macros
+#           - Storage
+#
+#   Folge 38: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Clear
+#           - Give
+#           - Storage
+
+
+# Aufgabenstellung (Wirstschaftsystem):
+Alt: 
+    Nur Bank und Währung
+Neu:
+    Bank, Währung und das Neue Handessystem in ein eigenes Datapack zusammen stellen
+
+# Aufgabenstellung (Nur diese Folge):
+Alt:
+    Kein Eigenes Datapack für Bank, Währung und Handel
+Neu:
+    Eigenes Datapack erstellen
+        > Bank und Währung aus dem Main, in das neue verschieben
+
+# Vorgabe:
+- Datapackname: Economic_System
+- Naming: e_s__
+
+# Nötiges Wissen (Diese Folge)
+- Was ist ein Datapack
+- Pack.mcmeta
+- Datapack Stuktur
+- Function
+- Naming
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+# Schritte:
+- Neuen Order fürs Datapack anlegen
+- pack.mcmeta erstellen
+- 1. Ordnerstruktur anlegen
+- Verschieben von Bank
+- Anpassen von Bank (Naming, Pfadnamen)
+- Testen
+- Verschieben von Währung (currency)
+- Anpassen von currency (Naming, Pfadnamen)
+- Testen
+
+
+
+# Datapack Strucktur (Komplett):
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * respawn
+            * function
+                * commandblock
+                    > check_wirt.mcfunction
+                    > interaction.mcfunction
+                    > switch.mcfunction
+                * dialoge
+                    > dialog_wirt.mcfunction
+                > teleport.mcfunction
