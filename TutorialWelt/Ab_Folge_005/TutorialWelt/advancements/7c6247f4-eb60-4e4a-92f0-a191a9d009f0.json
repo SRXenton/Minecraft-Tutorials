@@ -1488,6 +1488,7 @@
     },
     "done": true
   },
+<<<<<<< HEAD
   "minecraft:recipes/transportation/tnt_minecart": {
     "criteria": {
       "has_minecart": "2026-01-18 12:35:12 +0100"
@@ -1524,5 +1525,7 @@
     },
     "done": true
   },
+=======
+>>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
   "DataVersion": 4671
 }
