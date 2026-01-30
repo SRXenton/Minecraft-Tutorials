@@ -1,6 +1,5 @@
 {
   "stats": {
-<<<<<<< HEAD
     "minecraft:custom": {
       "minecraft:time_since_rest": 184919,
       "minecraft:talked_to_villager": 804,
@@ -29,8 +28,6 @@
       "minecraft:walk_on_water_one_cm": 98,
       "minecraft:sneak_time": 32050
     },
-=======
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
     "minecraft:used": {
       "minecraft:oxidized_copper_bulb": 10,
       "minecraft:brick_slab": 3,
@@ -69,11 +66,7 @@
       "minecraft:white_stained_glass_pane": 11,
       "minecraft:warped_fungus_on_a_stick": 232,
       "minecraft:mossy_cobblestone_wall": 14,
-<<<<<<< HEAD
       "minecraft:dirt": 9,
-=======
-      "minecraft:dirt": 7,
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
       "minecraft:fishing_rod": 3,
       "minecraft:stripped_spruce_log": 1,
       "minecraft:glow_lichen": 18,
@@ -101,11 +94,7 @@
       "minecraft:bookshelf": 2,
       "minecraft:ladder": 6,
       "minecraft:stone_bricks": 3,
-<<<<<<< HEAD
       "minecraft:command_block": 17,
-=======
-      "minecraft:command_block": 15,
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
       "minecraft:carrot_on_a_stick": 12,
       "minecraft:tuff_brick_stairs": 27,
       "minecraft:tuff": 203,
@@ -115,11 +104,7 @@
       "minecraft:oak_slab": 144,
       "minecraft:tuff_brick_slab": 76,
       "minecraft:spruce_door": 10,
-<<<<<<< HEAD
       "minecraft:cobblestone": 341,
-=======
-      "minecraft:cobblestone": 340,
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
       "minecraft:stone": 44,
       "minecraft:carrot": 7,
       "minecraft:spruce_sign": 4,
@@ -168,10 +153,7 @@
       "minecraft:golden_hoe": 1,
       "minecraft:azure_bluet": 1,
       "minecraft:oak_sapling": 16,
-<<<<<<< HEAD
       "minecraft:minecart": 1,
-=======
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
       "minecraft:pig_spawn_egg": 3,
       "minecraft:grass_block": 20,
       "minecraft:tuff": 13,
@@ -266,39 +248,8 @@
       "minecraft:zombie": 5,
       "minecraft:zombie_villager": 1
     },
-<<<<<<< HEAD
     "minecraft:picked_up": {
       "minecraft:minecart": 1,
-=======
-    "minecraft:custom": {
-      "minecraft:time_since_rest": 104000,
-      "minecraft:talked_to_villager": 802,
-      "minecraft:leave_game": 87,
-      "minecraft:damage_taken": 540,
-      "minecraft:mob_kills": 6,
-      "minecraft:time_since_death": 103976,
-      "minecraft:interact_with_brewingstand": 1,
-      "minecraft:sleep_in_bed": 8,
-      "minecraft:total_world_time": 3837080,
-      "minecraft:crouch_one_cm": 22460,
-      "minecraft:deaths": 30,
-      "minecraft:climb_one_cm": 9714,
-      "minecraft:walk_one_cm": 1757572,
-      "minecraft:walk_under_water_one_cm": 816,
-      "minecraft:damage_dealt": 494,
-      "minecraft:play_time": 2901434,
-      "minecraft:jump": 878,
-      "minecraft:drop": 352,
-      "minecraft:open_barrel": 3,
-      "minecraft:sprint_one_cm": 289905,
-      "minecraft:open_chest": 13,
-      "minecraft:fall_one_cm": 5750,
-      "minecraft:fly_one_cm": 4806360,
-      "minecraft:walk_on_water_one_cm": 98,
-      "minecraft:sneak_time": 31901
-    },
-    "minecraft:picked_up": {
->>>>>>> 9ee6bd9ad1f14fe068fb3525c618ee221f738e9d
       "minecraft:composter": 1,
       "minecraft:white_bed": 2,
       "minecraft:gravel": 1,
