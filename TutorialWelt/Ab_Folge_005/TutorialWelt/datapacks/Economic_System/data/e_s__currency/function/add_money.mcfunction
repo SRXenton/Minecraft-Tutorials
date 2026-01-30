@@ -3,4 +3,4 @@
 $scoreboard players add @s Currency_Total $(loot)
 
 # Rufe Calculate auf
-function currency:calculate
+function e_s__currency:calculate

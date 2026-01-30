@@ -7,4 +7,4 @@ $execute unless score @s Currency_Total matches $(loot).. run return fail
 $scoreboard players remove @s Currency_Total $(loot)
 
 # Rufe die Function calulate auf
-function currency:calculate
+function e_s__currency:calculate
