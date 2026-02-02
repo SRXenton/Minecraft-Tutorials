@@ -1,62 +1,11 @@
-##
-## Beschreibung zu Folge 035: 
-##
+# tellraw @s "Geklickt"
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+] #035 - Custom Trading - Teil 3 - Dialog: Notice,multi-action,dialog_list
-
-- Video: preparing
-
-- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
-
-
-## Ziele der Folge:
-
-- Dialog
-- scoreboard und trigger im Dialog
-
-## Agenda zum Video:
-
-1. Vorstellung
-2. Ziel der Folge
-3. Istzustand
-4. Dialog Fenster: Notice, Multi_Action, Dialog_List, Confirmation
-5. Dialogfenster mit Generator zusammenbauen
-6. Scoreboard mit Trigger
-7. Zusammenfassung
-
-##
-## ============================================================================================================================================
-##
-
-## Links:
-
-Minecraft Wiki:
-- https://de.minecraft.wiki/
-
-Dialog Generator:
-- https://misode.github.io/dialog/
-
-
-## Neue Datapack Struktur:
-
-# Datapack Strucktur:
-# (+) = Neu
-# (>) = Bearbeiten
-# (-) = Entfernen
-# (*) = Alt/Vorhanden
-* Economic_System
-    * data
-        * e_s__vendors
-            * function
-                * vendor1
-                    > dialog.mcfunction
-                    > switch.mcfunction
-### Dateien: (Kommenrtare entfernt)
-## dialog.mcfunction
 scoreboard players enable @s E_S.Vendor_Panda_Village_reset
 
 scoreboard players enable @s E_S.Vendor_Panda_Village_buy_apple
 scoreboard players enable @s E_S.Vendor_Panda_Village_sell_rotten_flesh
+
+
 
 dialog show @s {\
   "type": "minecraft:dialog_list",\
@@ -197,19 +146,3 @@ dialog show @s {\
 }
 
 
-
-
-## switch.mcfunction
-scoreboard objectives add E_S.Vendor_Panda_Village_reset trigger
-
-
-scoreboard objectives add E_S.Vendor_Panda_Village_sell_rotten_flesh trigger
-scoreboard objectives add E_S.Vendor_Panda_Village_buy_apple trigger
-
-
-
-execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_villager, distance=..3] run function e_s__vendors:summon_entities
-execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_interaction, distance=..3] run function e_s__vendors:summon_entities
-
-
-function e_s__vendors:interaction
