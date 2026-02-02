@@ -1,0 +1,62 @@
+## Thema:
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+
+# Aufgabenstellung:
+Alt: 
+    Nur Währung aber noch keine Händler
+
+Neu:
+    Händler einführen
+
+# Aktionen
+Handlessystem, summon ersten Händler
+- Summon Villager / Definiere was für ein 1. Trader, koordinaten festlegen
+- Erkennung ist villager / Interaction vorhanden
+- Interaction(Interaktion mit Interaction) erstellen
+- Ersten Dialog mit tellraw
+
+
+## Schritte:
+- Erstellen von e_s__vendors
+- Anlegen der Ordnerstuktur und Dateien
+- Koordinaten für Händler festlegen
+- Profession festlegen
+- summon_entities füllen mit Kill, Summon Villager und Interaction
+- Testen
+- Switch befüllen, mit positionierung und Erkennung sind entities vorhanden
+- Commandblock setzten und Testen
+- dialog mit tellraw zum testen füllen
+- Interaction.mcfunction mit inhalt füllen
+
+
+# Nötiges Wissen:
+- summon
+- position
+- tellraw
+- commandblocks
+- interactions / villager
+- interactions auswerten
+- trigger / scoreboards
+- kill
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+* Economic_System
+    * data
+        + e_s__vendors
+            + function
+                + vendor1
+                    + dialog.mcfunction
+                    + interaction.mcfunction
+                    + summon_entities.mcfunction
+                    + switch.mcfunction
+
