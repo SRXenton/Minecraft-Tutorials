@@ -1,0 +1,92 @@
+## Aufgabenstellung
+#
+#   Wirtschaft und Handlessystem einführen
+#
+#   Der Aufbau erfolgt über 6 Folgen (033-038)
+#
+#   Folge 33: Auskoppen vorhandern System (Bank und Währung) in eigenes Datapack
+#       Themen:
+#            - Datapack erstellen
+#            - pack.mcmeta
+#            - functions
+#            - Naming
+#
+#   Folge 34: Handlessystem: Summon ersten Händler
+#       Themen:
+#           - summon Villager und Interaction
+#           - execute und Enitiy Erkennung
+#           - tellraw
+#
+#   Folge 35: Handlefenster: Ein Dialog für ein Handelsfenster
+#       Themen:
+#           - Dialog: dialog_list, confirmation
+#           - Scoreboard: add, trigger
+#           - Trigger
+#
+#   Folge 36: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset
+#           - Trigger
+#           - Macros
+#           - Storage
+#           - Clear
+#
+#   Folge 37: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Trigger
+#           - Macros
+#           - Storage
+#
+#   Folge 38: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Clear
+#           - Give
+#           - Storage
+
+
+# Aufgabenstellung (Wirstschaftsystem):
+Alt: 
+    Nur Bank und Währung
+Neu:
+    Bank, Währung und das Neue Handessystem in ein eigenes Datapack zusammen stellen
+
+# Aufgabenstellung (Nur diese Folge):
+Alt:
+    Kein Händler (NPC)
+Neu:
+    Villager und Interaction als zukünftigen Händler
+
+# Vorgabe:
+- Naming: e_s__vendors
+- Scoreboard: E_S.
+
+
+# Nötiges Wissen (Diese Folge)
+- Datapack Stuktur
+- Function
+- Naming
+- summon
+- kill
+- execute
+- position
+- tellraw
+- interaction
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+# Schritte:
+- Art und Position für den Villager und Interaction festlegen
+- Orderstruktur für die Händler (vendors) anlegen
+- Summon Villager und Interaction
+- Zentrale Aufruffuntion für den commandblock
+- Summon über den switch aufrufen
+- Commandblock setzen und switch aufrufen
+- Temporären Dialog mit tellraw in eine eigene Datei
+- Interaction auswerten und Dialog File aufrufen
+- Testen
+

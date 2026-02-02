@@ -1,0 +1,73 @@
+##
+## Beschreibung zu Folge 034: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11+] #034 - Custom Trading - Teil 2 - Summon + Interaction + execute
+
+- Video: https://youtu.be/oFZufvhhsEo
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Zukünftigen Händler erstellen
+- Interaktion mit dem Villager über Interactions
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Summon Villager und Genratoren
+5. Interaction
+6. Wie mächtig der Execute Befehl ist -> Positioned, on target, if/unless entity
+7. Zusammenfassung
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Economic_System
+    * data
+        + e_s__vendors
+            + function
+                + vendor1
+                    + dialog.mcfunction
+                    + interaction.mcfunction
+                    + summon_entities.mcfunction
+                    + switch.mcfunction
+
+### Bearbeiten/Neu: (Unnötige Kommenrtare entfernt)
+## dialog.mcfunction 
+tellraw @s "Geklickt"
+
+## interaction.mcfunction
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] on target run function e_s__vendors:dialog
+
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] run data remove entity @s interaction
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] run data remove entity @s attack
+
+## summon_entities.mcfunction
+kill @e[tag=E_S.Vendors_Panda_Village]
+summon villager ~ ~ ~ {OnGround:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[-90F,0F],Tags:["E_S.Vendors","E_S.Vendors_villagers","E_S.Vendors_Panda_Village","E_S.Vendors_Panda_Village_villager"],CustomName:"Farmer",VillagerData:{level:99,profession:"minecraft:farmer",type:"minecraft:plains"}}
+summon interaction ~ ~ ~ {width:1f, height:2f,Tags:["E_S.Vendors", "E_S.Vendors_interactions","E_S.Vendors_Panda_Village", "E_S.Vendors_Panda_Village_interaction"]}
+
+## switch.mcfunction
+execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_villager, distance=..3] run function e_s__vendors:summon_entities
+execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_interaction, distance=..3] run function e_s__vendors:summon_entities
+
+function e_s__vendors:interaction

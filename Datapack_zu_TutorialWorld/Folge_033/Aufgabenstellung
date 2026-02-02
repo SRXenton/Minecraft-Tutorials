@@ -88,19 +88,3 @@ Mineraft Wiki:
 
 
 
-# Datapack Strucktur (Komplett):
-# (+) = Neu
-# (>) = Bearbeiten
-# (-) = Entfernen
-# (*) = Alt/Vorhanden
-* Main
-    * data
-        * respawn
-            * function
-                * commandblock
-                    > check_wirt.mcfunction
-                    > interaction.mcfunction
-                    > switch.mcfunction
-                * dialoge
-                    > dialog_wirt.mcfunction
-                > teleport.mcfunction
