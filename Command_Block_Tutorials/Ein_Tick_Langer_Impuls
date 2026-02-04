@@ -1,6 +1,6 @@
 # Ein Tick langer Impuls mit Commandblocks
 # Code example for my Youtube tutorial videos
-# Video: preparing
+# Video: https://youtu.be/B-aKnbuGWB4
 
 # Init
 give Xenton_de minecraft:stick[minecraft:custom_data={"tag":"test_stick"}, minecraft:custom_name="test_stick"]
