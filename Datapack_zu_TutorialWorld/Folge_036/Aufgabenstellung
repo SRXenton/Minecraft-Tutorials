@@ -54,9 +54,9 @@ Neu:
 
 # Aufgabenstellung (Nur diese Folge):
 Alt: 
-    Händler vorhanden, aber noch kein Dialog
+    Händler und Dialog vorhanden, aber ohne Funktion
 Neu:
-    Dialog für den Händler erstellen
+    Ankauf Funktion herstellen, inkl Itemanzahl im Inventarerkennung
 
 # Vorgabe:
 - Naming: e_s__vendors
@@ -64,11 +64,10 @@ Neu:
 
 
 # Nötiges Wissen (Diese Folge)
-- Naming
-- dialog
-- json
-- trigger / scoreboard
-- interactions
+- Dialog
+- Scoreboard Trigger, Player operation, Set, Get
+- Execute
+- Storage
 
 # Links:
 Mineraft Wiki:
