@@ -1,0 +1,26 @@
+# Ein Tick langer Impuls mit Commandblocks
+# Code example for my Youtube tutorial videos
+# Video: https://youtu.be/B-aKnbuGWB4
+
+# Init
+give Xenton_de minecraft:stick[minecraft:custom_data={"tag":"test_stick"}, minecraft:custom_name="test_stick"]
+
+# Chat Ausgabe - 0:... (1 Tick aber Zeitverzögert)
+execute if items entity Xenton_de weapon.mainhand minecraft:stick[minecraft:custom_data={"tag":"test_stick"}]
+
+tellraw @a "0:Habe den Stick in der Hand"
+
+# Chat Ausgabe - 1:... (Unendlich)
+execute if items entity Xenton_de weapon.mainhand minecraft:stick[minecraft:custom_data={"tag":"test_stick"}] run tellraw @a "1:Habe den Stick in der Hand"
+
+# Chat Ausgabe - 2:... (1 Tick - ohne Verzögerung)
+execute as @a[tag=!hat_stick,nbt={SelectedItem:{components:{"minecraft:custom_data":{"tag":"test_stick"}}}}] run tellraw @s "2:Habe den Stick in der Hand"
+tag @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{"tag":"test_stick"}}}}] add hat_stick
+tag @a[tag=hat_stick,nbt=!{SelectedItem:{components:{"minecraft:custom_data":{"tag":"test_stick"}}}}] remove hat_stick
+
+
+# Chat Ausgabe - 3:... (1 Tick - ohne Verzögerung)
+execute as @a[tag=!hat_stick_inventar,nbt={Inventory:[{components:{"minecraft:custom_data":{"tag":"test_stick"}}}]}] run tellraw @s "3:Habe den Stick im Inventar"
+tag @a[nbt={Inventory:[{components:{"minecraft:custom_data":{"tag":"test_stick"}}}]}, tag=!hat_stick_inventar] add hat_stick_inventar
+tag @a[tag=hat_stick_inventar,nbt=!{Inventory:[{components:{"minecraft:custom_data":{"tag":"test_stick"}}}]}] remove hat_stick_inventar
+
