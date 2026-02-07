@@ -57,7 +57,7 @@ Alt:
     Nur Dialog, aber noch keine Kaufmöglichkeit
 Neu:
     Dialog mit Kaufsoption erstellen
-    Handelsfenster [Verkauf] -> Max Wert aktuell fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
+    Handelsfenster [Kaufen vom Händler] -> Max Wert aktuell fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
 
 # Vorgabe:
 - Naming: e_s__vendors
@@ -68,8 +68,10 @@ Neu:
 - Naming
 - dialog
 - json
-- trigger / scoreboard
+- trigger / scoreboard / player operation
 - interactions
+- give
+- (Data)Storage
 
 # Links:
 Mineraft Wiki:
@@ -86,3 +88,5 @@ Mineraft Wiki:
 - calculate_max_buy mit inhalt füllen
 - dialog bei Äpfel von 64 auf max_s1 ändern
 - testen
+- Give Item, und Remove Money
+- Testen
