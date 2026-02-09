@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge 036: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+] #036 - Respawn ohne Bett steuern - Teil 3
+- Titel: Minecraft Datapack Tutorial [1.21.11+] #036 - Custom Trading - Teil 3 - Clear + Macros + Storage + Scoreboards = Verkauf
 
 - Video: preparing
 
@@ -13,6 +13,7 @@
 
 - Dialog im Ankauf mit Funktion ausrüsten
 - Erkennung Itemanzahl im Inventar für den Ankauf
+- Bei Verakuf Items aus Inventar entfernen und Geld dem Geldbeutel hinzufügen
 
 ## Agenda zum Video:
 
@@ -24,9 +25,10 @@
 6. Werte von Clear ins Scoreboard schreiben
 7. Das (Data) Storage oder Datenspeicher
 8. Storage anwenden
-9. Function übergaben ab jetzt im Storage
+9. Functionübergaben ab jetzt im Storage
 10. Calculations
-11. Testen
+11. Items Entfernen und Geld geben
+12. Testen
 
 ##
 ## ============================================================================================================================================
