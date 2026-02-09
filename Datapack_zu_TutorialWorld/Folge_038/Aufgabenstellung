@@ -77,17 +77,8 @@ Mineraft Wiki:
 
 
 # Schritte:
-- Bedingter Trigger reset_trigger aufrufen in der switch
-- Testen
-- Verkauf berechnen in neuer Datei: calculate_sell.mcfuntion
-- sell.mcfunction erstellen
-- Menge und Preis ins Storage schreiben und ins sell.mcfunction übergeben
-- sell mit clear und add_money befüllen
-- calculate_sell Kopieren und umbenennen in calculate_buy
-- Inhalt in calculate_buy anpassen
-- sell Kopieren und umbenennen in buy
-- Inhalt anpassen in buy
 - Festellen dass der Max Wert bei Äpfel zu hoch werden kann
 - In calculate_max_buy Begrenzung auf 64 anpassen und begründen
-- testen
-- scoreboard reset in reset_trigger einfügen
+- Datapack aufräumen / Unterordner erstellen
+
+
