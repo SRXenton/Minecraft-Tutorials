@@ -1,6 +1,6 @@
 ## Clockgenerator mit Commandblocks
 ## Code example for my Youtube tutorial videos
-## Video: preparing
+## Video: https://youtu.be/ZgoUJcxnHVQ
 
 ## Init
 scoreboard objectives remove Tutorial_Scoreboard_Clock
