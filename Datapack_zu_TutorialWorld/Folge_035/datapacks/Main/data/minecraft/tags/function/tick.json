@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/switch",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "quests_dorf1:trigger/trigger_action"
+    ]
+}
