@@ -1,0 +1,94 @@
+## Aufgabenstellung
+#
+#   Wirtschaft und Handlessystem einführen
+#
+#   Der Aufbau erfolgt über 6 Folgen (033-038)
+#
+#   Folge 33: Auskoppen vorhandern System (Bank und Währung) in eigenes Datapack
+#       Themen:
+#            - Datapack erstellen
+#            - pack.mcmeta
+#            - functions
+#            - Naming
+#
+#   Folge 34: Handlessystem: Summon ersten Händler
+#       Themen:
+#           - summon Villager und Interaction
+#           - execute und Enitiy Erkennung
+#           - tellraw
+#
+#   Folge 35: Handlefenster: Ein Dialog für ein Handelsfenster
+#       Themen:
+#           - Dialog: dialog_list, confirmation
+#           - Scoreboard: add, trigger
+#           - Trigger
+#
+#   Folge 36: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset
+#           - Trigger
+#           - Macros
+#           - Storage
+#           - Clear
+#
+#   Folge 37: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Trigger
+#           - Macros
+#           - Storage
+#
+#   Folge 38: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Clear
+#           - Give
+#           - Storage
+
+
+# Aufgabenstellung (Wirstschaftsystem):
+Alt: 
+    Nur Bank und Währung
+Neu:
+    Bank, Währung und das Neue Handessystem in ein eigenes Datapack zusammen stellen
+
+# Aufgabenstellung (Nur diese Folge):
+Alt: 
+    Händler vorhanden, aber noch kein Dialog
+Neu:
+    Dialog für den Händler erstellen
+
+# Vorgabe:
+- Naming: e_s__vendors
+- Scoreboard: E_S.
+
+
+# Nötiges Wissen (Diese Folge)
+- Naming
+- dialog
+- json
+- trigger / scoreboard
+- interactions
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+Dialog Generator:
+- https://misode.github.io/dialog/
+
+# Schritte:
+- Dialogstruktur im Dialoggenerator aufbauen, 
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+        [Ankauf] Object (dialog_list)
+            [Ankauf/Meneg]Menge (confirmation), 
+        [Verkauf] Object (notice)
+- Dialogstruktur ins Datapack übernehmen und ggf Detailarbeit im Generator
+    [Erstes Fenster]Ankauf / Verkauf (dialog_list)
+    [Ankauf] Object (dialog_list)
+    [Ankauf/Menge]Menge (confirmation), 
+    [Verkauf] Object (dialog_list)
+    [Verkauf/Menge]Menge (confirmation), 
+- Scoreboards Verndor1 trigger erstellen
+- Beim Schließen run_command mit trigger
+
