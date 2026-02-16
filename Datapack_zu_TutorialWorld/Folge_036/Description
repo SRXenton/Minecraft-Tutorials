@@ -1,0 +1,281 @@
+##
+## Beschreibung zu Folge 036: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11+] #036 - Custom Trading - Teil 3 - Clear + Macros + Storage + Scoreboards = Verkauf
+
+- Video: https://youtu.be/ZgoUJcxnHVQ
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Dialog im Ankauf mit Funktion ausrüsten
+- Erkennung Itemanzahl im Inventar für den Ankauf
+- Bei Verakuf Items aus Inventar entfernen und Geld dem Geldbeutel hinzufügen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Sollzustand in der Versuchswelt
+5. Der Clear Command
+6. Werte von Clear ins Scoreboard schreiben
+7. Das (Data) Storage oder Datenspeicher
+8. Storage anwenden
+9. Functionübergaben ab jetzt im Storage
+10. Calculations
+11. Items Entfernen und Geld geben
+12. Testen
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                > dialog.mcfunction
+                > interaction.mcfunction
+                + preparing_sell.mcfunction
+                + reset_trigger.mcfunction
+                + sell.mcfunction
+                + sell_rotten_flesh.mcfunction
+                > switch.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## interaction.mcfunction 
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] on target run function e_s__vendors:preparing_sell
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] on target run function e_s__vendors:dialog with storage e_s__vendor:data dialog
+
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] run data remove entity @s interaction
+execute as @e[tag=E_S.Vendors_Panda_Village_interaction] run data remove entity @s attack
+
+
+## preparing_sell.mcfunction 
+execute store result storage e_s__vendor:data dialog.max_sell int 1 run clear @s rotten_flesh 0
+data modify storage e_s__vendor:data dialog.price_sell set value 1
+
+
+## reset_trigger.mcfunction 
+trigger E_S.Vendor_Panda_Village_buy_apple set 0
+trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set 0
+trigger E_S.Vendor_Panda_Village_reset set 0
+
+
+scoreboard players set @s E_S.Vendor_Panda_Village_buy_apple 0
+scoreboard players set @s E_S.Vendor_Panda_Village_sell_rotten_flesh 0
+scoreboard players set @s E_S.Vendor_Panda_Village_reset 0
+
+
+## sell.mcfunction 
+$clear @s rotten_flesh $(quantity)
+$function e_s__currency:add_money {loot:$(loot)}
+
+$tellraw @s "Du hast Verkauft: $(quantity) Verrottetes Fleisch"
+$tellraw @s "Für: $(loot) Groschen"
+
+function e_s__vendors:reset_trigger
+
+
+## sell_rotten_flesh.mcfunction 
+scoreboard objectives add E_S.Temp1 dummy
+
+execute store result score @s E_S.Temp1 run data get storage e_s__vendor:data dialog.price_sell
+scoreboard players operation @s E_S.Temp1 *= @s E_S.Vendor_Panda_Village_sell_rotten_flesh
+
+execute store result storage e_s__vendor:data sell.loot int 1 run scoreboard players get @s E_S.Temp1
+execute store result storage e_s__vendor:data sell.quantity int 1 run scoreboard players get @s E_S.Vendor_Panda_Village_sell_rotten_flesh
+
+function e_s__vendors:sell with storage e_s__vendor:data sell
+
+data remove storage e_s__vendor:data sell
+scoreboard objectives remove E_S.Temp1
+
+
+## switch.mcfunction 
+scoreboard objectives add E_S.Vendor_Panda_Village_reset trigger
+
+
+scoreboard objectives add E_S.Vendor_Panda_Village_sell_rotten_flesh trigger
+scoreboard objectives add E_S.Vendor_Panda_Village_buy_apple trigger
+
+data modify storage e_s__vendor:data temp set value ""
+
+execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_villager, distance=..3] run function e_s__vendors:summon_entities
+execute positioned 1742 65 204 unless entity @e[tag=E_S.Vendors_Panda_Village_interaction, distance=..3] run function e_s__vendors:summon_entities
+
+
+function e_s__vendors:interaction
+
+execute as @a[scores={E_S.Vendor_Panda_Village_reset=1..}] run function e_s__vendors:reset_trigger
+
+execute as @a[scores={E_S.Vendor_Panda_Village_sell_rotten_flesh=1..}] run function e_s__vendors:sell_rotten_flesh
+
+
+
+## dialog.mcfunction 
+scoreboard players enable @s E_S.Vendor_Panda_Village_reset
+
+scoreboard players enable @s E_S.Vendor_Panda_Village_buy_apple
+scoreboard players enable @s E_S.Vendor_Panda_Village_sell_rotten_flesh
+
+
+
+$dialog show @s {\
+  "type": "minecraft:dialog_list",\
+  "title": "Farmer - Händler",\
+  "body": [],\
+  "inputs": [],\
+  "can_close_with_escape": true,\
+  "pause": false,\
+  "after_action": "close",\
+  "exit_action": {\
+    "label": "Schließen",\
+    "action": {\
+			"type": "minecraft:run_command",\
+			"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+		}\
+  },\
+  "columns": 2,\
+  "dialogs": [\
+    {\
+      "type": "minecraft:dialog_list",\
+      "title": "Ankauf",\
+      "external_title": "Verkauf an den Händler",\
+      "can_close_with_escape": true,\
+      "pause": false,\
+      "exit_action": {\
+        "label": "Schließen",\
+		    "action": {\
+    				"type": "minecraft:run_command",\
+    				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+ 				}\
+      },\
+      "dialogs": [\
+        {\
+          "type": "minecraft:confirmation",\
+          "title": "Verrottetes Fleisch",\
+  				"body": [\
+    				{\
+      				"type": "minecraft:item",\
+      				"item": {\
+	        			"id": "minecraft:rotten_flesh"\
+  	    			},\
+    				},\
+    				{\
+      				"type": "minecraft:plain_message",\
+              "contents": "An den Händler für $(price_sell) Credits pro Stück verkaufen"\
+    				}\
+  				],\
+  				"inputs": [\
+    				{\
+      				"type": "minecraft:number_range",\
+	      			"key": "sell1",\
+  	    			"label": "Verkaufe",\
+    	  			"start": 0,\
+      				"end": $(max_sell),\
+      				"step": 1,\
+      				"initial": 0\
+	    			}\
+  				],\
+          "yes": {\
+            "label": "Verkaufen",\
+				    "action": {\
+      				"type": "minecraft:dynamic/run_command",\
+      				"template": "trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set \u0024(sell1)"\
+    				}\
+          },\
+          "no": {\
+            "label": "Schließen ohne Verkauf",\
+				    "action": {\
+      				"type": "minecraft:run_command",\
+      				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+    				}\
+          }\
+        }\
+      ]\
+    },\
+    {\
+      "type": "minecraft:dialog_list",\
+      "title": "Verkauf",\
+      "external_title": "Vom Händler kaufen",\
+      "body": [],\
+      "can_close_with_escape": true,\
+      "pause": false,\
+      "exit_action": {\
+        "label": "Schließen",\
+		    "action": {\
+    				"type": "minecraft:run_command",\
+    				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+ 				}\
+      },\
+      "dialogs": [\
+				{\
+  				"type": "minecraft:confirmation",\
+  				"title": "Kauf / Verkaufen von X",\
+  				"body": [\
+    				{\
+      				"type": "minecraft:item",\
+      				"item": {\
+	        			"id": "minecraft:apple"\
+  	    			},\
+    				},\
+    				{\
+      				"type": "minecraft:plain_message",\
+      				"contents": "Kaufe für x Credits pro stück vom Händler"\
+    				}\
+  				],\
+  				"inputs": [\
+    				{\
+      				"type": "minecraft:number_range",\
+	      			"key": "buy1",\
+  	    			"label": "Kaufe",\
+    	  			"start": 0,\
+      				"end": 64,\
+      				"step": 1,\
+      				"initial": 0\
+	    			}\
+  				],\
+  				"can_close_with_escape": true,\
+	  			"pause": false,\
+  				"after_action": "close",\
+  				"yes": {\
+    				"label": "Kaufen",\
+				    "action": {\
+      				"type": "minecraft:run_command",\
+      				"command": "trigger E_S.Vendor_Panda_Village_buy_apple set 1"\
+    				}\
+  				},\
+	  			"no": {\
+  	  			"label": "Schließen ohne Kaufen",\
+				    "action": {\
+      				"type": "minecraft:run_command",\
+      				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+    				}\
+  				}\
+				}\
+      ]\
+    }\
+  ]\
+}
+
+
