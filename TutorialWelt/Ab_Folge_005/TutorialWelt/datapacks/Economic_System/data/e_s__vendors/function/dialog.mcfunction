@@ -7,7 +7,7 @@ scoreboard players enable @s E_S.Vendor_Panda_Village_sell_rotten_flesh
 
 
 
-dialog show @s {\
+$dialog show @s {\
   "type": "minecraft:dialog_list",\
   "title": "Farmer - Händler",\
   "body": [],\
@@ -50,7 +50,7 @@ dialog show @s {\
     				},\
     				{\
       				"type": "minecraft:plain_message",\
-              "contents": "An den Händler für x Credits pro Stück verkaufen"\
+              "contents": "An den Händler für $(price_sell) Credits pro Stück verkaufen"\
     				}\
   				],\
   				"inputs": [\
@@ -59,7 +59,7 @@ dialog show @s {\
 	      			"key": "sell1",\
   	    			"label": "Verkaufe",\
     	  			"start": 0,\
-      				"end": 64,\
+      				"end": $(max_sell),\
       				"step": 1,\
       				"initial": 0\
 	    			}\
@@ -67,8 +67,8 @@ dialog show @s {\
           "yes": {\
             "label": "Verkaufen",\
 				    "action": {\
-      				"type": "minecraft:run_command",\
-      				"command": "trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set 1"\
+      				"type": "minecraft:dynamic/run_command",\
+      				"template": "trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set \u0024(sell1)"\
     				}\
           },\
           "no": {\
