@@ -1,0 +1,25 @@
+## Clockgenerator mit Commandblocks
+## Code example for my Youtube tutorial videos
+## Video: https://youtu.be/ZgoUJcxnHVQ
+
+## Init
+scoreboard objectives remove Tutorial_Scoreboard_Clock
+scoreboard objectives add Tutorial_Scoreboard_Clock dummy
+scoreboard players set _takt Tutorial_Scoreboard_Clock 0
+
+## Die Clock
+scoreboard players add _takt Tutorial_Scoreboard_Clock 1
+execute if score _takt Tutorial_Scoreboard_Clock matches 40.. run scoreboard players set _takt Tutorial_Scoreboard_Clock 0
+
+## Auswertung
+# >= 0 und <= 30
+execute if score _takt Tutorial_Scoreboard_Clock matches 0.. if score _takt Tutorial_Scoreboard_Clock matches ..30
+
+# = 2
+execute if score _takt Tutorial_Scoreboard_Clock matches 2
+tellraw @a "Hier"
+
+# = 4
+execute if score _takt Tutorial_Scoreboard_Clock matches 4
+tellraw @a "Hier2"
+
