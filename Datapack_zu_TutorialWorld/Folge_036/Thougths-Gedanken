@@ -1,0 +1,70 @@
+## Thema:
+# Gedanken
+- Einführung von einem Handlessystem
+- Währung und Handlessystem gehören zusammenfassen
+
+
+# Aufgabenstellung:
+Alt: 
+    Händler vorhanden, aber noch kein Dialog
+
+Neu:
+    Dialog für den Händler erstellen: Nur Ankauf
+
+# Aktionen
+Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+- Trigger reset erstellen
+- Max Wert für rotten_flesh über Macro ins Dialog reingeben
+- Clear Befehl verwenden zum Ermitteln der Maximalen Menge
+- Storage anlegen
+- Storage in Dialog übergeben
+- Maxwert erechnen und übergeben in den Dialog
+
+## Schritte:
+- reset aller Trigger erklären, dass noch welche existrieren
+- reset_trigger erstellen
+- trigger set 0 bei allen triggern
+- dialog macro bei max für rottenflesch
+- Zeigen, dass Macros in Dialogen probleme machen
+- über die interaction als macro festen wert in den dialog geben
+- testen ob der Trigger sich ändert
+- preparing_for_dialog erstellen
+- clear @s item erklären und in preparing_for_dialog einfügen
+- clear in scoreboard speichern und erklären, dass wir den Wert nicht in den dialog bekommen
+- Storage erklären
+- Storage struktur ausfbauen, als kommentar in die Switch
+- Storage in preparing_for_dialog beschreiben
+- Storage in interaction übergeben
+- Testen und Zeigen wenn zuviel, dann Schritte zu groß
+- calculate_max_sell erstellen
+- function calculate_max_sell nach execute clear einfügen
+- calculate_max_sell inhalt erstellen
+- testen
+
+
+# Nötiges Wissen:
+- dialog
+- json
+- trigger
+- scoreboard
+- macros
+- interactions
+- storage
+
+# Links:
+# Möglich Befehle:
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+* Economic_System
+    * data
+        * e_s__vendors
+            * function
+                * vendor1
+                    + reset_trigger.mcfunction
+                    * interaction.mcfunction
+                    + preparing_for_dialog.mcfunction
+                    + calculate_max_sell.mcfunction
