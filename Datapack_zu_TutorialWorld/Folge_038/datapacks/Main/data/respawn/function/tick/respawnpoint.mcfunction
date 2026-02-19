@@ -1,0 +1,2 @@
+# Setzt bei allen Spielern, die nicht im Creative Modus sind, den Spawnpoint auf diese Koordinaten
+execute as @a[nbt=!{respawn:{pos:[I;1576,87,-168]}},gamemode=!creative] run spawnpoint @s 1576 87 -168
