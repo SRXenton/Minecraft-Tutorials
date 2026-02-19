@@ -68,10 +68,11 @@ Neu:
 - Naming
 - dialog
 - json
-- trigger / scoreboard / player operation
+- Scoreboard: trigger, player operation, store, get
 - interactions
 - give
-- (Data)Storage
+- (Data)Storage: merge, remove
+- Marcos und Objekte
 
 # Links:
 Mineraft Wiki:
@@ -79,14 +80,11 @@ Mineraft Wiki:
 
 
 # Schritte:
-- calculate_max_buy erstellen
 - calculate_max_buy in preparing_for_dialog einfügen
-- currency_totel in storage max_s1 schreiben
-- Fehlende Preise zur Berechnung max buy fehlen
+- currency_totel in storage max_schreiben
 - Preise in prices.mcfunction festlegen
 - prices in preparing_for_dialog aufrufen
-- calculate_max_buy mit inhalt füllen
-- dialog bei Äpfel von 64 auf max_s1 ändern
+- Dialog anpassen
 - testen
-- Give Item, und Remove Money
+- Give Item, und Remove Money, inkl Berechnungen
 - Testen
