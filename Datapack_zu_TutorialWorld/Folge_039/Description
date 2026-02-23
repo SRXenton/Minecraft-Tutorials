@@ -1,0 +1,227 @@
+##
+## Beschreibung zu Folge 039: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#039 - Execute + Tellraw + Dialog = Quest Dorfversteher erweitern
+
+- Video: preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Questreihe des Dorfvorsteher aus Pandavillage erweitern nach Bankbesuch
+- Alten Dialog abändern, dass der Spieler, nach dem Besuch beim Bänker zurück kommen soll
+- Neues Dialogfernster für Questufe 70
+- Wenn der Spieler nicht den Geldbeutel besitzt, dann Tellraw: Gehe zur Bank
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Sollzustand Erklärung
+5. Der Command Execute
+6. Der Command Return
+7. Der Command Tellraw und Farbausgabe
+8. Zeilenumbrüche in Commands in Functions
+9. Der Command Dialog
+10. Dialog JSON als Datei und in der Function
+11. Dialog Types
+12. Run_command und Sicherheitsabfrage verhindern mit Trigger
+13. Der Trigger
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+				* dialoge
+					* dorfvorsteher
+                		> dialog_dorfvorsteher.mcfunction
+                		> dialog60_dorfvorsteher.mcfunction
+                		+ dialog70_dorfvorsteher.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## dialog_dorfvorsteher.mcfunction 
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog1_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog40_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog60_dorfvorsteher
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=70}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog70_dorfvorsteher
+
+
+## dialog60_dorfvorsteher.mcfunction 
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Ich sehe du bist wohl auf, und du sagst es war ein Zombie im Lagerhaus.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Ich werde das Prüfen !\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Hier hast du deine Belohnung....... Was du hast kein Geldbeutel, dann aber schnell zur Bank und lass dir einen geben\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Wenn du bei der Bank warts, dann komm bitte zu mir zurück\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Bei ja: Reward 1 Taler\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 61"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+## dialog70_dorfvorsteher.mcfunction 
+execute if entity @s[\
+    nbt=!{\
+        Inventory:[\
+            {\
+                "id":"minecraft:warped_fungus_on_a_stick",\
+                components:{"minecraft:custom_data":{"tag":"geldbeutel"}}\
+            }\
+        ]\
+    }\
+] run tellraw @s [\
+        {text:"Dorfvorsteher: ",color:"gold"},\
+        {text:"Geh bitte zur Bank und lasse dir einen Geldbeutel geben",color:"yellow"}\
+    ]
+
+execute if entity @s[nbt=!{Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run return -1
+
+execute if entity @s[nbt={Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run scoreboard players enable @s Quest_Dorfvorsteher
+execute if entity @s[nbt={Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Ah ich sehe du warst bei der Bank und hast deinen Geldbeutel.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Nun wird es Zeit, dass du lernst, wie du deinen Respawnpunkt änderst \n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Gehe dazu bitte ins Gasthaus und spreche den Wirt an\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Wenn du im Gasthaus warst, komme bitte zu mir zurück\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 80"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
