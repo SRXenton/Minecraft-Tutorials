@@ -16,4 +16,5 @@ execute as @a[scores={E_S.Vendor_Panda_Village_reset=1..}] run function e_s__ven
 
 execute as @a[scores={E_S.Vendor_Panda_Village_sell_rotten_flesh=1..}] run function e_s__vendors:sell_rotten_flesh
 
+execute as @a[scores={E_S.Vendor_Panda_Village_buy_apple=1..}] run function e_s__vendors:buy_apple
 

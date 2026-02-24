@@ -98,7 +98,7 @@ $dialog show @s {\
       "dialogs": [\
 				{\
   				"type": "minecraft:confirmation",\
-  				"title": "Kauf / Verkaufen von X",\
+  				"title": "Äpfel",\
   				"body": [\
     				{\
       				"type": "minecraft:item",\
@@ -108,7 +108,7 @@ $dialog show @s {\
     				},\
     				{\
       				"type": "minecraft:plain_message",\
-      				"contents": "Kaufe für x Credits pro stück vom Händler"\
+      				"contents": "Kaufe für $(price_buy) Credits pro stück vom Händler"\
     				}\
   				],\
   				"inputs": [\
@@ -117,7 +117,7 @@ $dialog show @s {\
 	      			"key": "buy1",\
   	    			"label": "Kaufe",\
     	  			"start": 0,\
-      				"end": 64,\
+      				"end": $(max_buy),\
       				"step": 1,\
       				"initial": 0\
 	    			}\
@@ -128,8 +128,8 @@ $dialog show @s {\
   				"yes": {\
     				"label": "Kaufen",\
 				    "action": {\
-      				"type": "minecraft:run_command",\
-      				"command": "trigger E_S.Vendor_Panda_Village_buy_apple set 1"\
+      				"type": "minecraft:dynamic/run_command",\
+      				"template": "trigger E_S.Vendor_Panda_Village_buy_apple set \u0024(buy1)"\
     				}\
   				},\
 	  			"no": {\
