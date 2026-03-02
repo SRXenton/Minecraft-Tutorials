@@ -8,28 +8,30 @@ Alt:
     Nur Dialog, aber noch keine Kaufmöglichkeit
 
 Neu:
-    Dialog erwei
+    Dialog erweitern mit Kaufen vom Händler
 
 # Aktionen
-Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+Handelsfenster: Macros + Storage + Scoreboards + Opertation + Give = Werte in Kaufen dynamisch anpassen
 - calculate_max_buy erstellen und aufrufen lassen
 - Preise festlegen
-- Maximale Anzahl  zum Kaufen berechnen in calculate_max_buy
+- Maximale Anzahl zum Kaufen berechnen in calculate_max_buy
 - Dialog mit dynamischer Anzahl beim Kaufen ausstatten
+- Give Item und Abzug Money
 
 
 ## Schritte:
-- Handelsfenster Kaufen -> Max Wert Fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
+- Vorstellung in Versuchswlt: Handelsfenster Kaufen -> Max Wert Fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
+- Preise in prices.mcfunction festlegen (Kaufen/Verkaufen)
+- prices in preparing_for_dialog übernehmen
+- preparing_for_dialog für kaufen erweitern
 - calculate_max_buy erstellen
 - calculate_max_buy in preparing_for_dialog einfügen
 - currency_totel in storage max_s1 schreiben
 - Fehlende Preise zur Berechnung max buy fehlen
-- Preise in prices.mcfunction festlegen
-- prices in preparing_for_dialog aufrufen
 - calculate_max_buy mit inhalt füllen
 - dialog bei Äpfel von 64 auf max_s1 ändern
 - testen
-
+- Beim Kaufen, items ins Inventar packen und geld abziehen
 
 # Nötiges Wissen:
 - scoreboard
@@ -57,6 +59,7 @@ Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dy
                     > preparing_for_dialog.mcfunction
                     > switch.mcfunction
                     > dialog.mcfunction
+                    + buy.mcfunction
                 + misc
                     + prices.mcfunction
 

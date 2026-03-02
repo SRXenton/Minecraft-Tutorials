@@ -2,6 +2,13 @@
 ## Themenspeicher / Backlog
 ##
 
+## Funktionsreihe mit Spawnpunkt in ein eigenes Datapack bringen
+- Respawn und Spawn des Spielers ist im Datapack Main.
+- Diese Funktionsreihe für eine bessere Übersicht in ein eigenes Datapack bringen
+- Datapack Name: Spawn_And_Respawn_Handling
+- Namensraum: spawn_respawn_handling
+- Dateinamen: sr_h__*.*
+
 ## Gegener mit Patroliendienst
 - NoAI
 - Bei Spielererkennung auf AI umschalten und Spieler angreifen lassen.

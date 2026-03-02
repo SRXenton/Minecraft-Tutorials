@@ -49,15 +49,14 @@ Teil 4: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkau
 
 Teil 5: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
 - calculate_max_buy erstellen und aufrufen lassen
-- Preise festlegen
-- Maximale Anzahl  zum Kaufen berechnen in calculate_max_buy
+- Preis festlegen buy
+- Maximale Anzahl zum Kaufen berechnen in calculate_max_buy, Gelsbeutel Inhalt beachten
 - Dialog mit dynamischer Anzahl beim Kaufen ausstatten
 
-Teil 6: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
-- Trigger tiefer erklären
-- Verkauf von verrottetes Fleisch, inkl. Berechnung Max Verkauf (Inventarinhalt)
-- Kauf von Äpfel, inkl Berechnung Max Kauf (Kontostand)
-- Trigger Reset
+Teil 6: Handel: Storage + Ordnerstuktur = Ordnung, Geld und Items
+- OrdnerStruktur erstellen, Vendor1 und Misc
+- Storage für Preise in Misc
+- Stackgröße bei Kauf und Verkauf auf 64 Begrenzen
 
 
 ## Schritte:
@@ -133,21 +132,12 @@ Teil 6: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Ite
 - testen
 
 
-- Ist Vorstellung der Trigger im Spiel und Datapack
-- Bedingter Trigger reset_trigger aufrufen in der switch
+- Ordner Vendor 1 erstellen und Files anpassen
+- Storage für Preise anlegen und anwenden
 - Testen
-- Verkauf berechnen in neuer Datei: calculate_sell.mcfuntion
-- sell.mcfunction erstellen
-- Menge und Preis ins Storage schreiben und ins sell.mcfunction übergeben
-- sell mit clear und add_money befüllen
-- calculate_sell Kopieren und umbenennen in calculate_buy
-- Inhalt in calculate_buy anpassen
-- sell Kopieren und umbenennen in buy
-- Inhalt anpassen in buy
-- Festellen dass der Max Wert bei Äpfel zu hoch werden kann
-- In calculate_max_buy Begrenzung auf 64 anpassen und begründen
+- Verkauf auf max 64 begrenzen
+- Kauf auf max 64 begrenzen
 - testen
-- scoreboard reset in reset_trigger einfügen
 
 
 # Nötiges Wissen:
@@ -204,44 +194,38 @@ Folge 2: Handlessystem, summon ersten Händler
     * data
         + e_s__vendors
             + function
-                + vendor1
-                    + dialog.mcfunction
-                    + interaction.mcfunction
-                    + summon_entities.mcfunction
-                    + switch.mcfunction
+                + dialog.mcfunction
+                + interaction.mcfunction
+                + summon_entities.mcfunction
+                + switch.mcfunction
 
 Folge 3: Handlessystem: Ein Dialog für ein Handelsfensterg
 * Economic_System
     * data
         * e_s__vendors
             * function
-                * vendor1
-                    > dialog.mcfunction
-                    > switch.mcfunction
+                > dialog.mcfunction
+                > switch.mcfunction
 
 Folge 4: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
 * Economic_System
     * data
         * e_s__vendors
             * function
-                * vendor1
-                    + reset_trigger.mcfunction
-                    * interaction.mcfunction
-                    + preparing_for_dialog.mcfunction
-                    + calculate_max_sell.mcfunction
+                + reset_trigger.mcfunction
+                * interaction.mcfunction
+                + preparing_for_dialog.mcfunction
+                + calculate_max_sell.mcfunction
 
 Folge 5: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
 * Economic_System
     * data
         * e_s__vendors
             * function
-                * vendor1
-                    + calculate_max_buy.mcfunction
-                    > preparing_for_dialog.mcfunction
-                    > switch.mcfunction
-                    > dialog.mcfunction
-                + misc
-                    + prices.mcfunction
+                + calculate_max_buy.mcfunction
+                > preparing_for_dialog.mcfunction
+                > switch.mcfunction
+                > dialog.mcfunction
 
 
 Folge 6: Handelsfenster: Give + Clear + Storage + Scoreboards + Opertation = Handel
@@ -249,9 +233,11 @@ Folge 6: Handelsfenster: Give + Clear + Storage + Scoreboards + Opertation = Han
     * data
         * e_s__vendors
             * function
-                * vendor1
+                + vendor1
                     + calculate_sell.mcfunction
                     + sell.mcfunction
                     > switch.mcfunction
                     + calculate_buy.mcfunction
                     + buy.mcfunction
+                + misc
+                    + prices.mcfunction

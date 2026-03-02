@@ -1,0 +1,3 @@
+kill @e[tag=E_S.Vendors_Panda_Village]
+summon villager ~ ~ ~ {OnGround:1b,Silent:1b,Invulnerable:1b,CustomNameVisible:1b,NoAI:1b,Rotation:[-90F,0F],Tags:["E_S.Vendors","E_S.Vendors_villagers","E_S.Vendors_Panda_Village","E_S.Vendors_Panda_Village_villager"],CustomName:"Farmer",VillagerData:{level:99,profession:"minecraft:farmer",type:"minecraft:plains"}}
+summon interaction ~ ~ ~ {width:1f, height:2f,Tags:["E_S.Vendors", "E_S.Vendors_interactions","E_S.Vendors_Panda_Village", "E_S.Vendors_Panda_Village_interaction"]}
