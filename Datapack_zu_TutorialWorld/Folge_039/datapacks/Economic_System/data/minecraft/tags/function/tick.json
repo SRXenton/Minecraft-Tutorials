@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "e_s__currency:detect_click_wallet",
+        "e_s__bank:control_bank"
+    ]
+}
