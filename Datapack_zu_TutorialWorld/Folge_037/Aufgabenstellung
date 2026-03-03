@@ -1,0 +1,90 @@
+## Aufgabenstellung
+#
+#   Wirtschaft und Handlessystem einführen
+#
+#   Der Aufbau erfolgt über 6 Folgen (033-038)
+#
+#   Folge 33: Auskoppen vorhandern System (Bank und Währung) in eigenes Datapack
+#       Themen:
+#            - Datapack erstellen
+#            - pack.mcmeta
+#            - functions
+#            - Naming
+#
+#   Folge 34: Handlessystem: Summon ersten Händler
+#       Themen:
+#           - summon Villager und Interaction
+#           - execute und Enitiy Erkennung
+#           - tellraw
+#
+#   Folge 35: Handlefenster: Ein Dialog für ein Handelsfenster
+#       Themen:
+#           - Dialog: dialog_list, confirmation
+#           - Scoreboard: add, trigger
+#           - Trigger
+#
+#   Folge 36: Handelsfenster: Clear + Macros + Storage + Scoreboards = Werte in Verkauf dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset
+#           - Trigger
+#           - Macros
+#           - Storage
+#           - Clear
+#
+#   Folge 37: Handelsfenster: Macros + Storage + Scoreboards + Opertation = Werte in Kaufen dynamisch anpassen
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Trigger
+#           - Macros
+#           - Storage
+#
+#   Folge 38: Handel: Give + Clear + Storage + Scoreboards + Opertation = Geld und Items
+#       Themen:
+#           - Scoreboards: add, reset, operation
+#           - Clear
+#           - Give
+#           - Storage
+
+
+# Aufgabenstellung (Wirstschaftsystem):
+Alt: 
+    Nur Bank und Währung
+Neu:
+    Bank, Währung und das Neue Handessystem in ein eigenes Datapack zusammen stellen
+
+# Aufgabenstellung (Nur diese Folge):
+Alt: 
+    Nur Dialog, aber noch keine Kaufmöglichkeit
+Neu:
+    Dialog mit Kaufsoption erstellen
+    Handelsfenster [Kaufen vom Händler] -> Max Wert aktuell fest, soll dynamisch über Inhalt Geldbeutel gesteuert werden
+
+# Vorgabe:
+- Naming: e_s__vendors
+- Scoreboard: E_S.
+
+
+# Nötiges Wissen (Diese Folge)
+- Naming
+- dialog
+- json
+- Scoreboard: trigger, player operation, store, get
+- interactions
+- give
+- (Data)Storage: merge, remove
+- Marcos und Objekte
+
+# Links:
+Mineraft Wiki:
+- https://de.minecraft.wiki/
+
+
+# Schritte:
+- calculate_max_buy in preparing_for_dialog einfügen
+- currency_totel in storage max_schreiben
+- Preise in prices.mcfunction festlegen
+- prices in preparing_for_dialog aufrufen
+- Dialog anpassen
+- testen
+- Give Item, und Remove Money, inkl Berechnungen
+- Testen

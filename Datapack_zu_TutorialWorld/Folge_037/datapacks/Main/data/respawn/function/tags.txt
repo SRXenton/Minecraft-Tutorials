@@ -1,0 +1,6 @@
+# Scoreboard SpawnPoint = Tags
+# Hat der Spieler keinen Tag, dann respawn om Worldspawn
+
+0="Keine Änderung"
+1=spawnpoint_panda_village
+2=spawnpoint_dorf2
