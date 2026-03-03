@@ -28,7 +28,13 @@ dialog show @s {\
                     "text": "\n"\
                 },\
                 {\
-                    "text": "Hier hast du deine Belohnung....... Was du hast kein Geldbeutel, dann aber schnell zur Band und lass dir einen geben\n"\
+                    "text": "Hier hast du deine Belohnung....... Was du hast kein Geldbeutel, dann aber schnell zur Bank und lass dir einen geben\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Wenn du bei der Bank warts, dann komm bitte zu mir zurück\n"\
                 },\
                 {\
                     "text": "\n\n\n"\

@@ -13,6 +13,9 @@ tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"go
 # Führe aus, als jeder Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 60, bei dem Spieler, die Function
 execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog60_dorfvorsteher
 
+## Queststufe: Quest: Gehe zur Bank und hole einen Geldbeutet
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=70}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog70_dorfvorsteher
+
 
 ## Backupzeilen
 #tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40..}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Hallo Reisender, ich sehe, du hast ein Schwert bekommen, leider habe ich zur Zeit keine weiteren Aufgaben für dich."}]
