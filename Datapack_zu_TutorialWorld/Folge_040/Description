@@ -1,0 +1,166 @@
+##
+## Beschreibung zu Folge 040: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#040 - Execute + Tellraw + Dialog + Tag = Quest Dorfversteher nächster Schritt
+
+- Video: preparing
+
+- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
+## Ziele der Folge:
+
+- Questreihe des Dorfvorsteher aus Pandavillage erweitern nach Bankbesuch
+- Dialog für Quest zum Wirt/Gasthaus erstellen
+
+## Agenda zum Video:
+
+1. Vorstellung
+2. Ziel der Folge
+3. Istzustand
+4. Sollzustand
+5. Prüfung für Spawn / Respawn in eigenen Datapack
+6. Tags für Respawen erweitern
+7. Der Command Execute
+8. Der Command Tellraw mit Farbausgabe
+9. Der Command Return
+10. Der Command Dialog
+11. Der Command Tag remove
+12. VSCode suchen von Functionaufrufe
+13. Dialog: Content
+14. Dialog: Pause
+15. Dialog: Can_close_with_escape
+16. Zeilenumbrüche in Texten
+17. Sicherheitsabfrage bei run_command verhindern
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+				* dialoge
+					* dorfvorsteher
+		                > dialog_dorfvorsteher.mcfunction
+		                + dialog80_dorfvorsteher.mcfunction
+        * respawn
+            * function
+				* tick
+		            > trigger.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## dialog_dorfvorsteher.mcfunction 
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=1}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog1_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10..39}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Gehe bitte zum Dorfschmied"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog40_dorfvorsteher
+
+tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=50}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Schau bitte im Lagerhaus nach dem Rechten, es liegt außerhalb des Dorfes!"}]
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=60}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog60_dorfvorsteher
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=70}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog70_dorfvorsteher
+
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=80}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog80_dorfvorsteher
+
+
+
+## dialog80_dorfvorsteher.mcfunction 
+execute if entity @s[\
+    tag=!spawnpoint\
+] run tellraw @s [\
+        {text:"Dorfvorsteher: ",color:"gold"},\
+        {text:"Geh bitte zum Gasthaus, dort zum Wirt und lege bitte deinen Respawn dort hin",color:"yellow"}\
+    ]
+execute if entity @s[tag=!spawnpoint] run return 0
+
+scoreboard players enable @s Quest_Dorfvorsteher
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text":"Hallo Reisender\n",\
+            "type":"text",\
+            "extra": [\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Ah ich sehe du warst im Gasthaus.\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "und hast deinen Respawnpunkt geändert \n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Wahrscheinlich hast du Hunger bekommen\n"\
+                },\
+                {\
+                    "text": "\n"\
+                },\
+                {\
+                    "text": "Geh bitte zum Farmer im Norden, dort kannst du dir Äpfel kaufen\n"\
+                },\
+                {\
+                    "text": "\n\n\n"\
+                },\
+                {\
+                    "text": "Möchtest du die Quest annehmen? (Ja / Nein)\n"\
+                }\
+            ]\
+        }\
+    },\
+    "inputs": [],\
+    "pause": false,\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 90"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+## trigger.mcfunction 
+execute as @a[scores={SpawnPoint=1..}] run function respawn:tag_remove
+execute as @a[scores={SpawnPoint=1..}] run tag @s add spawnpoint
+
+execute as @a[scores={SpawnPoint=1}] run tag @s add spawnpoint_panda_village
+execute as @a[scores={SpawnPoint=2}] run tag @s add spawnpoint_dorf2
+
+execute as @a[scores={SpawnPoint=1..}] run scoreboard players set @s SpawnPoint 0 
