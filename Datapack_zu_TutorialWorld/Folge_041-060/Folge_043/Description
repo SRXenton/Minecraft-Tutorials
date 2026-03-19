@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge 040: 
 ##
 
-- Titel: MC Datapack Tutorial [1.21.11+]#0?? - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#043 - Execute + store result + if score = In Scoreboard schreiben und auswerten
 
 - Video: preparing
 
@@ -11,7 +11,15 @@
 
 ## Ziele der Folge:
 
-- ???
+- Chunkgrenzen übergreifend erkennen, ob Entity vorhanden ist und Spieler vor dem Wächter erkennen und Patrolie stoppen
+
+## Inhalte:
+- Zeilenumbrüche in Commands
+- Execute positioned, distance
+- Scoreboard: schreiben und auswerten
+- Summon: text_display
+- Kill
+- Reload
 
 ## Agenda zum Video:
 
