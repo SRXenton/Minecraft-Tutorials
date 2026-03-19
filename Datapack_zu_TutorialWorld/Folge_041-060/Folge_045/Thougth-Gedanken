@@ -6,13 +6,21 @@
 
 ## Ziele der Folge:
 
-- ???
+- Xp Drop verhindern
+- Loot Table verändern
+- Loottable beim Bossmob im Panda Village Lagerhaus (Dorf1_Lagerhaus) anpassen
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
+- json
+- tick.json
+- execute -> if, entity, @e[type]
+- kill -> @e[type]
+- Loot_table
+- Generatoren
 
 ## Neue Datapack Struktur:
 
@@ -23,16 +31,18 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+		* minecraft
+			* tags
+				* function
+					> tick.json >> Aufruf von tick_switch_combat statt set_base
+        * combat
+			+ loot_table
+				+ dorf1_lagerhaus_bossmob.json
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+				> test_enemy.mcfunction >> Entity erweitert mit Loottable
+				* tick
+	                + remove_ex_orbs.mcfunction
+	                + tick_switch_combat.mcfunction
 
 
 
-### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
