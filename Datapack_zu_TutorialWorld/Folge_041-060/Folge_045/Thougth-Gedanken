@@ -43,6 +43,12 @@
 				* tick
 	                + remove_ex_orbs.mcfunction
 	                + tick_switch_combat.mcfunction
+		* quests_dorf1
+			* function
+				* dorfvorsteher
+					* lagerhaus
+						* mob
+							> mob.mcfunction >> Entity erweitert mit Loottable
 
 
 
