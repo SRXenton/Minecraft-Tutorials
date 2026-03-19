@@ -9,9 +9,11 @@
 
 ## Ziele der Folge:
 
-- Chunkgrenzen übergreifend erkennen, ob Entity vorhanden ist und Spieler vor dem Wächter erkennen und Patrolie stoppen
+- Chunkgrenzen übergreifend erkennen, ob Entity vorhanden ist
+- Spieler vor dem Wächter erkennen und Patrolie für diesen Moment stoppen
 
 ## Inhalte:
+Auf diese Inhalte zum Commands gehe ich ein, und verwende diese praktisch in diesem Projekt
 - Zeilenumbrüche in Commands
 - Execute positioned, distance
 - Scoreboard: schreiben und auswerten
@@ -19,13 +21,16 @@
 - Kill
 - Reload
 
+
 ## Agenda zum Video:
 
 1. Vorstellung
 2. Ziel der Folge
 3. Istzustand
-4. Sollzustand
-5. ???
+4. Erkennung Entity vorhanden, Chunkübergreifend
+5. Spieler vom Wächter erkennen und patrolie stoppen
+6. Zustammenfassung
+
 
 ##
 ## ============================================================================================================================================
