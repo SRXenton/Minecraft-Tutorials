@@ -1,0 +1,52 @@
+##
+## Gedanken und Versuche zu Folge 044: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#044 - ???
+
+## Ziele der Folge:
+
+- Bug Protect Villager entfernen
+- Basis Kampfsystem -> Attribute
+- Boss Mob Lagerhaus anpassen
+
+
+## Themen:
+- attribute
+- execute -> as
+- summon -> pillager -> NoAI, Tags, Health, attributes mit max_health
+- data -> get, entity @e mit limit, Health
+- tick.json
+- kill
+
+
+## Atribute Spieler
+- Base: 
+	attack_speed: 0.8
+	attack_damage: 0.1
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+		* village
+			* function
+				* villager_protect
+					* function
+						> check.mcfunction
+        * combat
+            * function
+                + init_combat.mcfunction
+                + test_enemy.mcfunction
+				+ tick
+					+ set_base.mcfunction
+		* minecraft
+			* tags
+				* function
+					> tick.json
