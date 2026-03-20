@@ -9,11 +9,11 @@
 
 ## Ziele der Folge:
 
-- Chunkgrenzen übergreifend erkennen, ob Entity vorhanden ist
+- Chunkgrenzen übergreifend erkennen, ob eine Entity vorhanden ist
 - Spieler vor dem Wächter erkennen und Patrolie für diesen Moment stoppen
 
 ## Inhalte:
-Auf diese Inhalte zum Commands gehe ich ein, und verwende diese praktisch in diesem Projekt
+Auf diese Commands gehe ich ein, mal in Teilen mal Komplett, und zeige euch, wie ich sie anwende.
 - Zeilenumbrüche in Commands
 - Execute positioned, distance
 - Scoreboard: schreiben und auswerten
