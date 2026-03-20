@@ -20,11 +20,17 @@
 - kill
 
 
-## Atribute Spieler
+## Attribute für denn Spieler
 - Base: 
 	attack_speed: 0.8
 	attack_damage: 0.1
 
+## Schritte:
+- Bug im Protect Villager entfernen
+- Testmob erstellen -> Summon
+- Werte aus Pillager auslesen -> Data get
+- Attribute -> Erklären und Init erstellen
+- Bossmob im Lagerhaus anpassen, testen
 
 ## Neue Datapack Struktur:
 
