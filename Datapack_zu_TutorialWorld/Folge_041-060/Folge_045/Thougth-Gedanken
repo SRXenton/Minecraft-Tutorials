@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge 045: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+]#045 - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#045 - XP Drop verhindern und Loottable
 
 ## Ziele der Folge:
 
@@ -21,6 +21,14 @@
 - kill -> @e[type]
 - Loot_table
 - Generatoren
+
+## Schritte
+- XP Erklären, wieso kein Loottable
+- XP Drop mittels Function entfernen
+- Json
+- Tick.json
+- Was ist ein Loottable
+- Loottable beim Testentity und Bossmob ändern
 
 ## Neue Datapack Struktur:
 
