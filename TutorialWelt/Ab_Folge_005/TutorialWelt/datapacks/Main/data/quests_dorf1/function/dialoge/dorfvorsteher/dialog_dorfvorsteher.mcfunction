@@ -19,6 +19,8 @@ execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=70}] at @s run 
 ## Queststufe: Quest: Gehe zum Gasthaus zum Wirt und und lege dort dein Spawnpunkt fest
 execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=80}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog80_dorfvorsteher
 
+## Queststufe: Quest: Gehe zum Farmer im Norden des Dorfes, und kaufe ein
+execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=90}] at @s run function quests_dorf1:dialoge/dorfvorsteher/dialog90_dorfvorsteher
 
 ## Backupzeilen
 #tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=40..}] [{"color":"gold","text":"Dorfvorsteher: "},{"color":"yellow","text":"Hallo Reisender, ich sehe, du hast ein Schwert bekommen, leider habe ich zur Zeit keine weiteren Aufgaben für dich."}]
