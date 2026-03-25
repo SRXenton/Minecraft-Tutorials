@@ -1,18 +1,22 @@
 ##
-## Beschreibung zu Folge 046: 
+## Beschreibung zu Folge 047: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+]#047 - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#047 - 
 
 ## Ziele der Folge:
 
-- ???
+- 
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
+- Der Command Loot
+
+
+## Schritte
 
 ## Neue Datapack Struktur:
 
@@ -23,13 +27,8 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
-            * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+        * <namespace>
+
 
 
 
