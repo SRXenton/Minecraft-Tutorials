@@ -2,19 +2,30 @@
 ## Beschreibung zu Folge 046: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+]#046 - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#046 - Loot_Table und Item_Modifier deep dive
 
 ## Ziele der Folge:
 
-- ???
+- Anwenden des Loot_Table und Item_modifier für unsere Zwecke
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
+- Loot Table -> reference, functions
+- Item Modifier -> lore, attack damage, attack speed, name, item model
+
 
 ## Schritte
+- Give Schwert mit Attribute Modifiers, Zeigen, dass es dann Keine waffe mehr ist.
+- Loot_table erklären
+- starter_sword_test.json erstellen
+- Function: set_attributes an attack_damage und replace erklären
+- set_lore erklären 
+- item_modifier erklären
+- item_modifier erstellen
+- starter_sword.json anwenden
 
 ## Neue Datapack Struktur:
 
@@ -25,13 +36,17 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
-            * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+        * combat
+            + item_modifier
+				+ attack_damage_reduce_wooden_sword_to_base.json
+				+ attack_speed_reduce_wooden_sword_to_base.json
+				+ attack_damage_add_0.5.json
+				+ attack_damage_reduce_6.json
+				+ attack_speed_add_1.json
+            * loot_table
+				+ starter_sword_test.json
+				+ starter_sword.json
+
 
 
 
