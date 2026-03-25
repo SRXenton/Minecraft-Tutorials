@@ -1,0 +1,38 @@
+##
+## Beschreibung zu Folge 046: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#047 - ???
+
+## Ziele der Folge:
+
+- ???
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * <Namespace>
+            * function
+				* <folder1>
+					* <underfolder>
+		                > edit.mcfunction
+		                + new.mcfunction
+		                - delete.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
