@@ -1,18 +1,26 @@
 ##
-## Beschreibung zu Folge 046: 
+## Beschreibung zu Folge 047: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [1.21.11+]#047 - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#047 - 
 
 ## Ziele der Folge:
 
-- ???
+- 
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
+- Der Command Loot
+
+
+## Schritte
+- Den Command Loot in der Versuchswelt vorstellen
+- Loot in der Wiki erklären
+- Loot in der Versuchswelt praktisch anwenden
+- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
 
 ## Neue Datapack Struktur:
 
@@ -23,13 +31,12 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+        * quests_dorf1
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+                * dialoge
+                    * dorfschmied
+                        > action_dorfschmied.mcfunction
+
 
 
 
