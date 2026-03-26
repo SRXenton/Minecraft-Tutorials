@@ -1,0 +1,41 @@
+##
+## Beschreibung zu Folge 0??: 
+##
+
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#0?? - ??
+
+## Ziele der Folge:
+
+- 
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+
+## Schritte
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * <namespace>
+            * function
+				+ new.mcfunction
+				> edit.mcfunction
+				- delete.mcfunction
+				* no_change.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
