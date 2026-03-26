@@ -17,6 +17,10 @@
 
 
 ## Schritte
+- Den Command Loot in der Versuchswelt vorstellen
+- Loot in der Wiki erklären
+- Loot in der Versuchswelt praktisch anwenden
+- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
 
 ## Neue Datapack Struktur:
 
@@ -27,7 +31,11 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <namespace>
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfschmied
+                        > action_dorfschmied.mcfunction
 
 
 
