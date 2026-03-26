@@ -1,22 +1,24 @@
 ##
-## Beschreibung zu Folge 0??: 
+## Beschreibung zu Folge 044: 
 ##
 
-- Titel: MC Datapack Tutorial [1.21.11+]#0?? - ???
+- Titel: MC Datapack Tutorial [1.21.11+]#044 - Interaction + Tellraw + Execute = Sprechen mit dem Wächter
 
 - Video: preparing
 
 ## Ziele der Folge:
 
-- ???
+- Eine Tellraw ausgabe, mittels dem Wächter sprechen, den wir in einer der letzten Folgen erstellt haben
 
 ## Agenda zum Video:
 
 1. Vorstellung
 2. Ziel der Folge
-3. Istzustand
-4. Sollzustand
-5. ???
+3. Summon INteraction mit Custom Size beim Wächter
+4. Interaktion mit der Interaction
+5. Tellraw Ausgabe
+6. Fehlerbehebung
+7. Zusammenfassung
 
 ##
 ## ============================================================================================================================================
@@ -40,16 +42,41 @@ Falls ihr mich unterstützen wollt:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+        * quests_dorf1
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+				* waechter
+				+ summon_interaction.mcfunction
+					* patrolie
+		                + interaction_waechter.mcfunction
+		                > switch.mcfunction
 
 
 
 ### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
+## summon_interaction.mcfunction 
+execute if score _check_if_player_before_entity Panda_Village_wachter matches 1 at @e[tag=panda_village_waechter] unless entity @e[tag=panda_village_waechter_interaction] run summon interaction ~ ~ ~ {width:1.0f,height:2.0f, Tags:["panda_village","panda_village_waechter_interaction"]}
+execute unless score _check_if_player_before_entity Panda_Village_wachter matches 1 if entity @e[tag=panda_village_waechter_interaction] run kill @e[tag=panda_village_waechter_interaction]
+
+
+## interaction_waechter.mcfunction 
+execute as @e[tag=panda_village_waechter_interaction] at @s on target run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, komm bitte später wieder",color:"yellow"}]
+
+execute as @e[tag=panda_village_waechter_interaction] run data remove entity @s attack
+execute as @e[tag=panda_village_waechter_interaction] run data remove entity @s interaction
+
+
+## switch.mcfunction 
+scoreboard objectives add Panda_Village_wachter dummy
+
+execute if score _counter_0_to_20 Global_Variables matches 15 run function quests_dorf1:waechter/patrolie/check_entity_waechter
+
+function quests_dorf1:waechter/summon_interaction
+
+execute unless score _check_if_player_before_entity Panda_Village_wachter matches 1 run function quests_dorf1:waechter/patrolie/patrolie
+
+function quests_dorf1:waechter/patrolie/detect_player
+
+#scoreboard objectives setdisplay sidebar Panda_Village_wachter
+#scoreboard objectives remove Panda_Village_wachter
+
+execute if entity @e[tag=panda_village_waechter_interaction] run function quests_dorf1:waechter/patrolie/interaction_waechter
