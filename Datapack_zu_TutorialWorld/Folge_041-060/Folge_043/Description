@@ -1,25 +1,36 @@
 ##
-## Beschreibung zu Folge 040: 
+## Beschreibung zu Folge 043: 
 ##
 
-- Titel: MC Datapack Tutorial [1.21.11+]#0?? - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#043 - Execute + store result + if score = In Scoreboard schreiben und auswerten
 
-- Video: preparing
-
-- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+- Video: https://youtu.be/Hm6DBApXq-Y
 
 
 ## Ziele der Folge:
 
-- ???
+- Chunkgrenzen übergreifend erkennen, ob eine Entity vorhanden ist
+- Spieler vor dem Wächter erkennen und Patrolie für diesen Moment stoppen
+
+## Inhalte:
+Auf diese Commands gehe ich ein, mal in Teilen mal Komplett, und zeige euch, wie ich sie anwende.
+- Zeilenumbrüche in Commands
+- Execute positioned, distance
+- Scoreboard: schreiben und auswerten
+- Summon: text_display
+- Kill
+- Reload
+
 
 ## Agenda zum Video:
 
 1. Vorstellung
 2. Ziel der Folge
 3. Istzustand
-4. Sollzustand
-5. ???
+4. Erkennung Entity vorhanden, Chunkübergreifend
+5. Spieler vom Wächter erkennen und patrolie stoppen
+6. Zustammenfassung
+
 
 ##
 ## ============================================================================================================================================
@@ -31,6 +42,11 @@ Minecraft Wiki:
 - https://de.minecraft.wiki/
 
 
+
+Falls ihr mich unterstützen wollt: 
+- https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
 ## Neue Datapack Struktur:
 
 # Datapack Strucktur:
@@ -40,16 +56,42 @@ Minecraft Wiki:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+        * quests_dorf1
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+				* waechter
+	                + summon_route_loaded.mcfunction
+					* patrolie
+		                + check_entity_waechter.mcfunction
+		                + detect_player.mcfunction
+		                + switch.mcfunction
 
 
 
 ### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
+## summon_route_loaded.mcfunction 
+execute unless entity @e[distance=..3,tag=panda_village_route_check] run kill @e[tag=panda_village_route_check]
+
+execute unless entity @e[distance=..3,tag=panda_village_route_check] run summon text_display ~ ~1 ~ {text:"Route geladen check", Tags:["panda_village","panda_village_route_check"]}
+
+
+## check_entity_waechter.mcfunction 
+execute store result score _check Panda_Village_wachter if entity @e[tag=panda_village_route_check]
+
+execute if score _check Panda_Village_wachter matches 4 unless entity @e[tag=panda_village_waechter] run function quests_dorf1:waechter/summon_waechter
+
+
+## detect_player.mcfunction 
+execute as @e[tag=panda_village_waechter] at @s positioned ^ ^ ^2 store result score _check_if_player_before_entity Panda_Village_wachter if entity @a[distance=..3]
+
+
+## switch.mcfunction 
+scoreboard objectives add Panda_Village_wachter dummy
+
+execute if score _counter_0_to_20 Global_Variables matches 15 run function quests_dorf1:waechter/patrolie/check_entity_waechter
+
+execute unless score _check_if_player_before_entity Panda_Village_wachter matches 1 run function quests_dorf1:waechter/patrolie/patrolie
+
+function quests_dorf1:waechter/patrolie/detect_player
+
+scoreboard objectives setdisplay sidebar Panda_Village_wachter
+
