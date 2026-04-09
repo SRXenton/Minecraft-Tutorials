@@ -13,4 +13,4 @@
 
 
 # Führe aus bei position als jede Entity vom Typ in der Distanz wischen Wert 1 und 2, die Function mit dem Macro
-$execute positioned ~ ~ ~ as @e[type=minecraft:villager,distance=$(d1)..$(d2)] run function village:village_villager_protect/function/action {x:$(x),y:$(y),z:$(z)}
+$execute positioned ~ ~ ~ as @e[type=minecraft:villager,distance=$(d1)..$(d2)] run function village:villager_protect/function/action {x:$(x),y:$(y),z:$(z)}

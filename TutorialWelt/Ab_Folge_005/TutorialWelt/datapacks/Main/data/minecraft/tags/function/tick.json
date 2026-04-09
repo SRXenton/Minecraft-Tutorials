@@ -5,6 +5,7 @@
         "base:remove_villager_trading",
         "teleport:entities/entity_control",
         "weather:control_switch_weather",
-        "quests_dorf1:trigger/trigger_action"
+        "quests_dorf1:trigger/trigger_action",
+        "combat:tick/set_base"
     ]
 }
