@@ -1087,6 +1087,7 @@
   },
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
+      "minecraft:pillager": "2026-03-21 22:09:12 +0100",
       "minecraft:zombie": "2025-09-19 08:59:27 +0200",
       "minecraft:zombie_villager": "2025-11-22 22:32:14 +0100"
     },
