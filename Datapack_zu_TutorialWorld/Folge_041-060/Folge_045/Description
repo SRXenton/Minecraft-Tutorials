@@ -2,21 +2,25 @@
 ## Beschreibung zu Folge 0??: 
 ##
 
-- Titel: MC Datapack Tutorial [1.21.11+]#0?? - ???
+- Titel: MC Datapack Tutorial [1.21.11+]#045 - Test Enemy, Attribute: Attack Damage und Speed 
 
 - Video: preparing
 
 ## Ziele der Folge:
 
-- ???
+- Bug im Protect Village beseitigen
+- Test Enemy in Blickrichtung und immer auf dem Boden erzeugen
+- Attribute, im Detail: attack_damage und attack_speed anwenden und erklären
 
 ## Agenda zum Video:
 
 1. Vorstellung
 2. Ziel der Folge
 3. Istzustand
-4. Sollzustand
-5. ???
+4. Bug entfernen
+5. Sollzustand
+6. Enemy erzeugen
+7. Die Attribute Attack_speed und Attack_damage
 
 ##
 ## ============================================================================================================================================
@@ -40,16 +44,54 @@ Falls ihr mich unterstützen wollt:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+		* village
+			* function
+				* villager_protect
+					* function
+						> check.mcfunction
+        * combat
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+                + init_combat.mcfunction
+                + test_enemy.mcfunction
+				+ tick
+					+ set_base.mcfunction
+		* minecraft
+			* tags
+				* function
+					> tick.json
 
 
 
 ### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
+## check.mcfunction 
+$execute positioned ~ ~ ~ as @e[type=minecraft:villager,distance=$(d1)..$(d2)] run function village:villager_protect/function/action {x:$(x),y:$(y),z:$(z)}
+
+
+## tick.mcfunction 
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/switch",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "quests_dorf1:trigger/trigger_action",
+        "combat:tick/set_base"
+    ]
+}
+
+## init_combat.mcfunction 
+execute as @a[tag=!has_base_modify] run attribute @s minecraft:attack_damage base set 0.1
+execute as @a[tag=!has_base_modify] run attribute @s minecraft:attack_speed base set 0.8
+execute as @a[tag=!has_base_modify] run tag @s add has_base_modify
+
+## test_enemy.mcfunction 
+kill @e[tag=test_enemy]
+
+execute positioned ^ ^ ^4 run summon minecraft:pillager ~ 65 ~ {NoAI:1b,CustomName:"Test_Enemy",CustomNameVisible:1b,Tags:["test_enemy"],Silent:1b,Health:1.0f}
+
+## set_base.mcfunction 
+execute if score _counter_0_to_20 Global_Variables matches 4 run function combat:init_combat
+
+
+
