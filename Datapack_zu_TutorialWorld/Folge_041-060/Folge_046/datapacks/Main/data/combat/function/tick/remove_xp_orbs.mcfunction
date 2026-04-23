@@ -1,0 +1,1 @@
+execute if entity @e[type=experience_orb] run kill @e[type=experience_orb]

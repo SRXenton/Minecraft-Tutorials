@@ -1,0 +1,109 @@
+##
+## Beschreibung zu Folge 046: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#046 - XP-Drop verhindern und eigenen Loot-Table
+
+- Video: preparing
+
+## Ziele der Folge:
+- XP-Drop verhindern beim erledigen von Enemies
+- Ersten Loot Table erstellen und erklären
+- Anpassen das Mobs im Lagerhaus von Panda Village Dorf 1
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * minecraft
+            * tags
+				* function
+					> tick.json
+        * combat
+			+ loot_table
+				+ dorf1_lagerhaus_bossmob.json
+            * function
+				> test_enemy.mcfunction
+				* tick
+	                + remove_ex_orbs.mcfunction
+	                + > tick_switch_combat.mcfunction >>> renaming and edit <<<
+		* quests_dorf1
+			* function
+				* dorfvorsteher
+					* lagerhaus
+						* mob
+							> mob.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## tick.json
+{
+    "replace": false,
+    "values": [
+        "respawn:tick/switch",
+        "base:remove_villager_trading",
+        "teleport:entities/entity_control",
+        "weather:control_switch_weather",
+        "quests_dorf1:trigger/trigger_action",
+        "combat:tick/tick_switch_combat"
+    ]
+}
+
+## dorf1_lagerhaus_bossmob.json 
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+## test_enemy.mcfunction 
+kill @e[tag=test_enemy]
+
+execute positioned ^ ^ ^4 run summon minecraft:pillager ~ 65 ~ {NoAI:1b,CustomName:"Test_Enemy",CustomNameVisible:1b,Tags:["test_enemy"],Silent:1b,Health:1.0f}
+
+
+## remove_ex_orbs.mcfunction 
+execute if entity @e[type=experience_orb] run kill @e[type=experience_orb]
+
+
+## tick_switch_combat.mcfunction 
+function combat:tick/set_base
+
+function combat:tick/remove_xp_orbs
+
+
+## mob.mcfunction 
+execute at @e[tag=dorf1_lagerhaus_marker_mob_boss] run summon zombie_villager ~ ~ ~ {VillagerData:{type:plains,profession:farmer,level:99},Tags:["dorf1_lagerhaus_mob","dorf1_lagerhaus_mob_boss"],CustomName:[{text:Kadaver}],Health:1.0,attributes:[{id:max_health,base:1.0f}],DeathLootTable:"combat:dorf1_lagerhaus_bossmob"}
+
+scoreboard players set _isBoss Quest_Dorf1_Lagerhaus 1
