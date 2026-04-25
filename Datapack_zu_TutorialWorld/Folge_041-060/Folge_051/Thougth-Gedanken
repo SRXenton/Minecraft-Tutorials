@@ -1,0 +1,45 @@
+##
+## Beschreibung zu Folge 049: Minecraft V1.21.11 zu V26.1.2
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - V1.21.11 zu V26.1.2
+
+## Ziele der Folge:
+
+- 
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Der Command Loot
+
+
+## Schritte
+- Den Command Loot in der Versuchswelt vorstellen
+- Loot in der Wiki erklären
+- Loot in der Versuchswelt praktisch anwenden
+- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfschmied
+                        > action_dorfschmied.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
