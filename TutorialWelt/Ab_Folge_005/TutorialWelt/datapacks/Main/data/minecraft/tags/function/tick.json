@@ -6,6 +6,6 @@
         "teleport:entities/entity_control",
         "weather:control_switch_weather",
         "quests_dorf1:trigger/trigger_action",
-        "combat:tick/set_base"
+        "combat:tick/tick_switch_combat"
     ]
 }
