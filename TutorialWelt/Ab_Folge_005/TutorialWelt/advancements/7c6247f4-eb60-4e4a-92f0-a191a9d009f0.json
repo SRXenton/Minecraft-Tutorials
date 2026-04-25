@@ -1087,6 +1087,7 @@
   },
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
+      "minecraft:pillager": "2026-03-21 22:09:12 +0100",
       "minecraft:zombie": "2025-09-19 08:59:27 +0200",
       "minecraft:zombie_villager": "2025-11-22 22:32:14 +0100"
     },
@@ -1521,6 +1522,36 @@
   "minecraft:recipes/combat/stone_spear": {
     "criteria": {
       "has_cobblestone": "2026-01-18 12:35:40 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/orange_bed": {
+    "criteria": {
+      "has_orange_wool": "2026-02-28 15:09:25 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/orange_banner": {
+    "criteria": {
+      "has_orange_wool": "2026-02-28 15:09:25 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2026-02-28 15:09:25 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/orange_carpet": {
+    "criteria": {
+      "has_orange_wool": "2026-02-28 15:09:25 +0100"
+    },
+    "done": true
+  },
+  "minecraft:story/obtain_armor": {
+    "criteria": {
+      "iron_leggings": "2026-03-07 22:55:48 +0100"
     },
     "done": true
   },

@@ -2,24 +2,20 @@
 ## Beschreibung zu Folge 040: 
 ##
 
-- Titel: MC Datapack Tutorial [1.21.11+]#0?? - ???
+- Titel: Minecraft Datapack Tutorial [1.21.11+]#042 - Execute + Teleport = Villager Pfadverfolgung
 
 - Video: preparing
 
-- Unterstützungslink: https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
-
-
 ## Ziele der Folge:
 
-- ???
+- Einen Villager (Wächter von Panda Village) gezielt durch Panda Village laufen lassen
 
-## Agenda zum Video:
+## Inhalt:
+Ich gehe näher auf die Commands, anhand von praktischen Beispielen, ein.
+- Der Command Summon, am Beispiel eines angepassten Villagers -> CustomName, NoIA, Profession, Type, Level
+- Der Command Execute, was bedeutet: IF, UNLESS, AT, AS. Inklusive Praktischer Anwendung für die Pfaderkennung
+- Der Command Teleport, was macht er beim Spieler und was beim Villager inkl. Facing
 
-1. Vorstellung
-2. Ziel der Folge
-3. Istzustand
-4. Sollzustand
-5. ???
 
 ##
 ## ============================================================================================================================================
@@ -31,6 +27,11 @@ Minecraft Wiki:
 - https://de.minecraft.wiki/
 
 
+
+Falls ihr mich unterstützen wollt: 
+- https://www.amazon.de/hz/wishlist/ls/SG7NGDIC0GEK?ref_=wl_share
+
+
 ## Neue Datapack Struktur:
 
 # Datapack Strucktur:
@@ -40,16 +41,31 @@ Minecraft Wiki:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * <Namespace>
+        * quests_dorf1
             * function
-				* <folder1>
-					* <underfolder>
-		                > edit.mcfunction
-		                + new.mcfunction
-		                - delete.mcfunction
+				+ waechter
+	                + summon_waechter.mcfunction
+					+ patrolie
+		                + patrolie.mcfunction
 
 
 
 ### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
+## summon_waechter.mcfunction 
+kill @e[tag=panda_village_waechter]
+
+summon minecraft:villager 1751 65 257 {\
+    NoAI:1b,\
+    CustomName:"Wächter von Panda Village",\
+    CustomNameVisible:1b,\
+    Tags:["quest_npc","panda_village","panda_village_waechter"],\
+    VillagerData:{profession:"minecraft:weaponsmith",level:99,type:"minecraft:jungle"}\
+}
+
+
+## patrolie.mcfunction 
+execute as @e[tag=panda_village_waechter] at @s if block ~ -61 ~ minecraft:magenta_glazed_terracotta[facing=north] run tp @s ~ ~ ~0.05 0 0
+execute as @e[tag=panda_village_waechter] at @s if block ~ -61 ~ minecraft:magenta_glazed_terracotta[facing=south] run tp @s ~ ~ ~-0.05 180 0
+execute as @e[tag=panda_village_waechter] at @s if block ~ -61 ~ minecraft:magenta_glazed_terracotta[facing=west] run tp @s ~0.05 ~ ~ -90 0
+execute as @e[tag=panda_village_waechter] at @s if block ~ -61 ~ minecraft:magenta_glazed_terracotta[facing=east] run tp @s ~-0.05 ~ ~ 90 0
+
