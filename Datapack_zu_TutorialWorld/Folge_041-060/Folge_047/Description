@@ -1,0 +1,47 @@
+##
+## Beschreibung zu Folge 047: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#047 - Waffe bleibt Waffe nach Attributänderung (loot table, item modify)
+
+- Video: preparing
+
+## Ziele der Folge:
+
+- Unterschied erklären: Item modify entity zu item_modifier.json
+- Aufbau Loot_table und item_modifier
+- Erstellen eines Custom Wooden Sword als Stone Sword mit custom Werten
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * combat
+            + item_modifier
+				+ attack_damage_reduce_wooden_sword_to_base.json
+				+ attack_speed_reduce_wooden_sword_to_base.json
+				+ attack_damage_add_0.5.json
+            * loot_table
+				+ starter_sword.json
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
