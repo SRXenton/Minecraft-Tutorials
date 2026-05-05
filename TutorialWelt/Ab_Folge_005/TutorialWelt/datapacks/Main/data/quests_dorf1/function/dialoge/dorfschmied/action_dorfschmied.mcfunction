@@ -18,7 +18,8 @@ dialog show @s {\
 }
 
 # Gib dem Spieler, der diese Function ausführt, ein Schwert mit Custom Namen, und dem Beschreibungstext
-give @s stone_sword[custom_name=[{"text":"Einfaches Schwert","italic":false}],lore=[[{"text":"Ein gewöhnliches einfaches Schwert.","italic":false}]]]
+#give @s stone_sword[custom_name=[{"text":"Einfaches Schwert","italic":false}],lore=[[{"text":"Ein gewöhnliches einfaches Schwert.","italic":false}]]]
+loot give @s loot combat:starter_sword
 
 # Setze den Wert im Scoreboard Quest_Dorfvorsteher bei dem Spieler, der diese Function ausführt, auf 40
 scoreboard players set @s Quest_Dorfvorsteher 40

@@ -4,4 +4,4 @@
 # Scoreboard setze Spieler, der die Function aufruft, auf Wert = 70
 scoreboard players set @s Quest_Dorfvorsteher 70
 # Rufe die Funktion auf mit dem Macro
-function currency:add_money {loot:100}
+function e_s__currency:add_money {loot:100}
