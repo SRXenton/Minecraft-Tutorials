@@ -36,9 +36,11 @@
             * function
                 * ???
                     * ???
-                        > ???
-
-
+                        > base_values
+                        + get_uuid
+                        > detect_item
+                        > tick_character_switch
+                        > character_overview
 
 
 ### Files: (Kommenrtare entfernt)
