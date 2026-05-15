@@ -2,25 +2,25 @@
 ## Beschreibung zu Folge 049: Minecraft V1.21.11 zu V26.1.2
 ##
 
-- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - V1.21.11 zu V26.1.2
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - V1.21.11 zu V26.1.2 über Prism Launcher, ohne Mods
 
 ## Ziele der Folge:
 
-- 
+- Update Minecraft von V 1.21.11 auf V 26.1.2
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Der Command Loot
+- Update über den Prism Lauchner
 
 
 ## Schritte
-- Den Command Loot in der Versuchswelt vorstellen
-- Loot in der Wiki erklären
-- Loot in der Versuchswelt praktisch anwenden
-- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
+- Wieso mit Prism Laucher
+- Durchführen
+- Ggf. Mods updaten
+- Testen
 
 ## Neue Datapack Struktur:
 
@@ -31,12 +31,7 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * quests_dorf1
-            * function
-                * dialoge
-                    * dorfschmied
-                        > action_dorfschmied.mcfunction
-
+        > ????
 
 
 
