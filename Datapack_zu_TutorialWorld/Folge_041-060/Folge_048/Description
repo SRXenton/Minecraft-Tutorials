@@ -1,0 +1,62 @@
+##
+## Beschreibung zu Folge 048: 
+##
+
+- Titel: MC Datapack Tutorial [1.21.11+]#048 - Loot ersetzt give - Der Loot Command erklärt
+
+- Video: https://youtu.be/TtyKQSZV34M
+
+## Ziele der Folge:
+
+- Den Give Command im Schmied für das Starter Schwert durch loot ersetzten
+- Den Loot Command im Detail erklären
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfschmied
+                        > action_dorfschmied.mcfunction
+
+
+### Files: (Kommenrtare entfernt)
+## action_dorfschmied.mcfunction 
+clear @s minecraft:stick[custom_data={"tag":"kfdds"}]
+
+dialog show @s {\
+    "type": "minecraft:notice",\
+    "title": "Dorfschmied",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": {\
+            "text": "Danke dass du mir die Kohle gebracht hast.\n\nIch habe in der Zwischenzeit in meinem Lager geschaut und habe noch dieses Schwert gefunden",\
+            "type": "text"\
+        }\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close"\
+}
+
+#give @s stone_sword[custom_name=[{"text":"Einfaches Schwert","italic":false}],lore=[[{"text":"Ein gewöhnliches einfaches Schwert.","italic":false}]]]
+loot give @s loot combat:starter_sword
+
+scoreboard players set @s Quest_Dorfvorsteher 40

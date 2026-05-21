@@ -1,26 +1,32 @@
 ##
-## Beschreibung zu Folge 049: Minecraft V1.21.11 zu V26.1.2
+## Beschreibung zu Folge 050: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - V1.21.11 zu V26.1.2
+- 
 
 ## Ziele der Folge:
 
-- 
+- Mit einen Stick bei einem Rechtsklick eine Tellraw auslösen
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Der Command Loot
+- 
 
 
 ## Schritte
-- Den Command Loot in der Versuchswelt vorstellen
-- Loot in der Wiki erklären
-- Loot in der Versuchswelt praktisch anwenden
-- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
+- Was soll passieren, aktive vorstellen: dev_050
+- Fungus on a Stick ansprechen "Geldbeutel"
+- Interaction erklären
+- Order und Dateistruktur erstellen
+- Give - Character Item, wieso give und nicht loot
+- character_overview - tellraw
+- detect_item - execute @e mit nbt
+- tick.json und ticks_character_switch -> detect_item (function)
+- detect_item: Execute, summon, interaction, teleport, data
+
 
 ## Neue Datapack Struktur:
 
@@ -31,15 +37,18 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * quests_dorf1
-            * function
-                * dialoge
-                    * dorfschmied
-                        > action_dorfschmied.mcfunction
+        * minecraft
+            * tags
+                * function
+                    > tick.json  >>> add ticks_character_switch.mcfunction
+        + character
+            + function
+                + dialogs
+                    + character_overview.mcfunction
+                + ticks
+                    + ticks_character_switch.mcfunction
+                + misc
+                    + detect_item.mcfunction
+                    + give_character_item.mcfunction
 
 
-
-
-### Files: (Kommenrtare entfernt)
-## new.mcfunction 
-???
