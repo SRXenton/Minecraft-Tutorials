@@ -51,7 +51,8 @@
                     + kill_detect.mcfcuntion
                     + kill_get_data.mcfcuntion
                     + kill_init.mcfcuntion
-
+                * tick
+                    > tick_switch
 
 
 
