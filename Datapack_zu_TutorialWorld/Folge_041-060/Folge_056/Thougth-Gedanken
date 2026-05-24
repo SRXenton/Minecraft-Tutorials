@@ -1,0 +1,47 @@
+##
+## Beschreibung zu Folge 056: 
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.2+]#056 - Stufenaufstieg in Stärke erkennen
+
+## Ziele der Folge:
+
+- 
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+- execute if score matches, vergleiche
+
+## Schritte
+- SOll vorstellung Folge 54 zu 55
+- Anmerkung Vorschläge und Videobeschreibung
+- Stufen für levelaufstiege
+- Erkennen Leveländerung, nur Tellraw Ausgabe
+- Werbung in eigener Sache
+- data remove data.temp
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * combat
+            * function
+                * kill
+                    > kill_calculate.mcfcuntion
+
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
