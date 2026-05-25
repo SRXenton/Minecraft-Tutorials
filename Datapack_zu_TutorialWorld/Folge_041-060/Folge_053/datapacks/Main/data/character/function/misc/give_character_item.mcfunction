@@ -1,0 +1,2 @@
+# Gib dem Spieler, der die Function ausführt einen Stick mit dem Item Model Totem, den Custom Namen Charakter-Ansicht und den Custom Data {tag:"character_view"}
+give @s minecraft:stick[item_model="minecraft:totem_of_undying", custom_name="Charakter-Ansicht", custom_data={tag:"character_view"}]
