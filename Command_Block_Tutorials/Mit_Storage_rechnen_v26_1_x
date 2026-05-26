@@ -1,6 +1,6 @@
 # Video title: Minecraft Java - Data Storage - Rechnen mit Datenspeicher !! Oder doch Scoreboard ??
 # Code example for my Youtube tutorial videos
-# Video: preparing
+# Video: https://youtu.be/Yenvc3ksQ3g
 
 ## Der Command zum Storage auslesen:
 /data get storage test:calculate
