@@ -1,0 +1,55 @@
+# Video title: Minecraft Java - Data Storage - Rechnen mit Datenspeicher !! Oder doch Scoreboard ??
+# Code example for my Youtube tutorial videos
+# Video: https://youtu.be/Yenvc3ksQ3g
+
+## Der Command zum Storage auslesen:
+/data get storage test:calculate
+
+
+## Reset
+data remove storage test:calculate data
+data merge storage test:calculate {data:{target:0, v3:0.123}}
+data modify storage test:calculate data.v1 set value 10
+data modify storage test:calculate data.v2 set value 15
+scoreboard objectives remove test.storage_calculate
+scoreboard objectives add test.storage_calculate dummy
+scoreboard objectives setdisplay sidebar test.storage_calculate
+
+## Multiplkation: target = v1 * 10
+execute store result storage test:calculate data.target float 10 run data get storage test:calculate data.v1
+
+## Division: target = v1 / 10
+execute store result storage test:calculate data.target float 0.1 run data get storage test:calculate data.v1
+
+
+## Addition: target += V1
+execute store result score #temp1 test.storage_calculate run data get storage test:calculate data.v1
+execute store result score #temp2 test.storage_calculate run data get storage test:calculate data.target
+scoreboard players operation #temp2 test.storage_calculate += #temp1 test.storage_calculate
+execute store result storage test:calculate data.target int 1 run scoreboard players get #temp2 test.storage_calculate
+
+## Addition: target += V2
+execute store result score #temp1 test.storage_calculate run data get storage test:calculate data.v2
+execute store result score #temp2 test.storage_calculate run data get storage test:calculate data.target
+scoreboard players operation #temp2 test.storage_calculate += #temp1 test.storage_calculate
+execute store result storage test:calculate data.target int 1 run scoreboard players get #temp2 test.storage_calculate
+
+## Addition: target = v1 + v2
+execute store result score #temp1 test.storage_calculate run data get storage test:calculate data.v1
+execute store result score #temp2 test.storage_calculate run data get storage test:calculate data.V2
+scoreboard players operation #temp2 test.storage_calculate += #temp1 test.storage_calculate
+execute store result storage test:calculate data.target int 1 run scoreboard players get #temp2 test.storage_calculate
+
+
+## Division mit Kommastellen: target = v1 / v2
+execute store result score #temp1 test.storage_calculate run data get storage test:calculate data.v1 1000
+execute store result score #temp2 test.storage_calculate run data get storage test:calculate data.v2 1
+scoreboard players operation #temp1 test.storage_calculate /= #temp2 test.storage_calculate
+execute store result storage test:calculate data.target double 0.001 run scoreboard players get #temp1 test.storage_calculate
+
+
+## Division mit Kommastellen: target = v3 / v2
+execute store result score _temp1 test.storage_calculate run data get storage test:calculate data.v3 1000
+execute store result score _temp2 test.storage_calculate run data get storage test:calculate data.v2 1
+scoreboard players operation _temp1 test.storage_calculate /= _temp2 test.storage_calculate
+execute store result storage test:calculate data.target double 0.001 run scoreboard players get _temp1 test.storage_calculate
