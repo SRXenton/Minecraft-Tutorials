@@ -1,0 +1,43 @@
+##
+## Beschreibung zu Folge 057: 
+##
+
+- Titel: MC Datapack Tutorial [26.1.2+]#057
+
+- Video: preparing
+
+## Ziele der Folge:
+
+
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    > base_values.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## base_values.mcfunction 
+data merge storage main_charakter:player {data:{"UUID":{beweglichkeit:1,staerke:1,ausdauer:1,inteligenz:1}}}
