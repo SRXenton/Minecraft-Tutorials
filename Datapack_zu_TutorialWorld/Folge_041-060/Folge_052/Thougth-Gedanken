@@ -1,0 +1,45 @@
+##
+## Beschreibung zu Folge 052: Data Storage
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - Data Storage
+
+## Ziele der Folge:
+
+- 
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Data STorage
+
+
+## Schritte
+- Ziel Data Storage
+- Unterschied Datastorage und Scoreboard
+- Datastorage erstellen
+- Mit Werten füllen, wenn noch keine beim Spieler vorhanden sind
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * ???
+            * function
+                * ???
+                    * ???
+                        > base_values
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???

@@ -1,0 +1,50 @@
+##
+## Beschreibung zu Folge 052: 
+##
+
+- Titel: MC Datapack Tutorial [26.1.2+]#052 - Data Storage - Erste Charakterwerte
+
+- Video: https://youtu.be/fVpY24UHQxM
+
+## Ziele der Folge:
+
+- Was ist ein Datastorage, was kann man mit machen und wie arbeitet man damit
+- Was ist der Unterschied zu Scoreboard, sowie Vor- und Nachteile
+
+Auf diese Inhalte zum Commands gehe ich ein, und verwende diese in diesem Projekt:
+- Data Storage / Datenspeicher
+- Der Command: Data
+- Data get/modify/merge/remove
+- Execute store result storage
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    > base_values.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## base_values.mcfunction 
+data merge storage main_charakter:player {data:{"UUID":{beweglichkeit:1,staerke:1,ausdauer:1,inteligenz:1}}}

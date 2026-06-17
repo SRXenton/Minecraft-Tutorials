@@ -19,19 +19,24 @@
 ## Teleportsteine erst nach Besuch Freischalten
 - Teleportsteine (Panda Village und Dorf2) sind sofort nutzbar, sollen erst Funktionieren, wenn der Spieler Dorf2 besucht hat
 
-## Questreihe Dorfvorsteher erweitern
-- Nach Einführung "Ändern Respawn", muss der Spieler mittels Quest darauf hingewiesen werden. Folge Quest Nach Bank.
+## Questreihe Dorfvorsteher erweitern 
+- Quest Rüstung (s.u.), bevor Dorf 1 verlassen
+- Quest Dorfvorsteher/Wächte, zum Magiesystem nächstes Dorf
+- Quest Dorfwächter, Einführung Kampfsystem
+- Erledigt - Nach Einführung "Ändern Respawn", muss der Spieler mittels Quest darauf hingewiesen werden. Folge Quest Nach Bank.
 
 
-## Update auf v 1.21.11
+## Update auf Version
 - Datapack durch gehen und anpassungen Vornehmen
-
+- - v 1.21.11 - erledigt
+- - V 26.2.x
 
 ## Base_init.mcfunction sicherer machen
 - bestimmte Function bzw dadurch Scoreboards remove, dass die Removes nicht ausgeführt werden wenn die base_init aufgerufen wird
 
 
-## Händler
+## Händler, 1. Händler erledigt
+- Erweitern auf x Händler
 Über Dialog
 Spezifische Händler
 Bei Verkauf: Erkennung Inventar Menge
@@ -49,7 +54,7 @@ Bei Kauf: Erkennung Platz im Inventar, Genug Geld
 
 ## Spawnen nach Tot beim Gastwirt / Tempel
 ## Themen: Summon / Villager / Dialog / Spawnpoint
-Priester oder Wirt ansprechen für Respawn
+Priester(Offen) oder Wirt(Eledigt) ansprechen für Respawn
 Mit einen Tag am Spieler soll ermittelt werden, wo er spawnt
 An einem Villager über ein Dialog, wird der Spieler getaged
 
@@ -63,12 +68,13 @@ An einem Villager über ein Dialog, wird der Spieler getaged
   - Rüstungsschmhied
   - Materialien besorgen (Wölfe?)
   - Custom Wölfe mit Custom Drop
-    > Nötig Natürliches Mobspawn off
-    > Wissen über Custom Mobs
-    > Konzept über Levelaufstieg
+    > Nötig Natürliches Mobspawn off (erledigt)
+    > Wissen über Custom Mobs (erledigt)
+    > Konzept über Levelaufstieg (erledigt)
 
 
 
+### Vorgaben
 
 ## Questreihe
 Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
@@ -99,7 +105,7 @@ Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 
 
 
-## Spanwpoint dynamisch verlegen
+## Spanwpoint dynamisch verlegen (erledigt)
 
 Villager ohne Handelsfenster
 Villager Custom Dialog Fester
@@ -140,7 +146,7 @@ Natürliches Hostile Mob Spawn aus -> /gamerule doMobSpawning false  --> Erledig
 Eigenes Monster Spawn verhalten
 
 
-## Custom Day/Night Cycle
+## Custom Day/Night Cycle (Eigenes Datapack dafür vorhanden)
 /gamerule doDayNightCycle ?????
 - 24000 Ticks für Tag und Nacht -> Minecraft standart
 - 24000 Ticks für Tag und 6000 für Nacht -> Steuerung "/time set" über scoreboard

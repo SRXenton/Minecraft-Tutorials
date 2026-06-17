@@ -1,8 +1,11 @@
 ### Buglist
 
 ## Bugs:
-Dialogfenster beim Trader Farmer in Panda Village: Credits statt Groschen
+## Nr   Datei                                           Beschreibung
+0002                                                    Dialogfenster beim Trader Farmer in Panda Village: Credits statt Groschen
+0003    main/combat/function/kill/kill_detect           Data Storage wird in get_data befüllt als @a, wird in der nächsten Zeile ausgewertet wieder als @a ausgewertet
+                                                        Führt dazu, dass bei mehreren Spielern der Storage falsch ausgewertet werden kann
 
 
 ## Gelöst:
-Gelöst in Folge 024: Lagerhaus ist nicht aktiv
+0001                                                    Gelöst in Folge 024: Lagerhaus ist nicht aktiv
