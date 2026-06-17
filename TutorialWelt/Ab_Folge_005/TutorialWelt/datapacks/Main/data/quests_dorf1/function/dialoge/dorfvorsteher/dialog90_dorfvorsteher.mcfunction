@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: dialog_dorfvorsteher.mcfunction
+
 ## Textausgabe
 # Keinen Apfel im Inventar
 tellraw @s[\

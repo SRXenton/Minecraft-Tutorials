@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: Commandblock im Teleport Stone
+
 # Führe aus wenn NICHT die Entity mit dem Tag,
 # und wenn im Scoreboard vom Fake Spieler der Wert = 0 ist,
 # summon interaction auf der Psoition mit den Daten:

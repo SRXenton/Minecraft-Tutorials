@@ -1,3 +1,7 @@
+### Wird aufgerufen aus: patrolie/switch.mcfunction
+
+## Lässt den jede entity mit dem Tag auf der Route laufen
+
 # tag=panda_village_waechter
 
 

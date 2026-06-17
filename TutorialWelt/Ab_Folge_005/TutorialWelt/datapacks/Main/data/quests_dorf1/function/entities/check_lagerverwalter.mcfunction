@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: Wird von einem Commandblock ausgeführt
+
 # Führe aus, wenn im Scoreboard Global_Variables der Wert vom Fake Spieler _in_work = 0,
 # und NICHT wenn jede Entity vom Typ villager, mit dem Tag,
 # den Command summon villager auf der Position mit den 

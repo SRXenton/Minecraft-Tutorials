@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: Commandblock unterhalb dorf1
+
+
 # Führe aus, bei jedem Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1
 # und NICHT wenn jede Entity, bei dem im Scoreboard Quest_Dorfvorsteher >= 0
 # und wenn jede Entity in einer Entfernung <= 5,

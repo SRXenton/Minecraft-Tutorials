@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
 ## Init scoreboard und Entferne alle nicht benötigten Elemente
 # Entfert die Entity mit dem Tag
 kill @e[tag=dorf1_lagerhaus_mob_boss]

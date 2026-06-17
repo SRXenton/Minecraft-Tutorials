@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: dialog_dorfvorsteher.mcfunction
+
 # War nicht beim Wirt
 execute if entity @s[\
     tag=!spawnpoint\

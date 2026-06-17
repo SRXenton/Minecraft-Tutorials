@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
+
 # Gib aus den Titel bei der Entity, die die Function aufruft
 title @s title {"text":"!! Kein Zutritt !!", "color":"dark_red"}
 

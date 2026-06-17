@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: Commandblock unterhalb des Traders
+
 # Farmer in Panda Village
 
 scoreboard objectives add E_S.Vendor_Panda_Village_reset trigger

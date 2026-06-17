@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: dialoge_switch.mcfunction
+
 # Führe aus, als jeder Spieler, bei dem im Scoreboard Villager_Klick_Dorf1 = 1 und im Scoreboard Quest_Dorfvorsteher = 10 ist, bei dem Spieler, die function
 execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=10}] at @s run function quests_dorf1:dialoge/dorfschmied/dialog10_dorfschmied
 

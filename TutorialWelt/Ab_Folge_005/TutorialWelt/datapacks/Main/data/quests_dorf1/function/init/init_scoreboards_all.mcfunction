@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: manuell
+
 # Entferne Scorebord
 scoreboard objectives remove Villager_Klick_Dorf1
 # Füge hinzu das Scoreboard mit der Automatischen Erkennung talked_to_villager

@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: tick.json
+
+
 # Führe aus, wenn score den Wert = 2, 
 # dann führe aus, als die Entity mit den Werten,
 # dann in Data füge ein bei Entity die davor gewählt wurde, die nbt Daten

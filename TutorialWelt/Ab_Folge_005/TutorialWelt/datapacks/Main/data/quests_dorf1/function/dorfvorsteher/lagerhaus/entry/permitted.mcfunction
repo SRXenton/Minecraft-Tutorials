@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
 # Gib aus den Titel bei der Entity, die die Function aufruft
 title @s title "Willkommen im Dungeon: Lagerhaus"
 # Setze die Entity den Wert im Scoreboard auf 10, bei der Entity, die die Function aufruft

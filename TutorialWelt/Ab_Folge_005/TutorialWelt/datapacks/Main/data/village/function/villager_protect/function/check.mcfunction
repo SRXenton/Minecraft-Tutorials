@@ -1,4 +1,4 @@
-# Function wird aus einem Commandblock aufgerufen
+### Function wird aus einem Commandblock aufgerufen im unterhalb vom Zentrum des Village
 
 # Koordinaten und abstand zur mitte für den Mindestradius / Mindestdistanz
 #1749 261

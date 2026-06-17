@@ -1,4 +1,4 @@
-# Wird aufgerufen aus check.mcfunction
+### Wird aufgerufen aus check.mcfunction
 
 # Gebe Effekt der Entity, der die Function aufruft unsichtbar und unendlich
 effect give @s invisibility infinite

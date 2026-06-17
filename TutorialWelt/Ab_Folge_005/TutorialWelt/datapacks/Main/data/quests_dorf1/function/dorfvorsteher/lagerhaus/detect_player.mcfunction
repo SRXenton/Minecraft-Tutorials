@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: control_switch_quest_lagerhaus.mcfunction
+
 ## Spielererkennung
 
 ## Initializieren

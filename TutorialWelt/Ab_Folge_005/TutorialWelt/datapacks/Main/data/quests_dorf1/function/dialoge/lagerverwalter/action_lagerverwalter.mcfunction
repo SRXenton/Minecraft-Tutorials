@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: trigger_action.mcfunction
+
 # Gebe dem Spieler, der diese Function ausführt, eine Stick mit dem Item Model, Namen, Lore und den Custom Daten
 give @s stick[\
     item_model="minecraft:chest",\

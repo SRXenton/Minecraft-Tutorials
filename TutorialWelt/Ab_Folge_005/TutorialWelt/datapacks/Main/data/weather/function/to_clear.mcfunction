@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: control_switch_weather.mcfunction
+
 # Setze Wetter auf Klar
 weather clear
 # Setze beim Fake Spieler _isSwitch im Scoreboard WeatherCycle den Wert auf 0

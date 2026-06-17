@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: base_init.mcfunction
+
 # Setze die Spielregel doWeatherCycle auf AUS
 gamerule advance_weather false
 

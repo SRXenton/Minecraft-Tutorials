@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: control_switch_quest_lagerhaus.mcfunction
+
 ## Entfernt alle Marker
 kill @e[tag=dorf1_lagerhaus_marker]
 

@@ -18,9 +18,9 @@ $dialog show @s {\
   "exit_action": {\
     "label": "Schließen",\
     "action": {\
-			"type": "minecraft:run_command",\
-			"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
-		}\
+      "type": "minecraft:run_command",\
+      "command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+    }\
   },\
   "columns": 2,\
   "dialogs": [\
@@ -32,51 +32,51 @@ $dialog show @s {\
       "pause": false,\
       "exit_action": {\
         "label": "Schließen",\
-		    "action": {\
-    				"type": "minecraft:run_command",\
-    				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
- 				}\
+        "action": {\
+          "type": "minecraft:run_command",\
+          "command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+        }\
       },\
       "dialogs": [\
         {\
           "type": "minecraft:confirmation",\
           "title": "Verrottetes Fleisch",\
-  				"body": [\
-    				{\
-      				"type": "minecraft:item",\
-      				"item": {\
-	        			"id": "minecraft:rotten_flesh"\
-  	    			},\
-    				},\
-    				{\
-      				"type": "minecraft:plain_message",\
+          "body": [\
+            {\
+              "type": "minecraft:item",\
+              "item": {\
+                "id": "minecraft:rotten_flesh"\
+              },\
+            },\
+            {\
+              "type": "minecraft:plain_message",\
               "contents": "An den Händler für $(price_sell) Credits pro Stück verkaufen"\
-    				}\
-  				],\
-  				"inputs": [\
-    				{\
-      				"type": "minecraft:number_range",\
-	      			"key": "sell1",\
-  	    			"label": "Verkaufe",\
-    	  			"start": 0,\
-      				"end": $(max_sell),\
-      				"step": 1,\
-      				"initial": 0\
-	    			}\
-  				],\
+            }\
+          ],\
+          "inputs": [\
+            {\
+              "type": "minecraft:number_range",\
+              "key": "sell1",\
+              "label": "Verkaufe",\
+              "start": 0,\
+              "end": $(max_sell),\
+              "step": 1,\
+              "initial": 0\
+            }\
+          ],\
           "yes": {\
             "label": "Verkaufen",\
-				    "action": {\
-      				"type": "minecraft:dynamic/run_command",\
-      				"template": "trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set \u0024(sell1)"\
-    				}\
+            "action": {\
+              "type": "minecraft:dynamic/run_command",\
+              "template": "trigger E_S.Vendor_Panda_Village_sell_rotten_flesh set \u0024(sell1)"\
+            }\
           },\
           "no": {\
             "label": "Schließen ohne Verkauf",\
-				    "action": {\
-      				"type": "minecraft:run_command",\
-      				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
-    				}\
+            "action": {\
+              "type": "minecraft:run_command",\
+              "command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+            }\
           }\
         }\
       ]\
@@ -90,56 +90,56 @@ $dialog show @s {\
       "pause": false,\
       "exit_action": {\
         "label": "Schließen",\
-		    "action": {\
-    				"type": "minecraft:run_command",\
-    				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
- 				}\
+        "action": {\
+          "type": "minecraft:run_command",\
+          "command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+        }\
       },\
       "dialogs": [\
-				{\
-  				"type": "minecraft:confirmation",\
-  				"title": "Äpfel",\
-  				"body": [\
-    				{\
-      				"type": "minecraft:item",\
-      				"item": {\
-	        			"id": "minecraft:apple"\
-  	    			},\
-    				},\
-    				{\
-      				"type": "minecraft:plain_message",\
-      				"contents": "Kaufe für $(price_buy) Credits pro stück vom Händler"\
-    				}\
-  				],\
-  				"inputs": [\
-    				{\
-      				"type": "minecraft:number_range",\
-	      			"key": "buy1",\
-  	    			"label": "Kaufe",\
-    	  			"start": 0,\
-      				"end": $(max_buy),\
-      				"step": 1,\
-      				"initial": 0\
-	    			}\
-  				],\
-  				"can_close_with_escape": true,\
-	  			"pause": false,\
-  				"after_action": "close",\
-  				"yes": {\
-    				"label": "Kaufen",\
-				    "action": {\
-      				"type": "minecraft:dynamic/run_command",\
-      				"template": "trigger E_S.Vendor_Panda_Village_buy_apple set \u0024(buy1)"\
-    				}\
-  				},\
-	  			"no": {\
-  	  			"label": "Schließen ohne Kaufen",\
-				    "action": {\
-      				"type": "minecraft:run_command",\
-      				"command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
-    				}\
-  				}\
-				}\
+        {\
+          "type": "minecraft:confirmation",\
+          "title": "Äpfel",\
+          "body": [\
+            {\
+              "type": "minecraft:item",\
+              "item": {\
+                "id": "minecraft:apple"\
+              },\
+            },\
+            {\
+              "type": "minecraft:plain_message",\
+              "contents": "Kaufe für $(price_buy) Credits pro stück vom Händler"\
+            }\
+          ],\
+          "inputs": [\
+            {\
+              "type": "minecraft:number_range",\
+              "key": "buy1",\
+              "label": "Kaufe",\
+              "start": 0,\
+              "end": $(max_buy),\
+              "step": 1,\
+              "initial": 0\
+            }\
+          ],\
+          "can_close_with_escape": true,\
+          "pause": false,\
+          "after_action": "close",\
+          "yes": {\
+            "label": "Kaufen",\
+            "action": {\
+              "type": "minecraft:dynamic/run_command",\
+              "template": "trigger E_S.Vendor_Panda_Village_buy_apple set \u0024(buy1)"\
+            }\
+          },\
+          "no": {\
+            "label": "Schließen ohne Kaufen",\
+            "action": {\
+              "type": "minecraft:run_command",\
+              "command": "trigger E_S.Vendor_Panda_Village_reset set 1"\
+            }\
+          }\
+        }\
       ]\
     }\
   ]\

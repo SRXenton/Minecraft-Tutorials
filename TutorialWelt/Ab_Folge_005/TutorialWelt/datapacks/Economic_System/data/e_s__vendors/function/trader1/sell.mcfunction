@@ -1,3 +1,4 @@
+### Wird aufgerufen aus: tick_character_switch.mcfunction
 
 
 $clear @s rotten_flesh $(quantity)

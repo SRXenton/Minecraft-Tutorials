@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: tick.json
+
 # Addiere den Wert 1 dem Fake Spieler _counter_0_to_20 im Scoreboard Global_Variables
 scoreboard players add _counter_0_to_20 Global_Variables 1
 # Führe aus, wenn der Wert des Fake Spieler _counter_0_to_20 im Scoreboard Global_Variables >= 20,

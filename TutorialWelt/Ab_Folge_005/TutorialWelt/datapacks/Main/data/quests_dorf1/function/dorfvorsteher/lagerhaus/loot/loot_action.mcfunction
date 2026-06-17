@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: loot.mcfunction
+
 ## Titel und Scoreboard Werte setzen
 # Setze den Subtitle bei der Entity, die die Function ausführt
 title @s subtitle {text:"Kehre bitte zum Dorfvorsteher zurück !"}

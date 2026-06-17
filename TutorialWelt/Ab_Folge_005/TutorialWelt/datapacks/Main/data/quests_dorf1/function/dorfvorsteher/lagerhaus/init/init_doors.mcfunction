@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
 ## Aubauf Init Doors
 # Wenn _counter_0_to_20 in Global_Variables 0 dann:
 #   - Setze bei der jedem Marker für die Fackel einen Wall-Fackel mit Ausrichtung Norden

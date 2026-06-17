@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: control_switch_weather.mcfunction
+
 # Setze das Wetter auf Regen
 weather rain
 # Setze beim Fake Spieler _isSwitch im Scoreboard WeatherCycle den Wert auf 1

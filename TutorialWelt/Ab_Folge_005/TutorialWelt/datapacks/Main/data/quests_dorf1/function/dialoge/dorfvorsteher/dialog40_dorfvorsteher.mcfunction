@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: dialog_dorfvorsteher.mcfunction
+
 # Scoreboard, beim Spieler, Trigger einschalten, bei dem Spieler, der die Function aufruft, beim Scoreboard
 scoreboard players enable @s Quest_Dorfvorsteher
 

@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: manuell
+
 # Entfern Das Scoreboard Global_Variables
 scoreboard objectives remove Global_Variables
 

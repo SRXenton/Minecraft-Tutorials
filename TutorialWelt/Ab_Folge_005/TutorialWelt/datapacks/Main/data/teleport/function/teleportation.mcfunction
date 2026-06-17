@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: entity_control.mcfunction
+
 # Teleportiere jede Entity mit dem Tag an diese Koordinaten
 teleport @e[tag=teleport_to_dorf1] 1739 65 259
 # Entferne bei jeder Entity mit dem Tag den Tag

@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: dialog_dorfvorsteher.mcfunction
+
 # ist nicht im Inventar
 execute if entity @s[\
     nbt=!{\

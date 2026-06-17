@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: control_switch_quest_lagerhaus.mcfunction
+
 ## Erkennung Boss Mob erledigt
 # Führe aus als der Spieler mit dem Scoreboard Wert = 10, wenn der Boss gepawnt wurde und nicht mehr existiert, die Function
 # Führe aus, als jeder Spieler mit dem Scoreboard Wert = 10, wenn der Scoreboard Wert beim Fake Player = 1, und wenn nicht jede Entity mit dem Tag, die Function

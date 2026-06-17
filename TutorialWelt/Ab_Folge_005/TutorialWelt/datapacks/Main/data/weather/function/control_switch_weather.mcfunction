@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: tick.json
+
 # Führe aus, wenn der Wert beim Fake Spieler _nextWeatherRain im Scoreboard WeatherCycle >= 1:
 # Reduziere bei dem Fake Spieler _nextWeatherRain im Scoreboard WeatherCycle um 1
 execute if score _nextWeatherRain WeatherCycle matches 1.. run scoreboard players remove _nextWeatherRain WeatherCycle 1

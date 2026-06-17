@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: trigger_action.mcfunction
+
 ## Action bei Dorfvorsteher Quest Stufe 60
 # Wird aufgerufen bei Ja im Dialog in der Queststufe 60
 

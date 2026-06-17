@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: respawn:tick/switch.mcfunction
+
+
 # Führe aus, als jeder Spieler, mit dem Scoreboardwerten, die Function
 execute as @a[scores={SpawnPoint=1..}] run function respawn:tag_remove
 execute as @a[scores={SpawnPoint=1..}] run tag @s add spawnpoint

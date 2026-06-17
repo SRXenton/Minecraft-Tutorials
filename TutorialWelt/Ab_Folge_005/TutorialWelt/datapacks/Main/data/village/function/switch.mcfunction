@@ -1,5 +1,5 @@
-# Wird im Commandblock unterhalb des Dorfes ausgeführt
-# Beispielaufruf sieht wie folgt aus: function village:switch {x:1726,y:69,z:241,d1:73,d2:120,max_villager:60,max_iron_golem:7}
+### Wird im Commandblock unterhalb des Dorfes ausgeführt
+## Beispielaufruf sieht wie folgt aus: function village:switch {x:1726,y:69,z:241,d1:73,d2:120,max_villager:60,max_iron_golem:7}
 
 
 # Rufe die Function mit den Macrowerten auf

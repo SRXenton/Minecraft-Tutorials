@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
 ## Erzeuge Boss Mob
 
 # Führe aus, bei jeder Entity mit dem Tag, den Command Spawne Entity an der Position mit diesen NBT Daten

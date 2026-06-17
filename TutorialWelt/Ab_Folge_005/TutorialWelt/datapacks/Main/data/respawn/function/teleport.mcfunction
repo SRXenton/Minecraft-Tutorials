@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: detect_player.mcfunction
+
 ## Panda Village
 # Führe aus, wenn der Spieler, der diese Function aufruft, mit dem Tag, teleport den Spieler, der diese Function aufruft, an die Koordinate mit der Ausrichtung
 execute if entity @s[tag=spawnpoint_panda_village] run teleport @s 1785 65 268 40 0

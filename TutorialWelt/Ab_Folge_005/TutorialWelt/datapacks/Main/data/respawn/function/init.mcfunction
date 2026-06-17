@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: base_init.mcfunction
+
 # Scoreboard entferne Object
 scoreboard objectives remove SpawnPoint
 

@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: interaction.mcfunction
+
+
 # Scoreboard Trigger bei dem Spieler, der die Function aufruft, einschalten
 scoreboard players enable @s SpawnPoint
 

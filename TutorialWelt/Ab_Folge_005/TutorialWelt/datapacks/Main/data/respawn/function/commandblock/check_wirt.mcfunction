@@ -1,3 +1,5 @@
+### Wird aufgerufen aus: respawn:commandblock/switch.mcfunction
+
 # Führe aus, wenn Scoreboard Wert bei Fake_entity = 0, und wenn nicht jede Entity, von dem Typ und dem Tag (mit Macro),
 # spawne villager an die Koordinate(Macros,xyz) mit den NBT Daten
 $execute if score _in_work Global_Variables matches 0 unless entity @e[type=minecraft:villager,tag=gasthaus_wirt_$(tagging)] \

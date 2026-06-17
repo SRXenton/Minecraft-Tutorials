@@ -1,3 +1,6 @@
+### Wird aufgerufen aus: dialog_dorfschmied.mcfunction
+
+
 # Lösche bei dem Spieler, der diese Function ausführt, aus dem Inventar einen Stick mit den Custom Data
 clear @s minecraft:stick[custom_data={"tag":"kfdds"}]
 
