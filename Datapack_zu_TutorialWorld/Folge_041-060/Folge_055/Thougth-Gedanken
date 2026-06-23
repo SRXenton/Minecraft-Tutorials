@@ -1,0 +1,54 @@
+##
+## Beschreibung zu Folge 055: 
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.2+]#055 - Functions, Macros/Argumente, Data Storages kopieren
+
+## Ziele der Folge:
+
+- Keine Kommawerte in der Charakterübersicht
+- Wiederverwenden von Functions
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Macros
+- Scoreboard objective, players, fake_player
+- Execute store result storage/score
+- data get, merge, modify
+
+## Schritte
+- Sollzustand Zeigen (Folge_054 im Vergleich 055)
+- Anmerkung Videobeschreibung
+- get_uuid anfassen und dabei in kurz auf data
+- Drauf ein gehen, dass man jedes Value seperat ändern kann oder Function wiederholen
+- Werbung in eigener Sache
+- character_values_cut erstellen ohne Macros
+- character_values_cut Macros einbauen
+- character_values_cut in get_uuid einbinden
+- Testen und Abschluss
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    + character_values_cut.mcfcuntion
+                    > get_uuid.mcfcuntion
+
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
