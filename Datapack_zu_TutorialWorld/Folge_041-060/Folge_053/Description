@@ -1,0 +1,126 @@
+##
+## Beschreibung zu Folge 53: 
+##
+
+- Titel: MC Datapack Tutorial [26.1.2+]#053 - Mit Marcros Data Storages für jeden Spieler erzeugen
+
+- Video: https://youtu.be/AbZfaGDcV68
+
+## Ziele der Folge:
+
+- Charakterwerte für jeden Spieler im Data Storage speichern und im Fenster für Charakterwerte anzeigen lassen
+- Verständis für Macros / Argumente
+- Macros im Zusammenspiel mit Data Storages
+- UUID als Indikator im Data Storage verwenden
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * charakter
+            * function
+                * dialog
+                    > character_overview.mcfunction
+                * misc
+                    > base_values.mcfunction
+                    + get_uuid.mcfunction
+                    > detect_item.mcfunction
+                * ticks
+                    > tick_character_switch.mcfunction
+
+
+
+### Files: (Kommenrtare entfernt)
+## character_overview.mcfunction 
+$dialog show @s {\
+  "type": "minecraft:notice",\
+  "title": "Charakter",\
+  "body": [\
+    {\
+      type:"minecraft:plain_message",\
+      contents:"CharakterBuild:"\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:""\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:{\
+        "text":"Beweglichkeit: $(beweglichkeit)"\
+      }\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:{\
+        "text":"Stärke: $(staerke)"\
+      }\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:{\
+        "text":"Ausdauer: $(ausdauer)"\
+      }\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:{\
+        "text":"Intelligenz: $(intelligenz)"\
+      }\
+    },\
+    {\
+      type:"minecraft:plain_message",\
+      contents:{\
+        "text":""\
+      }\
+    },\
+  ],\
+  "inputs": [],\
+  "can_close_with_escape": true,\
+  "pause": false,\
+  "after_action": "close"\
+}
+
+
+## base_values.mcfunction
+$execute unless data storage main_charakter:player {data:{"$(UUID)":{}}} run \
+    data merge storage main_charakter:player {data:{"$(UUID)":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}}
+
+
+## get_uuid.mcfunction
+$function character:dialogs/character_overview with storage main_charakter:player data."$(UUID)"
+
+
+## detect_item.mcfunction 
+execute as @a[nbt={SelectedItem:{id:"minecraft:stick",components:{"minecraft:custom_data":{tag:"character_view"}}}}] at @s unless entity @e[tag=character_view_interaction,distance=..2] positioned ~ ~1.3 ~ run \
+    summon minecraft:interaction ~ ~ ~ {Tags:["character_view_interaction"],width:0.5f,height:0.5f}
+execute as @a[nbt={SelectedItem:{id:"minecraft:stick",components:{"minecraft:custom_data":{tag:"character_view"}}}}] at @s if entity @e[tag=character_view_interaction,distance=..2] positioned ~ ~1.3 ~ run \
+    teleport @e[tag=character_view_interaction] ~ ~ ~
+execute as @a[nbt=!{SelectedItem:{id:"minecraft:stick",components:{"minecraft:custom_data":{tag:"character_view"}}}}] at @s run \
+    kill @e[tag=character_view_interaction,distance=..2]
+
+execute as @e[tag=character_view_interaction] on target run function character:misc/get_uuid with entity @s
+execute as @e[tag=character_view_interaction] run data remove entity @s interaction
+execute as @e[tag=character_view_interaction] run data remove entity @s attack
+
+
+## tick_character_switch.mcfunction 
+execute as @a run function character:misc/base_values with entity @s
+
+function character:misc/detect_item

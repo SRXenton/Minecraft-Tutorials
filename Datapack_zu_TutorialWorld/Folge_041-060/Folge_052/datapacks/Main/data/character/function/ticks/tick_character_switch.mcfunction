@@ -1,0 +1,1 @@
+function character:misc/detect_item

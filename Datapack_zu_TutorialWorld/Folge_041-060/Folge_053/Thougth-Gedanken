@@ -1,0 +1,48 @@
+##
+## Beschreibung zu Folge 053: Data Storage
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#053 - Data Storage ins Dialogfenster bringen
+
+## Ziele der Folge:
+
+- Charakter Werte im Dialogfenster anzeigen
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Data Storage
+- Dialog
+- Macros
+
+## Schritte
+- Ziel: Charakter Dialog Fenster Zeigen
+- Was sind Macros
+- Dialogfenster mit Macros erweitern
+- Werte ins Dialogfenster übergeben
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * ???
+            * function
+                * ???
+                    * ???
+                        > base_values
+                        + get_uuid
+                        > detect_item
+                        > tick_character_switch
+                        > character_overview
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???

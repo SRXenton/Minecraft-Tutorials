@@ -2,11 +2,12 @@
 ## Beschreibung zu Folge 054: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [26.1.1+]#054
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#054 - Data Storages: Schreiben, lesen, berechnen und Scoreboards
 
 ## Ziele der Folge:
 
-- 
+- Mobkill erkennen und auswerten
+- Stärke nach Mob kill berechnen
 
 ##
 ## ============================================================================================================================================
@@ -28,7 +29,7 @@
 - kill_detect
 - kill_get_data
 - kill_calculate
-- tick.json
+- tick hinzufügen
 
 ## Neue Datapack Struktur:
 
@@ -51,7 +52,8 @@
                     + kill_detect.mcfcuntion
                     + kill_get_data.mcfcuntion
                     + kill_init.mcfcuntion
-
+                * tick
+                    > tick_switch
 
 
 
