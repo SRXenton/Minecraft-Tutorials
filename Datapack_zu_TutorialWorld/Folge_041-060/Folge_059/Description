@@ -2,13 +2,13 @@
 ## Beschreibung zu Folge 059: 
 ##
 
-- Titel: MC Datapack Tutorial #055 - 
+- Titel: MC Datapack Tutorial #055 - Update auf 26.2 mit Prism
 
 - Video: 
 
 ## Ziele der Folge:
 
-- 
+- Minecraft Java Update von 26.1.2 auf 26.2
 
 
 ##
@@ -28,18 +28,6 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
-    * data
-        * character
-            * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+Keine Änderung
 
-
-### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
-
-
-## get_uuid.mcfunction 
 
