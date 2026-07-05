@@ -1,0 +1,56 @@
+##
+## Beschreibung zu Folge 055: 
+##
+
+- Titel: MC Datapack Tutorial [26.1.2+]#055 - Data Storage Zahlen runden und Functions wiederverwenden
+
+- Video: https://youtu.be/BMmz6o_Ru3o
+
+## Ziele der Folge:
+
+- Zahlen im Charakterfenster runden
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    + character_values_cut.mcfcuntion
+                    > get_uuid.mcfcuntion
+
+
+### Files: (Kommenrtare entfernt)
+## character_values_cut.mcfunction 
+
+$execute store result storage main_charakter:player data.for_dialog_temp.$(value) int 1 run data get storage main_charakter:player data.for_dialog_temp.$(value)
+
+## get_uuid.mcfunction 
+
+$data modify storage main_charakter:player data.for_dialog_temp set from storage main_charakter:player data."$(UUID)"
+
+function character:misc/character_values_cut {value:"beweglichkeit"}
+function character:misc/character_values_cut {value:"staerke"}
+function character:misc/character_values_cut {value:"ausdauer"}
+function character:misc/character_values_cut {value:"intelligenz"}
+
+
+function character:dialogs/character_overview with storage main_charakter:player data.for_dialog_temp
+

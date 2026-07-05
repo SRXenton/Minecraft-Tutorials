@@ -1,26 +1,30 @@
 ##
-## Beschreibung zu Folge 049: Minecraft V1.21.11 zu V26.1.2
+## Beschreibung zu Folge 051: 
 ##
 
-- Titel: Minecraft Datapack Tutorial [26.1.1+]#049 - V1.21.11 zu V26.1.2
+- Titel: Minecraft Datapack Tutorial [26.1.2+]#051 - 
 
 ## Ziele der Folge:
 
-- 
+- Sicherstellen, dass nur unsere Interaction gerufen und entfernt wird
+- Erster Dialog Aufruf
 
 ##
-## ============================================================================================================================================
+## =====================================================================================
 ##
 
 ## Inhalte:
-- Der Command Loot
+- Code Optimierung
+- Dialog: Notice
+- Zeilenumbrüche
 
 
 ## Schritte
-- Den Command Loot in der Versuchswelt vorstellen
-- Loot in der Wiki erklären
-- Loot in der Versuchswelt praktisch anwenden
-- Give durch Loot im Dialog Nach erfolgreicher Quest des Dorfschmiedes ändern mit starter_sword.json
+- Möglichkeiten Vorstellen: Data Storage = UUID und distance
+- detect_item.mcfunction auf distance einrichten
+- Optimierung der Entfernung vom Interaction und distance
+- Dialog statt tellraw im character_overview
+- Zeilenumbrüche in Functions
 
 ## Neue Datapack Struktur:
 
@@ -31,11 +35,12 @@
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * quests_dorf1
+        * character
             * function
-                * dialoge
-                    * dorfschmied
-                        > action_dorfschmied.mcfunction
+                * dialogs
+                    > character_overview.mcfunction
+                * misc
+                    > detect_item.mcfunction
 
 
 
