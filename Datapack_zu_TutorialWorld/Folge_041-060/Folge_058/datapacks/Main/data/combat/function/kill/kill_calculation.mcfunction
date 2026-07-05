@@ -17,7 +17,7 @@ execute if score _temp main.kill_temp matches 50000..59999 run scoreboard player
 execute if score _temp main.kill_temp matches 40000..49999 run scoreboard players add _temp main.kill_temp 5
 execute if score _temp main.kill_temp matches 20000..39999 run scoreboard players add _temp main.kill_temp 10
 execute if score _temp main.kill_temp matches 10000..19999 run scoreboard players add _temp main.kill_temp 25
-execute if score _temp main.kill_temp matches ..9999 run scoreboard players add _temp main.kill_temp 5000
+execute if score _temp main.kill_temp matches ..9999 run scoreboard players add _temp main.kill_temp 50
 
 
 execute store result storage main:kill data.temp.values.staerke double 0.001 run scoreboard players get _temp main.kill_temp
