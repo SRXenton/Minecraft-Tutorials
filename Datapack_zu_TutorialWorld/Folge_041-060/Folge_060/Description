@@ -1,0 +1,45 @@
+##
+## Beschreibung zu Folge 060: 
+##
+
+- Titel: MC Datapack Tutorial #060 - 
+
+- Video: 
+
+## Ziele der Folge:
+
+- 
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    + character_values_cut.mcfcuntion
+                    > get_uuid.mcfcuntion
+
+
+### Files: (Kommenrtare entfernt)
+## character_values_cut.mcfunction 
+
+
+## get_uuid.mcfunction 
+
