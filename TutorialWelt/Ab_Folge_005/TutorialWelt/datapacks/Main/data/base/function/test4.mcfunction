@@ -1,1 +1,0 @@
-tellraw @a [{score:{objective:"main.test_as",name:"_temp"}}]
