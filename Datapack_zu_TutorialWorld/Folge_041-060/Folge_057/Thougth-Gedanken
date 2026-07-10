@@ -1,0 +1,44 @@
+##
+## Beschreibung zu Folge 057: Data Storage
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#057 - Problembehebung bei execute as/at
+
+## Ziele der Folge:
+
+- Erklärung wieso es bei der Anwendung von Execute as/at zu Problemen kommen kann
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- 
+
+
+## Schritte
+- Das Problem erleutern
+- Problem an main-test zeigen
+- Wie man es lösen kann - kill_detect und kill_calculation bearbeiten
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * combat
+            * function
+                * kill
+                    > kill_detect.mcfunction
+                    > kill_calculation.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
