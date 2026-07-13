@@ -2,13 +2,13 @@
   "stats": {
     "minecraft:killed": {
       "minecraft:zombie": 5,
-      "minecraft:pillager": 35,
+      "minecraft:pillager": 36,
       "minecraft:zombie_villager": 6
     },
     "minecraft:used": {
       "minecraft:oxidized_copper_bulb": 10,
       "minecraft:brick_slab": 3,
-      "minecraft:diamond_sword": 23,
+      "minecraft:diamond_sword": 24,
       "minecraft:stripped_oak_wood": 17,
       "minecraft:potato": 2,
       "minecraft:campfire": 3,
@@ -275,32 +275,32 @@
       "minecraft:stripped_oak_log": 1
     },
     "minecraft:custom": {
-      "minecraft:time_since_rest": 1483244,
+      "minecraft:time_since_rest": 1449201,
       "minecraft:talked_to_villager": 989,
-      "minecraft:leave_game": 121,
+      "minecraft:leave_game": 120,
       "minecraft:damage_taken": 610,
-      "minecraft:mob_kills": 46,
+      "minecraft:mob_kills": 47,
       "minecraft:boat_one_cm": 116,
-      "minecraft:time_since_death": 1483220,
+      "minecraft:time_since_death": 1449177,
       "minecraft:interact_with_brewingstand": 1,
       "minecraft:sleep_in_bed": 8,
-      "minecraft:total_world_time": 5337832,
+      "minecraft:total_world_time": 5303748,
       "minecraft:crouch_one_cm": 25714,
       "minecraft:deaths": 30,
       "minecraft:climb_one_cm": 9714,
-      "minecraft:walk_one_cm": 1997632,
+      "minecraft:walk_one_cm": 1997189,
       "minecraft:walk_under_water_one_cm": 816,
-      "minecraft:damage_dealt": 1366,
-      "minecraft:play_time": 4280678,
-      "minecraft:jump": 1009,
+      "minecraft:damage_dealt": 1376,
+      "minecraft:play_time": 4246635,
+      "minecraft:jump": 1008,
       "minecraft:drop": 392,
       "minecraft:open_barrel": 3,
       "minecraft:sprint_one_cm": 332360,
       "minecraft:open_chest": 22,
       "minecraft:fall_one_cm": 7487,
-      "minecraft:fly_one_cm": 6444541,
+      "minecraft:fly_one_cm": 6442934,
       "minecraft:walk_on_water_one_cm": 98,
-      "minecraft:sneak_time": 38441
+      "minecraft:sneak_time": 38433
     }
   },
   "DataVersion": 4790
