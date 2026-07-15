@@ -1,0 +1,63 @@
+##
+## Beschreibung zu Folge 054: 
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#054 - Data Storages: Schreiben, lesen, berechnen und Scoreboards
+
+## Ziele der Folge:
+
+- Mobkill erkennen und auswerten
+- Stärke nach Mob kill berechnen
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Scoreboard operations
+- Data Storages / Datenspeicher
+- Rechnen mit Storages
+
+## Schritte
+- Soll Vorstellung in der SOll Welt
+- Vorstellung / Begrüßung
+- Anmerkung Videosbeschreibung
+- reset_base_values
+- commandblock setzen
+- Werbung in eigener Sache
+- kill_init
+- kill_detect
+- kill_get_data
+- kill_calculate
+- tick hinzufügen
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * character
+            * function
+                * misc
+                    > reset_base_values.mcfcuntion
+                    > character_new_values.mcfcuntion
+        * combat
+            * function
+                + kill
+                    + kill_calculate.mcfcuntion
+                    + kill_detect.mcfcuntion
+                    + kill_get_data.mcfcuntion
+                    + kill_init.mcfcuntion
+                * tick
+                    > tick_switch
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
