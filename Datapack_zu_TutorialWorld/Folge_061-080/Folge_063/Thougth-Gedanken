@@ -1,25 +1,27 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge 063: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #063 - Testkonzept
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- 
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- 
 
 ## Schritte
-
+- ordner und datei für check_dorfvorsteher
+- test für dorfvorsteher schreiben
+- test_nok mit error status erweitern
+- in switch mei status error die function durch tellraw ersetzen
+- Testfehler erzeugen durch Ladeproblem, wenn man den Test in Dorf 2 startet
+- steps/switch counter werte um 10 anheben
 
 ## Neue Datapack Struktur:
 
@@ -28,7 +30,16 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
+* Test
+    * data
+        * test
+            * function
+                + panda_village
+                    + check_dorfvorsteher.mcfunction
+                * misc
+                    > test_nok.mcfunction
+                * steps
+                    > switch.mcfunction
 
 
 
