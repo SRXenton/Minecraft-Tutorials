@@ -37,7 +37,7 @@
                 + panda_village
                     + check_dorfvorsteher.mcfunction
                 * misc
-                    > test_nok.mcfunction
+                    > test_nok.mcfunction-----
                 * steps
                     > switch.mcfunction
 
