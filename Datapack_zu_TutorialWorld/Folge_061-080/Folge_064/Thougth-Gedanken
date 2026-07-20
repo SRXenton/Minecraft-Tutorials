@@ -1,0 +1,35 @@
+##
+## Beschreibung zu Folge 060: 
+##
+
+- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+
+## Ziele der Folge:
+
+- Was ist ein Testkonzept
+- Wie können wir ein Test erstellen
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- Testkonzepte
+- Test aus Weather-Control vorstellen
+- Der Command Test
+
+## Schritte
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+
+
+
+
+### Files: (Kommenrtare entfernt)

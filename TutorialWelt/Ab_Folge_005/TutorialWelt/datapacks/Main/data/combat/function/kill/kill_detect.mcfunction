@@ -9,4 +9,4 @@ execute as @a[scores={main.kill_detect=1.., main.kill_detect_player=0}] run func
 scoreboard players set @a main.kill_detect_player 0
 scoreboard players set @a main.kill_detect 0
 
-data remove storage main:kill data.temp
+#data remove storage main:kill data.temp
