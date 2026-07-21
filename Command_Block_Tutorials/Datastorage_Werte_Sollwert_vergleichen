@@ -1,0 +1,20 @@
+## Wie Vergleicht man Werte im Data Storage mit Sollwerte
+## Code example for my Youtube tutorial videos
+## Video: preparing
+
+## Die Theorie
+execute if score _zahl Combat.Skill_point_free matches 5 run ......
+execute if data storage x_ts:teleport_stone data.zahl run .....
+
+## Die 3 Storage Füllungen
+data modify storage versuchswelt:test_vergleich data set value {zahl: 5,text: "vergleich"}
+data modify storage versuchswelt:test_vergleich data set value {zahl: {},text: "vergleich"}
+data modify storage versuchswelt:test_vergleich data set value {zahl: "5",text: "vergleich"}
+
+## Die Vergleiche
+execute if data storage versuchswelt:test_vergleich data.zahl
+execute if data storage versuchswelt:test_vergleich {data:{zahl:5}}
+execute if data storage versuchswelt:test_vergleich {data:{text:"vergleich"}}
+
+
+
