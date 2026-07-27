@@ -1,0 +1,90 @@
+## Schleifen und Rekursionen in  Minecraft
+## Code example for my Youtube tutorial videos
+## Video: preparing
+
+## start.mcfunction
+## Call over commandblock
+scoreboard objectives remove tutorials.schleifen.rekursion
+scoreboard objectives add tutorials.schleifen.rekursion dummy
+
+scoreboard objectives setdisplay sidebar tutorials.schleifen.rekursion
+
+scoreboard players set _counter tutorials.schleifen.rekursion 0
+
+tellraw @a [{text:"Start des Tutorials Rekursion"}]
+
+tellraw @a [{text:"File: start.mcfunction, vor Rekursion"}]
+
+function schleifen:rekursion/rekursion
+
+tellraw @a [{text:"File: start.mcfunction, nach Rekursion"}]
+
+function schleifen:rekursion/ende
+
+## rekursion.mcfunction
+execute if score _counter tutorials.schleifen.rekursion matches 0 run tellraw @a [{text:"File Rekursion - Start"}]
+execute if score _counter tutorials.schleifen.rekursion matches 1.. run tellraw @a [{text:"File Rekursion - Wiederholung"}]
+
+tellraw @a [{text:"File Rekursion: Scoreboardwert: "}, {score:{objective:"tutorials.schleifen.rekursion",name:"_counter"}}]
+scoreboard players add _counter tutorials.schleifen.rekursion 1
+
+execute unless score _counter tutorials.schleifen.rekursion matches 5.. run function schleifen:rekursion/rekursion
+
+
+tellraw @a [{text:"File Rekursion - Ende mit Scoreboardwert: "}, {score:{objective:"tutorials.schleifen.rekursion",name:"_counter"}}]
+
+
+
+## ende.mcfunction
+tellraw @a [{text:"Ende der Rekursion"}]
+
+tellraw @a [{text:"File: ende.mcfunction, Scoreboardwert: "}, {score:{objective:"tutorials.schleifen.rekursion",name:"_counter"}}]
+
+## Der Theorieblock
+# F1 Z1
+# F1 Z2 > F2
+# F1 Z3 > F3
+
+# F2 Z1
+# F2 Z2 b> F2
+# F2 Z3
+
+# F3 Z1
+# F3 Z2
+
+# F1 Z1
+# F1 Z2 > F2
+#     F2 Z1
+#     F2 Z2 b> F2
+#         F2 Z1
+#         F2 Z2 b> F2
+#             F2 Z1
+#             F2 Z2 b> F2
+#             F2 Z3
+#         F2 Z3
+#     F2 Z3
+# F1 Z3 > F3
+#     F3 Z1
+#     F3 Z2
+
+
+# Z1
+# Z2 > s * 3
+#     Z4
+#     Z5 -> b
+#     Z6
+# Z7
+
+
+# Z1
+# Z2 > s * 3 oder b
+#     Z4
+#     Z5 -> b
+#     Z6
+#     Z4
+#     Z5 -> b
+
+# Z7
+
+
+
