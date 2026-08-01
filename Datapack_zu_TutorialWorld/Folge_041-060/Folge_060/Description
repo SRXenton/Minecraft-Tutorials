@@ -2,13 +2,15 @@
 ## Beschreibung zu Folge 060: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: Minecraft Datapack Tutorial #060 - Testen von Functions in Minecraft Java
 
-- Video: 
+- Video: https://youtu.be/1HNOioFfl2Y
 
 ## Ziele der Folge:
 
-- 
+- Definieren, was sind Tests
+- Datapack für Function Tests erstellen
+- Ersten Test für Attribut Basis Überprüfung
 
 
 ##
@@ -28,18 +30,30 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
-    * data
-        * character
-            * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
-
++ Test
+    + data
+        + test
+            + function
+                + first.mcfcuntion
+    + pack.mcmeta
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## first.mcfunction 
+data modify storage test:data data.UUID set value "[I;0,0,0]"
 
+function character:misc/base_values with storage test:data data
 
-## get_uuid.mcfunction 
+execute if data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run tellraw @s "Test: Ok"
+execute unless data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run tellraw @s "Test: Nicht Ok"
 
+data remove storage main_charakter:player data."[I;0,0,0]"
+data remove storage test:data data
+
+## pack.mcmeta 
+{
+    "pack": {
+        "description": "Datapack für Tests",
+        "min_format": 94,
+        "max_format": 94
+    }
+}
