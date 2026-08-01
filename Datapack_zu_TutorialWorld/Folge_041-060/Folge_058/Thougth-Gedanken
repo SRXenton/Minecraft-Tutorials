@@ -1,0 +1,49 @@
+##
+## Beschreibung zu Folge 058: Data Storage
+##
+
+- Titel: Minecraft Datapack Tutorial [26.1.1+]#058 - Attribut änderung
+
+## Ziele der Folge:
+
+- attack damage ändern
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+- execute store result storage
+- macros
+- data get storage
+- attribute @s attack_damage
+
+## Schritte
+- was passiert heute, womit arbeiten wir.
+- Vorstellung
+- Wie man es lösen kann - kill_detect und kill_calculation bearbeiten
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * combat
+            * function
+                * kill
+                    > kill_calculation
+                * modifier
+                    + change_attack_damage.mcfunction
+                    + write_attack_damage.mcfunction
+                    
+
+
+
+
+### Files: (Kommenrtare entfernt)
+## new.mcfunction 
+???
