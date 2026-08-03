@@ -1,25 +1,27 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge 067: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #067 -
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- tick sprint
+
 
 ## Schritte
-
+- anpassen check_entity_waechter.mcfcuntion
+- mittels Tick sprint ermitteln, weshalb der Wächter teleportiert ist
+- Blöcke im untergrund anpassen
+- mittels Tick sprint ermitteln, weshalb der Wächter teleportiert ist
+- autotest nochmal durchlaufen lassen
 
 ## Neue Datapack Struktur:
 
@@ -28,6 +30,13 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
+* Main
+    * data
+        * quest_dorf1
+            * function
+                * waechter
+                    * patrolie
+                        > check_entity_waechter.mcfcuntion
 
 
 
