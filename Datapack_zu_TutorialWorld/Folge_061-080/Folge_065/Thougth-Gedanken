@@ -17,11 +17,15 @@
 
 ## Schritte
 
-- anzahl dorfvorsteher prüfen
-- ist der marker über dem dorfvorsteher vorhanden
-- fehler erzeugen
-- tellraw für die einzelnen Abfragen erstellen
-- ggf im freestyle einen Weiteren Test erstellen, zb den Schmied
+- Fehler mit _error status.Test erklären, bei: check_dorfvorsteher, check_lagerverwalter, check_dorfschmied
+- Testen und Zeigen
+- Erklären, weshalb es keine Auswirkung auf die switch hat
+- Check trader erstellen und koordinaten aus der Economic_System/data/e_s__vendors/dunction/trader1/switch.mcfcuntion
+- Check Wirt erstellen, koordinaten aus dem Commandblock/Entity(data get entity), tags holen
+- Check Wächter erstellen, Tags aus der quest_dorf1 >waechter > patrolie ermitteln
+- Check erst auf Entity anzahl laufen lassen
+- Erklären wieso TP spieler zu Entity, weil interaction nur auftaucht wenn spieler vor dem wächter ist
+- tp mit position und facing erstellen
 
 
 
@@ -38,7 +42,12 @@
         * test
             * function
                 * panda_village
-                    > check_dorfvorsteher
+                    > check_dorfvorsteher.mcfunction
+                    > check_dorfschmied.mcfunction
+                    > check_lagerverwalter.mcfunction
+                    + check_farmer_trader1.mcfcuntion
+                    + check_wirt.mcfcuntion
+                    + check_waechter.mcfcuntion
 
 
 
