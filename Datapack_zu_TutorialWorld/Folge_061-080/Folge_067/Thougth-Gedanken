@@ -1,5 +1,5 @@
 ##
-## Beschreibung zu Folge 067: 
+## Beschreibung zu Folge: 
 ##
 
 - Titel: Minecraft Datapack Tutorial #067 -
@@ -37,8 +37,12 @@
                 * waechter
                     * patrolie
                         > check_entity_waechter.mcfcuntion
-
-                        >test/check_entity_waechter.mcfcuntion
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    > test/check_entity_waechter.mcfcuntion
 
 
 
