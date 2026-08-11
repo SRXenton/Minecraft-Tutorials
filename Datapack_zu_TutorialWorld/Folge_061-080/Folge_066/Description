@@ -28,18 +28,27 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
+* Test
     * data
-        * character
+        * test
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+				* misc
+                    + player_teleport_panda_village.mcfunction
+                * steps
+                    > start.mcfcuntion
+                * panda_village
+                    > check_waechter.mcfunction
+                    + misc
+                        + check_waechter_interaction.mcfunction
+            > start_autotest.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## player_teleport_panda_village.mcfunction 
+## start.mcfunction 
+## check_waechter.mcfunction 
+## check_waechter_interaction.mcfunction 
+## start_autotest.mcfunction 
 
 
-## get_uuid.mcfunction 
 
