@@ -28,18 +28,144 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
+* Test
     * data
-        * character
+        * test
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+                * panda_village
+                    > check_dorfvorsteher.mcfunction
+                    > check_dorfschmied.mcfunction
+                    > check_lagerverwalter.mcfunction
+                    + check_farmer_trader1.mcfcuntion
+                    + check_wirt.mcfcuntion
+                    + check_waechter.mcfcuntion
+                * steps
+                    > switch.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## check_dorfvorsteher.mcfunction 
+tellraw @s [{text:"Test: Dorfvorsteher in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+# quest_marker:set_marker
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_dorfvorsteher]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"1"}]
+
+execute if score _error status.Test matches 0 positioned 1742.5 65.0 258.5 unless entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_dorfvorsteher, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"2"}]
+
+execute if score _error status.Test matches 0 at @e[type=villager, tag=dorf1, tag=dorf1_dorfvorsteher, tag=quest_npc] positioned ~ ~2.8 ~ \
+    unless entity @e[type=block_display, tag=quest_marker, distance=..1] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"3"}]
+
+execute if score _error status.Test matches 0 at @e[type=villager, tag=dorf1, tag=dorf1_dorfvorsteher, tag=quest_npc] positioned ~ ~2.5 ~ \
+    unless entity @e[type=block_display, tag=quest_marker, distance=..1] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"4"}]
 
 
-## get_uuid.mcfunction 
+## check_dorfschmied.mcfunction 
+tellraw @s [{text:"Test: Lagerverwalter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+# quest_marker:set_marker
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_dorfschmied]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"1"}]
+
+execute if score _error status.Test matches 0 positioned 1779 66 235 unless entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_dorfschmied, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"2"}]
+
+
+
+
+## check_lagerverwalter.mcfunction 
+tellraw @s [{text:"Test: Lagerverwalter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+# quest_marker:set_marker
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_lagerverwalter]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"1"}]
+
+execute if score _error status.Test matches 0 positioned 1721 66 295 unless entity @e[type=minecraft:villager, tag=quest_npc, tag=dorf1, tag=dorf1_lagerverwalter, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"2"}]
+
+
+
+
+## check_farmer_trader1.mcfunction 
+tellraw @s [{text:"Test: Trader Farmer in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=E_S.Vendors, tag=E_S.Vendors_villagers, tag=E_S.Vendors_Panda_Village, tag=E_S.Vendors_Panda_Village_villager]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Trader NOK"}]
+
+execute store result score _temp status.Test if entity @e[type=minecraft:interaction, tag=E_S.Vendors, tag=E_S.Vendors_interactions, tag=E_S.Vendors_Panda_Village, tag=E_S.Vendors_Panda_Village_interaction]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Interaction NOK"}]
+
+execute if score _error status.Test matches 0 positioned 1742.5 65.0 204.5 unless entity @e[type=minecraft:villager, tag=E_S.Vendors, tag=E_S.Vendors_villagers, tag=E_S.Vendors_Panda_Village, tag=E_S.Vendors_Panda_Village_villager, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Villager nicht in position"}]
+
+execute if score _error status.Test matches 0 positioned 1742.5 65.0 204.5 unless entity @e[type=minecraft:interaction, tag=E_S.Vendors, tag=E_S.Vendors_interactions, tag=E_S.Vendors_Panda_Village, tag=E_S.Vendors_Panda_Village_interaction, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Interaction nicht in position"}]
+
+
+
+## check_wirt.mcfunction 
+tellraw @s [{text:"Test: Wirt in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=gasthaus, tag=gasthaus_wirt, tag=gasthaus_wirt_panda_village]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Trader NOK"}]
+
+execute store result score _temp status.Test if entity @e[type=minecraft:interaction, tag=gasthaus, tag=gasthaus_interaction_panda_village]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Interaction NOK"}]
+
+execute if score _error status.Test matches 0 positioned 1782.5 65.0 271.5 unless entity @e[type=minecraft:villager, tag=gasthaus, tag=gasthaus_wirt, tag=gasthaus_wirt_panda_village, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Villager nicht in position"}]
+
+execute if score _error status.Test matches 0 positioned 1782.5 65.0 271.5 unless entity @e[type=minecraft:interaction, tag=gasthaus, tag=gasthaus_interaction_panda_village, distance=..2] run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Interaction nicht in position"}]
+
+
+
+## check_waechter.mcfunction 
+tellraw @s [{text:"Test: Wächter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Villager NOK"}]
+
+execute at @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter] positioned ^ ^ ^2 \
+    run teleport @s ~ ~ ~ facing entity @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+
+
+
+## switch.mcfunction 
+
+execute if score _step steps.Test matches 10 run function test:character/new_player_base_values
+execute if score _error status.Test matches 0 if score _step steps.Test matches 11 run function test:panda_village/check_dorfvorsteher
+execute if score _error status.Test matches 0 if score _step steps.Test matches 12 run function test:panda_village/check_lagerverwalter
+execute if score _error status.Test matches 0 if score _step steps.Test matches 13 run function test:panda_village/check_dorfschmied
+execute if score _error status.Test matches 0 if score _step steps.Test matches 14 run function test:panda_village/check_farmer_trader1
+execute if score _error status.Test matches 0 if score _step steps.Test matches 15 run function test:panda_village/check_wirt
+execute if score _error status.Test matches 0 if score _step steps.Test matches 16 run function test:panda_village/check_waechter
+
+
+scoreboard players add _step steps.Test 1
+
+execute if score _step steps.Test matches 50.. run function test:misc/test_ok
 
