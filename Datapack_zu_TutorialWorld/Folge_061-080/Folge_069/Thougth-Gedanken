@@ -1,24 +1,26 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #069 - Testkonzept - Functiontest duplizieren, vertiefen
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- Aus Folge 068 das Function test Konzept für die Dialoge übernehmen
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- execute -> store, success, score, 
+- return
+- scoreboard
 
 ## Schritte
+- Vorstelle was in FOlge 068 passiert ist
+- Function mit dialogen auswählen und Test erstellen
+- 3 Stück ?
 
 
 ## Neue Datapack Struktur:
