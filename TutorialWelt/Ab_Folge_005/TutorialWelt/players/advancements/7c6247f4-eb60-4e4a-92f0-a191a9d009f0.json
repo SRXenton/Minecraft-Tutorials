@@ -845,12 +845,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/decorations/spruce_hanging_sign": {
-    "criteria": {
-      "has_stripped_logs": "2025-08-16 15:14:30 +0200"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/leaf_litter": {
     "criteria": {
       "has_leaves": "2025-08-16 16:16:26 +0200"
@@ -1279,12 +1273,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/chiseled_tuff_bricks": {
-    "criteria": {
-      "has_tuff_brick_slab": "2025-09-20 08:11:23 +0200"
-    },
-    "done": true
-  },
   "minecraft:recipes/redstone/spruce_pressure_plate": {
     "criteria": {
       "has_planks": "2025-09-20 08:14:04 +0200"
@@ -1438,12 +1426,6 @@
   "minecraft:recipes/misc/copper_nugget_from_smelting": {
     "criteria": {
       "has_copper_axe": "2025-12-11 10:40:49 +0100"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/oak_hanging_sign": {
-    "criteria": {
-      "has_stripped_logs": "2025-12-11 10:40:55 +0100"
     },
     "done": true
   },
@@ -1675,5 +1657,17 @@
     },
     "done": true
   },
-  "DataVersion": 4790
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2026-07-04 22:04:42 +0200"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/balanced_diet": {
+    "criteria": {
+      "apple": "2026-07-04 22:04:42 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 4903
 }
