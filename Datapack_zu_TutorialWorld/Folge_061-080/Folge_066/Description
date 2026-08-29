@@ -2,13 +2,15 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: MC Datapack Tutorial #066 - 
+- Titel: MC Datapack Tutorial #066 - Autotest: Teleport und Functions, Position intern unklar
 
-- Video: 
+- Video: https://youtu.be/bPP3hga_JkQ
 
 ## Ziele der Folge:
 
-- 
+- Weshalb nach einen Teleport die Function noch die alte Position nutzt und wie man es beheben kann
+- Testen der Interaction vom Wächter auf Vorhanden sein
+
 
 
 ##
