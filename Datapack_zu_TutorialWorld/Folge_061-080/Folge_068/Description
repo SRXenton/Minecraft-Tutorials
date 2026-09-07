@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge 060: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: MC Datapack Tutorial #068 - 
 
 - Video: 
 
@@ -28,18 +28,99 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    + dialogs
+                        + test_dialoge_dorfvorsteher_dialog1_dorfvorsteher.mcfunction
+                * steps
+                    > switch.mcfunction
 * Main
     * data
-        * character
+        * quests_dorf1
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
-
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog1_dorfvorsteher.mcfunction
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## test_dialoge_dorfvorsteher_dialog1_dorfvorsteher.mcfunction 
+tellraw @s [{text:"Test: Dialog 1 vom Dorfvorsteher in Panda Village - Start"}]
+
+scoreboard players set _error status.Test 0
+scoreboard players set _temp1 status.Test 0
+scoreboard players set _temp2 status.Test 0
+
+scoreboard players operation @s status.Test = @s Quest_Dorfvorsteher
+
+execute store result score _temp1 status.Test run function quests_dorf1:dialoge/dorfvorsteher/dialog1_dorfvorsteher
+execute unless score _temp1 status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Function konnte nicht aufgerufen werden", color:"red"}]
+
+dialog clear @s
+
+execute store success score _temp2 status.Test run trigger Quest_Dorfvorsteher add 0
+execute unless score _temp2 status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Trigger nicht ausgelöst", color:"red"}]
 
 
-## get_uuid.mcfunction 
+scoreboard players operation @s Quest_Dorfvorsteher = @s status.Test
 
+scoreboard players set _temp1 status.Test 0
+scoreboard players set _temp2 status.Test 0
+
+tellraw @s [{text:"Test: Dialog 1 vom Dorfvorsteher in Panda Village - Ende"}]
+
+
+## switch.mcfunction 
+
+execute if score _step steps.Test matches 10 run function test:character/new_player_base_values
+
+execute if score _error status.Test matches 0 if score _step steps.Test matches 11 run function test:panda_village/check_dorfvorsteher
+execute if score _error status.Test matches 0 if score _step steps.Test matches 12 run function test:panda_village/check_lagerverwalter
+execute if score _error status.Test matches 0 if score _step steps.Test matches 13 run function test:panda_village/check_dorfschmied
+execute if score _error status.Test matches 0 if score _step steps.Test matches 14 run function test:panda_village/check_farmer_trader1
+execute if score _error status.Test matches 0 if score _step steps.Test matches 15 run function test:panda_village/check_wirt
+execute if score _error status.Test matches 0 if score _step steps.Test matches 16 run function test:panda_village/check_waechter
+execute if score _error status.Test matches 0 if score _step steps.Test matches 20 run function test:misc/check_waechter_interaction
+
+execute if score _error status.Test matches 0 if score _step steps.Test matches 30 run function test:panda_village/dialogs/test_dialoge_dorfvorsteher_dialog1_dorfvorsteher
+
+scoreboard players add _step steps.Test 1
+
+execute if score _step steps.Test matches 50.. run function test:misc/test_ok
+
+
+
+## dialog1_dorfvorsteher.mcfunction 
+scoreboard players enable @s Quest_Dorfvorsteher
+
+dialog show @s {\
+    "type": "minecraft:confirmation",\
+    "title": "Dorfvorsteher",\
+    "body": {\
+        "type": "minecraft:plain_message",\
+        "contents": "Hallo Reisender, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Dorfschmied, ob er dir helfen kann.\n\nWenn du das erledigt hast, kommt nochmal bitte zu mir.\n\n\nMöchtest du die Quest annehmen? (Ja / Nein)"\
+    },\
+    "inputs": [],\
+    "can_close_with_escape": true,\
+    "after_action": "close",\
+    "yes": {\
+        "label": "Ja",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher set 10"\
+        }\
+    },\
+    "no": {\
+        "label": "Nein",\
+        "action": {\
+            "type": "minecraft:run_command",\
+            "command": "trigger Quest_Dorfvorsteher add 0"\
+        }\
+    }\
+}
+
+return 1
