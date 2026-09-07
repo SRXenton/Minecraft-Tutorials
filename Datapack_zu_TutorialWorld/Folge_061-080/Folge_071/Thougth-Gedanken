@@ -1,0 +1,56 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #071
+
+## Ziele der Folge:
+
+- Dialog Dorfvorsteher Stufe 100: Tellraw - Schicke zum Wächter
+- Zeilenumbrüche
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Aktueller stand, was soll passieren
+- Tellraw Befehl im wiki, Zeilen umbrüche im Wiki
+- Function erstellen und Tellraw erstellen, Zeilenunbrüche
+- Test Dialog 100 Schreiben
+- In den Autotest aufnehmen
+- Aufpassen dass Dialogtests aus F0lge 67-70 in der steps/switch sind (Autotest)
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog_dorfvorsteher.mcfunction
+                        + dialog100_dorfvorsteher.mcfunction
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+                        + test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
+                * steps
+                    > switch.mcfunction
+
+
+
+
+### Files: (Kommenrtare entfernt)
