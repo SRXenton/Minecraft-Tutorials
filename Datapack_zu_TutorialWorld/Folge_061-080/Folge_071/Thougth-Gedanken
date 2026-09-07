@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #071
+- Titel: Minecraft Datapack Tutorial #071 - Tellraw und Zeilenumbrüche in Functions
 
 ## Ziele der Folge:
 
@@ -15,14 +15,17 @@
 ##
 
 ## Inhalte:
+- Der Command Tellraw: https://de.minecraft.wiki/w/Befehl/tellraw
+- Textkomponenten: https://de.minecraft.wiki/w/Textkomponenten
+- Function/Zeilenumbruch: https://de.minecraft.wiki/w/Funktion
 
 ## Schritte
 - Aktueller stand, was soll passieren
 - Tellraw Befehl im wiki, Zeilen umbrüche im Wiki
 - Function erstellen und Tellraw erstellen, Zeilenunbrüche
 - Test Dialog 100 Schreiben
-- In den Autotest aufnehmen
-- Aufpassen dass Dialogtests aus F0lge 67-70 in der steps/switch sind (Autotest)
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
 
 
 ## Neue Datapack Struktur:
@@ -47,10 +50,5 @@
                 * panda_village
                     * dialogs
                         + test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
-                * steps
-                    > switch.mcfunction
 
 
-
-
-### Files: (Kommenrtare entfernt)
