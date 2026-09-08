@@ -1,0 +1,14 @@
+## Aufgaben fürs freie Programmieren in Minecraft Tutorial Datapack in der Adventure Welt
+
+Status      Aufgabe
+-----------------------------------------------------------------------------------------------
+open        Autotest aufnehmen:
+                test_dialoge_dorfvorsteher_dialog90_dorfvorsteher.mcfunction
+                test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
+
+open        Test:
+                Main: dialog80_dorfvorsteher.mcfunction -> Testcopy von dialog70 und 90 (Folge 069 & 070) -> Aufahme Autotest
+                Main: dialog10_dorfschmied.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Main: dialog20_lagerverwalter.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Economic_System: trader1/dialog.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Main: respawn/dialog_wirt.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
