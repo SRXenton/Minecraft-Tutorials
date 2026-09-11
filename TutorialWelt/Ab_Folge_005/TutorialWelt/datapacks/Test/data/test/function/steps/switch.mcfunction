@@ -5,6 +5,7 @@ execute if score _error status.Test matches 0 if score _step steps.Test matches 
 execute if score _error status.Test matches 0 if score _step steps.Test matches 14 run function test:panda_village/check_farmer_trader1
 execute if score _error status.Test matches 0 if score _step steps.Test matches 15 run function test:panda_village/check_wirt
 execute if score _error status.Test matches 0 if score _step steps.Test matches 16 run function test:panda_village/check_waechter
+execute if score _error status.Test matches 0 if score _step steps.Test matches 20 run function test:misc/check_waechter_interaction
 
 
 

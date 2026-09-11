@@ -8,5 +8,6 @@ scoreboard players set _start status.Test 1
 scoreboard players set _error status.Test 0
 
 scoreboard players set _step steps.Test 0
+scoreboard players set _player_teleport status.Test 0
 
 tag @s add Tester
