@@ -1,0 +1,49 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #072 - 
+
+## Ziele der Folge:
+
+- Dialog Dorfwächter mit Dialog
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
+
+
+
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    + dorfwaechter
+                        dialog_dorfwaechter.mcfcuntion
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+
