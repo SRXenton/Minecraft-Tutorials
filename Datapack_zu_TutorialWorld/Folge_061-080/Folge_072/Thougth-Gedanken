@@ -19,7 +19,8 @@
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
 - Ordner und File Struktur herstellen. bis dialog_dorfwaechter.mcfcuntion
 - Init diskutieren
-- Scoreboard erstellen -> init_scoreboards_all.mc....   -> Punkt statt Unterstrich erklären
+- Was sind Scoreboards, was gibt es
+- Scoreboard Quest Wachter erstellen mit trigger nicht wie angegeben mit dummy -> init_scoreboards_all.mc....   -> Punkt statt Unterstrich erklären
 - Refactoring im Freien Programmieren der anderen Scoreboards
 - dialog1_dorfwaechter.mc.... erstellen
 - Aufruf dialog1 in dialog_w....
