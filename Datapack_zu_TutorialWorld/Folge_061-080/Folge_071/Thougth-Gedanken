@@ -2,12 +2,13 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #071 - Tellraw und Zeilenumbrüche in Functions
+- Titel: Minecraft Datapack Tutorial #071 - Textkompnenten und Zeilenumbrüche
 
 ## Ziele der Folge:
 
 - Dialog Dorfvorsteher Stufe 100: Tellraw - Schicke zum Wächter
-- Zeilenumbrüche
+- Zeilenumbrüche in Textcompnenten
+- Zeilenumbrüche in Functions
 
 
 ##
@@ -20,9 +21,13 @@
 - Function/Zeilenumbruch: https://de.minecraft.wiki/w/Funktion
 
 ## Schritte
-- Aktueller stand, was soll passieren
-- Tellraw Befehl im wiki, Zeilen umbrüche im Wiki
-- Function erstellen und Tellraw erstellen, Zeilenunbrüche
+- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
+- Textkomponenten in Wiki
+- Anwendung in Tellraw und Dialog
+- Tellraw Befehl im wiki
+- Dialog in Wiki
+- Zeilen umbrüche im Wiki
+- Praktische Anwendung: Function erstellen und Tellraw erstellen, Zeilenunbrüche
 - Test Dialog 100 Schreiben
 
 - Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
