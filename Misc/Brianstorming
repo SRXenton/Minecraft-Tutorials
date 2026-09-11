@@ -1,6 +1,57 @@
-##
-## Themenspeicher / Backlog
-##
+### ------------------------------------
+### Themenspeicher / Backlog
+### ------------------------------------
+
+
+### Vorgaben ----------------------------------------
+
+## Questreihe
+Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeber > Reward
+
+
+## Beachtung bei Dialogen
+# - dialog (Marked the World with Experimental Feature)
+# - Dialog: https://minecraft.wiki/w/Dialog
+
+
+
+## Farbkonzepte
+# Dialoge mit Villager
+#           Wer Sagt:               Text:
+# Tellraw: "[Gold]Dorfvorsteher: [Yellow]Willkommen Reisender"
+#
+# Systemmeldungen
+# Titel: "[Gold]Systemmeldung: [Yellow]Willkommen Reisender"
+#
+# Tests
+# Start:
+# Tellraw: "[Standart/weiß]Test - <was wird getestet> - Start"
+# Ende:
+# Tellraw: "[Standart/weiß]Test - <was wird getestet> - Ende"
+# Fehler:
+# Tellraw: "[Rot]<Fehlertext>"
+
+
+## Andere mögliche Konzepte
+#    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
+#    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
+
+
+
+## Custom Item:
+# give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
+#
+# loot und loot_table
+
+
+### Ideen -----------------------------------------------------------
+
+### Test
+- Erste Tests in den Tutorial Folgen
+- Alles was sich wiederholt in Freies Programmieren
+
+### Manequin
+- Wächter dor Panda Village durch Manequin ersetzen
 
 ## Funktionsreihe mit Spawnpunkt in ein eigenes Datapack bringen
 - Respawn und Spawn des Spielers ist im Datapack Main.
@@ -21,12 +72,12 @@
 
 ## Questreihe Dorfvorsteher erweitern 
 - Quest Rüstung (s.u.), bevor Dorf 1 verlassen
-- Quest Dorfvorsteher/Wächte, zum Magiesystem nächstes Dorf
+- Quest Dorfvorsteher/Wächter, zum Magiesystem nächstes Dorf
 - Quest Dorfwächter, Einführung Kampfsystem
 - Erledigt - Nach Einführung "Ändern Respawn", muss der Spieler mittels Quest darauf hingewiesen werden. Folge Quest Nach Bank.
 
 
-## Update auf Version
+## Update auf Version - Siehe Tests
 - Datapack durch gehen und anpassungen Vornehmen
 - - v 1.21.11 - erledigt
 - - V 26.2.x
@@ -74,38 +125,8 @@ An einem Villager über ein Dialog, wird der Spieler getaged
 
 
 
-### Vorgaben
-
-## Questreihe
-Questgeber > Reisen > Kampf normal > Kampf Boss > loot > Questabgeben > Reward
 
 
-
-
-## Beachtung bei Dialogen
-# - dialog (Marked the World with Experimental Feature)
-# - Dialog: https://minecraft.wiki/w/Dialog
-
-
-
-## Farbkonzepte
-#           Wer Sagt:               Text:
-# Tellraw: "[Gold]Dorfvorsteher: [Yellow]Willkommen Reisender"
-
-
-
-## Andere mögliche Konzepte
-#    + Text: Hallo Fremder, willkommen in dieser Welt. So wie es aussiehst hast du noch keine Ausrüstung. Frag mal den Schmied, ob er dir helfen kann.
-#    + Text: Wenn du das erledigt hast, kommt nochmal bitte zu mir.
-
-
-
-# Custom Item:
-# give @p stick[item_model="minecraft:chest",minecraft:custom_name="Kohle für den Dorfschmied",minecraft:lore=["",{"text":"Questgegenstand","color":"yellow","bold":true},"",{"text":"Behälter mit Kohle für den Dorfschmied"}],rarity="epic"] 1
-
-
-
-## Spanwpoint dynamisch verlegen (erledigt)
 
 Villager ohne Handelsfenster
 Villager Custom Dialog Fester
@@ -156,6 +177,8 @@ Eigenes Monster Spawn verhalten
 ## Abgeschlossene Themen
 ## ======================================================================================================
 ##
+
+## Spanwpoint dynamisch verlegen (erledigt)
 
 
 ## Scoreboard -> Wird in Folge 005 behandelt
