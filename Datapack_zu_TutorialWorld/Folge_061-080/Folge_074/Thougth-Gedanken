@@ -6,7 +6,7 @@
 
 ## Ziele der Folge:
 
-- 
+- Scoreboards
 
 
 ##
@@ -17,7 +17,11 @@
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-
+- Init scoreboards
+- Was gibt es an Scoreboards
+- Objectives add/remove
+- Types Trigger, dummy, etc
+- Anpassen des Scoreboards im Init von dummy auf trigger
 
 - Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
 
@@ -33,9 +37,8 @@
     * data
         * quests_dorf1
             * function
-                * dialoge
-                    + dorfwaechter
-                        dialog1_dorfwaechter.mcfcuntion
+                * init
+                    > init_scoreboards_all.mcfunction
 * Test
     * data
         * test
