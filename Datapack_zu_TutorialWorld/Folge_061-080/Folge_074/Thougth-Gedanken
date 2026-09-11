@@ -2,11 +2,11 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #074 - 
+- Titel: Minecraft Datapack Tutorial #074 - Verschachtelte Dialoge: dialog_list 
 
 ## Ziele der Folge:
 
-- Notice / Dialog_list
+- Anwenden von Dialog_list
 
 
 ##
@@ -17,11 +17,9 @@
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-- Dialog drauf eingehen
-- Was gibt es an Scoreboards
-- Objectives add/remove
-- Types Trigger, dummy, etc
-- Anpassen des Scoreboards im Init von dummy auf trigger
+- Dialog drauf eingehen -> Notice
+- Dialog List, was ist das
+- Anwenden
 
 - Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
 
@@ -37,8 +35,10 @@
     * data
         * quests_dorf1
             * function
-                * init
-                    > init_scoreboards_all.mcfuntion
+                * dialoge
+                    * dorfwaechter
+                        > dialog1_dorfwaechter.mcfuntion
+                        
 * Test
     * data
         * test
