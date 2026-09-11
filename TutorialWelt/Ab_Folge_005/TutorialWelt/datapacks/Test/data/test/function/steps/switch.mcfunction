@@ -2,6 +2,9 @@ execute if score _step steps.Test matches 10 run function test:character/new_pla
 execute if score _error status.Test matches 0 if score _step steps.Test matches 11 run function test:panda_village/check_dorfvorsteher
 execute if score _error status.Test matches 0 if score _step steps.Test matches 12 run function test:panda_village/check_lagerverwalter
 execute if score _error status.Test matches 0 if score _step steps.Test matches 13 run function test:panda_village/check_dorfschmied
+execute if score _error status.Test matches 0 if score _step steps.Test matches 14 run function test:panda_village/check_farmer_trader1
+execute if score _error status.Test matches 0 if score _step steps.Test matches 15 run function test:panda_village/check_wirt
+execute if score _error status.Test matches 0 if score _step steps.Test matches 16 run function test:panda_village/check_waechter
 
 
 
