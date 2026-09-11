@@ -6,7 +6,7 @@
 
 ## Ziele der Folge:
 
-- Scoreboards
+- Notice / Dialog_list
 
 
 ##
@@ -17,7 +17,7 @@
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-- Init scoreboards
+- Dialog drauf eingehen
 - Was gibt es an Scoreboards
 - Objectives add/remove
 - Types Trigger, dummy, etc
@@ -38,7 +38,7 @@
         * quests_dorf1
             * function
                 * init
-                    > init_scoreboards_all.mcfunction
+                    > init_scoreboards_all.mcfuntion
 * Test
     * data
         * test
