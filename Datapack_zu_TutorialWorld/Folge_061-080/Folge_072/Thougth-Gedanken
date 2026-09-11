@@ -17,7 +17,12 @@
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-
+- Ordner und File Struktur herstellen. bis dialog_dorfwaechter.mcfcuntion
+- Init diskutieren
+- Scoreboard erstellen -> init_scoreboards_all.mc....   -> Punkt statt Unterstrich erklären
+- Refactoring im Freien Programmieren der anderen Scoreboards
+- dialog1_dorfwaechter.mc.... erstellen
+- Aufruf dialog1 in dialog_w....
 
 
 
@@ -35,9 +40,17 @@
     * data
         * quests_dorf1
             * function
+                * init
+                    > init_scoreboards_all.mcfunction
                 * dialoge
                     + dorfwaechter
-                        dialog_dorfwaechter.mcfcuntion
+                        + dialog_dorfwaechter.mcfcuntion
+                        + dialog1_dorfwaechter.mcfcuntion
+                * waechter
+                    * patrolie
+                        > interaction_waechter.mcfunction
+                        + interaction_waechter_sub.mcfunction
+
 * Test
     * data
         * test
