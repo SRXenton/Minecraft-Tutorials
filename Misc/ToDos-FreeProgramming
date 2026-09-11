@@ -12,3 +12,9 @@ open        Test:
                 Main: dialog20_lagerverwalter.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
                 Economic_System: trader1/dialog.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
                 Main: respawn/dialog_wirt.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+
+open        Test:
+                Test die schon geschreiben sind auf den Stand von Folge 068 bringen
+                    - Tellraw am Anfang und Ende
+                    - Vernünftiger Fehlertext
+                    - Text bei Fehler in Rot
