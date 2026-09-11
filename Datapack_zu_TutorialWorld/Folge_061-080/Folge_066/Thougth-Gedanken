@@ -1,25 +1,26 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge 066: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #066 -
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
-
+- 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
 
 ## Schritte
-
+- Auto test ausführen, das problem mit tem Teleport erklären, verweisen auf 1. Test Folge, da schon angesprochen
+- player_teleport_panda_village erstellen
+- anpassen start_autotest und start
+- Erweitern der check_weachter mit check anzahl interactions und beim Testen Feststellen, dass es nicht im gleichen tick geht.
+- check_waechter_interaction als unter "single" test schreiben
+- aufruf in der switch
+- anpassen des steps
 
 ## Neue Datapack Struktur:
 
@@ -28,7 +29,19 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
+* Test
+    * data
+        * test
+            * function
+				* misc
+                    + player_teleport_panda_village.mcfunction
+                * steps
+                    > start.mcfcuntion
+                * panda_village
+                    > check_waechter.mcfunction
+                    + misc
+                        + check_waechter_interaction.mcfunction
+            > start_autotest.mcfunction
 
 
 

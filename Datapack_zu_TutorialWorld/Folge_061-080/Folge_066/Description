@@ -1,14 +1,16 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: MC Datapack Tutorial #066 - Autotest: Teleport und Functions, Position intern unklar
 
-- Video: 
+- Video: https://youtu.be/bPP3hga_JkQ
 
 ## Ziele der Folge:
 
-- 
+- Weshalb nach einen Teleport die Function noch die alte Position nutzt und wie man es beheben kann
+- Testen der Interaction vom Wächter auf Vorhanden sein
+
 
 
 ##
@@ -28,18 +30,88 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
+* Test
     * data
-        * character
+        * test
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+				* misc
+                    + player_teleport_panda_village.mcfunction
+                    + check_waechter_interaction.mcfunction
+                * steps
+                    > start.mcfcuntion
+                * panda_village
+                    > check_waechter.mcfunction
+            > start_autotest.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## player_teleport_panda_village.mcfunction 
+tp @p[tag=Tester] 1749 72 261
+scoreboard players set _player_teleport status.Test 1
 
 
-## get_uuid.mcfunction 
+## start.mcfunction 
+execute unless entity @p[tag=Tester] run return 1
+
+execute if score _start status.Test matches 1 if score _player_teleport status.Test matches 0 run function test:misc/player_teleport_panda_village
+
+execute if score _start status.Test matches 1 as @p[tag=Tester] run function test:steps/switch
+
+execute if score _start status.Test matches 2 run tag @p[tag=Tester] remove Tester
+
+
+
+## check_waechter.mcfunction 
+
+tellraw @s [{text:"Test: Wächter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Villager NOK"}]
+
+execute at @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter] positioned ^ ^ ^2 \
+    run teleport @s ~ ~ ~ facing entity @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+
+
+
+
+## check_waechter_interaction.mcfunction 
+
+tellraw @s [{text:"Test: Interaction vom Wächter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+
+scoreboard players set _nw status.Test 0
+scoreboard players set _ni status.Test 0
+
+
+execute as @s at @s store result score _nw status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter,distance=..4]
+execute unless score _nw status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Villager NOK"}]
+
+
+execute as @s at @s store result score _ni status.Test if entity @e[type=minecraft:interaction, tag=panda_village, tag=panda_village_waechter_interaction, distance=..4]
+execute unless score _ni status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Interaction NOK"}]
+
+
+## start_autotest.mcfunction 
+scoreboard objectives remove status.Test
+scoreboard objectives add status.Test dummy
+
+scoreboard objectives remove steps.Test
+scoreboard objectives add steps.Test dummy
+
+scoreboard players set _start status.Test 1
+scoreboard players set _error status.Test 0
+
+scoreboard players set _step steps.Test 0
+scoreboard players set _player_teleport status.Test 0
+
+tag @s add Tester
+
+
 
