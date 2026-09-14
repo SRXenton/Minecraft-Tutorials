@@ -1,26 +1,27 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge 062: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #062 - 
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- 
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- 
 
 ## Schritte
-
-
+- first.mcfunction, Werte wieder korrekt einstellen
+- first umbenennen und in den neuen Ordner Charakter schieben
+- anpassen der Switch in steps, nach umbenennung First
+- Test_ok und nok erstellen
+- aus steps/switch ok und nok aufrufen
+- im steps/start, Tag vom spieler entfernen und sicherstellen dass die function nicht ohne Tester läuft (return)
 ## Neue Datapack Struktur:
 
 # Datapack Strucktur:
@@ -28,8 +29,18 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
-
+* Test
+    * data
+        * test
+            * function
+                + character
+                    >+ first.mcfunction > new_player_base_values.mcfunction
+                + misc
+                    + test_ok.mcfunction
+                    + test_nok.mcfunction
+                * steps
+                    > start.mcfunction
+                    > switch.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)

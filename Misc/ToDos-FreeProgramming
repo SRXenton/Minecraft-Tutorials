@@ -1,0 +1,29 @@
+## Aufgaben fürs freie Programmieren in Minecraft Tutorial Datapack in der Adventure Welt
+
+
+# Nach Folge 70 - FP 004
+Refactor scoreboard step.test zu status.test
+Diverse Test Textausgaben angepasst
+Diverse Variablen in den Tests von _temp auf _tx geändert
+Viele Tests angepasst
+Viele Kommentare geschrieben
+
+
+Status      Aufgabe
+-----------------------------------------------------------------------------------------------
+open        Autotest aufnehmen:
+                test_dialoge_dorfvorsteher_dialog90_dorfvorsteher.mcfunction
+                test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
+
+open        Test:
+                Main: dialog80_dorfvorsteher.mcfunction -> Testcopy von dialog70 und 90 (Folge 069 & 070) -> Aufahme Autotest
+                Main: dialog10_dorfschmied.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Main: dialog20_lagerverwalter.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Economic_System: trader1/dialog.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+                Main: respawn/dialog_wirt.mcfunction -> Testcopy von dialog10 (Folge 068) -> Aufahme Autotest
+
+open        Test:
+                Test die schon geschreiben sind auf den Stand von Folge 068 bringen
+                    - Tellraw am Anfang und Ende
+                    - Vernünftiger Fehlertext
+                    - Text bei Fehler in Rot
