@@ -1,0 +1,13 @@
+{
+    "function": "set_attributes",
+    "modifiers": [
+        {
+            "id": "attack_damage_reduce_wooden_swood_to_base",
+            "amount":2.4,
+            "attribute": "minecraft:attack_speed",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ],
+    "replace": false
+}
