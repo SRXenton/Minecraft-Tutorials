@@ -1,5 +1,14 @@
 ## Aufgaben fürs freie Programmieren in Minecraft Tutorial Datapack in der Adventure Welt
 
+
+# Nach Folge 70 - FP 004
+Refactor scoreboard step.test zu status.test
+Diverse Test Textausgaben angepasst
+Diverse Variablen in den Tests von _temp auf _tx geändert
+Viele Tests angepasst
+Viele Kommentare geschrieben
+
+
 Status      Aufgabe
 -----------------------------------------------------------------------------------------------
 open        Autotest aufnehmen:

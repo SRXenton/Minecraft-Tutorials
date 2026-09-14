@@ -1,14 +1,16 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: MC Datapack Tutorial #067 - Wächter von Panda Village wieder in Ordnung bringen
 
-- Video: 
+- Video: https://youtu.be/iokhE84-u_c
 
 ## Ziele der Folge:
 
-- 
+- Den Wächter wieder auf die Route bringen
+- Sicherstellen, dass er auch dort bleibt
+- Der Test überprüft, ob der Wächter auf der Route ist
 
 
 ##
@@ -30,16 +32,51 @@ Minecraft Wiki:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * character
+        * quest_dorf1
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+                * waechter
+                    * patrolie
+                        > check_entity_waechter.mcfcuntion
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    > check_waechter.mcfcuntion
+
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## check_entity_waechter.mcfunction
+### Wird aufgerufen aus: patrolie/switch.mcfunction
+
+## Speicher die Anzahl ins scoreboard, wenn es mindestens eine Entity mit dem Tag gibt, und speicher die Anzahl
+execute store result score _check Panda_Village_wachter if entity @e[tag=panda_village_route_check]
+
+## Wenn der Wert 4 oder mehr im Scoreboard ist, und es keine Entity mit dem Tag gibt, wird die Function ausgeführt
+execute if score _check Panda_Village_wachter matches 4.. unless entity @e[tag=panda_village_waechter] run function quests_dorf1:waechter/summon_waechter
+
+execute if score _check Panda_Village_wachter matches 4.. \
+    as @e[type=minecraft:villager, tag=panda_village_waechter] at @s \
+        unless block ~ -61 ~ minecraft:magenta_glazed_terracotta \
+            run tp @s 1751 65 257
 
 
-## get_uuid.mcfunction 
+
+## check_waechter.mcfunction
+tellraw @s [{text:"Test: Wächter in Panda Village"}]
+
+scoreboard players set _error status.Test 0
+
+execute store result score _temp status.Test if entity @e[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Anzahl Villager NOK"}]
+
+execute at @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter] positioned ^ ^ ^2 \
+    run teleport @s ~ ~ ~ facing entity @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter]
+
+
+execute store result score _temp status.Test at @n[type=minecraft:villager, tag=quest_npc, tag=panda_village, tag=panda_village_waechter] if block ~ -61 ~ minecraft:magenta_glazed_terracotta
+execute unless score _temp status.Test matches 1 run function test:misc/test_nok
+execute if score _error status.Test matches 1 run return run tellraw @s [{text:"Pfad nicht unter Villager"}]
 
