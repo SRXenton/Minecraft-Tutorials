@@ -2,23 +2,19 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #071 - Textkompnenten und Zeilenumbrüche
+- Titel: Minecraft Datapack Tutorial #071 - Update mit Prism von 26.2 auf 26.3
 
 ## Ziele der Folge:
 
-- Dialog Dorfvorsteher Stufe 100: Tellraw - Schicke zum Wächter
-- Zeilenumbrüche in Textcompnenten
-- Zeilenumbrüche in Functions
-
+- Prism update Tests testen
+- Welche test laufen und welche nicht, ggf fehler beheben
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Der Command Tellraw: https://de.minecraft.wiki/w/Befehl/tellraw
-- Textkomponenten: https://de.minecraft.wiki/w/Textkomponenten
-- Function/Zeilenumbruch: https://de.minecraft.wiki/w/Funktion
+- 
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
