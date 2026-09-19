@@ -1,14 +1,14 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: MC Datapack Tutorial #062 - Autotest: Fehlererkennung und Abbruch bei Fehler
 
-- Video: 
+- Video: https://youtu.be/BnsLaUTU2RI
 
 ## Ziele der Folge:
 
-- 
+- Rahmen für Autotest erstellen
 
 
 ##
@@ -28,18 +28,59 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
+* Test
     * data
-        * character
+        * test
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+                + character
+                    >+ first.mcfunction > new_player_base_values.mcfunction
+                + misc
+                    + test_ok.mcfunction
+                    + test_nok.mcfunction
+                * steps
+                    > start.mcfunction
+                    > switch.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## switch.mcfunction 
+execute if score _step steps.Test matches 1 run function test:character/new_player_base_values
+#execute if score _error status.Test matches 0 .......
+scoreboard players add _step steps.Test 1
+
+execute if score _step steps.Test matches 10.. run function test:misc/test_ok
 
 
-## get_uuid.mcfunction 
+## start.mcfunction 
+execute unless entity @p[tag=Tester] run return 1
+
+execute if score _start status.Test matches 1 run tp @p[tag=Tester] 1749 72 261
+
+execute if score _start status.Test matches 1 as @p[tag=Tester] run function test:steps/switch
+
+execute if score _start status.Test matches 2 run tag @p[tag=Tester] remove Tester
+
+## test_nok.mcfunction 
+tellraw @s "Test: Nicht Ok"
+scoreboard players set _error status.Test 1
+scoreboard players set _start status.Test 2
+
+## test_ok.mcfunction 
+scoreboard players set _start status.Test 2
+tellraw @s "Test OK"
+
+
+## first.mcfunction / new_player_base_values.mcfunction
+ tellraw @s "Test: Base Values"
+data remove storage main_charakter:player data."[I;0,0,0]"
+data modify storage test:data data.UUID set value "[I;0,0,0]"
+
+function character:misc/base_values with storage test:data data
+
+execute if data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run tellraw @s "Test: Ok"
+execute unless data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run function test:misc/test_nok
+execute unless data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run return 1
+
+data remove storage main_charakter:player data."[I;0,0,0]"
+data remove storage test:data data
 
