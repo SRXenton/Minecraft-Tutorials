@@ -1,25 +1,30 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #068 - Testkonzept - Functiontest und nicht Funktionstest
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- Function test, nicht die Funktion, sondern den der der Function
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
 
 ## Schritte
 
+- was ist mit Function und Funktionstest gemeint
+- was kann man am Dialog testen (quests_dorf1:dialoge/dorfvorsteher/dialog1_dorfvorsteher)
+- Erklärung function return 1
+- Testfunction erstellen 
+- Test Dialog
+- test Trigger
+- Scoreboardwerte sichern
+- Rücksetzen der scoreboard test werte
+- einbauen in den Autotest
 
 ## Neue Datapack Struktur:
 
@@ -28,8 +33,22 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
-
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    + dialogs
+                        + test_dialoge_dorfvorsteher_dialog1_dorfvorsteher.mcfunction
+                * steps
+                    > switch.mcfunction
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog1_dorfvorsteher.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
