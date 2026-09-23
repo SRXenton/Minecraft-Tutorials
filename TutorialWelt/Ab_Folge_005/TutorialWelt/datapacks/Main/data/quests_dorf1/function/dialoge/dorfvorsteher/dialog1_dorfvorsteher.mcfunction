@@ -30,3 +30,5 @@ dialog show @s {\
         }\
     }\
 }
+
+return 1
