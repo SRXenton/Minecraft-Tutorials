@@ -1,24 +1,32 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #069 - Testkonzept - Functiontest duplizieren, vertiefen
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- Aus Folge 068 das Function test Konzept für die Dialoge übernehmen
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- execute -> store, success, score, 
+- return
+- scoreboard
 
 ## Schritte
+- Vorstelle was in FOlge 068 passiert ist
+- Function mit dialogen auswählen und Test erstellen
+- 3 Stück ? Dialog 40 und 60 nur kopien von Dialog 1
+- Dialog 70 hat mehr
+- Return -1 auf 2 ändern
+- test 1 fertig ohne Stick
+- test 2 mit stick
+- code in dialog70 optimieren 
+- testen
 
 
 ## Neue Datapack Struktur:
@@ -28,6 +36,27 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    + dialogs
+                        + test_dialoge_dorfvorsteher_dialog40_dorfvorsteher.mcfunction
+                        + test_dialoge_dorfvorsteher_dialog60_dorfvorsteher.mcfunction
+                        + test_dialoge_dorfvorsteher_dialog70_dorfvorsteher.mcfunction
+                * steps
+                    > switch.mcfunction
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog40_dorfvorsteher.mcfunction
+                        > dialog60_dorfvorsteher.mcfunction
+                        > dialog70_dorfvorsteher.mcfunction
+
 
 
 
