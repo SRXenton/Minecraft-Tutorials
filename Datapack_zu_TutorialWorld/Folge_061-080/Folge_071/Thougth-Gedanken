@@ -17,39 +17,5 @@
 - 
 
 ## Schritte
-- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-- Textkomponenten in Wiki
-- Anwendung in Tellraw und Dialog
-- Tellraw Befehl im wiki
-- Dialog in Wiki
-- Zeilen umbrüche im Wiki
-- Praktische Anwendung: Function erstellen und Tellraw erstellen, Zeilenunbrüche
-- Test Dialog 100 Schreiben
-
-- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
-
-
-## Neue Datapack Struktur:
-
-# Datapack Strucktur:
-# (+) = Neu
-# (>) = Bearbeiten
-# (-) = Entfernen
-# (*) = Alt/Vorhanden
-* Main
-    * data
-        * quests_dorf1
-            * function
-                * dialoge\
-                    * dorfvorsteher
-                        > dialog_dorfvorsteher.mcfunction
-                        + dialog100_dorfvorsteher.mcfunction
-* Test
-    * data
-        * test
-            * function
-                * panda_village
-                    * dialogs
-                        + test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
 
 
