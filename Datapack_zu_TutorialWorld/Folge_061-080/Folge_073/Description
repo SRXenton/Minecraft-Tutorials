@@ -2,13 +2,16 @@
 ## Beschreibung zur Folge: 
 ##
 
-- Titel: MC Datapack Tutorial #072 - 
+- Titel: MC Datapack Tutorial #073 - Scoreboard - Dorfwächter Queststufen vorbereiten
 
-- Video: 
+- Video: https://youtu.be/XZ-jyHB4ch8
 
 ## Ziele der Folge:
 
-- 
+- Was sind Scoreboards bzw Anzeigetafeln
+- Wie wendet man sie an
+- Wie kann man sie mit execute abfragen
+
 
 
 ##
@@ -30,11 +33,19 @@ Minecraft Wiki:
 # (*) = Alt/Vorhanden
 * Main
     * data
-        * character
+        * quests_dorf1
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+                * init
+                    > init_scoreboards_all.mcfunction
+                * dialoge
+                    + dorfwaechter
+                        + dialog_dorfwaechter.mcfcuntion
+                        + dialog1_dorfwaechter.mcfcuntion
+                * waechter
+                    * patrolie
+                        > interaction_waechter.mcfunction
+                        + interaction_waechter_sub.mcfunction
+
 
 
 ### Files: (Kommenrtare entfernt)
