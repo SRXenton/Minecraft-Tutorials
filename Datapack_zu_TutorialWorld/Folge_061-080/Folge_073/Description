@@ -40,7 +40,7 @@ Minecraft Wiki:
                 * dialoge
                     + dorfwaechter
                         + dialog_dorfwaechter.mcfcuntion
-                        + dialog1_dorfwaechter.mcfcuntion
+                        + dialog0_dorfwaechter.mcfcuntion
                 * waechter
                     * patrolie
                         > interaction_waechter.mcfunction
@@ -49,8 +49,40 @@ Minecraft Wiki:
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## init_scoreboards_all.mcfunction 
+
+#scoreboard objectives remove Villager_Klick_Dorf1
+scoreboard objectives add Villager_Klick_Dorf1 minecraft.custom:talked_to_villager
+
+#scoreboard objectives remove Quest_Dorfvorsteher
+scoreboard objectives add Quest_Dorfvorsteher trigger
+
+scoreboard objectives add Quest.Panda_Village.Waechter trigger
+
+#scoreboard objectives setdisplay sidebar Quest_Dorfvorsteher
 
 
-## get_uuid.mcfunction 
+## dialog_dorfwaechter.mcfunction 
+execute unless score @s Quest.Panda_Village.Waechter matches 0.. run scoreboard players set @s Quest.Panda_Village.Waechter 0
 
+execute if score @s Quest.Panda_Village.Waechter matches 0 run function quests_dorf1:dialoge/dorfwaechter/dialog_dorfwaechter0
+
+## dialog0_dorfwaechter.mcfunction 
+execute unless score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, komm bitte später wieder",color:"yellow"}]
+
+execute if score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, der Dorfvorsteher hat mir schon bescheid gegeben, leider muss ich noch was Vorbereiten. Komm bitte später wieder",color:"yellow"}]
+
+
+## interaction_waechter.mcfunction 
+execute as @e[tag=panda_village_waechter_interaction] at @s run function quests_dorf1:waechter/patrolie/interaction_waechter_sub
+#tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, komm bitte später wieder",color:"yellow"}]
+
+#execute as @e[tag=panda_village_waechter_interaction] run data remove entity @s attack
+#execute as @e[tag=panda_village_waechter_interaction] run data remove entity @s interaction
+
+## interaction_waechter_sub.mcfunction 
+
+execute as @s on target run function quests_dorf1:dialoge/dorfwaechter/dialog_dorfwaechter
+
+data remove entity @s attack
+data remove entity @s interaction
