@@ -1,0 +1,50 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #074 - Verschachtelte Dialoge: dialog_list 
+
+## Ziele der Folge:
+
+- Anwenden von Dialog_list
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
+- Dialog drauf eingehen -> Notice
+- Dialog List, was ist das
+- Anwenden
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfwaechter
+                        > dialog1_dorfwaechter.mcfuntion
+                        
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+
