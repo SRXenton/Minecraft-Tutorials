@@ -2,11 +2,11 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #074 - Verschachtelte Dialoge: dialog_list 
+- Titel: Minecraft Datapack Tutorial #074 - Dialoge: dialog_notice
 
 ## Ziele der Folge:
-
-- Anwenden von Dialog_list
+ 
+- Dialog Dorfwächter mit Dialog erweitern
 
 
 ##
@@ -17,9 +17,11 @@
 
 ## Schritte
 - Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-- Dialog drauf eingehen -> Notice
-- Dialog List, was ist das
-- Anwenden
+- Notice Dialog erstellen, was ist notice
+- Tellraw in den Dialog umändern
+- Mit der Weite (width) spielen und erklären
+
+
 
 - Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
 
@@ -36,15 +38,8 @@
         * quests_dorf1
             * function
                 * dialoge
-                    * dorfwaechter
-                        > dialog1_dorfwaechter.mcfuntion
-                        
-* Test
-    * data
-        * test
-            * function
-                * panda_village
-                    * dialogs
+                    + dorfwaechter
+                        dialog0_dorfwaechter.mcfcuntion
 
 
 
