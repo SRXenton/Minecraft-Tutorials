@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #074 - Verschachtelte Dialoge: dialog_list 
+- Titel: Minecraft Datapack Tutorial #075 - Verschachtelte Dialoge: dialog_list 
 
 ## Ziele der Folge:
 
@@ -37,8 +37,10 @@
             * function
                 * dialoge
                     * dorfwaechter
-                        > dialog1_dorfwaechter.mcfuntion
+                        > dialog0_dorfwaechter.mcfuntion
                         
+
+
 * Test
     * data
         * test
