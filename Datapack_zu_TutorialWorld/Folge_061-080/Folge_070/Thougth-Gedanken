@@ -1,0 +1,55 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #070 - Was ist ein Dialog (Command und Fenster)
+
+## Ziele der Folge:
+
+- Erklären was ist der Command Dialog und was ist ein Dialog im Minecraft Context
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Folge 041 Hinweisen -> Letzer Dialog vom Dorfvorsteher
+- Folge 8 und Folge 9 -> Villager_Klick und Dialog
+- Scoreboard Quest Dorfvorsteher anzeigen lassen -> 90 sehen
+- quest_dorf1/function/dialoge/dorfvorsteher/dialog_dorfvorsteher ansehen, dann 90 > dialog90_dorfvorsteher
+- was ist ein Dialog -> im WIki Dialoge
+- tellraw durch dialog ersetzen -> Confirmation
+- Test erstellen > copy dialog 70, anpassen auf 90
+- Testen
+- Autotest in Freien Programmieren
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog90_dorfvorsteher.mcfunction
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+                        + test_dialoge_dorfvorsteher_dialog90_dorfvorsteher.mcfunction
+
+
+
+
+
+### Files: (Kommenrtare entfernt)
