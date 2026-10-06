@@ -1,0 +1,50 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #076 - 
+
+## Ziele der Folge:
+
+- 
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- 
+
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfwaechter
+                        > dialog0_dorfwaechter.mcfuntion
+                        
+
+
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+
