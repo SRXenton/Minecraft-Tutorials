@@ -19,7 +19,9 @@
 - Der Command Test
 
 ## Schritte
-
+- Autotest erklären
+- tick.json anlegen
+- start_autotest anlegen
 
 ## Neue Datapack Struktur:
 
@@ -28,8 +30,19 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
-
+* Test
+    * data
+        + minecraft
+            + tags
+                + function
+                    + tick.json
+        * test
+            * function
+                + start_autotest.mcfunction
+                + steps
+                    + start.mcfunction
+                    + switch.mcfunction
+                > first.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
