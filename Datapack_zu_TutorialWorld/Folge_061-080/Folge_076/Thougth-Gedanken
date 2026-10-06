@@ -6,7 +6,11 @@
 
 ## Ziele der Folge:
 
-- 
+- Item anzeigen im Dialog/Textkomponete
+- Action/run_command
+- Scoreboard Trigger
+- give / loot Item (Charakterwerte)
+- tick.json
 
 
 ##
