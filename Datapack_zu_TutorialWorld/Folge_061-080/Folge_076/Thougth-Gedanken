@@ -9,8 +9,8 @@
 - Item anzeigen im Dialog/Textkomponete
 - Action/run_command
 - Scoreboard Trigger
-- give / loot Item (Charakterwerte)
-- tick.json
+- give / loot Item (Charakterwerte) ??
+- tick.json ??
 
 
 ##
@@ -20,8 +20,11 @@
 ## Inhalte:
 
 ## Schritte
-- 
-
+- Dialog in dialog_dorfwaechter0 von Notice zu Confirmation änderen und erweitern
+- Text anpassen
+- Text um Itemanzeige erweitern (Textkomponente), Beschreiben was ist item, width, etc
+- action: run_command -> Was ist auf Server ausführbar und was nicht ->  trigger = set 0 (Anderer Wert erst in einer anderen Folge)
+- score trigger enable
 
 - Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
 
