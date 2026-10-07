@@ -1,0 +1,62 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #077 - 
+
+## Ziele der Folge:
+
+- give / loot Item (Charakterwerte)
+- tick.json
+- execute / scoreboard
+
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- dialog0_dorfwaechter trigger set auf 5
+- tick.json erklären
+- action5 erstellen
+- trigger_action erweiter
+- im Dialog: "NO" um action erweitern -> trigger set 0
+
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfwaechter
+                        > dialog0_dorfwaechter.mcfuntion
+                * trigger
+                    > trigger_action.mcfunction
+                * wachter
+                    + actions
+                        + action5_waechter.mcfunction
+
+
+
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+
