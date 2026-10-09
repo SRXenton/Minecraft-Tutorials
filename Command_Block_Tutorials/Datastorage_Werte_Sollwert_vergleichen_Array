@@ -1,0 +1,62 @@
+## Wie Vergleicht man Werte im Data Storage mit Sollwerte
+## Code example for my Youtube tutorial videos
+## Video: https://youtu.be/8F5xBcrsJP8
+
+## Die Theorie
+execute if score _zahl Combat.Skill_point_free matches 5 run ......
+execute if data storage x_ts:teleport_stone data.zahl run .....
+
+## Reset
+function datastorage_vergleich_part2:reset
+
+
+## Die 6 Commandblocks Storage Füllungen
+1. function datastorage_vergleich_part2:fill_small {x:0,y:0,z:0,t1:"Pos1"}
+2. function datastorage_vergleich_part2:fill_small {x:0,y:1,z:0,t1:"Pos1"}
+3. function datastorage_vergleich_part2:fill_small {x:0,y:2,z:0,t1:"Pos1"}
+4. function datastorage_vergleich_part2:fill_small {x:0,y:3,z:0,t1:"Pos1"}
+5. function datastorage_vergleich_part2:fill_small {x:1,y:4,z:0,t1:"Pos1"}
+6. function datastorage_vergleich_part2:fill {x:1,y:5,z:0,t1:"Pos1",t2:"Allgemein"}
+
+
+## Der Vergleichcommand aus dem Chat, Basisversion
+execute if data storage tutorial:datastorage_vergleich_part2 data.array[{coords:[0,0,0]}]
+
+
+##
+## Die Files im Datapack:
+##
+
+## reset.mcfcuntion:
+data modify storage tutorial:datastorage_vergleich_part2 data set value {}
+
+data modify storage tutorial:datastorage_vergleich_part2 array set value []
+
+tellraw @a [\
+    {text:"----Reset-----"},\
+]
+
+function datastorage_vergleich_part2:output
+
+
+## output.mcfcuntion
+tellraw @a [\
+    {text:"Inhalt Datastorage :"},\
+    {storage:"tutorial:datastorage_vergleich_part2",nbt:"data.array"}\
+]
+
+## fill_small.mcfcuntion
+$execute unless data storage tutorial:datastorage_vergleich_part2 data.array[{coords:[$(x),$(y),$(z)],text:"$(t1)"}] \
+    run data modify storage tutorial:datastorage_vergleich_part2 data.array append value {coords:[$(x),$(y),$(z)],text:"$(t1)"}
+
+
+function datastorage_vergleich_part2:output
+
+
+## fill.mcfcuntion
+$execute unless data storage tutorial:datastorage_vergleich_part2 data.array[{coords:[$(x),$(y),$(z)],text:["$(t1)","$(t2)"]}] \
+    run data modify storage tutorial:datastorage_vergleich_part2 data.array append value {coords:[$(x),$(y),$(z)],text:["$(t1)","$(t2)"]}
+
+function datastorage_vergleich_part2:output
+
+
