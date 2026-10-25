@@ -11,7 +11,7 @@ Viele Kommentare geschrieben
 
 Status      Aufgabe
 -----------------------------------------------------------------------------------------------
-open        Autotest aufnehmen:
+done        Autotest aufnehmen:
                 test_dialoge_dorfvorsteher_dialog90_dorfvorsteher.mcfunction
                 test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
 
