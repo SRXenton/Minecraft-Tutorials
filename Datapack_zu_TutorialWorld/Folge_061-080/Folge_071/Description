@@ -1,0 +1,190 @@
+##
+## Beschreibung zur Folge: 
+##
+
+- Titel: MC Datapack Tutorial #071 - Update auf 26.3 mit Prism und Errors in Currency Datapacks
+
+
+- Video: https://youtu.be/UG-sIwtEoFA
+
+## Ziele der Folge:
+
+- Update Minecraft auf 26.3
+- Entfernen des Fehlers Errors in Currency Datapack
+- Item_modifier/Loot_table
+- Functions to Modifier
+- Function to Type
+- VSCode 26.3 beibringen
+
+
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * combat
+            * item_modifier
+                > attack_damage_add_0.5.json
+                > attack_damage_reduce_wooden_swood_to_base.json
+                > attack_speed_reduce_wooden_sword_to_base.json
+            * loot_table
+                > dorf1_lagerhaus_bossmob.json
+                > starter_sword.json
+    > pack.mcmeta
+
+### Files: (Kommenrtare entfernt)
+## attack_damage_add_0.5.json
+{
+    "type": "set_attributes",
+    "modifiers": [
+        {
+            "id": "attack_damage_add_0.5",
+            "amount": 0.5,
+            "attribute": "attack_damage",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ],
+    "replace": false
+}
+
+
+## attack_damage_reduce_wooden_swood_to_base.json
+{
+    "type": "set_attributes",
+    "modifiers": [
+        {
+            "id": "attack_damage_reduce_wooden_sword_to_base",
+            "amount": -3.0,
+            "attribute": "attack_damage",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ],
+    "replace": false
+}
+
+
+## attack_speed_reduce_wooden_sword_to_base.json
+{
+    "type": "set_attributes",
+    "modifiers": [
+        {
+            "id": "attack_damage_reduce_wooden_swood_to_base",
+            "amount":2.4,
+            "attribute": "minecraft:attack_speed",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ],
+    "replace": false
+}
+
+
+## dorf1_lagerhaus_bossmob.json
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 1,
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+## starter_sword.json
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wooden_sword",
+          "modifier": [
+            {
+              "type": "set_components",
+              "components": {
+                "item_model": "minecraft:stone_sword"
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Ein gewöhnliches einfaches Schwert.",
+                  "color": "#ffffff"
+                },
+                {
+                  "text": "",
+                  "color": "#ffffff"
+                },
+                {
+                  "text": "Werte:",
+                  "color": "#838365"
+                },
+                {
+                  "text": "+0.5 Attack Damage.",
+                  "color": "#f6ff00"
+                }
+              ],
+              "mode": "replace_all"
+            },
+            {
+              "type": "minecraft:set_name",
+              "name": {
+                "text": "Einfaches Schwert",
+                "color": "#ffffff"
+              }
+            },
+            {
+              "type": "toggle_tooltips",
+              "toggles": {
+                "attribute_modifiers": false
+              }
+            },
+            "combat:attack_speed_reduce_wooden_sword_to_base",
+            "combat:attack_damage_reduce_wooden_swood_to_base",
+            "combat:attack_damage_add_0.5"
+          ]
+        }
+      ]
+    }
+  ]
+}
+## pack.mcmeta
+{
+    "pack": {
+        "description": "Ein Datapack für Minecraft Tutorial mit Datapacks",
+        "min_format": 121,
+        "max_format": 121
+    }
+}
