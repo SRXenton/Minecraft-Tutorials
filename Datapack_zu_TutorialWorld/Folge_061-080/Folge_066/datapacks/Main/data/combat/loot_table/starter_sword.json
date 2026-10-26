@@ -1,0 +1,69 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wooden_sword",
+          "functions": [
+            {
+              "function": "set_components",
+              "components": {
+                "item_model": "minecraft:stone_sword"
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Ein gewöhnliches einfaches Schwert.",
+                  "color": "#ffffff"
+                },
+                {
+                  "text": "",
+                  "color": "#ffffff"
+                },
+                {
+                  "text": "Werte:",
+                  "color": "#838365"
+                },
+                {
+                  "text": "+0.5 Attack Damage.",
+                  "color": "#f6ff00"
+                }
+              ],
+              "mode": "replace_all"
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Einfaches Schwert",
+                "color": "#ffffff"
+              }
+            },
+            {
+              "function": "toggle_tooltips",
+              "toggles": {
+                "attribute_modifiers": false
+              }
+            },
+            {
+              "function": "minecraft:reference",
+              "name": "combat:attack_damage_reduce_wooden_swood_to_base"
+            },
+            {
+              "function": "minecraft:reference",
+              "name": "combat:attack_speed_reduce_wooden_sword_to_base"
+            },
+            {
+              "function": "minecraft:reference",
+              "name": "combat:attack_damage_add_0.5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "functions": []
+}

@@ -1,0 +1,13 @@
+{
+    "function": "set_attributes",
+    "modifiers": [
+        {
+            "id": "attack_damage_add_0.5",
+            "amount": 0.5,
+            "attribute": "attack_damage",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ],
+    "replace": false
+}

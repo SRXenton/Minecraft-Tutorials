@@ -1,0 +1,72 @@
+### Titel: Minecraft Datapack Tutorial - Rekursion: Praktisches Beispiel
+### Code example for my Youtube tutorial videos
+### Video: https://youtu.be/Wut3cfcbFVA
+
+### Note: All commands are the state of the end from video
+
+### Command blocks:
+## Reset
+function schleifen:nutzen_rekursion/reset
+
+## Left Block Commandblock
+function schleifen:nutzen_rekursion/setze_block {x:1220, y:5,z:1757,id:6}
+
+## Middle Block Commandblock
+function schleifen:nutzen_rekursion/setze_block {x:1220, y:5,z:1760,id:6}
+
+## Right Block Commandblock
+function schleifen:nutzen_rekursion/setze_block {x:1220, y:5,z:1763,id:6}
+
+
+
+### Files:
+
+## finish.mcfunction
+$setblock $(x) $(y) $(z) $(block)
+
+## rekursion.mcfunction
+$data modify storage tutorial:nutzen_rekursion data.temp set from storage tutorial:nutzen_rekursion data.dataSet[$(i)]
+
+$execute if data storage tutorial:nutzen_rekursion {data:{temp:{id:$(search)}}} run data modify storage tutorial:nutzen_rekursion data.block.block set from storage tutorial:nutzen_rekursion data.temp.block
+$execute if data storage tutorial:nutzen_rekursion {data:{temp:{id:$(search)}}} run return run function schleifen:nutzen_rekursion/finish with storage tutorial:nutzen_rekursion data.block
+
+
+scoreboard players add _i tutorials.schleifen.rekursion.nutzen 1
+
+execute if score _i tutorials.schleifen.rekursion.nutzen > _i_max tutorials.schleifen.rekursion.nutzen run return 1
+execute store result storage tutorial:nutzen_rekursion data.i int 1 run scoreboard players get _i tutorials.schleifen.rekursion.nutzen
+
+function schleifen:nutzen_rekursion/rekursion with storage tutorial:nutzen_rekursion data
+
+
+#[0:1,1:2,2:3,3:4,4:5,5:6]
+
+## reset.mcfunction
+data modify storage tutorial:nutzen_rekursion data set value {}
+
+data modify storage tutorial:nutzen_rekursion data.dataSet set value []
+
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:1,block:"minecraft:stone"}
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:2,block:"minecraft:end_stone"}
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:3,block:"minecraft:grass_block"}
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:4,block:"minecraft:lime_stained_glass"}
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:5,block:"minecraft:sandstone"}
+data modify storage tutorial:nutzen_rekursion data.dataSet append value {id:6,block:"minecraft:red_concrete"}
+
+## setze_block.mcfunction
+
+function schleifen:nutzen_rekursion/reset
+
+scoreboard objectives add tutorials.schleifen.rekursion.nutzen dummy
+scoreboard players set _i tutorials.schleifen.rekursion.nutzen 0
+
+$data modify storage tutorial:nutzen_rekursion data.block set value {x:$(x),y:$(y),z:$(z)}
+$data modify storage tutorial:nutzen_rekursion data.search set value $(id)
+
+execute store result score _i_max tutorials.schleifen.rekursion.nutzen if data storage tutorial:nutzen_rekursion data.dataSet[]
+
+execute store result storage tutorial:nutzen_rekursion data.i int 1 run scoreboard players get _i tutorials.schleifen.rekursion.nutzen
+
+
+function schleifen:nutzen_rekursion/rekursion with storage tutorial:nutzen_rekursion data
+

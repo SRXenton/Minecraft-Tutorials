@@ -2,13 +2,13 @@
 ## Beschreibung zu Folge 060: 
 ##
 
-- Titel: MC Datapack Tutorial #060 - 
+- Titel: MC Datapack Tutorial #0061 - Beginn mit Autotests
 
 - Video: 
 
 ## Ziele der Folge:
 
-- 
+- Rahmen für Autotest erstellen
 
 
 ##
@@ -28,18 +28,71 @@ Minecraft Wiki:
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-* Main
+* Test
     * data
-        * character
+        + minecraft
+            + tags
+                + function
+                    + tick.json
+        * test
             * function
-                * misc
-                    + character_values_cut.mcfcuntion
-                    > get_uuid.mcfcuntion
+                + start_autotest.mcfunction
+                + steps
+                    + start.mcfunction
+                    + switch.mcfunction
+                > first.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)
-## character_values_cut.mcfunction 
+## tick.json 
+{
+    "replace": false,
+    "values": [
+        "test:steps/start"
+    ]
+}
+
+## start_autotest.mcfunction 
+scoreboard objectives remove status.Test
+scoreboard objectives add status.Test dummy
+
+scoreboard objectives remove steps.Test
+scoreboard objectives add steps.Test dummy
+
+scoreboard players set _start status.Test 1
+scoreboard players set _error status.Test 0
+
+scoreboard players set _step steps.Test 0
+
+tag @s add Tester
 
 
-## get_uuid.mcfunction 
+## start.mcfunction 
+execute if score _start status.Test matches 1 run tp @p[tag=Tester] 1749 72 261
+
+execute if score _start status.Test matches 1 as @p[tag=Tester] run function test:steps/switch
+
+
+## switch.mcfunction 
+execute if score _step steps.Test matches 1 run function test:first
+
+
+scoreboard players add _step steps.Test 1
+
+execute if score _step steps.Test matches 10.. run tellraw @s "Fertig"
+execute if score _step steps.Test matches 10.. run tag @s remove Tester
+execute if score _step steps.Test matches 10.. run scoreboard players set _start status.Test 0
+
+
+## first.mcfunction 
+data modify storage test:data data.UUID set value "[I;0,0,0]"
+
+function character:misc/base_values with storage test:data data
+
+execute if data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run tellraw @s "Test: Ok"
+execute unless data storage main_charakter:player {data:{"[I;0,0,0]":{beweglichkeit:1,staerke:1,ausdauer:1,intelligenz:1}}} run tellraw @s "Test: Nicht Ok"
+
+data remove storage main_charakter:player data."[I;0,0,0]"
+data remove storage test:data data
+
 
