@@ -6,15 +6,15 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:wooden_sword",
-          "functions": [
+          "modifier": [
             {
-              "function": "set_components",
+              "type": "set_components",
               "components": {
                 "item_model": "minecraft:stone_sword"
               }
             },
             {
-              "function": "minecraft:set_lore",
+              "type": "minecraft:set_lore",
               "lore": [
                 {
                   "text": "Ein gewöhnliches einfaches Schwert.",
@@ -36,34 +36,24 @@
               "mode": "replace_all"
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:set_name",
               "name": {
                 "text": "Einfaches Schwert",
                 "color": "#ffffff"
               }
             },
             {
-              "function": "toggle_tooltips",
+              "type": "toggle_tooltips",
               "toggles": {
                 "attribute_modifiers": false
               }
             },
-            {
-              "function": "minecraft:reference",
-              "name": "combat:attack_damage_reduce_wooden_swood_to_base"
-            },
-            {
-              "function": "minecraft:reference",
-              "name": "combat:attack_speed_reduce_wooden_sword_to_base"
-            },
-            {
-              "function": "minecraft:reference",
-              "name": "combat:attack_damage_add_0.5"
-            }
+            "combat:attack_speed_reduce_wooden_sword_to_base",
+            "combat:attack_damage_reduce_wooden_swood_to_base",
+            "combat:attack_damage_add_0.5"
           ]
         }
       ]
     }
-  ],
-  "functions": []
+  ]
 }
