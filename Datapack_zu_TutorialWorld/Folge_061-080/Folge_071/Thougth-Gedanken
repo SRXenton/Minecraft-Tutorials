@@ -2,58 +2,20 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #071 - Textkompnenten und Zeilenumbrüche
+- Titel: Minecraft Datapack Tutorial #071 - Update mit Prism von 26.2 auf 26.3
 
 ## Ziele der Folge:
 
-- Dialog Dorfvorsteher Stufe 100: Tellraw - Schicke zum Wächter
-- Zeilenumbrüche in Textcompnenten
-- Zeilenumbrüche in Functions
-
+- Prism update Tests testen
+- Welche test laufen und welche nicht, ggf fehler beheben
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Der Command Tellraw: https://de.minecraft.wiki/w/Befehl/tellraw
-- Textkomponenten: https://de.minecraft.wiki/w/Textkomponenten
-- Function/Zeilenumbruch: https://de.minecraft.wiki/w/Funktion
+- 
 
 ## Schritte
-- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
-- Textkomponenten in Wiki
-- Anwendung in Tellraw und Dialog
-- Tellraw Befehl im wiki
-- Dialog in Wiki
-- Zeilen umbrüche im Wiki
-- Praktische Anwendung: Function erstellen und Tellraw erstellen, Zeilenunbrüche
-- Test Dialog 100 Schreiben
-
-- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
-
-
-## Neue Datapack Struktur:
-
-# Datapack Strucktur:
-# (+) = Neu
-# (>) = Bearbeiten
-# (-) = Entfernen
-# (*) = Alt/Vorhanden
-* Main
-    * data
-        * quests_dorf1
-            * function
-                * dialoge\
-                    * dorfvorsteher
-                        > dialog_dorfvorsteher.mcfunction
-                        + dialog100_dorfvorsteher.mcfunction
-* Test
-    * data
-        * test
-            * function
-                * panda_village
-                    * dialogs
-                        + test_dialoge_dorfvorsteher_dialog100_dorfvorsteher.mcfunction
 
 

@@ -7,9 +7,9 @@
           "type": "minecraft:item",
           "name": "minecraft:rotten_flesh",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": 2
             }
           ]

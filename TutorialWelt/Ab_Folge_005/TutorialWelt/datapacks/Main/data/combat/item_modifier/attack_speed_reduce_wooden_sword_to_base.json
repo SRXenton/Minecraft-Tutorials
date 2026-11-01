@@ -1,5 +1,5 @@
 {
-    "function": "set_attributes",
+    "type": "set_attributes",
     "modifiers": [
         {
             "id": "attack_damage_reduce_wooden_swood_to_base",
