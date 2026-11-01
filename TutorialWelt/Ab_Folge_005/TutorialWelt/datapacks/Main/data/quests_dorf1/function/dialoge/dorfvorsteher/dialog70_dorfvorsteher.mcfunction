@@ -15,12 +15,12 @@ execute if entity @s[\
         {text:"Geh bitte zur Bank und lasse dir einen Geldbeutel geben",color:"yellow"}\
     ]
 
-execute if entity @s[nbt=!{Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run return -1
+execute if entity @s[nbt=!{Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run return 1
 
 # ist im Inventar
 
-execute if entity @s[nbt={Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run scoreboard players enable @s Quest_Dorfvorsteher
-execute if entity @s[nbt={Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",components:{"minecraft:custom_data":{"tag":"geldbeutel"}}}]}] run dialog show @s {\
+scoreboard players enable @s Quest_Dorfvorsteher
+dialog show @s {\
     "type": "minecraft:confirmation",\
     "title": "Dorfvorsteher",\
     "body": {\
@@ -80,3 +80,5 @@ execute if entity @s[nbt={Inventory:[{"id":"minecraft:warped_fungus_on_a_stick",
         }\
     }\
 }
+
+return 2
