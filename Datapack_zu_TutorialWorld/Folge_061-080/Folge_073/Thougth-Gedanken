@@ -1,0 +1,52 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #073 - Dialog Notice und Textweite anpassen
+
+## Ziele der Folge:
+
+- Dialog Dorfwächter mit Dialog Notice
+- Was bedeutet "width" im dialog
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Aktueller stand, was soll passieren -> Hinweis aufs Freie Programmieren
+- Notice Dialog erstellen, was ist notice
+- Tellraw in den Dialog umändern
+- Mit der Weite (width) spielen und erklären
+
+
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    + dorfwaechter
+                        dialog1_dorfwaechter.mcfcuntion
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+

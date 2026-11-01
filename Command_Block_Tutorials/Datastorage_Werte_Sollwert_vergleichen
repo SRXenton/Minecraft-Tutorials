@@ -1,6 +1,6 @@
 ## Wie Vergleicht man Werte im Data Storage mit Sollwerte
 ## Code example for my Youtube tutorial videos
-## Video: preparing
+## Video: https://youtu.be/E_7ZmsvZJOc
 
 ## Die Theorie
 execute if score _zahl Combat.Skill_point_free matches 5 run ......
