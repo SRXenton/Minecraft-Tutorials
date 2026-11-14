@@ -1,0 +1,2 @@
+# Gib dem Spieler, der die Function ausführt einen warped_fungus_on_a_stick mit dem Item Model bundle, den Custom Namen Geldbörse und den Custom Data {tag:"geldbeutel"}
+give @s minecraft:warped_fungus_on_a_stick[item_model="minecraft:bundle", custom_name="Geldbörse", custom_data={tag:"geldbeutel"}]

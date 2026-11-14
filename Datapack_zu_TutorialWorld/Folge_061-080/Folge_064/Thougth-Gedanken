@@ -1,24 +1,29 @@
 ##
-## Beschreibung zu Folge 060: 
+## Beschreibung zu Folge 065: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #060 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #065 - Testkonzept
 
 ## Ziele der Folge:
 
-- Was ist ein Testkonzept
-- Wie können wir ein Test erstellen
+- 
 
 ##
 ## ============================================================================================================================================
 ##
 
 ## Inhalte:
-- Testkonzepte
-- Test aus Weather-Control vorstellen
-- Der Command Test
+- 
 
 ## Schritte
+
+- anzahl dorfvorsteher prüfen
+- ist der marker über dem dorfvorsteher vorhanden
+- fehler erzeugen
+- tellraw für die einzelnen Abfragen erstellen
+- ggf im freestyle einen Weiteren Test erstellen, zb den Schmied
+
+
 
 
 ## Neue Datapack Struktur:
@@ -28,7 +33,12 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    > check_dorfvorsteher
 
 
 
