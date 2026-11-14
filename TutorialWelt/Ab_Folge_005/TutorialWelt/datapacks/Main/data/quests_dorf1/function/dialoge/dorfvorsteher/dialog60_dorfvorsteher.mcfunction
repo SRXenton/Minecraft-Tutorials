@@ -72,4 +72,5 @@ dialog show @s {\
     }\
 }
 
-#function quests_dorf1:dialoge/dorfvorsteher/action60_dorfvorsteher
+return 1
+

@@ -75,7 +75,7 @@
       "minecraft:armor_stand": 3,
       "minecraft:oak_door": 4,
       "minecraft:polished_diorite": 7,
-      "minecraft:magenta_glazed_terracotta": 52,
+      "minecraft:magenta_glazed_terracotta": 53,
       "minecraft:dirt_path": 12,
       "minecraft:mossy_cobblestone": 11,
       "minecraft:smooth_red_sandstone_stairs": 9,
@@ -83,7 +83,7 @@
       "minecraft:bone_meal": 2475,
       "minecraft:oak_hanging_sign": 3,
       "minecraft:white_stained_glass_pane": 11,
-      "minecraft:warped_fungus_on_a_stick": 253,
+      "minecraft:warped_fungus_on_a_stick": 283,
       "minecraft:mossy_cobblestone_wall": 14,
       "minecraft:dirt": 9,
       "minecraft:fishing_rod": 3,
@@ -98,7 +98,7 @@
       "minecraft:dark_oak_fence_gate": 1,
       "minecraft:stone_brick_stairs": 20,
       "minecraft:chiseled_bookshelf": 1,
-      "minecraft:oak_planks": 116,
+      "minecraft:oak_planks": 120,
       "minecraft:oak_sapling": 357,
       "minecraft:copper_axe": 4,
       "minecraft:iron_door": 1,
@@ -165,6 +165,11 @@
       "minecraft:polished_andesite_stairs": 11,
       "minecraft:spruce_sapling": 955,
       "minecraft:azure_bluet": 17
+    },
+    "minecraft:killed": {
+      "minecraft:zombie": 5,
+      "minecraft:pillager": 46,
+      "minecraft:zombie_villager": 6
     },
     "minecraft:dropped": {
       "minecraft:oak_leaves": 1,
@@ -271,38 +276,33 @@
       "minecraft:stripped_oak_log": 1
     },
     "minecraft:custom": {
-      "minecraft:time_since_rest": 55360,
-      "minecraft:talked_to_villager": 1001,
-      "minecraft:leave_game": 124,
+      "minecraft:time_since_rest": 688180,
+      "minecraft:talked_to_villager": 1035,
+      "minecraft:leave_game": 146,
       "minecraft:damage_taken": 830,
       "minecraft:mob_kills": 57,
       "minecraft:boat_one_cm": 116,
-      "minecraft:time_since_death": 55333,
+      "minecraft:time_since_death": 688153,
       "minecraft:interact_with_brewingstand": 1,
       "minecraft:sleep_in_bed": 8,
-      "minecraft:total_world_time": 5546926,
-      "minecraft:crouch_one_cm": 25850,
+      "minecraft:total_world_time": 6207516,
+      "minecraft:crouch_one_cm": 26538,
       "minecraft:deaths": 31,
       "minecraft:climb_one_cm": 9714,
-      "minecraft:walk_one_cm": 2009965,
+      "minecraft:walk_one_cm": 2066824,
       "minecraft:walk_under_water_one_cm": 816,
       "minecraft:damage_dealt": 1476,
-      "minecraft:play_time": 4344346,
-      "minecraft:jump": 1028,
+      "minecraft:play_time": 4977166,
+      "minecraft:jump": 1075,
       "minecraft:drop": 393,
       "minecraft:open_barrel": 3,
-      "minecraft:sprint_one_cm": 334929,
+      "minecraft:sprint_one_cm": 337746,
       "minecraft:open_chest": 22,
       "minecraft:fall_one_cm": 10623,
-      "minecraft:fly_one_cm": 6650906,
+      "minecraft:fly_one_cm": 6845742,
       "minecraft:walk_on_water_one_cm": 98,
-      "minecraft:sneak_time": 38929
-    },
-    "minecraft:killed": {
-      "minecraft:zombie": 5,
-      "minecraft:pillager": 46,
-      "minecraft:zombie_villager": 6
+      "minecraft:sneak_time": 40581
     }
   },
-  "DataVersion": 4903
+  "DataVersion": 5023
 }
