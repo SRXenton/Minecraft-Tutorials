@@ -48,6 +48,7 @@ dialog show @s {\
     "inputs": [],\
     "can_close_with_escape": true,\
     "after_action": "close",\
+    pause:false,\
     "yes": {\
         "label": "Ja",\
         "action": {\

@@ -1,3 +1,3 @@
-scoreboard players set _start status.Test 2
+scoreboard players set _start status.Test 3
 tellraw @s "Test OK"
 

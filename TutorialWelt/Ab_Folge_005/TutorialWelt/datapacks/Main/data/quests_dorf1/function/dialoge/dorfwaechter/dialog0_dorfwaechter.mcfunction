@@ -2,6 +2,8 @@ execute unless score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:
 
 # execute if score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, der Dorfvorsteher hat mir schon bescheid gegeben, leider muss ich noch was Vorbereiten. Komm bitte später wieder",color:"yellow"}]
 
+execute if score @s Quest_Dorfvorsteher matches 100.. run scoreboard players enable @s Quest.Panda_Village.Waechter
+
 execute if score @s Quest_Dorfvorsteher matches 100.. run dialog show @s {\
     type:"minecraft:dialog_list",\
     title:{\
@@ -31,7 +33,7 @@ execute if score @s Quest_Dorfvorsteher matches 100.. run dialog show @s {\
     ],\
     dialogs:[\
         {\
-            type:"minecraft:notice",\
+            type:"minecraft:confirmation",\
             title:{\
                 text:"Wächter",\
                 color:"gold",\
@@ -55,47 +57,46 @@ execute if score @s Quest_Dorfvorsteher matches 100.. run dialog show @s {\
                     }\
                 },\
                 {\
-                    type:"minecraft:plain_message",\
-                    width:1000,\
-                    contents:{\
-                        text:"Leider habe ich es noch nicht bei mir, komm bitte später wieder !!",\
-                        color:"yellow"\
-                    }\
-                }\
-            ],\
-        },\
-        {\
-            type:"minecraft:notice",\
-            title:{\
-                text:"Testfenster",\
-                color:"gold",\
-                bold:true,\
-                shadow_color:[0.5,0.3,0.2,0.3]\
-            },\
-            external_title:{\
-                text:"Zum Spaß",\
-                color:"red",\
-                bold:true,\
-                shadow_color:[0.5,0.3,0.2,0.3]\
-            },\
-            pause:false,\
-            inputs:[{type:"minecraft:boolean",key:"",label:"jjsdfsd"}],\
-            body:[\
+                    type:"minecraft:item",\
+                    item:"totem_of_undying",\
+                    description:[\
+                        {text:"Charakter-Ansicht", color:"yellow"}\
+                    ],\
+                    show_decorations:true,\
+                    show_tooltip:false,\
+                    height:16,width:1\
+                },\
                 {\
                     type:"minecraft:plain_message",\
                     width:1000,\
                     contents:[\
                         {\
-                            text:"Hallo",\
+                            text:"Möchtest du das haben ",\
                             color:"yellow"\
                         },\
                         {\
-                            text:"Welt",\
-                            color:"blue"\
+                            text:"?",\
+                            color:"red"\
                         }\
                     ]\
                 }\
             ],\
+            yes:{\
+                label:"Ja",\
+                action:{\
+                    type:"minecraft:run_command",\
+                    command:"trigger Quest.Panda_Village.Waechter add 0"\
+                }\
+            },\
+            no:{\
+                label:"Nein",\
+                action:{\
+                    type:"minecraft:run_command",\
+                    command:"trigger Quest.Panda_Village.Waechter add 0"\
+                }\
+            }\
         }\
     ]\
 }
+
+return 1

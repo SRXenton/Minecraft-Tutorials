@@ -17,7 +17,8 @@ dialog show @s {\
     },\
     "inputs": [],\
     "can_close_with_escape": true,\
-    "after_action": "close"\
+    "after_action": "close",\
+    pause: false\
 }
 
 # Gib dem Spieler, der diese Function ausführt, ein Schwert mit Custom Namen, und dem Beschreibungstext
@@ -26,3 +27,5 @@ loot give @s loot combat:starter_sword
 
 # Setze den Wert im Scoreboard Quest_Dorfvorsteher bei dem Spieler, der diese Function ausführt, auf 40
 scoreboard players set @s Quest_Dorfvorsteher 40
+
+return 1

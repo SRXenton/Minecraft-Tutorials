@@ -19,3 +19,4 @@ tellraw @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt=!{Inventor
 execute as @a[scores={Villager_Klick_Dorf1=1,Quest_Dorfvorsteher=31},nbt=!{Inventory:[{id:"minecraft:stick","components":{"minecraft:custom_data":{"tag":"kfdds"}}} ] }] run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
 
 
+return 1
