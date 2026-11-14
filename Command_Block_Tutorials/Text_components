@@ -1,0 +1,51 @@
+## Text Komponenten / textcomponents
+## Code example for my Youtube tutorial videos
+## Video: https://youtu.be/VZFGaXTvMEE
+
+
+## Einfacher Text / Simple Text
+tellraw Xenton_de "Einfacher Text"
+title Xenton_de subtitle "Einfacher Text"
+title Xenton_de title "Einfacher Text"
+
+## Object: Text / Formatierter Text
+tellraw Xenton_de {text:"Roter Text",color:"red"}
+title Xenton_de subtitle {text:"Grüner Text",color:"green",bold:true}
+title Xenton_de title {text:"Schwarzer Text",color:"black",shadow_color:[1,0.5,0,0.3]}
+
+## Object Array
+tellraw Xenton_de [{text:"Gelber",color:"yellow"}," - ",{text:"Text"}]
+title Xenton_de subtitle [{text:"Schwarzer",color:"black"}, " ",{text:"Text",color:"red"}]
+title Xenton_de title [{text:"Blauer Text",color:"blue"}," - ",{text:"Text",color:"black",shadow_color:[1,0.5,0,0.3]}]
+
+## Object: Scoreboard
+tellraw Xenton_de [{text:"Scoreboard: "},{score:{objective:"TestVariables",name:"_test"}}]
+
+## Object: Data Storage
+title Xenton_de subtitle [{text:"Storage: "},{storage:"tutorial:nutzen_rekursion",nbt:"data",color:"yellow"}]
+
+## Object: Entity NBT
+title Xenton_de title [{text:"Entity: "},{entity:"Xenton_de",nbt:"Pos[0]",color:"blue"}]
+
+## Object: Player Head / Data
+tellraw Xenton_de [{text:"Player: "},{player:{name:"Xenton_de"}}]
+
+## Object: Item / Atlas, wie es nicht geht
+title Xenton_de subtitle [{text:"Atlas: "},{"atlas": "minecraft:items","sprite": "minecraft:block/bamboo_trapdoor"}]
+
+## Object: Item / Atlas - Block
+title Xenton_de title [{text:"Entity: "},{atlas:"minecraft:blocks",sprite:"block/anvil"}]
+
+## Object: Item / Atlas - Item
+tellraw Xenton_de [{text:"Apfel: "},{"atlas": "minecraft:items","sprite": "item/apple"}]
+
+## Object: Block Info / NBT
+title Xenton_de subtitle [{text:"Block: "},{block:"~ ~ ~",nbt:"id"}]
+
+## Object: Keybindings
+title Xenton_de title [{text:"Taste Quick Actions: "},{keybind:"key.quickActions"}]
+
+## Object: Translate
+tellraw Xenton_de [{text:"Player: "},{translate:"advancements.adventure.blowback.title",fallback:"Back"}]
+
+
