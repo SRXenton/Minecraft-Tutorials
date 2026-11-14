@@ -1,0 +1,10 @@
+scoreboard players set _temp1 status.Test 0
+scoreboard players set _temp2 status.Test 0
+scoreboard players set _temp3 status.Test 0
+scoreboard players set _temp4 status.Test 0
+scoreboard players set _temp5 status.Test 0
+scoreboard players set _temp6 status.Test 0
+scoreboard players set _temp7 status.Test 0
+scoreboard players set _temp8 status.Test 0
+scoreboard players set _temp9 status.Test 0
+scoreboard players set _temp10 status.Test 0

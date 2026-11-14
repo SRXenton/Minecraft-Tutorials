@@ -1,0 +1,57 @@
+##
+## Beschreibung zu Folge: 
+##
+
+- Titel: Minecraft Datapack Tutorial #076 - 
+
+## Ziele der Folge:
+
+- Item anzeigen im Dialog/Textkomponete
+- Action/run_command
+- Scoreboard Trigger
+- give / loot Item (Charakterwerte) ??
+- tick.json ??
+
+
+##
+## ============================================================================================================================================
+##
+
+## Inhalte:
+
+## Schritte
+- Dialog in dialog_dorfwaechter0 von Notice zu Confirmation änderen und erweitern
+- Text anpassen
+- Text um Itemanzeige erweitern (Textkomponente), Beschreiben was ist item, width, etc
+- action: run_command -> Was ist auf Server ausführbar und was nicht ->  trigger = set 0 (Anderer Wert erst in einer anderen Folge)
+- score trigger enable
+
+- Aufpassen Autotest wird erst einmal im Freien Programmieren erweitert
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfwaechter
+                        > dialog0_dorfwaechter.mcfuntion
+                        
+
+
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    * dialogs
+
+
+
