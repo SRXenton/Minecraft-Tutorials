@@ -31,3 +31,6 @@ summon minecraft:marker 1860 62 236 {Tags:["dorf1_lagerhaus_marker","dorf1_lager
 summon minecraft:marker 1860 64 239 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
 summon minecraft:marker 1861 64 239 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
 summon minecraft:marker 1861 66 231 {Tags:["dorf1_lagerhaus_marker","dorf1_lagerhaus_marker_rt"]}
+
+
+return 1

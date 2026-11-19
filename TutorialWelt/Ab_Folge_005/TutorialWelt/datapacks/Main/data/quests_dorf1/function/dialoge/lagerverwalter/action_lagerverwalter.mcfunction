@@ -20,3 +20,6 @@ give @s stick[\
 
 # Setze den Wert bei dem Spieler, der diese Function ausführt, in dem Scoreboard Quest_Dorfvorsteher auf 31
 scoreboard players set @s Quest_Dorfvorsteher 31
+
+
+return 1

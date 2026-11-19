@@ -7,7 +7,7 @@ execute if entity @s[\
         {text:"Dorfvorsteher: ",color:"gold"},\
         {text:"Geh bitte zum Gasthaus, dort zum Wirt und lege bitte deinen Respawn dort hin",color:"yellow"}\
     ]
-execute if entity @s[tag=!spawnpoint] run return 0
+execute if entity @s[tag=!spawnpoint] run return 1
 
 # ist im Inventar
 scoreboard players enable @s Quest_Dorfvorsteher
@@ -57,6 +57,7 @@ dialog show @s {\
     "pause": false,\
     "can_close_with_escape": true,\
     "after_action": "close",\
+    pause:false,\
     "yes": {\
         "label": "Ja",\
         "action": {\
@@ -72,3 +73,5 @@ dialog show @s {\
         }\
     }\
 }
+
+return 2

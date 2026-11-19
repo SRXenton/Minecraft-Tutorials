@@ -50,7 +50,7 @@ $dialog show @s {\
             },\
             {\
               "type": "minecraft:plain_message",\
-              "contents": "An den Händler für $(price_sell) Credits pro Stück verkaufen"\
+              "contents": "An den Händler für $(price_sell) Groschen pro Stück verkaufen"\
             }\
           ],\
           "inputs": [\
@@ -108,7 +108,7 @@ $dialog show @s {\
             },\
             {\
               "type": "minecraft:plain_message",\
-              "contents": "Kaufe für $(price_buy) Credits pro stück vom Händler"\
+              "contents": "Kaufe für $(price_buy) Groschen pro stück vom Händler"\
             }\
           ],\
           "inputs": [\

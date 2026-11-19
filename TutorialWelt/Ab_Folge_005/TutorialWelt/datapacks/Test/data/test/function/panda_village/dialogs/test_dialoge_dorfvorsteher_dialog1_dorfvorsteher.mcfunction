@@ -4,9 +4,7 @@ tellraw @s [{text:"Test: Dialog 1 vom Dorfvorsteher in Panda Village - Start"}]
 ## Vorbereitung
 scoreboard players set _error status.Test 0
 
-scoreboard players set _temp1 status.Test 0
-scoreboard players set _temp2 status.Test 0
-
+function test:steps/reset_scoreboards
 
 scoreboard players operation @s status.Test = @s Quest_Dorfvorsteher
 
@@ -27,7 +25,7 @@ execute if score _error status.Test matches 1 run return run tellraw @s [{text:"
 
 scoreboard players operation @s Quest_Dorfvorsteher = @s status.Test
 
-scoreboard players set _temp1 status.Test 0
-scoreboard players set _temp2 status.Test 0
+
+function test:steps/reset_scoreboards
 
 tellraw @s [{text:"Test: Dialog 1 vom Dorfvorsteher in Panda Village - Ende"}]
