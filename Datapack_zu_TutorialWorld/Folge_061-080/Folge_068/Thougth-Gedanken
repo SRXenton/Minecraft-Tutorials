@@ -2,7 +2,7 @@
 ## Beschreibung zu Folge: 
 ##
 
-- Titel: Minecraft Datapack Tutorial #068 - Testkonzept
+- Titel: Minecraft Datapack Tutorial #068 - Testkonzept - Functiontest und nicht Funktionstest
 
 ## Ziele der Folge:
 
@@ -33,8 +33,22 @@
 # (>) = Bearbeiten
 # (-) = Entfernen
 # (*) = Alt/Vorhanden
-
-
+* Test
+    * data
+        * test
+            * function
+                * panda_village
+                    + dialogs
+                        + test_dialoge_dorfvorsteher_dialog1_dorfvorsteher.mcfunction
+                * steps
+                    > switch.mcfunction
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge\
+                    * dorfvorsteher
+                        > dialog1_dorfvorsteher.mcfunction
 
 
 ### Files: (Kommenrtare entfernt)

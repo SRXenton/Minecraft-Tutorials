@@ -1,0 +1,1 @@
+$data modify storage main_charakter:player data."$(UUID)" set from storage $(storage)

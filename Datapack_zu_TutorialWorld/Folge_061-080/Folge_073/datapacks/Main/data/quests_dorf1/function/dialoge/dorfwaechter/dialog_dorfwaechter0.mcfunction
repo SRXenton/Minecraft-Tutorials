@@ -1,0 +1,3 @@
+execute unless score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, komm bitte später wieder",color:"yellow"}]
+
+execute if score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, der Dorfvorsteher hat mir schon bescheid gegeben, leider muss ich noch was Vorbereiten. Komm bitte später wieder",color:"yellow"}]

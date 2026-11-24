@@ -1,3 +1,6 @@
+### Call in: kill_detect.mcfunction
+
+
 function combat:kill/kill_get_data with entity @s
 
 data modify storage main:kill data.temp.storage set value "main:kill data.temp.values"
@@ -29,3 +32,6 @@ execute if score _level_up1 main.kill_temp < _level_up2 main.kill_temp run funct
 function character:misc/character_new_values with storage main:kill data.temp
 
 scoreboard objectives remove main.kill_temp
+
+scoreboard players set @s main.kill_detect_player 0
+scoreboard players set @s main.kill_detect 0
