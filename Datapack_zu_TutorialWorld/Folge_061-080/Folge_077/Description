@@ -1,0 +1,244 @@
+##
+## Beschreibung zur Folge: 
+##
+
+- Titel: MC Datapack Tutorial #077 - Dorfwächter Dialog: Trigger = Aktionssteuerung realisieren
+
+- Video: https://youtu.be/EeAUdQEPsOc
+
+## Ziele der Folge:
+
+- Trigger in Dialogen
+
+
+##
+## ============================================================================================================================================
+##
+
+## Links:
+
+Minecraft Wiki:
+- https://de.minecraft.wiki/
+
+
+## Neue Datapack Struktur:
+
+# Datapack Strucktur:
+# (+) = Neu
+# (>) = Bearbeiten
+# (-) = Entfernen
+# (*) = Alt/Vorhanden
+* Main
+    * data
+        * quests_dorf1
+            * function
+                * dialoge
+                    * dorfwaechter
+                        > dialog_dorfwaechter.mcfuntion
+                        > dialog0_dorfwaechter.mcfuntion
+                        + dialog10_dorfwaechter.mcfuntion
+                * trigger
+                    > trigger_action.mcfunction
+                * wachter
+                    + actions
+                        + action5_waechter.mcfunction
+
+
+### Files: (Kommenrtare entfernt)
+## dialog_dorfwaechter.mcfunction 
+execute unless score @s Quest.Panda_Village.Waechter matches 0.. run scoreboard players set @s Quest.Panda_Village.Waechter 0
+
+execute if score @s Quest.Panda_Village.Waechter matches 0 run function quests_dorf1:dialoge/dorfwaechter/dialog0_dorfwaechter
+
+execute if score @s Quest.Panda_Village.Waechter matches 10 run function quests_dorf1:dialoge/dorfwaechter/dialog10_dorfwaechter
+
+return 1
+
+## dialog0_dorfwaechter.mcfunction 
+execute unless score @s Quest_Dorfvorsteher matches 100.. run tellraw @s [{text:"Wächter: ",color:"gold"},{text:"Hallo Reisender, komm bitte später wieder",color:"yellow"}]
+
+execute if score @s Quest_Dorfvorsteher matches 100.. run scoreboard players enable @s Quest.Panda_Village.Waechter
+
+execute if score @s Quest_Dorfvorsteher matches 100.. run dialog show @s {\
+    type:"minecraft:dialog_list",\
+    title:{\
+        text:"Wächter",\
+        color:"gold",\
+        bold:true,\
+        shadow_color:[0.5,0.3,0.2,0.3]\
+    },\
+    pause:false,\
+    body:[\
+        {\
+            type:"minecraft:plain_message",\
+            width:1000,\
+            contents:{\
+                text:"Hallo Reisender, der Dorfvorsteher hat mir schon bescheid gegeben.",\
+                color:"yellow"\
+            }\
+        },\
+        {\
+            type:"minecraft:plain_message",\
+            width:1000,\
+            contents:{\
+                text:"Du möchtest ewtas über Charakterwerte erfahren.",\
+                color:"yellow"\
+            }\
+        }\
+    ],\
+    dialogs:[\
+        {\
+            type:"minecraft:confirmation",\
+            title:{\
+                text:"Wächter",\
+                color:"gold",\
+                bold:true,\
+                shadow_color:[0.5,0.3,0.2,0.3]\
+            },\
+            external_title:{\
+                text:"Weiter",\
+                color:"red",\
+                bold:true,\
+                shadow_color:[0.5,0.3,0.2,0.3]\
+            },\
+            pause:false,\
+            body:[\
+                {\
+                    type:"minecraft:plain_message",\
+                    width:1000,\
+                    contents:{\
+                        text:"Ich werde dir ein Item geben, womit du deine Charakterwerte aufrufen kannst.",\
+                        color:"yellow"\
+                    }\
+                },\
+                {\
+                    type:"minecraft:item",\
+                    item:"totem_of_undying",\
+                    description:[\
+                        {text:"Charakter-Ansicht", color:"yellow"}\
+                    ],\
+                    show_decorations:true,\
+                    show_tooltip:false,\
+                    height:16,width:1\
+                },\
+                {\
+                    type:"minecraft:plain_message",\
+                    width:1000,\
+                    contents:[\
+                        {\
+                            text:"Möchtest du das haben ",\
+                            color:"yellow"\
+                        },\
+                        {\
+                            text:"?",\
+                            color:"red"\
+                        }\
+                    ]\
+                }\
+            ],\
+            yes:{\
+                label:"Ja",\
+                action:{\
+                    type:"minecraft:run_command",\
+                    command:"trigger Quest.Panda_Village.Waechter set 5"\
+                }\
+            },\
+            no:{\
+                label:"Nein",\
+                action:{\
+                    type:"minecraft:run_command",\
+                    command:"trigger Quest.Panda_Village.Waechter add 0"\
+                }\
+            }\
+        }\
+    ]\
+}
+
+return 1
+
+## dialog10_dorfwaechter.mcfunction 
+
+dialog show @s {\
+    type:"minecraft:dialog_list",\
+    title:{\
+        text:"Wächter",\
+        color:"gold",\
+        bold:true,\
+        shadow_color:[0.5,0.3,0.2,0.3]\
+    },\
+    pause:false,\
+    body:[\
+        {\
+            type:"minecraft:plain_message",\
+            width:1000,\
+            contents:{\
+                text:"Ich schätze du hast es dir schon angeschaut",\
+                color:"yellow"\
+            }\
+        },\
+        {\
+            type:"minecraft:plain_message",\
+            width:1000,\
+            contents:{\
+                text:"Es gibt einen alternativen weg an die Charakterwerte zu kommen.",\
+                color:"yellow"\
+            }\
+        }\
+    ],\
+    dialogs:[\
+        {\
+            type:"minecraft:notice",\
+            title:{\
+                text:"Wächter",\
+                color:"gold",\
+                bold:true,\
+                shadow_color:[0.5,0.3,0.2,0.3]\
+            },\
+            external_title:{\
+                text:"Weiter",\
+                color:"red",\
+                bold:true,\
+                shadow_color:[0.5,0.3,0.2,0.3]\
+            },\
+            pause:false,\
+            body:[\
+                {\
+                    type:"minecraft:plain_message",\
+                    width:1000,\
+                    contents:{\
+                        text:"Mit der Quick Action Taste, kannst du einen Menü öffnen.",\
+                        color:"yellow"\
+                    }\
+                },\
+                {\
+                    type:"minecraft:plain_message",\
+                    width:1000,\
+                    contents:[\
+                        {\
+                            text:"Hier kannst du dir unter anderem auch deine Charakterwerte anschauen",\
+                            color:"yellow"\
+                        },\
+                        {\
+                            text:"",\
+                            color:"red"\
+                        }\
+                    ]\
+                }\
+            ]\
+        }\
+    ]\
+}
+
+return 1
+
+## trigger_action.mcfunction 
+execute as @a[scores={Quest_Dorfvorsteher=30}] at @s run function quests_dorf1:dialoge/lagerverwalter/action_lagerverwalter
+execute as @a[scores={Quest_Dorfvorsteher=61}] at @s run function quests_dorf1:dialoge/dorfvorsteher/action60_dorfvorsteher
+
+execute as @a[scores={Quest.Panda_Village.Waechter=5}] at @s run function quests_dorf1:waechter/actions/action5_waechter
+
+
+## action5_waechter.mcfunction 
+function character:misc/give_character_item
+
+scoreboard players set @s Quest.Panda_Village.Waechter 10
