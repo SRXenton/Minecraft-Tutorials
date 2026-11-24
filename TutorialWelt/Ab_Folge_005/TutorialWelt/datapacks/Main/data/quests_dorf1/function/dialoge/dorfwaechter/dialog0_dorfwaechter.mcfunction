@@ -85,7 +85,7 @@ execute if score @s Quest_Dorfvorsteher matches 100.. run dialog show @s {\
                 label:"Ja",\
                 action:{\
                     type:"minecraft:run_command",\
-                    command:"trigger Quest.Panda_Village.Waechter add 0"\
+                    command:"trigger Quest.Panda_Village.Waechter set 5"\
                 }\
             },\
             no:{\
